@@ -17,12 +17,9 @@ import java.util.List;
 @Slf4j
 @Controller
 public class MainController {
-
-
     //초기화면
     @RequestMapping("/")
     public String main(Model model) throws Exception {
-        model.addAttribute("center", "center");
         return "index";
     }
 
