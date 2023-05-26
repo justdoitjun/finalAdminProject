@@ -5,10 +5,10 @@
 <mapper namespace="com.kbstar.mapper.ChatRoomMapper">
 
     <select id="selectall"  resultType="Chatroom">
-        SELECT * FROM "chatRoom"
+        SELECT * FROM chatRoom
     </select>
     <insert id="insert" parameterType="Chatroom">
-        INSERT INTO "chatRoom" VALUES (#{chatRoomId},#{hostId},#{guestId})
+        INSERT INTO chatRoom VALUES (chatRoomSeq.NEXTVAL,#{hostId},#{guestId})
     </insert>
 
 </mapper>

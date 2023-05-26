@@ -232,18 +232,18 @@
               </div>
               <div class="col-9 col-lg-4 align-self-center mb-3 mb-lg-0">
                 <div class="d-flex align-items-center mb-1 mb-lg-3">
-                  <h2 class="h5 mb-0">${obj.hostId}</h2><img class="avatar avatar-sm avatar-border-white ms-3" src="img/avatar/avatar-0.jpg" alt="Jack London">
+                  <h2 class="h5 mb-0">${obj.chatRoomInfo.hostId}</h2><img class="avatar avatar-sm avatar-border-white ms-3" src="img/avatar/avatar-0.jpg" alt="Jack London">
                 </div>
                 <p class="text-sm text-muted">Double Room</p><span class="badge badge-pill p-2 badge-secondary-light">February 16, 2019</span><a class="stretched-link" href="user-messages-detail.html"></a>
               </div>
               <div class="col-10 ms-auto col-lg-7">
                 <div class="row">
                   <div class="col-md-8 py-3">
-                    <p class="text-sm mb-0">One morning, when Gregor Samsa woke from troubled dreams, he found himself transformed in his bed into a horrible vermin. He lay on his armour-like back, and if he lifted his head a little he could see his brown belly, slightly domed and divided by arches into stiff sections</p>
+                    <p class="text-sm mb-0">${obj.recent.recentContents}</p>
                   </div>
                   <div class="col-md-4 text-end py-3">
-                    <p class="text-sm">February 16, 2019</p>
-                  </div><a class="stretched-link" href="user-messages-detail.html"></a>
+                    <p class="text-sm">${obj.recent.recentDate}</p>
+                  </div><a class="stretched-link" href="/chatdetail?chatRoomId=${obj.chatRoomInfo.chatRoomId}&hostId=${obj.chatRoomInfo.hostId}"></a>
                 </div>
               </div>
             </div>
