@@ -2,32 +2,97 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <script>
   let chatDetails = {
-    init : (()=>{
-      $('#buttonSendMessage').click(()=>{
+    init: (() => {
+      $('#buttonSendMessage').click(() => {
         console.log('clicked');
-        $.ajax({
-          url : 'chat/request',
-          data : {
-            'chatContents' :('#chatContents').val,
-            'chatRoomId' : ('#chatRoomId').val,
-            'chatSender' : ('#chatSender').val
-          }
-        }).done(()=>{
-          console.log("success");
-          chatDetails.display(data);
-        }).done(()=>{
-          console.log("failed to load data");
-        })
-      })//sendButton이 클릭되었을 때 - 템플릿 Id를 카멜형식으로 바꿨음에 주의
-    }),//chatDetails - init
-    display : ((data)=>{
+        sendData();
+      });
 
+    }),
+    display: ((data) => {
+      // Code to handle the received data and display it
     })
+  };
+
+  function sendData() {
+
+    $.ajax({
+      url: 'chat/request',
+      data: {
+        'chatContents': $('#chatContents').val(),
+        'chatRoomId': $('#chatRoomId').val(),
+        'chatSender': $('#chatSender').val()
+      }
+    })
+            .done((data) => {
+              console.log("success");
+              // chatDetails.display(data);
+              display();
+            })
+            .fail(() => {
+              console.log("failed to load data");
+            });
   }
-  $(()=>{
+
+  function display(){
+    let chatSender = $('#chatSender').val();
+    console.log(chatSender);
+    $.ajax({
+      url: 'chat/display',
+      data: {
+        chatRoomId: $('#chatRoomId').val(),
+        chatSender: $('#chatSender').val()
+      }
+    }).done((data)=>{
+      console.log('success');
+      console.log(data);
+      $('#chatContainer').empty();
+      //시간 순서대로 나열
+      data.sort((a, b) => new Date(a.chatDate) - new Date(b.chatDate));
+      data.forEach(obj => {
+        //console.log('====');
+        //console.log(obj.chatSender);
+        if(obj.chatSender == chatSender){
+          let html = '<div class="d-flex col-md-9 col-xl-7 ms-lg-auto mb-3" >'+
+                  '<div class="ms-auto">'+
+                  '<div class="bg-primary rounded p-4 mb-2">'+
+                  '<p class="text-sm mb-0 text-white">'+ obj.chatContents + '</p>' +
+                  '</div>' +
+                  '<p class="small text-muted ms-3">'+ obj.chatDate + '</p>' +
+                  '</div>' +
+                  '<img class="avatar avatar-border-white flex-shrink-0" src="img/avatar/avatar-10.jpg" alt="user">'+
+                  '</div>';
+          $('#chatContainer').append(html);
+        }else{
+          let html = '<div class="d-flex col-md-9 col-xl-7 mb-3">' +
+                  '<img class="avatar avatar-border-white flex-shrink-0" src="img/avatar/avatar-1.jpg" alt="user">' +
+                  '<div class="ms-3">' +
+                  '<div class="bg-gray-200 rounded p-4 mb-2">' +
+                  '<p>' + obj.chatContents + '</p>' +
+                  '</div>' +
+                  '<p class="small text-muted ms-3">' + obj.chatDate + '</p>' +
+                  '</div>' +
+                  '</div>';
+          $('#chatContainer').append(html);
+        }
+    })}).fail(()=>{
+      console.log('failed');
+    })
+
+  }//end of display function
+
+
+
+  $(() => {
+    display();
     chatDetails.init();
-  })
+    // 고민해보자. - (1) 서버 문제가 있고 (2) jsp이기 때문에 새로고침되는 문제.
+    // setInterval(() => {
+    //   display();
+    // }, 3000);
+  });
 </script>
+
 
 <body style="padding-top: 72px;">
     <section class="py-5">
@@ -62,18 +127,12 @@
             </div>
           </div>
         </div>
-        <!-- Chat Box-->
+        <!-- (1) JSP로 뿌리는 방식 -->
+
+        <!-- (2) script로 뿌리는 방식 -->
         <div class="px-4 py-5">
-          <div class="row">
-            <c:forEach var="obj" items="${chatDetailsList}">
-              <div class="d-flex col-md-9 col-xl-7 mb-3"><img class="avatar avatar-border-white flex-shrink-0" src="img/avatar/avatar-1.jpg" alt="user">
-                <div class="ms-3">
-                  <div class="bg-gray-200 rounded p-4 mb-2"><p>${obj.chatContents}</p>
-                  </div>
-                  <p class="small text-muted ms-3">${obj.chatDate}</p>
-                </div>
-              </div>
-            </c:forEach>
+          <div class="row" id="chatContainer" style="display:inline">
+
           </div>
         </div>
         <!-- Typing area-->

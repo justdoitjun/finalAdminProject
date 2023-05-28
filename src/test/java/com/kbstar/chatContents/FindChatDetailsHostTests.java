@@ -14,7 +14,7 @@ public class FindChatDetailsHostTests {
     @Test
     void contextLoads() {
         try{
-            service.findChatDetailsHost(1);
+            service.findChatDetailsHost(1, "host1");
         }catch(Exception e){
             log.info("Error");
             e.printStackTrace();

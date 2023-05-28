@@ -12,6 +12,7 @@ import java.util.Date;
 public class ChatDetails {
     private String hostId;
     private String guestId;
+    private String chatSender;
     private String chatContents;
     private Date chatDate;
 }
