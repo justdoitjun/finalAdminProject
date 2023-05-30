@@ -15,4 +15,5 @@ public class ChatDetails {
     private String chatSender;
     private String chatContents;
     private Date chatDate;
+    private Integer chatContentsId;
 }

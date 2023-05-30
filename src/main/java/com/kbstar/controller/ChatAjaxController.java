@@ -6,6 +6,8 @@ import com.kbstar.dto.Chatcontents;
 import com.kbstar.dto.Chatroom;
 import com.kbstar.mapper.ChatContentsMapper;
 import com.kbstar.service.ChatContentsService;
+import com.kbstar.util.PapagoDetectLangs;
+import com.kbstar.util.PapagoTranslation;
 import lombok.extern.slf4j.Slf4j;
 import org.json.simple.JSONArray;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,6 +42,23 @@ public class ChatAjaxController {
                        ) {
             List<ChatDetails> chatDetailsList = chatContentsService.findChatDetailsHost(chatRoomId, chatSender);
             return chatDetailsList;
+    }
+    @RequestMapping("/detectLanguage")
+    public Object detectLanguage(
+            @RequestParam("text")String text
+    ) {
+        PapagoDetectLangs translationDetector = new PapagoDetectLangs();
+        String responseBody = translationDetector.post(text);
+        return responseBody;
+    }
+    @RequestMapping("/translate")
+    public Object translate(
+            @RequestParam("targetLanguage") String targetLanguage,
+            @RequestParam("text")String text
+    ) {
+        PapagoTranslation translationRequest = new PapagoTranslation();
+        String responseBody = translationRequest.post(targetLanguage, text);
+        return responseBody;
     }
 
 }

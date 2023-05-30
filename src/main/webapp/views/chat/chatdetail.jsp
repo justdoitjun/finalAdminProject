@@ -1,21 +1,70 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <script>
+  $(document).ready( async () => {
+    await display();
+    chatDetails.init();
+    // 고민해보자. - (1) 서버 문제가 있고 (2) jsp이기 때문에 새로고침되는 문제.
+    // setInterval(() => {
+    //   display();
+    // }, 3000);
+  });
+
   let chatDetails = {
     init: (() => {
+      $(document).on('click', '.detectBtn', function(){
+        console.log('clicked');
+        let text = $(this).data('chat-contents');
+        $.ajax({
+          url: 'chat/detectLanguage',
+          data: {
+           // 'text': $(this).closest('.d-flex').find('.bg-gray-200 p').text()
+            'text' : text
+          }
+        }).done(function(data) {
+          console.log('succeed to detect language');
+          data = JSON.parse(data);
+          console.log("===감지결과===");
+          console.log(data.langCode);
+          if(data.langCode !== undefined && data.langCode !== 'ko') {
+            console.log('번역가능. ');
+              translate(data.langCode, text);
+          }else{
+            console.log('원래 한국어이거나 인식을 못한 경우로 번역할 수 없습니다.');
+          }
+        }).fail(function() {
+          console.log('failed');
+        });
+      })
+
       $('#buttonSendMessage').click(() => {
         console.log('clicked');
         sendData();
       });
-
-    }),
-    display: ((data) => {
-      // Code to handle the received data and display it
     })
   };
 
-  function sendData() {
+  function translate(sourceLanguage, text){
+    $.ajax({
+      url : 'chat/translate',
+      data : {
+        'targetLanguage' : sourceLanguage,
+        'text' : text
+      }
+    }).done((data)=>{
+      console.log('succeed to load translation data');
+      data = JSON.parse(data);
+      console.log("=====번역결과=====");
+      translatedResult = data.message.result.translatedText;
+      console.log(data.message.result.translatedText);
+      alert(data.message.result.translatedText);
 
+    }).fail(()=>{
+      console.log('failed');
+    })
+  }
+
+  function sendData() {
     $.ajax({
       url: 'chat/request',
       data: {
@@ -58,7 +107,7 @@
                   '<div class="bg-primary rounded p-4 mb-2">'+
                   '<p class="text-sm mb-0 text-white">'+ obj.chatContents + '</p>' +
                   '</div>' +
-                  '<p class="small text-muted ms-3">'+ obj.chatDate + '</p>' +
+                  '<p class="small text-muted ms-3">'+ obj.chatDate + '<button type="button" class="btn detectBtn" data-chat-contents="' + obj.chatContents + '">'+'번역'+'</button>'+'</p>' +
                   '</div>' +
                   '<img class="avatar avatar-border-white flex-shrink-0" src="img/avatar/avatar-10.jpg" alt="user">'+
                   '</div>';
@@ -70,7 +119,7 @@
                   '<div class="bg-gray-200 rounded p-4 mb-2">' +
                   '<p>' + obj.chatContents + '</p>' +
                   '</div>' +
-                  '<p class="small text-muted ms-3">' + obj.chatDate + '</p>' +
+                  '<p class="small text-muted ms-3">' + obj.chatDate + '<button type="button" class="btn detectBtn" data-chat-contents="' + obj.chatContents + '">'+'번역'+'</button>'+'</p>' +
                   '</div>' +
                   '</div>';
           $('#chatContainer').append(html);
@@ -83,14 +132,10 @@
 
 
 
-  $(() => {
-    display();
-    chatDetails.init();
-    // 고민해보자. - (1) 서버 문제가 있고 (2) jsp이기 때문에 새로고침되는 문제.
-    // setInterval(() => {
-    //   display();
-    // }, 3000);
-  });
+
+
+
+
 </script>
 
 

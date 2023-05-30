@@ -22,7 +22,7 @@
         SELECT * FROM chatContents
     </select>
     <select id="findChatDetailsHost" resultType="chatDetails">
-        SELECT cR.hostId as hostId, cR.guestId as guestId, cC.chatSender as chatSender, cC.chatContents as chatContents, cC.chatDate as chatDate
+        SELECT cR.hostId as hostId, cR.guestId as guestId, cC.chatSender as chatSender, cC.chatContents as chatContents, cC.chatDate as chatDate, cC.chatContentsId as chatContentsId
         FROM chatRoom cR
                  INNER JOIN chatContents cC ON cR.chatRoomId = cC.chatRoomId
         WHERE cC.chatRoomId = #{chatRoomId}
