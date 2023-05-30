@@ -41,6 +41,12 @@ public class MainController {
         return "index";
     }
 
+    @RequestMapping("/userProfile")
+    public String userProfile(Model model){
+        model.addAttribute("center","userProfile");
+        return "index";
+    }
+
 
 
 }

@@ -18,7 +18,11 @@ public class ChatContentsInsertTest {
     void contextLoads() {
         try{
             //당분간 그냥 chatRoom 1로만 insert 하자.
-            Chatcontents chatcontents = new Chatcontents(0, 1, "guest1", "최대길이 테스트를 해보겠습니다. 최대길이 테스트를 해보겠습니다. 최대길이 테스트를 해보겠습니다. 최대길이 테스트를 해보겠습니다. 최대길이 테스트를 해보겠습니다. 최대길이 테스트를 해보겠습니다. 최대길이 테스트를 해보겠습니다. 최대길이 테스트를 해보겠습니다. 최대길이 테스트를 해보겠습니다. 최대길이 테스트를 해보겠습니다. 최대길이 테스트를 해보겠습니다. 최대길이 테스트를 해보겠습니다. 최대길이 테스트를 해보겠습니다. 최대길이 테스트를 해보겠습니다. 최대길이 테스트를 해보겠습니다. 최대길이 테스트를 해보겠습니다. 최대길이 테스트를 해보겠습니다. 최대길이 테스트를 해보겠습니다. 최대길이 테스트를 해보겠습니다. 최대길이 테스트를 해보겠습니다. 최대길이 테스트를 해보겠습니다. 최대길이 테스트를 해보", new Date());
+
+            //Chatcontents chatcontents = new Chatcontents(0, 1, "guest1", "최대길이 테스트를 해보겠습니다. 최대길이 테스트를 해보겠습니다. 최대길이 테스트를 해보겠습니다. 최대길이 테스트를 해보겠습니다. 최대길이 테스트를 해보겠습니다. 최대길이 테스트를 해보겠습니다. 최대길이 테스트를 해보겠습니다. 최대길이 테스트를 해보겠습니다. 최대길이 테스트를 해보겠습니다. 최대길이 테스트를 해보겠습니다. 최대길이 테스트를 해보겠습니다. 최대길이 테스트를 해보겠습니다. 최대길이 테스트를 해보겠습니다. 최대길이 테스트를 해보겠습니다. 최대길이 테스트를 해보겠습니다. 최대길이 테스트를 해보겠습니다. 최대길이 테스트를 해보겠습니다. 최대길이 테스트를 해보겠습니다. 최대길이 테스트를 해보겠습니다. 최대길이 테스트를 해보겠습니다. 최대길이 테스트를 해보겠습니다. 최대길이 테스트를 해보", new Date());
+
+            Chatcontents chatcontents = new Chatcontents(0, 1, "guest1", "Où puis-je trouver un bon restaurant/café/la plage/le centre-ville? J'ai besoin d'une chambre double..Où est la boutique duty-free? ", new Date());
+
             service.register(chatcontents);
             service.get();
         }catch(Exception e){
