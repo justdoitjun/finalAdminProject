@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kbstar.mapper.GuestMapper">
+    <select id="select" parameterType="String" resultType="Guest">
+        SELECT * FROM guest WHERE guestId=#{guestId}
+    </select>
+
+    <insert id="insert" parameterType="Guest">
+        INSERT INTO guest(guestId, guestPwd, guestName, guestCoupon, guestRegDate) VALUES (#{guestId},#{guestPwd},#{guestName}, 0, SYSDATE)
+    </insert>
+
+    <update id="update" parameterType="Guest">
+        UPDATE guest SET guestLang=#{guestLang}, guestIntro=#{guestIntro}, guestImage=#{guestImage} WHERE guestId=#{guestId}
+    </update>
+
+    <!--    //임시비밀번호 발급을 위한 업데이트-->
+    <update id="updatePwd" parameterType="Guest">
+        UPDATE guest SET guestPwd=#{guestPwd} WHERE guestId=#{guestId}
+    </update>
+</mapper>

@@ -71,11 +71,14 @@ public class ChatController {
     public String chatDetailHost(@RequestParam("chatRoomId")Integer chatRoomId,
                                  @RequestParam("hostId")String hostId,
                                        Model model) throws Exception{
+        //인덱스 -
+        model.addAttribute("center", "userProfile");
+        model.addAttribute("centerUserProfile", dir+"chatdetail");
+        //DB 정보
         model.addAttribute("chatRoomId", chatRoomId);
         model.addAttribute("hostId", hostId);
         List<ChatDetails> chatDetailsList = chatContentsService.findChatDetailsHost(chatRoomId, hostId);
         model.addAttribute("chatDetailsList", chatDetailsList);
-        model.addAttribute("center", dir+"chatdetail");
         return "index";
     }
 

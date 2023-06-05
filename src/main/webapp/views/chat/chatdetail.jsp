@@ -138,16 +138,11 @@
 
 </script>
 
-
+<div class="col-lg-9 ps-lg-5">
 <body style="padding-top: 72px;">
     <section class="py-5">
       <div class="container">
         <!-- Breadcrumbs -->
-        <ol class="breadcrumb ps-0  justify-content-start">
-          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-          <li class="breadcrumb-item"><a href="user-messages.html">Inbox</a></li>
-          <li class="breadcrumb-item active">Your messages with 누구누구인지 넣어야해   </li>
-        </ol>
         <div class="d-flex flex-column flex-md-row justify-content-md-between align-items-md-center mb-4">
           <h1 class="mb-3 mb-md-0 hero-heading mb-0">Your messages with Anna</h1>
           <div><a class="btn btn-link ps-0" href="user-messages.html"><i class="fa fa-arrow-left me-2"></i> Back to all messages</a></div>
@@ -302,3 +297,4 @@
     <!-- Main Theme JS file    -->
     <script src="js/theme.js"></script>
   </body>
+</div>

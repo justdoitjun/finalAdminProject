@@ -191,14 +191,14 @@
     <section class="py-5">
       <div class="container">
         <!-- Breadcrumbs -->
-        <ol class="breadcrumb ps-0  justify-content-start">
-          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-          <li class="breadcrumb-item"><a href="user-account.html">Account</a></li>
-          <li class="breadcrumb-item active">Messages   </li>
-        </ol>
-        <div class="d-flex justify-content-between align-items-center mb-5">
-          <h1 class="hero-heading mb-0">Inbox</h1><a class="btn btn-link text-muted" href="#">Archived Messages</a>
-        </div>
+<%--        <ol class="breadcrumb ps-0  justify-content-start">--%>
+<%--          <li class="breadcrumb-item"><a href="index.html">Home</a></li>--%>
+<%--          <li class="breadcrumb-item"><a href="user-account.html">Account</a></li>--%>
+<%--          <li class="breadcrumb-item active">Messages   </li>--%>
+<%--        </ol>--%>
+<%--        <div class="d-flex justify-content-between align-items-center mb-5">--%>
+<%--          <h1 class="hero-heading mb-0">Inbox</h1><a class="btn btn-link text-muted" href="#">Archived Messages</a>--%>
+<%--        </div>--%>
 <%--        <div class="d-flex justify-content-between align-items-end mb-4">--%>
 <%--          <select class="selectpicker me-3 mb-3 mb-lg-0" name="bulk" id="form_bulk" data-style="btn-selectpicker" title="Bulk Actions">--%>
 <%--            <option value="bulk_0">Edit                     </option>--%>
@@ -213,8 +213,9 @@
 <%--              <option value="sortBy_2">Paid   </option>--%>
 <%--            </select>--%>
 <%--          </div>--%>
-<%--        </div>--%>
+        </div>
         <div class="list-group shadow mb-5">
+
         <c:forEach var="obj" items="${mList}">
           <div class="list-group-item list-group-item-action p-4">
             <div class="row">
@@ -249,10 +250,9 @@
         </c:forEach>
 
 
-        </div>
-      </div>
+        </div><!-- obj Div 태그 -->
     </section>
-</div>
+
     <!-- JavaScript files-->
     <script>
       // ------------------------------------------------------- //
@@ -296,3 +296,5 @@
     <script>var basePath = ''</script>
     <!-- Main Theme JS file    -->
     <script src="js/theme.js"></script>
+  </body>
+</div>

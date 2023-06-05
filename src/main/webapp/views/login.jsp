@@ -1,6 +1,54 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.0/js/bootstrap.min.js"></script>
+
+<script>
+    let loginForm = {
+        init:function(){
+            $("#loginBtn").click(function(){
+                loginForm.send();
+            });
+        },
+        send:function(){
+            $("#loginForm").attr({
+                'action':'/loginImpl',
+                'method':'post'
+            });
+            $("#loginForm").submit();
+        }
+    };
+    $(function(){
+        loginForm.init();
+        let msg = "${msg}";
+        if(msg != ""){
+            alert(msg);
+        }
+    });
+
+    $(function(){
+        $("#pwdBtn").click(function(){
+            let guestId = $("#searchPwd").val();
+            $.ajax({
+                url:"/findPwd",
+                dataType:'json',
+                data:{"guestId":guestId},
+                success:function(data){
+                    if(data==true){
+                        alert("임시 비밀번호가 발급되었습니다.메일함을 확인해 주세요");
+                        console.log(data);
+                    }else{
+                        alert("아이디를 정확하게 입력해 주세요");
+                        console.log(data);
+                    }
+                }
+            });
+        });
+    });
+
+
+</script>
 
 
 <div class="container-fluid px-3">
