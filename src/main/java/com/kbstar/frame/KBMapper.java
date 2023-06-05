@@ -1,8 +1,12 @@
 package com.kbstar.frame;
 
-import java.util.List;
+import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Repository;
 
-public interface KBMapper<K, V> {
+import java.util.List;
+@Repository
+@Mapper
+public interface KBMapper<K,V> {
     public void insert(V v) throws Exception;
     public void delete(K k) throws Exception;
     public void update(V v) throws Exception;

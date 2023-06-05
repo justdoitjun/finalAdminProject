@@ -15,9 +15,13 @@ import java.util.List;
 
 
 @Slf4j
+
 @Controller
 public class MainController {
-    //초기화면
+
+
+    Logger logger = LoggerFactory.getLogger(this.getClass().getSimpleName());
+
     @RequestMapping("/")
     public String main(Model model) throws Exception {
         return "index";
@@ -29,24 +33,47 @@ public class MainController {
         return "index";
     }
 
-    @RequestMapping("/registerDetail")
-    public String registerDetail(Model model){
-        model.addAttribute("center","registerDetail");
-        return "index";
-    }
-
     @RequestMapping("/login")
     public String login(Model model){
         model.addAttribute("center","login");
         return "index";
     }
 
-    @RequestMapping("/userProfile")
-    public String userProfile(Model model){
-        model.addAttribute("center","userProfile");
+
+    @RequestMapping("/bookinglist")
+    public String bookinglist(Model model){
+        model.addAttribute("center","bookinglist");
+        return "index";
+    }
+
+    @RequestMapping("/profile")
+    public String profile(Model model){
+        model.addAttribute("center","profile");
+        return "index";
+    }
+
+    @RequestMapping("/total")
+    public String total(Model model){
+        model.addAttribute("center","total");
         return "index";
     }
 
 
+    @RequestMapping("/roomlist")
+    public String roomlist(Model model){
+        model.addAttribute("center","roomlist");
+        return "index";
+    }
 
+    @RequestMapping("/roomcategory")
+    public String roomcategory(Model model){
+        model.addAttribute("center","roomcategory");
+        return "index";
+    }
+
+//    @RequestMapping("/calender")
+//    public String calender(Model model){
+//        model.addAttribute("center","calender");
+//        return "index";
+//    }
 }
