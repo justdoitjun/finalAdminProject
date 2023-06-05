@@ -18,6 +18,4 @@ public class FinalAdminApplication {
         resolver.setSuffix(".jsp");
         return resolver;
     }
-
-
 }
