@@ -1,4 +1,7 @@
 
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -219,297 +222,278 @@
 </header>
 <section class="py-5">
     <div class="container">
-        <div class="row">
-            <div class="col-lg-3 me-lg-auto">
-                <div class="card border-0 shadow mb-6 mb-lg-0">
-                    <div class="card-header bg-gray-100 py-4 border-0 text-center"><a class="d-inline-block" href="#"><img class="d-block avatar avatar-xxl p-2 mb-2" src="img/avatar/avatar-10.jpg" alt=""></a>
-                        <h5>Jack London</h5>
-                        <p class="text-muted text-sm mb-0">Los Angeles, CA  </p>
-                    </div>
-                    <div class="card-body p-4">
-                        <div class="d-flex align-items-center mb-3">
-                            <div class="icon-rounded icon-rounded-sm bg-primary-light flex-shrink-0 me-2">
-                                <svg class="svg-icon text-primary svg-icon-md">
-                                    <use xlink:href="#diploma-1"> </use>
-                                </svg>
-                            </div>
-                            <div>
-                                <p class="mb-0">2877 reviews</p>
-                            </div>
-                        </div>
-                        <div class="d-flex align-items-center mb-3">
-                            <div class="icon-rounded icon-rounded-sm bg-primary-light flex-shrink-0 me-2">
-                                <svg class="svg-icon text-primary svg-icon-md">
-                                    <use xlink:href="#checkmark-1"> </use>
-                                </svg>
-                            </div>
-                            <div>
-                                <p class="mb-0">Verified</p>
-                            </div>
-                        </div>
-                        <hr>
-                        <h6>Jack provided</h6>
-                        <ul class="card-text text-muted">
-                            <li>Government ID</li>
-                            <li>Email address</li>
-                            <li>Phone number</li>
-                        </ul>
-                    </div>
-                </div>
+        <!-- Breadcrumbs -->
+        <ol class="breadcrumb ps-0  justify-content-start">
+            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+            <li class="breadcrumb-item active">Host view   </li>
+        </ol>
+        <div class="d-flex justify-content-between align-items-end mb-5">
+            <h1 class="hero-heading mb-0">정산하기</h1><a class="btn btn-link text-muted" href="#">Past bookings</a>
+        </div>
+        <div class="d-flex justify-content-between align-items-center flex-column flex-lg-row mb-5">
+            <div class="me-3">
+                <p class="mb-3 mb-lg-0">You have <strong>12 bookings</strong> in your property</p>
             </div>
-            <div class="col-lg-9 ps-lg-5">
-                <h1 class="hero-heading mb-0">Hello, I'm Jack!</h1>
-                <div class="text-block">
-                    <p> <span class="badge badge-secondary-light">Joined in 2011</span></p>
-                    <p class="text-muted">Samsa was a travelling salesman - and above it there hung a picture that he had recently cut out of an illustrated magazine and housed in a nice, gilded frame.  </p>
-                    <p class="text-muted">He must have tried it a hundred times, shut his eyes so that he wouldn't have to look at the floundering legs, and only stopped when he began to feel a mild, dull pain there that he had never felt before.  </p>
-                </div>
-                <div class="text-block">
-                    <h4 class="mb-5">Jack's Listings</h4>
-                    <div class="row">
-                        <!-- place item-->
-                        <div class="col-sm-6 col-lg-4 mb-30px hover-animate" data-marker-id="59c0c8e33b1527bfe2abaf92">
-                            <div class="card h-100 border-0 shadow">
-                                <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" src="img/photo/photo-1484154218962-a197022b5858.jpg" alt="Modern, Well-Appointed Room"/><a class="tile-link" href="detail-rooms.html"></a>
-                                    <div class="card-img-overlay-bottom z-index-20">
-                                        <div class="d-flex text-white text-sm align-items-center"><img class="avatar avatar-border-white flex-shrink-0 me-2" src="img/avatar/avatar-0.jpg" alt="Pamela"/>
-                                            <div>Pamela</div>
-                                        </div>
-                                    </div>
-                                    <div class="card-img-overlay-top text-end"><a class="card-fav-icon position-relative z-index-40" href="javascript: void();">
-                                        <svg class="svg-icon text-white">
-                                            <use xlink:href="#heart-1"> </use>
-                                        </svg></a></div>
-                                </div>
-                                <div class="card-body d-flex align-items-center">
-                                    <div class="w-100">
-                                        <h6 class="card-title"><a class="text-decoration-none text-dark" href="detail-rooms.html">Modern, Well-Appointed Room</a></h6>
-                                        <div class="d-flex card-subtitle mb-3">
-                                            <p class="flex-grow-1 mb-0 text-muted text-sm">Private room</p>
-                                            <p class="flex-shrink-1 mb-0 card-stars text-xs text-end"><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i>
-                                            </p>
-                                        </div>
-                                        <p class="card-text text-muted"><span class="h4 text-primary">$80</span> per night</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- place item-->
-                        <div class="col-sm-6 col-lg-4 mb-30px hover-animate" data-marker-id="59c0c8e322f3375db4d89128">
-                            <div class="card h-100 border-0 shadow">
-                                <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" src="img/photo/photo-1426122402199-be02db90eb90.jpg" alt="Cute Quirky Garden apt, NYC adjacent"/><a class="tile-link" href="detail-rooms.html"></a>
-                                    <div class="card-img-overlay-bottom z-index-20">
-                                        <div class="d-flex text-white text-sm align-items-center"><img class="avatar avatar-border-white flex-shrink-0 me-2" src="img/avatar/avatar-7.jpg" alt="John"/>
-                                            <div>John</div>
-                                        </div>
-                                    </div>
-                                    <div class="card-img-overlay-top text-end"><a class="card-fav-icon position-relative z-index-40" href="javascript: void();">
-                                        <svg class="svg-icon text-white">
-                                            <use xlink:href="#heart-1"> </use>
-                                        </svg></a></div>
-                                </div>
-                                <div class="card-body d-flex align-items-center">
-                                    <div class="w-100">
-                                        <h6 class="card-title"><a class="text-decoration-none text-dark" href="detail-rooms.html">Cute Quirky Garden apt, NYC adjacent</a></h6>
-                                        <div class="d-flex card-subtitle mb-3">
-                                            <p class="flex-grow-1 mb-0 text-muted text-sm">Entire apartment</p>
-                                            <p class="flex-shrink-1 mb-0 card-stars text-xs text-end"><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-gray-300">                                  </i>
-                                            </p>
-                                        </div>
-                                        <p class="card-text text-muted"><span class="h4 text-primary">$121</span> per night</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- place item-->
-                        <div class="col-sm-6 col-lg-4 mb-30px hover-animate" data-marker-id="59c0c8e3a31e62979bf147c9">
-                            <div class="card h-100 border-0 shadow">
-                                <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" src="img/photo/photo-1512917774080-9991f1c4c750.jpg" alt="Modern Apt - Vibrant Neighborhood!"/><a class="tile-link" href="detail-rooms.html"></a>
-                                    <div class="card-img-overlay-bottom z-index-20">
-                                        <div class="d-flex text-white text-sm align-items-center"><img class="avatar avatar-border-white flex-shrink-0 me-2" src="img/avatar/avatar-8.jpg" alt="Julie"/>
-                                            <div>Julie</div>
-                                        </div>
-                                    </div>
-                                    <div class="card-img-overlay-top text-end"><a class="card-fav-icon position-relative z-index-40" href="javascript: void();">
-                                        <svg class="svg-icon text-white">
-                                            <use xlink:href="#heart-1"> </use>
-                                        </svg></a></div>
-                                </div>
-                                <div class="card-body d-flex align-items-center">
-                                    <div class="w-100">
-                                        <h6 class="card-title"><a class="text-decoration-none text-dark" href="detail-rooms.html">Modern Apt - Vibrant Neighborhood!</a></h6>
-                                        <div class="d-flex card-subtitle mb-3">
-                                            <p class="flex-grow-1 mb-0 text-muted text-sm">Entire apartment</p>
-                                            <p class="flex-shrink-1 mb-0 card-stars text-xs text-end"><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-gray-300">                                  </i><i class="fa fa-star text-gray-300">                                  </i>
-                                            </p>
-                                        </div>
-                                        <p class="card-text text-muted"><span class="h4 text-primary">$75</span> per night</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- place item-->
-                        <div class="col-sm-6 col-lg-4 mb-30px hover-animate" data-marker-id="59c0c8e3503eb77d487e8082">
-                            <div class="card h-100 border-0 shadow">
-                                <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" src="img/photo/photo-1494526585095-c41746248156.jpg" alt="Sunny Private Studio-Apartment"/><a class="tile-link" href="detail-rooms.html"></a>
-                                    <div class="card-img-overlay-bottom z-index-20">
-                                        <div class="d-flex text-white text-sm align-items-center"><img class="avatar avatar-border-white flex-shrink-0 me-2" src="img/avatar/avatar-9.jpg" alt="Barbora"/>
-                                            <div>Barbora</div>
-                                        </div>
-                                    </div>
-                                    <div class="card-img-overlay-top text-end"><a class="card-fav-icon position-relative z-index-40" href="javascript: void();">
-                                        <svg class="svg-icon text-white">
-                                            <use xlink:href="#heart-1"> </use>
-                                        </svg></a></div>
-                                </div>
-                                <div class="card-body d-flex align-items-center">
-                                    <div class="w-100">
-                                        <h6 class="card-title"><a class="text-decoration-none text-dark" href="detail-rooms.html">Sunny Private Studio-Apartment</a></h6>
-                                        <div class="d-flex card-subtitle mb-3">
-                                            <p class="flex-grow-1 mb-0 text-muted text-sm">Shared room</p>
-                                            <p class="flex-shrink-1 mb-0 card-stars text-xs text-end"><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-gray-300">                                  </i>
-                                            </p>
-                                        </div>
-                                        <p class="card-text text-muted"><span class="h4 text-primary">$93</span> per night</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- place item-->
-                        <div class="col-sm-6 col-lg-4 mb-30px hover-animate" data-marker-id="59c0c8e39aa2eed0626e485d">
-                            <div class="card h-100 border-0 shadow">
-                                <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" src="img/photo/photo-1522771739844-6a9f6d5f14af.jpg" alt="Mid-Century Modern Garden Paradise"/><a class="tile-link" href="detail-rooms.html"></a>
-                                    <div class="card-img-overlay-bottom z-index-20">
-                                        <div class="d-flex text-white text-sm align-items-center"><img class="avatar avatar-border-white flex-shrink-0 me-2" src="img/avatar/avatar-10.jpg" alt="Jack"/>
-                                            <div>Jack</div>
-                                        </div>
-                                    </div>
-                                    <div class="card-img-overlay-top text-end"><a class="card-fav-icon position-relative z-index-40" href="javascript: void();">
-                                        <svg class="svg-icon text-white">
-                                            <use xlink:href="#heart-1"> </use>
-                                        </svg></a></div>
-                                </div>
-                                <div class="card-body d-flex align-items-center">
-                                    <div class="w-100">
-                                        <h6 class="card-title"><a class="text-decoration-none text-dark" href="detail-rooms.html">Mid-Century Modern Garden Paradise</a></h6>
-                                        <div class="d-flex card-subtitle mb-3">
-                                            <p class="flex-grow-1 mb-0 text-muted text-sm">Entire house</p>
-                                            <p class="flex-shrink-1 mb-0 card-stars text-xs text-end"><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i>
-                                            </p>
-                                        </div>
-                                        <p class="card-text text-muted"><span class="h4 text-primary">$115</span> per night</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- place item-->
-                        <div class="col-sm-6 col-lg-4 mb-30px hover-animate" data-marker-id="59c0c8e39aa2edasd626e485d">
-                            <div class="card h-100 border-0 shadow">
-                                <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" src="img/photo/photo-1488805990569-3c9e1d76d51c.jpg" alt="Brooklyn Life, Easy to Manhattan"/><a class="tile-link" href="detail-rooms.html"></a>
-                                    <div class="card-img-overlay-bottom z-index-20">
-                                        <div class="d-flex text-white text-sm align-items-center"><img class="avatar avatar-border-white flex-shrink-0 me-2" src="img/avatar/avatar-11.jpg" alt="Stuart"/>
-                                            <div>Stuart</div>
-                                        </div>
-                                    </div>
-                                    <div class="card-img-overlay-top text-end"><a class="card-fav-icon position-relative z-index-40" href="javascript: void();">
-                                        <svg class="svg-icon text-white">
-                                            <use xlink:href="#heart-1"> </use>
-                                        </svg></a></div>
-                                </div>
-                                <div class="card-body d-flex align-items-center">
-                                    <div class="w-100">
-                                        <h6 class="card-title"><a class="text-decoration-none text-dark" href="detail-rooms.html">Brooklyn Life, Easy to Manhattan</a></h6>
-                                        <div class="d-flex card-subtitle mb-3">
-                                            <p class="flex-grow-1 mb-0 text-muted text-sm">Private room</p>
-                                            <p class="flex-shrink-1 mb-0 card-stars text-xs text-end"><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-gray-300">                                  </i>
-                                            </p>
-                                        </div>
-                                        <p class="card-text text-muted"><span class="h4 text-primary">$123</span> per night</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="text-block">
-                    <p class="subtitle text-sm text-primary">Reviews    </p>
-                    <h5 class="mb-4">Listing Reviews </h5>
-                    <div class="d-flex d-block d-sm-flex review">
-                        <div class="text-md-center flex-shrink-0 me-4 me-xl-5"><img class="d-block avatar avatar-xl p-2 mb-2" src="img/avatar/avatar-8.jpg" alt="Padmé Amidala"><span class="text-uppercase text-muted text-sm">Dec 2018</span></div>
-                        <div>
-                            <h6 class="mt-2 mb-1">Padmé Amidala</h6>
-                            <div class="mb-2"><i class="fa fa-xs fa-star text-primary"></i><i class="fa fa-xs fa-star text-primary"></i><i class="fa fa-xs fa-star text-primary"></i><i class="fa fa-xs fa-star text-primary"></i><i class="fa fa-xs fa-star text-primary"></i>
-                            </div>
-                            <p class="text-muted text-sm">One morning, when Gregor Samsa woke from troubled dreams, he found himself transformed in his bed into a horrible vermin. He lay on his armour-like back, and if he lifted his head a little he could see his brown belly, slightly domed and divided by arches into stiff sections     </p>
-                        </div>
-                    </div>
-                    <div class="d-flex d-block d-sm-flex review">
-                        <div class="text-md-center flex-shrink-0 me-4 me-xl-5"><img class="d-block avatar avatar-xl p-2 mb-2" src="img/avatar/avatar-2.jpg" alt="Luke Skywalker"><span class="text-uppercase text-muted text-sm">Dec 2018</span></div>
-                        <div>
-                            <h6 class="mt-2 mb-1">Luke Skywalker</h6>
-                            <div class="mb-2"><i class="fa fa-xs fa-star text-primary"></i><i class="fa fa-xs fa-star text-primary"></i><i class="fa fa-xs fa-star text-primary"></i><i class="fa fa-xs fa-star text-primary"></i><i class="fa fa-xs fa-star text-gray-200"></i>
-                            </div>
-                            <p class="text-muted text-sm">The bedding was hardly able to cover it and seemed ready to slide off any moment. His many legs, pitifully thin compared with the size of the rest of him, waved about helplessly as he looked. &quot;What's happened to me?&quot; he thought. It wasn't a dream.     </p>
-                        </div>
-                    </div>
-                    <div class="d-flex d-block d-sm-flex review">
-                        <div class="text-md-center flex-shrink-0 me-4 me-xl-5"><img class="d-block avatar avatar-xl p-2 mb-2" src="img/avatar/avatar-3.jpg" alt="Princess Leia"><span class="text-uppercase text-muted text-sm">Dec 2018</span></div>
-                        <div>
-                            <h6 class="mt-2 mb-1">Princess Leia</h6>
-                            <div class="mb-2"><i class="fa fa-xs fa-star text-primary"></i><i class="fa fa-xs fa-star text-primary"></i><i class="fa fa-xs fa-star text-primary"></i><i class="fa fa-xs fa-star text-gray-200"></i><i class="fa fa-xs fa-star text-gray-200"></i>
-                            </div>
-                            <p class="text-muted text-sm">His room, a proper human room although a little too small, lay peacefully between its four familiar walls. A collection of textile samples lay spread out on the table.     </p>
-                        </div>
-                    </div>
-                    <div class="d-flex d-block d-sm-flex review">
-                        <div class="text-md-center flex-shrink-0 me-4 me-xl-5"><img class="d-block avatar avatar-xl p-2 mb-2" src="img/avatar/avatar-4.jpg" alt="Jabba Hut"><span class="text-uppercase text-muted text-sm">Dec 2018</span></div>
-                        <div>
-                            <h6 class="mt-2 mb-1">Jabba Hut</h6>
-                            <div class="mb-2"><i class="fa fa-xs fa-star text-primary"></i><i class="fa fa-xs fa-star text-primary"></i><i class="fa fa-xs fa-star text-primary"></i><i class="fa fa-xs fa-star text-primary"></i><i class="fa fa-xs fa-star text-primary"></i>
-                            </div>
-                            <p class="text-muted text-sm">Samsa was a travelling salesman - and above it there hung a picture that he had recently cut out of an illustrated magazine and housed in a nice, gilded frame.     </p>
-                        </div>
-                    </div>
-                    <div class="py-5">
-                        <button class="btn btn-outline-primary" type="button" data-bs-toggle="collapse" data-bs-target="#leaveReview" aria-expanded="false" aria-controls="leaveReview">Leave a review</button>
-                        <div class="collapse mt-4" id="leaveReview">
-                            <h5 class="mb-4">Leave a review</h5>
-                            <form class="form" id="contact-form" method="get" action="#">
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <div class="mb-4">
-                                            <label class="form-label" for="name">Your name *</label>
-                                            <input class="form-control" type="text" name="name" id="name" placeholder="Enter your name" required="required">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="mb-4">
-                                            <label class="form-label" for="rating">Your rating *</label>
-                                            <select class="form-select focus-shadow-0" name="rating" id="rating">
-                                                <option value="5">&#9733;&#9733;&#9733;&#9733;&#9733; (5/5)</option>
-                                                <option value="4">&#9733;&#9733;&#9733;&#9733;&#9734; (4/5)</option>
-                                                <option value="3">&#9733;&#9733;&#9733;&#9734;&#9734; (3/5)</option>
-                                                <option value="2">&#9733;&#9733;&#9734;&#9734;&#9734; (2/5)</option>
-                                                <option value="1">&#9733;&#9734;&#9734;&#9734;&#9734; (1/5)</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="mb-4">
-                                    <label class="form-label" for="email">Your email *</label>
-                                    <input class="form-control" type="email" name="email" id="email" placeholder="Enter your  email" required="required">
-                                </div>
-                                <div class="mb-4">
-                                    <label class="form-label" for="review">Review text *</label>
-                                    <textarea class="form-control" rows="4" name="review" id="review" placeholder="Enter your review" required="required"></textarea>
-                                </div>
-                                <button class="btn btn-primary" type="submit">Post review</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
+            <div class="text-center">
+                <label class="form-label me-2" for="form_sort">Sort by</label>
+                <select class="selectpicker me-3 mb-3 mb-lg-0" name="sort" id="form_sort" data-style="btn-selectpicker" title="">
+                    <option value="sortBy_0">Newest   </option>
+                    <option value="sortBy_1">Oldest   </option>
+                    <option value="sortBy_2">Paid   </option>
+                </select><a class="btn btn-outline-secondary" href="#"><i class="fa fa-download me-2"></i>Download CSV</a>
             </div>
         </div>
+        <div class="list-group shadow mb-5"><a class="list-group-item list-group-item-action p-4" href="user-booking-detail.html">
+            <div class="row">
+                <div class="col-lg-4 align-self-center mb-4 mb-lg-0">
+                    <div class="d-flex align-items-center mb-3">
+                        <input type="checkbox" class="form-check-input me-3" id="checkbox1">
+                        <h2 class="h5 mb-0">Meredith Goodwin</h2>
+                        <img class="avatar avatar-sm avatar-border-white ms-3" src="img/avatar/avatar-0.jpg" alt="Jack London">
+                    </div>
+                    <p class="text-sm text-muted">Double Room</p>
+                    <span class="badge badge-pill p-2 badge-secondary-light">February 16, 2019 - February 19, 2019</span>
+                </div>
+                <div class="col-lg-8">
+                    <div class="row">
+                        <div class="col-6 col-md-4 col-lg-3 py-3 mb-3 mb-lg-0">
+                            <h6 class="label-heading">Rate type</h6>
+                            <p class="text-sm fw-bold">Bed & Breakfast</p>
+                            <h6 class="label-heading">Nights </h6>
+                            <p class="text-sm fw-bold mb-0">3</p>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-3 py-3">
+                            <h6 class="label-heading">Occupancy</h6>
+                            <p class="text-sm fw-bold">1 pax</p>
+                            <h6 class="label-heading">Charge</h6>
+                            <p class="text-sm fw-bold mb-0">$244.42</p>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-3 py-3">
+                            <h6 class="label-heading">Booked Date</h6>
+                            <p class="text-sm fw-bold">February 16, 2019                                        </p>
+                            <h6 class="label-heading">Arrival Time</h6>
+                            <p class="text-sm fw-bold mb-0">Around 4 PM</p>
+                        </div>
+                        <div class="col-12 col-lg-3 align-self-center"><span class="text-primary text-sm text-uppercase me-4 me-lg-0"><i class="fa fa-check fa-fw me-2"> </i>Booking paid</span><br class="d-none d-lg-block"><span class="text-primary text-sm text-uppercase"><i class="fa fa-check fa-fw me-2"> </i>Confirmed</span>
+                        </div>
+                    </div>
+                </div>
+            </div></a><a class="list-group-item list-group-item-action p-4" href="user-booking-detail.html">
+            <div class="row">    <div class="col-lg-4 align-self-center mb-4 mb-lg-0">
+                <div class="d-flex align-items-center mb-3">
+                    <input type="checkbox" class="form-check-input me-3" id="checkbox2">
+                    <h2 class="h5 mb-0">Weeks Garrett</h2>
+                    <img class="avatar avatar-sm avatar-border-white ms-3" src="img/avatar/avatar-1.jpg" alt="Jack London">
+                </div>
+                <p class="text-sm text-muted">Double Room</p>
+                <span class="badge badge-pill p-2 badge-secondary-light">March 14, 2019 - March 17, 2019</span>
+            </div>
+
+                <div class="col-lg-8">
+                    <div class="row">
+                        <div class="col-6 col-md-4 col-lg-3 py-3 mb-3 mb-lg-0">
+                            <h6 class="label-heading">Rate type</h6>
+                            <p class="text-sm fw-bold">Bed & Breakfast</p>
+                            <h6 class="label-heading">Nights </h6>
+                            <p class="text-sm fw-bold mb-0">3</p>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-3 py-3">
+                            <h6 class="label-heading">Occupancy</h6>
+                            <p class="text-sm fw-bold">3 pax</p>
+                            <h6 class="label-heading">Charge</h6>
+                            <p class="text-sm fw-bold mb-0">$495.73</p>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-3 py-3">
+                            <h6 class="label-heading">Booked Date</h6>
+                            <p class="text-sm fw-bold">March 14, 2019                                        </p>
+                            <h6 class="label-heading">Arrival Time</h6>
+                            <p class="text-sm fw-bold mb-0">Around 4 PM</p>
+                        </div>
+                        <div class="col-12 col-lg-3 align-self-center"><span class="text-primary text-sm text-uppercase me-4 me-lg-0"><i class="fa fa-check fa-fw me-2"> </i>Booking paid</span><br class="d-none d-lg-block"><span class="text-muted text-sm text-uppercase"><i class="fa fa-times fa-fw me-2"> </i>Confirmed</span>
+                        </div>
+                    </div>
+                </div>
+            </div></a><a class="list-group-item list-group-item-action p-4" href="user-booking-detail.html">
+            <div class="row">
+                <div class="col-lg-4 align-self-center mb-4 mb-lg-0">
+                    <div class="d-flex align-items-center mb-3">
+                        <input type="checkbox" class="form-check-input me-3" id="checkbox3">
+                        <h2 class="h5 mb-0">Fisher Bauer</h2>
+                        <img class="avatar avatar-sm avatar-border-white ms-3" src="img/avatar/avatar-2.jpg" alt="Jack London">
+                    </div>
+                    <p class="text-sm text-muted">Double Room</p>
+                    <span class="badge badge-pill p-2 badge-danger-light">March 10, 2019 - March 13, 2019</span>
+                </div>
+
+                <div class="col-lg-8">
+                    <div class="row">
+                        <div class="col-6 col-md-4 col-lg-3 py-3 mb-3 mb-lg-0">
+                            <h6 class="label-heading">Rate type</h6>
+                            <p class="text-sm fw-bold">Bed & Breakfast</p>
+                            <h6 class="label-heading">Nights </h6>
+                            <p class="text-sm fw-bold mb-0">3</p>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-3 py-3">
+                            <h6 class="label-heading">Occupancy</h6>
+                            <p class="text-sm fw-bold">2 pax</p>
+                            <h6 class="label-heading">Charge</h6>
+                            <p class="text-sm fw-bold mb-0">$938.48</p>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-3 py-3">
+                            <h6 class="label-heading">Booked Date</h6>
+                            <p class="text-sm fw-bold">March 10, 2019                                        </p>
+                            <h6 class="label-heading">Arrival Time</h6>
+                            <p class="text-sm fw-bold mb-0">Around 4 PM</p>
+                        </div>
+                        <div class="col-12 col-lg-3 align-self-center"><span class="text-primary text-sm text-uppercase me-4 me-lg-0"><i class="fa fa-check fa-fw me-2"> </i>Booking paid</span><br class="d-none d-lg-block"><span class="text-primary text-sm text-uppercase"><i class="fa fa-check fa-fw me-2"> </i>Confirmed</span>
+                        </div>
+                    </div>
+                </div>
+            </div></a><a class="list-group-item list-group-item-action p-4" href="user-booking-detail.html">
+            <div class="row">
+
+                <div class="col-lg-4 align-self-center mb-4 mb-lg-0">
+                    <div class="d-flex align-items-center mb-3">
+                        <input type="checkbox" class="form-check-input me-3" id="checkbox4">
+                        <h2 class="h5 mb-0">Aguilar Webb</h2>
+                        <img class="avatar avatar-sm avatar-border-white ms-3" src="img/avatar/avatar-3.jpg" alt="Jack London">
+                    </div>
+                    <p class="text-sm text-muted">Double Room</p>
+                    <span class="badge badge-pill p-2 badge-success-light">April 09, 2019 - April 13, 2019</span>
+                </div>
+
+
+                <div class="col-lg-8">
+                    <div class="row">
+                        <div class="col-6 col-md-4 col-lg-3 py-3 mb-3 mb-lg-0">
+                            <h6 class="label-heading">Rate type</h6>
+                            <p class="text-sm fw-bold">Bed & Breakfast</p>
+                            <h6 class="label-heading">Nights </h6>
+                            <p class="text-sm fw-bold mb-0">4</p>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-3 py-3">
+                            <h6 class="label-heading">Occupancy</h6>
+                            <p class="text-sm fw-bold">3 pax</p>
+                            <h6 class="label-heading">Charge</h6>
+                            <p class="text-sm fw-bold mb-0">$955.07</p>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-3 py-3">
+                            <h6 class="label-heading">Booked Date</h6>
+                            <p class="text-sm fw-bold">April 09, 2019                                        </p>
+                            <h6 class="label-heading">Arrival Time</h6>
+                            <p class="text-sm fw-bold mb-0">Around 4 PM</p>
+                        </div>
+                        <div class="col-12 col-lg-3 align-self-center"><span class="text-primary text-sm text-uppercase me-4 me-lg-0"><i class="fa fa-check fa-fw me-2"> </i>Booking paid</span><br class="d-none d-lg-block"><span class="text-muted text-sm text-uppercase"><i class="fa fa-times fa-fw me-2"> </i>Confirmed</span>
+                        </div>
+                    </div>
+                </div>
+            </div></a><a class="list-group-item list-group-item-action p-4" href="user-booking-detail.html">
+            <div class="row">
+                <div class="col-lg-4 align-self-center mb-4 mb-lg-0">
+                    <div class="d-flex align-items-center mb-3">
+                        <input type="checkbox" class="form-check-input me-3" id="checkbox6">
+                        <h2 class="h5 mb-0">Melton Simon</h2>
+                        <img class="avatar avatar-sm avatar-border-white ms-3" src="img/avatar/avatar-4.jpg" alt="Jack London">
+                    </div>
+                    <p class="text-sm text-muted">Double Room</p>
+                    <span class="badge badge-pill p-2 badge-secondary-light">March 24, 2019 - March 28, 2019</span>
+                </div>
+
+
+
+
+
+
+
+
+                <div class="col-lg-8">
+                    <div class="row">
+                        <div class="col-6 col-md-4 col-lg-3 py-3 mb-3 mb-lg-0">
+                            <h6 class="label-heading">Rate type</h6>
+                            <p class="text-sm fw-bold">Bed & Breakfast</p>
+                            <h6 class="label-heading">Nights </h6>
+                            <p class="text-sm fw-bold mb-0">4</p>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-3 py-3">
+                            <h6 class="label-heading">Occupancy</h6>
+                            <p class="text-sm fw-bold">3 pax</p>
+                            <h6 class="label-heading">Charge</h6>
+                            <p class="text-sm fw-bold mb-0">$882.25</p>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-3 py-3">
+                            <h6 class="label-heading">Booked Date</h6>
+                            <p class="text-sm fw-bold">March 24, 2019                                        </p>
+                            <h6 class="label-heading">Arrival Time</h6>
+                            <p class="text-sm fw-bold mb-0">Around 4 PM</p>
+                        </div>
+                        <div class="col-12 col-lg-3 align-self-center"><span class="text-primary text-sm text-uppercase me-4 me-lg-0"><i class="fa fa-check fa-fw me-2"> </i>Booking paid</span><br class="d-none d-lg-block"><span class="text-primary text-sm text-uppercase"><i class="fa fa-check fa-fw me-2"> </i>Confirmed</span>
+
+                        </div>
+                    </div>
+                </div>
+            </div></a>
+        </div>
+
+
+
+        <p> total </p>
+        <div class="table-responsive text-sm mb-5">
+            <table class="table table-striped">
+                <thead class="bg-gray-200">
+                <tr class="border-0">
+                    <th class="center">#</th>
+                    <th>Guest</th>
+                    <th>Rate Time</th>
+                    <th class="text-end">Charge</th>
+                    <th class="center">Nights</th>
+                    <th class="text-end">Total</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td class="text-center">1</td>
+                    <td class="fw-bold">Room Rental Services</td>
+                    <td>August</td>
+                    <td class="text-end">$958.00</td>
+                    <td class="text-center">1</td>
+                    <td class="text-end">$958.00</td>
+                </tr>
+                <tr>
+                    <td class="text-center">2</td>
+                    <td class="fw-bold">Premium Listing</td>
+                    <td>London</td>
+                    <td class="text-end">$100.00</td>
+                    <td class="text-center">1</td>
+                    <td class="text-end">$100.00</td>
+                </tr>
+
+
+                <tr>
+                    <td class="text-center"></td>
+                    <td class="fw-bold"></td>
+                    <td></td>
+                    <td class="text-end"></td>
+                    <td class="text-center"></td>
+                    <td class="text-end">$958.00</td>
+                </tr>
+
+                </tbody>
+
+            </table>
+            <a class="btn btn-outline-secondary" href="#"><i class="fa fa-download me-2"></i>Enter</a>
+        </div>
+
+
+        <!-- Pagination -->
+        <nav aria-label="Page navigation example">
+            <ul class="pagination pagination-template d-flex justify-content-center">
+                <li class="page-item"><a class="page-link" href="#"> <i class="fa fa-angle-left"></i></a></li>
+                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#"> <i class="fa fa-angle-right"></i></a></li>
+            </ul>
+        </nav>
     </div>
 </section>
 <!-- Footer-->
@@ -586,18 +570,23 @@
     //   see more here
     //   https://css-tricks.com/ajaxing-svg-sprite/
     // ------------------------------------------------------ //
-    function injectSvgSprite(path) {
+    function getCheckboxValue()  {
+        // 선택된 목록 가져오기
+        const query = 'input[name="jungsan"]:checked';
+        const selectedEls =
+            document.querySelectorAll(query);
 
-        var ajax = new XMLHttpRequest();
-        ajax.open("GET", path, true);
-        ajax.send();
-        ajax.onload = function(e) {
-            var div = document.createElement("div");
-            div.className = 'd-none';
-            div.innerHTML = ajax.responseText;
-            document.body.insertBefore(div, document.body.childNodes[0]);
-        }
+        // 선택된 목록에서 value 찾기
+        let result = '';
+        selectedEls.forEach((el) => {
+            result += el.value + ' ';
+        });
+
+        // 출력
+        document.getElementById('result').innerText
+            = result;
     }
+
     // to avoid CORS issues when viewing using file:// protocol, using the demo URL for the SVG sprite
     // use your own URL in production, please :)
     // https://demo.bootstrapious.com/directory/1-0/icons/orion-svg-sprite.svg
@@ -605,6 +594,67 @@
     injectSvgSprite('https://demo.bootstrapious.com/directory/1-4/icons/orion-svg-sprite.svg');
 
 </script>
+
+
+<script>
+    function calculateTotal(checkbox) {
+        var parentDiv = checkbox.closest('.list-group-item');
+        var chargeElement = parentDiv.querySelector('.charge');
+        var totalElement = document.getElementById('total');
+        var total = parseFloat(totalElement.innerText.replace('$', ''));
+
+        if (checkbox.checked && chargeElement) {
+            var chargeText = chargeElement.innerText;
+            var charge = parseFloat(chargeText.replace('$', ''));
+            total += charge;
+        } else if (!checkbox.checked && chargeElement) {
+            var chargeText = chargeElement.innerText;
+            var charge = parseFloat(chargeText.replace('$', ''));
+            total -= charge;
+        }
+
+        totalElement.innerText = '$' + total.toFixed(2); // 총 합계 업데이트
+
+        // total 줄 생성 또는 업데이트
+        var existingTotalRow = document.getElementById('totalRow');
+        if (existingTotalRow) {
+            existingTotalRow.remove(); // 이미 존재하는 total 줄 제거
+        }
+
+        var table = parentDiv.querySelector('table');
+        var newRow = document.createElement('tr');
+        newRow.id = 'totalRow';
+
+        var totalCell = document.createElement('td');
+        totalCell.setAttribute('colspan', '3');
+        totalCell.innerHTML = '<strong>Total: $' + total.toFixed(2) + '</strong>';
+
+        newRow.appendChild(totalCell);
+        table.appendChild(newRow);
+    }
+</script>
+
+
+<%--<script>--%>
+<%--    function calculateTotal() {--%>
+<%--        var checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');--%>
+<%--        var total = 0;--%>
+
+<%--        checkboxes.forEach(function (checkbox) {--%>
+<%--            var parentDiv = checkbox.closest('.list-group-item');--%>
+<%--            var chargeElement = parentDiv.querySelector('.col-6.col-md-4.col-lg-3.py-3 p.text-sm.fw-bold');--%>
+
+<%--            if (chargeElement) {--%>
+<%--                var charge = parseFloat(chargeElement.innerText.replace('$', ''));--%>
+<%--                total += charge;--%>
+<%--            }--%>
+<%--        });--%>
+
+<%--        console.log('Total: $' + total.toFixed(2)); // 콘솔에 총 합계를 표시하거나 원하는 작업 수행--%>
+
+<%--        // 여기에서 계산된 값을 사용하여 원하는 동작을 수행하거나 표시할 수 있습니다.--%>
+<%--    }--%>
+<%--</script>--%>
 <!-- jQuery-->
 <script src="vendor/jquery/jquery.min.js"></script>
 <!-- Bootstrap JS bundle - Bootstrap + PopperJS-->

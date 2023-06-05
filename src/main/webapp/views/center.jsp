@@ -1,218 +1,74 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/locales-all.js"></script>
-
-<style>
-    /* 모달 창 스타일 */
-    .modal {
-        display: none; /* 초기에는 숨김 처리 */
-        position: fixed;
-        z-index: 9999;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        overflow: auto;
-        background-color: rgba(0, 0, 0, 0.5); /* 배경에 어둡게 표시 */
-    }
-
-    .modal-content {
-        background-color: #fefefe;
-        margin: 10% auto; /* 화면 중앙으로 위치 */
-        padding: 20px;
-        border: 1px solid #888;
-        width: 80%;
-    }
-
-    .close {
-        color: #aaa;
-        float: right;
-        font-size: 28px;
-        font-weight: bold;
-        cursor: pointer;
-    }
-
-    .close:hover,
-    .close:focus {
-        color: black;
-        text-decoration: none;
-        cursor: pointer;
-    }
-
-    #calendar {
-        width: 900px;
-        height: 900px;
-    }
-
-</style>
 
 
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        var calendarEl = document.getElementById('calendar');
-        var calendar = new FullCalendar.Calendar(calendarEl, {
-
-            eventOverlap: false,
-            initialView: 'dayGridMonth',
-            headerToolbar: {
-                start: 'prev next today',
-                center: 'title',
-                end: 'dayGridMonth,dayGridWeek,dayGridDay'
-            },
-            titleFormat: function(date) {
-                return date.date.year + '년 ' + (parseInt(date.date.month) + 1) + '월';
-            },
-            selectable: true,
-            droppable: true,
-            editable: true,
-            nowIndicator: true,
-            locale: 'ko',
-            events: [
-                {
-                    title: '이정훈',
-                    start: '2023-05-01', // 예약 시작 날짜
-                    end: '2023-05-13', // 예약 종료 날짜
-                    backgroundColor: '#D65BC1'
-                },
-                {
-                    title: '박말수',
-                    start: '2023-05-08',
-                    end: '2023-05-10',
-                    backgroundColor: '#46649B'
-                },
-                {
-                    title: '최정수',
-                    start: '2023-05-08',
-                    end: '2023-05-10',
-                    backgroundColor: '#37B7B7'
-                }
-
-            ],
-            dateClick: function(info) {
-                var date = info.date;
-                var year = date.getFullYear();
-                var month = date.getMonth() + 1;
-                var day = date.getDate()  ;
-                var formattedDate = year + '-' + month + '-' + day;
-                openModal(formattedDate);
-            },
-            eventClick: function(info) {
-                showReservationDates(info.event);
-            }
-        });
-        calendar.render();
-    });
-
-    function openModal(date) {
-        var modal = document.getElementById('myModal');
-        var modalContent = document.getElementById('modalContent');
-        modalContent.innerHTML = '선택된 날짜: ' + date;
-        modal.style.display = 'block';
-    }
-
-    function closeModal() {
-        var modal = document.getElementById('myModal');
-        modal.style.display = 'none';
-    }
-
-    function showReservationDates(event) {
-
-        var startDate = event.start.toLocaleDateString();
-        var endDate = event.end;
-        endDate.setDate(endDate.getDate() - 1);
-        endDate = endDate.toLocaleDateString();
-
-        var modal = document.getElementById('myModal');
-        var modalContent = document.getElementById('modalContent');
-        var html = '<h2>' + event.title + ' 예약일정</h2>';
-        html += '예약 시작 날짜: ' + event.start.toLocaleDateString() + '<br>';
-        html += '예약 종료 날짜: ' + event.end.toLocaleDateString() + '<br>';
-        modalContent.innerHTML = html;
-        modal.style.display = 'block';
-
-    }
-
-
-    function updateReservation() {
-        var startDateInput = document.getElementById('startDate');
-        var endDateInput = document.getElementById('endDate');
-
-        var startDate = startDateInput.value;
-        var endDate = endDateInput.value;
-
-        // 유효성 검사 등 필요한 로직을 수행합니다.
-
-        // 업데이트된 날짜를 캘린더 이벤트에 반영합니다.
-        var event = calendar.getEventById(selectedEventId);
-        event.setDates(startDate, endDate);
-
-        // 모달 창을 닫습니다.
-        closeModal();
-
-
-    // function changeDate(event, eventId) {
-    //     event.preventDefault();
-    //     var newDateInput = document.getElementById('newDate');
-    //     var newDate = newDateInput.value;
-    //     if (newDate === '') {
-    //         alert('날짜를 입력해주세요.');
-    //         return;
-    //     }
-    //
-    //     var calendarEl = document.getElementById('calendar');
-    //     var calendar = calendarEl.fullCalendar('getCalendar');
-    //     var selectedEvent = calendar.getEventById(eventId);
-    //
-    //     var calendar = calendarEl.calendar; // 수정된 부분
-    //     var selectedEvent = calendar.getEventById(selectedEventId); // 수정된 부분
-    //     if (selectedEvent) {
-    //         selectedEvent.setStart(newDate);
-    //         selectedEvent.setEnd(newDate);
-    //         calendar.render();
-    //         closeModal();
-    //     }
-
-
-
-        }
-
-</script>
-
-
-<!-- 맨 위에 사진 부분 -->
-
-<div id="calendar"></div>
-
-<div id="myModal" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeModal()">&times;</span>
-        <div id="modalContent">
-            <h2>예약 날짜 변경</h2>
-            <label for="startDate">시작 날짜:</label>
-            <input type="date" id="startDate" name="startDate">
-            <br>
-            <label for="endDate">종료 날짜:</label>
-            <input type="date" id="endDate" name="endDate">
-            <br>
-            <button onclick="updateReservation()">예약 업데이트</button>
+<%--맨 위에 사진 부분--%>
+<section class="hero-home">
+    <div class="swiper-container hero-slider">
+        <div class="swiper-wrapper dark-overlay">
+            <div class="swiper-slide" style="background-image:url(/img/photo/photo-1497436072909-60f360e1d4b1.jpg)"></div>
+            <div class="swiper-slide" style="background-image:url(/img/photo/photo-1514890547357-a9ee288728e0.jpg)"></div>
+            <div class="swiper-slide" style="background-image:url(/img/photo/photo-1495562569060-2eec283d3391.jpg)"></div>
+            <div class="swiper-slide" style="background-image:url(/img/photo/photo-1471189641895-16c58a695bcb.jpg)"></div>
+            <%--            <div class="swiper-slide" style="background-image:url(img/photo/photo-1519974719765-e6559eac2575.jpg)"></div>--%>
+            <%--            <div class="swiper-slide" style="background-image:url(img/photo/photo-1490578474895-699cd4e2cf59.jpg)"></div>--%>
+            <%--            <div class="swiper-slide" style="background-image:url(img/photo/photo-1534850336045-c6c6d287f89e.jpg)"></div>--%>
         </div>
     </div>
-</div>
+    <div class="container py-6 py-md-7 text-white z-index-20">
+        <div class="row">
+            <div class="col-xl-10">
+                <div class="text-center text-lg-start">
+                    <p class="subtitle letter-spacing-4 mb-2 text-secondary text-shadow">The best holiday experience</p>
+                    <h1 class="display-3 fw-bold text-shadow">여행은 살아보는 거야</h1>
+                </div>
+
+                <div class="search-bar mt-5 p-3 p-lg-1 ps-lg-4">
+                    <form action="#">
+                        <div class="row">
+                            <div class="col-lg-4 d-flex align-items-center form-group">
+                                <input class="form-control border-0 shadow-0" type="text" name="search" placeholder="지역, 이름 등 키워드를 입력하세요">
+                            </div>
+                            <%--                            <div class="col-lg-3 d-flex align-items-center form-group">--%>
+                            <%--                                <div class="input-label-absolute input-label-absolute-right w-100">--%>
+                            <%--                                    <label class="label-absolute" for="location"><i class="fa fa-crosshairs"></i><span class="sr-only">City</span></label>--%>
+                            <%--                                    <input class="form-control border-0 shadow-0" type="text" name="location" placeholder="Location" id="location">--%>
+                            <%--                                </div>--%>
+                            <%--                            </div>--%>
+                            <div class="col-lg-3 d-flex align-items-center form-group no-divider">
+                                <select class="selectpicker" title="상세지역을 선택하세요" data-style="btn-form-control">
+                                    <option value="small">서울</option>
+                                    <option value="medium">부산</option>
+                                    <option value="large">제주</option>
+                                    <option value="x-large">그밖의 지역</option>
+                                </select>
+                            </div>
+
+                            <div class="col-lg-3 d-flex align-items-center form-group no-divider">
+                                <select class="selectpicker" title="객실 타입을 선택하세요" data-style="btn-form-control">
+                                    <option value="small">아파트</option>
+                                    <option value="medium">오피스텔</option>
+                                    <option value="large">주택</option>
+                                    <option value="x-large">기상천외한숙소</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-2 d-grid">
+                                <button class="btn btn-primary rounded-pill h-100" type="submit">검색 </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
 
 
-
-
-
-
+            </div>
+        </div>
+    </div>
+</section>
 <section class="py-6 bg-gray-100">
     <div class="container">
         <div class="text-center pb-lg-4">
-            <p class="subtitle text-secondary">One-of-a-kind vacation rentals</p>
-            <h2 class="mb-5">Booking with us is easy</h2>
+            <p class="subtitle text-secondary">The best holiday experience</p>
+            <h2 class="mb-5">No.1 단기 임대 플랫폼 DIGI실</h2>
         </div>
         <div class="row">
             <div class="col-lg-4 mb-3 mb-lg-0 text-center">
@@ -222,8 +78,8 @@
                             <use xlink:href="#destination-map-1"> </use>
                         </svg>
                     </div>
-                    <h3 class="h5">Find the perfect rental</h3>
-                    <p class="text-muted">One morning, when Gregor Samsa woke from troubled dreams, he found himself transformed in his bed in</p>
+                    <h3 class="h5">가장 완벽한 단기 임대</h3>
+                    <%--                    <p class="text-muted">One morning, when Gregor Samsa woke from troubled dreams, he found himself transformed in his bed in</p>--%>
                 </div>
             </div>
             <div class="col-lg-4 mb-3 mb-lg-0 text-center">
@@ -233,8 +89,8 @@
                             <use xlink:href="#pay-by-card-1"> </use>
                         </svg>
                     </div>
-                    <h3 class="h5">Book with confidence</h3>
-                    <p class="text-muted">The bedding was hardly able to cover it and seemed ready to slide off any moment. His many legs, pit</p>
+                    <h3 class="h5">안전하고 빠른 예약 </h3>
+                    <%--                    <p class="text-muted">The bedding was hardly able to cover it and seemed ready to slide off any moment. His many legs, pit</p>--%>
                 </div>
             </div>
             <div class="col-lg-4 mb-3 mb-lg-0 text-center">
@@ -244,8 +100,8 @@
                             <use xlink:href="#heart-1"> </use>
                         </svg>
                     </div>
-                    <h3 class="h5">Enjoy your vacation</h3>
-                    <p class="text-muted">His room, a proper human room although a little too small, lay peacefully between its four familiar </p>
+                    <h3 class="h5">휴가를 즐기세요!</h3>
+                    <%--                    <p class="text-muted">His room, a proper human room although a little too small, lay peacefully between its four familiar </p>--%>
                 </div>
             </div>
         </div>
@@ -255,8 +111,8 @@
     <div class="container">
         <div class="row mb-5">
             <div class="col-md-8">
-                <p class="subtitle text-primary">Stay and eat like a local</p>
-                <h2>Our guides</h2>
+                <p class="subtitle text-primary">현지인처럼 살아보기</p>
+                <h2>DIGI실 추천 여행지</h2>
             </div>
             <div class="col-md-4 d-lg-flex align-items-center justify-content-end"><a class="text-muted text-sm" href="category.html">
                 See all guides<i class="fas fa-angle-double-right ms-2"></i></a></div>
@@ -266,34 +122,42 @@
             <div class="swiper-wrapper pb-5">
                 <!-- Slides-->
                 <div class="swiper-slide h-auto px-2">
-                    <div class="card card-poster gradient-overlay hover-animate mb-4 mb-lg-0"><a class="tile-link" href="category.html"></a><img class="bg-image" src="img/photo/new-york.jpg" alt="Card image">
+                    <div class="card card-poster gradient-overlay hover-animate mb-4 mb-lg-0"><a class="tile-link" href="category.html"></a><img class="bg-image" src="/img/photo/야경.jpg" alt="Card image">
                         <div class="card-body overlay-content">
-                            <h6 class="card-title text-shadow text-uppercase">New York</h6>
-                            <p class="card-text text-sm">The big apple</p>
+                            <h6 class="card-title text-shadow text-uppercase">서울</h6>
+                            <p class="card-text text-sm">Seoul</p>
                         </div>
                     </div>
                 </div>
                 <div class="swiper-slide h-auto px-2">
-                    <div class="card card-poster gradient-overlay hover-animate mb-4 mb-lg-0"><a class="tile-link" href="category.html"></a><img class="bg-image" src="img/photo/paris.jpg" alt="Card image">
+                    <div class="card card-poster gradient-overlay hover-animate mb-4 mb-lg-0"><a class="tile-link" href="category.html"></a><img class="bg-image" src="/img/photo/busan1.jpg" alt="Card image">
                         <div class="card-body overlay-content">
-                            <h6 class="card-title text-shadow text-uppercase">Paris</h6>
-                            <p class="card-text text-sm">Artist capital of Europe</p>
+                            <h6 class="card-title text-shadow text-uppercase">부산</h6>
+                            <p class="card-text text-sm">Busan</p>
                         </div>
                     </div>
                 </div>
                 <div class="swiper-slide h-auto px-2">
-                    <div class="card card-poster gradient-overlay hover-animate mb-4 mb-lg-0"><a class="tile-link" href="category.html"></a><img class="bg-image" src="img/photo/barcelona.jpg" alt="Card image">
+                    <div class="card card-poster gradient-overlay hover-animate mb-4 mb-lg-0"><a class="tile-link" href="category.html"></a><img class="bg-image" src="/img/photo/jeju.jpg" alt="Card image">
                         <div class="card-body overlay-content">
-                            <h6 class="card-title text-shadow text-uppercase">Barcelona</h6>
-                            <p class="card-text text-sm">Dalí, Gaudí, Barrio Gotico</p>
+                            <h6 class="card-title text-shadow text-uppercase">제주</h6>
+                            <p class="card-text text-sm">Jeju</p>
                         </div>
                     </div>
                 </div>
                 <div class="swiper-slide h-auto px-2">
-                    <div class="card card-poster gradient-overlay hover-animate mb-4 mb-lg-0"><a class="tile-link" href="category.html"></a><img class="bg-image" src="img/photo/prague.jpg" alt="Card image">
+                    <div class="card card-poster gradient-overlay hover-animate mb-4 mb-lg-0"><a class="tile-link" href="category.html"></a><img class="bg-image" src="/img/photo/kang.jpg" alt="Card image">
                         <div class="card-body overlay-content">
-                            <h6 class="card-title text-shadow text-uppercase">Prague</h6>
-                            <p class="card-text text-sm">City of hundred towers</p>
+                            <h6 class="card-title text-shadow text-uppercase">강원도</h6>
+                            <p class="card-text text-sm">KangWonDo</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide h-auto px-2">
+                    <div class="card card-poster gradient-overlay hover-animate mb-4 mb-lg-0"><a class="tile-link" href="category.html"></a><img class="bg-image" src="/img/photo/kang1.jpg" alt="Card image">
+                        <div class="card-body overlay-content">
+                            <h6 class="card-title text-shadow text-uppercase">경주</h6>
+                            <p class="card-text text-sm">NewYork</p>
                         </div>
                     </div>
                 </div>
@@ -499,13 +363,13 @@
 </section>
 
 <!-- Divider Section-->
-<section class="py-7 position-relative dark-overlay"><img class="bg-image" src="img/photo/photo-1497436072909-60f360e1d4b1.jpg" alt="">
-    <div class="container">
-        <div class="overlay-content text-white py-lg-5">
-            <h3 class="display-3 fw-bold text-serif text-shadow mb-5">Ready for your next holidays?</h3><a class="btn btn-light" href="category-rooms.html">Get started</a>
-        </div>
-    </div>
-</section>
+<%--<section class="py-7 position-relative dark-overlay"><img class="bg-image" src="img/photo/photo-1497436072909-60f360e1d4b1.jpg" alt="">--%>
+<%--    <div class="container">--%>
+<%--        <div class="overlay-content text-white py-lg-5">--%>
+<%--            <h3 class="display-3 fw-bold text-serif text-shadow mb-5">Ready for your next holidays?</h3><a class="btn btn-light" href="category-rooms.html">DIGI와 함께 시작하기</a>--%>
+<%--        </div>--%>
+<%--    </div>--%>
+<%--</section>--%>
 <section class="py-7">
     <div class="container">
         <div class="text-center">

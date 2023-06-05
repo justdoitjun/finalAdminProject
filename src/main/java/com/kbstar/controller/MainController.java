@@ -40,6 +40,12 @@ public class MainController {
     }
 
 
+    @RequestMapping("/bookinglist")
+    public String bookinglist(Model model){
+        model.addAttribute("center","bookinglist");
+        return "index";
+    }
+
     @RequestMapping("/profile")
     public String profile(Model model){
         model.addAttribute("center","profile");
@@ -53,6 +59,17 @@ public class MainController {
     }
 
 
+    @RequestMapping("/roomlist")
+    public String roomlist(Model model){
+        model.addAttribute("center","roomlist");
+        return "index";
+    }
+
+    @RequestMapping("/roomcategory")
+    public String roomcategory(Model model){
+        model.addAttribute("center","roomcategory");
+        return "index";
+    }
 
 //    @RequestMapping("/calender")
 //    public String calender(Model model){
