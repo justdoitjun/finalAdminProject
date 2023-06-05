@@ -62,7 +62,7 @@
     <div class="row min-vh-100">
         <div class="col-md-8 col-lg-6 col-xl-5 d-flex align-items-center">
             <div class="w-100 py-5 px-md-5 px-xxl-6 position-relative">
-                <div class="mb-4"><img class="img-fluid mb-4" src="img/logo-square.svg" alt="..." style="max-width: 4rem;">
+                <div class="mb-4"><img class="img-fluid mb-4" src="/img/logo-square.svg" alt="..." style="max-width: 4rem;">
                     <h2>방을 등록해주세요.</h2>
                     <p class="text-muted">His room, a proper human room although a little too small, lay peacefully between its four familiar walls. A collection of textile samples lay spread out on the table.</p>
                 </div>
