@@ -18,7 +18,7 @@
   <!-- Google fonts - Poppins-->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,400i,700">
   <!-- swiper-->
-  <link rel="stylesheet" href="/https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.1/css/swiper.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.1/css/swiper.min.css">
   <!-- Magnigic Popup-->
   <link rel="stylesheet" href="/vendor/magnific-popup/magnific-popup.css">
   <!-- theme stylesheet-->
@@ -26,7 +26,7 @@
   <!-- Custom stylesheet - for your changes-->
   <link rel="stylesheet" href="/css/custom.css">
   <!-- Favicon-->
-  <link rel="shortcut icon" href="img/favicon.png">
+  <link rel="shortcut icon" href="/img/favicon.png">
   <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
   <!-- Tweaks for older IEs--><!--[if lt IE 9]>
   <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -288,10 +288,10 @@
         </div>
         <div class="col-md-6">
           <ul class="list-inline mb-0 mt-2 mt-md-0 text-center text-md-end">
-            <li class="list-inline-item"><img class="w-2rem" src="img/visa.svg" alt="..."></li>
-            <li class="list-inline-item"><img class="w-2rem" src="img/mastercard.svg" alt="..."></li>
-            <li class="list-inline-item"><img class="w-2rem" src="img/paypal.svg" alt="..."></li>
-            <li class="list-inline-item"><img class="w-2rem" src="img/western-union.svg" alt="..."></li>
+            <li class="list-inline-item"><img class="w-2rem" src="/img/visa.svg" alt="..."></li>
+            <li class="list-inline-item"><img class="w-2rem" src="/img/mastercard.svg" alt="..."></li>
+            <li class="list-inline-item"><img class="w-2rem" src="/img/paypal.svg" alt="..."></li>
+            <li class="list-inline-item"><img class="w-2rem" src="/img/western-union.svg" alt="..."></li>
           </ul>
         </div>
       </div>
@@ -326,21 +326,21 @@
 </script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <!-- jQuery-->
-<script src="vendor/jquery/jquery.min.js"></script>
+<script src="/vendor/jquery/jquery.min.js"></script>
 <!-- Bootstrap JS bundle - Bootstrap + PopperJS-->
-<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- Magnific Popup - Lightbox for the gallery-->
-<script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+<script src="/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
 <!-- Smooth scroll-->
-<script src="vendor/smooth-scroll/smooth-scroll.polyfills.min.js"></script>
+<script src="/vendor/smooth-scroll/smooth-scroll.polyfills.min.js"></script>
 <!-- Bootstrap Select-->
-<script src="vendor/bootstrap-select/js/bootstrap-select.min.js"></script>
+<script src="/vendor/bootstrap-select/js/bootstrap-select.min.js"></script>
 <!-- Object Fit Images - Fallback for browsers that don't support object-fit-->
-<script src="vendor/object-fit-images/ofi.min.js"></script>
+<script src="/vendor/object-fit-images/ofi.min.js"></script>
 <!-- Swiper Carousel                       -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.1/js/swiper.min.js"></script>
 <script>var basePath = ''</script>
 <!-- Main Theme JS file    -->
-<script src="js/theme.js"></script>
+<script src="/js/theme.js"></script>
 </body>
 </html>
