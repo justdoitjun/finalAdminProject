@@ -33,6 +33,33 @@
   <!-- Font Awesome CSS-->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 </head>
+
+<script>
+  let signIn = {
+    init : $(()=>{
+      $('#signInBtn').click(()=>{
+        console.log('clicked');
+        $.ajax({
+          url:'/loginImpl',
+          data:{'hostId':$('#loginUsername').val(),
+            'hostPwd':$('#loginPassword').val()}
+        }).done(()=>{
+
+        })
+      })
+    })
+
+  }
+
+  $(()=>{
+    signIn.init;
+  });
+
+</script>
+
+
+
+
 <body>
 <div class="container-fluid px-3">
   <div class="row min-vh-100">
@@ -63,7 +90,7 @@
           </div>
           <!-- Submit-->
           <div class="d-grid">
-            <button class="btn btn-lg btn-primary">Sign in</button>
+            <button id="signInBtn" type="button" class="btn btn-lg btn-primary">Sign in</button>
           </div>
           <hr class="my-3 hr-text letter-spacing-2" data-content="OR">
           <div class="d-grid gap-2">
@@ -86,11 +113,7 @@
 </div>
 <!-- JavaScript files-->
 <script>
-  // ------------------------------------------------------- //
-  //   Inject SVG Sprite -
-  //   see more here
-  //   https://css-tricks.com/ajaxing-svg-sprite/
-  // ------------------------------------------------------ //
+
   function injectSvgSprite(path) {
 
     var ajax = new XMLHttpRequest();

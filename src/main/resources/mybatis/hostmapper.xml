@@ -3,12 +3,15 @@
         PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.kbstar.mapper.HostMapper">
-    <select id="select" parameterType="String" resultType="Host">
-        SELECT * FROM host WHERE hostId=#{hostId}
-    </select>
 
+    <select id="selectall" resultType="host">
+        SELECT * FROM host
+    </select>
+    <select id="select" parameterType="String" resultType="Host">
+        SELECT * FROM Host WHERE hostId=#{hostId}
+    </select>
     <insert id="insert" parameterType="Host">
-        INSERT INTO guest(hostId,hostName,hostPwd, hostRegDate) VALUES (#{hostId},#{hostName},#{hostPwd}, SYSDATE)
+        INSERT INTO host(hostId,hostName,hostPwd,hostRegDate) VALUES (#{hostId},#{hostName},#{hostPwd}, SYSDATE)
     </insert>
 
 

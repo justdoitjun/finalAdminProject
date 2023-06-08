@@ -71,6 +71,12 @@ public class MainController {
         return "index";
     }
 
+    @RequestMapping("/authResult")
+    public String authResult(Model model){
+        model.addAttribute("center","authResult");
+        return "index";
+    }
+
 //    @RequestMapping("/calender")
 //    public String calender(Model model){
 //        model.addAttribute("center","calender");
