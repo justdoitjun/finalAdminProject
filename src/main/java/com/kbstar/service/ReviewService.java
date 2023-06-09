@@ -1,7 +1,7 @@
 package com.kbstar.service;
 
 
-import com.kbstar.dto.ResponseReview;
+import com.kbstar.dto.HostRoomReserveReview;
 import com.kbstar.dto.Review;
 import com.kbstar.frame.KBService;
 import com.kbstar.mapper.ReviewMapper;
@@ -47,6 +47,9 @@ public class ReviewService implements KBService<Integer, Review> {
 
     public Object getMyAllReview(Integer roomId) throws Exception {
         return mapper.selectMyAllReview(roomId);
+    }
+    public List<HostRoomReserveReview> getMyRoomReviews(Integer roomId) throws Exception{
+        return mapper.selectMyRoomReviews(roomId);
     }
 
 

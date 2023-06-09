@@ -2,7 +2,7 @@ package com.kbstar.service;
 
 
 import com.kbstar.dto.Host;
-import com.kbstar.dto.HostRoom;
+import com.kbstar.dto.HostRoomReserveReview;
 import com.kbstar.frame.KBService;
 
 import com.kbstar.mapper.HostMapper;
@@ -49,7 +49,10 @@ public class HostService implements KBService<String, Host> {
     public void updatePwd(Host host) throws Exception {
         mapper.updatePwd(host);
     }
-    public List<HostRoom> getMyAllRoom(String hostId) throws Exception{
+    public List<HostRoomReserveReview> getMyAllRoom(String hostId) throws Exception{
         return mapper.selectMyAllRoom(hostId);
+    }
+    public List<HostRoomReserveReview> getMyRoomReviews(Integer roomId) throws Exception{
+        return mapper.selectMyRoomReviews(roomId);
     }
 }

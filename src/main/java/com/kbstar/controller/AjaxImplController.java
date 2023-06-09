@@ -1,21 +1,14 @@
 package com.kbstar.controller;
 
-import com.kbstar.dto.Guest;
 import com.kbstar.dto.Host;
-import com.kbstar.dto.HostRoom;
-import com.kbstar.dto.ResponseReview;
-import com.kbstar.service.GuestService;
+import com.kbstar.dto.HostRoomReserveReview;
 import com.kbstar.service.HostService;
 import com.kbstar.service.ReviewService;
 import lombok.extern.slf4j.Slf4j;
-import org.json.simple.JSONArray;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -91,15 +84,15 @@ public class AjaxImplController {
 
     @RequestMapping("/reviewLoad")
     public Object reviewLoad(Integer roomId) throws Exception{
-        List<ResponseReview> list = new ArrayList<>();
-        list = (List<ResponseReview>) reviewService.getMyAllReview(roomId);
+        List<HostRoomReserveReview> list = new ArrayList<>();
+        list = (List<HostRoomReserveReview>) reviewService.getMyRoomReviews(roomId);
         return list;
     }
 
     @RequestMapping("/roomLoad")
     public Object roomLoad(String hostId) throws Exception{
-        List<HostRoom> list = new ArrayList<>();
-        list = (List<HostRoom>) hostService.getMyAllRoom(hostId);
+        List<HostRoomReserveReview> list = new ArrayList<>();
+        list = (List<HostRoomReserveReview>) hostService.getMyAllRoom(hostId);
         return list;
     }
 

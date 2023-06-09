@@ -9,7 +9,7 @@ import java.util.Date;
 @Setter
 @Getter
 @ToString
-public class HostRoom {
+public class HostRoomReserveReview {
     private String hostId;
     private String hostName;
     private String hostPwd;
@@ -44,9 +44,40 @@ public class HostRoom {
     private String roomImage5;
     private String roomImage6;
     private Integer roomLikes;
+    private Integer reserveId;
+    private String guestId;
+    private Date reserveCheckIn;
+    private Date reserveCheckOut;
+    private long reservePrice;
+    private long reserveConfirm;
+    private Integer reserveCal;
+    private Integer reserveCap;
+    private String reserveStatus;
+    private long reservePayRate;
+    private long reservePayAmount;
+    private Date reservePayDate;
+    private String reservePayType;
+    private long reserveDiscount;
+    private long reservePoint;
+    private String reserveBank;
+    private long reserveAccHolder;
+    private String reserverApi;
+    private Integer reserveRefund;
+    private String guestName;
+
+    private Integer reviewId;
+    private long reviewRate;
+    private String reviewContents1;
+    private String reviewContents2;
+    private String reviewContents3;
+    private String reviewContents4;
+    private Integer reviewHidden;
+    private String guestId2;
+    private Integer reserveReply;
 
 
-    public HostRoom(Integer roomId, String hostId, Integer roomPrice, String roomName, String roomAddress, String roomLoc) {
+
+    public HostRoomReserveReview(Integer roomId, String hostId, Integer roomPrice, String roomName, String roomAddress, String roomLoc) {
         this.roomId = roomId;
         this.hostId = hostId;
         this.roomPrice = roomPrice;
