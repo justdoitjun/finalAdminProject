@@ -2,6 +2,7 @@ package com.kbstar.controller;
 
 import com.kbstar.dto.Guest;
 import com.kbstar.dto.Host;
+import com.kbstar.dto.HostRoom;
 import com.kbstar.dto.ResponseReview;
 import com.kbstar.service.GuestService;
 import com.kbstar.service.HostService;
@@ -92,6 +93,13 @@ public class AjaxImplController {
     public Object reviewLoad(Integer roomId) throws Exception{
         List<ResponseReview> list = new ArrayList<>();
         list = (List<ResponseReview>) reviewService.getMyAllReview(roomId);
+        return list;
+    }
+
+    @RequestMapping("/roomLoad")
+    public Object roomLoad(String hostId) throws Exception{
+        List<HostRoom> list = new ArrayList<>();
+        list = (List<HostRoom>) hostService.getMyAllRoom(hostId);
         return list;
     }
 

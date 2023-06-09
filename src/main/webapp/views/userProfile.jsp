@@ -65,7 +65,7 @@
                   <use xlink:href="#diploma-1"> </use>
                 </svg>
               </div>
-              <a href="/profile/myinfo" >
+              <a href="./profile/myinfo" >
               <div>
                 <p class="mb-0">정보 변경</p>
               </div>
@@ -77,7 +77,7 @@
                   <use xlink:href="#diploma-1"> </use>
                 </svg>
               </div>
-              <a href="profile/reviews">
+              <a href="./profile/reviews">
               <div>
                 <p class="mb-0">2877 reviews</p>
               </div>

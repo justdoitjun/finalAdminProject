@@ -13,6 +13,12 @@
     <insert id="insert" parameterType="Host">
         INSERT INTO host(hostId,hostName,hostPwd,hostRegDate) VALUES (#{hostId},#{hostName},#{hostPwd}, SYSDATE)
     </insert>
-
+    <select id="selectMyAllRoom" parameterType="String" resultType="HostRoom">
+        SELECT H.hostId, H.hostName, H.hostPwd, H.hostImage, H.hostIntro, H.hostSuper, H.hostLang, H.hostRate, H.hostYear, H.hostJob, H.hostVerified, H.hostRegDate, H.hostDelDate,
+               O.roomId, O.roomPrice, O.roomName, O.roomAddress, O.roomLoc, O.roomInfo, O.roomIntro, O.roomClean, O.roomPet, O.roomWPrice, O.roomCap, O.roomType, O.roomLat, O.roomLng, O.roomImage1, O.roomImage2, O.roomImage3, O.roomImage4, O.roomImage5, O.roomImage6, O.roomLikes
+        FROM host H
+                 INNER JOIN room O ON H.hostId = O.hostId
+        WHERE O.hostId = #{hostId}
+    </select>
 
 </mapper>
