@@ -1,108 +1,94 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Directory Theme by Bootstrapious</title>
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="robots" content="all,follow">
-  <!-- Price Slider Stylesheets -->
-  <link rel="stylesheet" href="vendor/nouislider/nouislider.css">
-  <!-- Google fonts - Playfair Display-->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700">
-  <!-- Google fonts - Poppins-->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,400i,700">
-  <!-- swiper-->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.1/css/swiper.min.css">
-  <!-- Magnigic Popup-->
-  <link rel="stylesheet" href="vendor/magnific-popup/magnific-popup.css">
-  <!-- theme stylesheet-->
-  <link rel="stylesheet" href="css/style.default.css" id="theme-stylesheet">
-  <!-- Custom stylesheet - for your changes-->
-  <link rel="stylesheet" href="css/custom.css">
-  <!-- Favicon-->
-  <link rel="shortcut icon" href="img/favicon.png">
-  <!-- Tweaks for older IEs--><!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
-  <!-- Font Awesome CSS-->
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-</head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.0/js/bootstrap.min.js"></script>
 
 <script>
-  let signIn = {
-    init : $(()=>{
-      $('#signInBtn').click(()=>{
-        console.log('clicked');
-        $.ajax({
-          url:'/loginImpl',
-          data:{'hostId':$('#loginUsername').val(),
-            'hostPwd':$('#loginPassword').val()}
-        }).done(()=>{
-
-        })
-      })
-    })
-
-  }
-
-  $(()=>{
-    signIn.init;
+  let loginForm = {
+    init:function(){
+      $("#loginBtn").click(function(){
+        loginForm.send();
+      });
+    },
+    send:function(){
+      $("#loginForm").attr({
+        'action':'/loginImpl',
+        'method':'post'
+      });
+      $("#loginForm").submit();
+    }
+  };
+  $(function(){
+    loginForm.init();
+    let msg = "${msg}";
+    if(msg != ""){
+      alert(msg);
+    }
   });
 
+  $(function(){
+    $("#pwdBtn").click(function(){
+      let guestId = $("#searchPwd").val();
+      $.ajax({
+        url:"/findPwd",
+        dataType:'json',
+        data:{"guestId":guestId},
+        success:function(data){
+          if(data==true){
+            alert("임시 비밀번호가 발급되었습니다.메일함을 확인해 주세요");
+            console.log(data);
+          }else{
+            alert("아이디를 정확하게 입력해 주세요");
+            console.log(data);
+          }
+        }
+      });
+    });
+  });
+
+
 </script>
-
-
-
 
 <body>
 <div class="container-fluid px-3">
   <div class="row min-vh-100">
     <div class="col-md-8 col-lg-6 col-xl-5 d-flex align-items-center">
       <div class="w-100 py-5 px-md-5 px-xxl-6 position-relative">
-        <div class="mb-5"><img class="img-fluid mb-3" src="img/logo-square.svg" alt="..." style="max-width: 4rem;">
-          <h2>Welcome back</h2>
+        <div class="mb-5">
+          <h2>로그인</h2>
         </div>
-        <form class="form-validate">
+        <form class="form-validate" id="loginForm">
           <div class="mb-4">
-            <label class="form-label" for="loginUsername"> Email Address</label>
-            <input class="form-control" name="loginUsername" id="loginUsername" type="email" placeholder="name@address.com" autocomplete="off" required data-msg="Please enter your email">
+            <label class="form-label" for="hostId"> 메일주소</label>
+            <input class="form-control" name="hostId" id="hostId" type="email" placeholder="name@address.com" autocomplete="off" required data-msg="Please enter your email">
           </div>
           <div class="mb-4">
             <div class="row">
               <div class="col">
-                <label class="form-label" for="loginPassword"> Password</label>
+                <label class="form-label" for="hostPwd"> 비밀번호</label>
               </div>
-              <div class="col-auto"><a class="form-text small text-primary" href="#">Forgot password?</a></div>
+              <div class="col-auto"><a class="form-text small text-primary" data-toggle="modal" href="#" data-target="#pwdModal">비밀번호 찾기</a></div>
             </div>
-            <input class="form-control" name="loginPassword" id="loginPassword" placeholder="Password" type="password" required data-msg="Please enter your password">
+            <input class="form-control" name="hostPwd" id="hostPwd" placeholder="Password" type="password" required data-msg="Please enter your password">
           </div>
           <div class="mb-4">
             <div class="form-check">
               <input class="form-check-input" id="loginRemember" type="checkbox">
-              <label class="form-check-label text-muted" for="loginRemember"> <span class="text-sm">Remember me for 30 days</span></label>
+              <label class="form-check-label text-muted" for="loginRemember"> <span class="text-sm">30일동안 기억하기</span></label>
             </div>
           </div>
           <!-- Submit-->
           <div class="d-grid">
-            <button id="signInBtn" type="button" class="btn btn-lg btn-primary">Sign in</button>
+            <button style="height: 61.28px;" id="loginBtn" class="btn btn-lg btn-primary">로그인 하기</button>
           </div>
           <hr class="my-3 hr-text letter-spacing-2" data-content="OR">
           <div class="d-grid gap-2">
-            <button class="btn btn btn-outline-primary btn-social"><i class="fa-2x fa-facebook-f fab btn-social-icon"> </i>Connect <span class="d-none d-sm-inline">with Facebook</span></button>
-            <button class="btn btn btn-outline-muted btn-social"><i class="fa-2x fa-google fab btn-social-icon"> </i>Connect <span class="d-none d-sm-inline">with Google</span></button>
+            <a href="https://kauth.kakao.com/oauth/authorize?client_id=9b7c02c3cdf81109f8023cd5a12156ee&redirect_uri=http://127.0.0.1/auth/kakao/callback&response_type=code">
+              <img class="img-fluid" src="/img/photo/kakaoLogin.jpg"></a>
           </div>
           <hr class="my-4">
-          <p class="text-center"><small class="text-muted text-center">Don't have an account yet? <a href="signup.html">Sign Up                </a></small></p>
-        </form><a class="close-absolute me-md-5 me-xl-6 pt-5" href="index.html">
-        <svg class="svg-icon w-3rem h-3rem">
-          <use xlink:href="#close-1"> </use>
-        </svg></a>
+          <p class="text-center"><small class="text-muted text-center"><a href="/register">회원 가입 하러 가기</a></small></p>
+        </form>
       </div>
     </div>
     <div class="col-md-4 col-lg-6 col-xl-7 d-none d-md-block">
@@ -111,9 +97,46 @@
     </div>
   </div>
 </div>
-<!-- JavaScript files-->
-<script>
 
+<!-- Modal -->
+<form action="/findPwd" method="get">
+
+  <div class="modal fade" id="pwdModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">비밀번호를 잊으셨나요?</h5>
+          <button type="button" class="btn btn-light" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <h2>임시 비밀번호 발급</h2>
+          <label class="form-label" for="guestId"> 메일주소</label>
+          <input id="searchPwd" class="form-control" name="guestId" type="email" placeholder="name@address.com" autocomplete="off" required data-msg="Please enter your email">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" id="pwdBtn">Temp Passwoord</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+
+
+</body>
+
+<!-- JavaScript files-->
+
+
+
+<script>
+  // ------------------------------------------------------- //
+  //   Inject SVG Sprite -
+  //   see more here
+  //   https://css-tricks.com/ajaxing-svg-sprite/
+  // ------------------------------------------------------ //
   function injectSvgSprite(path) {
 
     var ajax = new XMLHttpRequest();
@@ -133,22 +156,4 @@
   injectSvgSprite('https://demo.bootstrapious.com/directory/1-4/icons/orion-svg-sprite.svg');
 
 </script>
-<!-- jQuery-->
-<script src="vendor/jquery/jquery.min.js"></script>
-<!-- Bootstrap JS bundle - Bootstrap + PopperJS-->
-<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- Magnific Popup - Lightbox for the gallery-->
-<script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
-<!-- Smooth scroll-->
-<script src="vendor/smooth-scroll/smooth-scroll.polyfills.min.js"></script>
-<!-- Bootstrap Select-->
-<script src="vendor/bootstrap-select/js/bootstrap-select.min.js"></script>
-<!-- Object Fit Images - Fallback for browsers that don't support object-fit-->
-<script src="vendor/object-fit-images/ofi.min.js"></script>
-<!-- Swiper Carousel                       -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.1/js/swiper.min.js"></script>
-<script>var basePath = ''</script>
-<!-- Main Theme JS file    -->
-<script src="js/theme.js"></script>
-</body>
-</html>
+

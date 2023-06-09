@@ -211,9 +211,17 @@
               <h6 class="dropdown-header fw-normal">Components</h6><a class="dropdown-item" href="/docs/components-bootstrap.html">Bootstrap </a><a class="dropdown-item" href="docs/components-directory.html">Theme </a>
             </div>
           </li>
-          <li class="nav-item"><a class="nav-link" href="/login">로그인</a></li>
-          <li class="nav-item"><a class="nav-link" href="/register">회원가입</a></li>
-          <li class="nav-item mt-3 mt-lg-0 ms-lg-3 d-lg-none d-xl-inline-block"><a class="btn btn-primary" href="user-add-0.html">당신의 공간을 DIGI실 하세요</a></li>
+          <c:choose>
+            <c:when test="${loginHost == null}">
+              <li class="nav-item"><a class="nav-link" href="/login">로그인</a></li>
+              <li class="nav-item"><a class="nav-link" href="/register">회원가입</a></li>
+            </c:when>
+            <c:otherwise>
+              <li class="nav-item"><a class="nav-link" href="none">${loginHost.hostId}</a></li>
+              <li class="nav-item"><a class="nav-link" href="/logout">로그아웃</a></li>
+
+            </c:otherwise>
+          </c:choose>
         </ul>
       </div>
     </div>
