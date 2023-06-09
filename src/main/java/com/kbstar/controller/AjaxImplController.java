@@ -2,9 +2,12 @@ package com.kbstar.controller;
 
 import com.kbstar.dto.Guest;
 import com.kbstar.dto.Host;
+import com.kbstar.dto.ResponseReview;
 import com.kbstar.service.GuestService;
 import com.kbstar.service.HostService;
+import com.kbstar.service.ReviewService;
 import lombok.extern.slf4j.Slf4j;
+import org.json.simple.JSONArray;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -12,6 +15,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
+import java.util.List;
 
 @Slf4j
 // 일반적인 컨트롤러는 화면jsp파일을 return 해 주니, ajax 요청은 이걸 이용하자-@RestController
@@ -21,6 +26,8 @@ public class AjaxImplController {
 
     @Autowired
     HostService hostService;
+    @Autowired
+    ReviewService reviewService;
 
     @Autowired
     BCryptPasswordEncoder encoder= new BCryptPasswordEncoder();
@@ -80,5 +87,12 @@ public class AjaxImplController {
 //        }
 //        return result;
 //    }
+
+    @RequestMapping("/reviewLoad")
+    public Object reviewLoad(Integer roomId) throws Exception{
+        List<ResponseReview> list = new ArrayList<>();
+        list = (List<ResponseReview>) reviewService.getMyAllReview(roomId);
+        return list;
+    }
 
 }

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kbstar.mapper.ReviewMapper">
+    <select id="selectMyAllReview" parameterType="Integer" resultType="ResponseReview">
+        SELECT R.reviewId as reviewId, R.roomId as roomId, R.reserveId as reserveId, R.guestId as guestId, R.reviewRate as reviewRate, R.reviewContents1 as reviewContents1, R.reviewContents2 as reviewContents2, R.reviewContents3 as reviewContents3, R.reviewContents4 as reviewContents4, R.reviewHidden as reviewHidden, R.guestId2 as guestId2, O.hostId as HostId
+        FROM review R
+        INNER JOIN room O ON R.roomId = O.roomId
+        WHERE R.roomId=#{roomId}
+    </select>
+</mapper>

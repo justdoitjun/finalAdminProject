@@ -54,19 +54,22 @@
       <div class="col-lg-3 me-lg-auto">
         <div class="card border-0 shadow mb-6 mb-lg-0">
           <div class="card-header bg-gray-100 py-4 border-0 text-center"><a class="d-inline-block" href="#"><img class="d-block avatar avatar-xxl p-2 mb-2" src="/img/avatar/avatar-10.jpg" alt=""></a>
-            <h5>${loginHost.hostId}</h5>
+            <h5>${loginHost.hostName}</h5>
             <p class="text-muted text-sm mb-0">Los Angeles, CA  </p>
           </div>
           <div class="card-body p-4">
             <div class="d-flex align-items-center mb-3">
+
               <div class="icon-rounded icon-rounded-sm bg-primary-light flex-shrink-0 me-2">
                 <svg class="svg-icon text-primary svg-icon-md">
                   <use xlink:href="#diploma-1"> </use>
                 </svg>
               </div>
+              <a href="/profile/myinfo" >
               <div>
                 <p class="mb-0">정보 변경</p>
               </div>
+              </a>
             </div>
             <div class="d-flex align-items-center mb-3">
               <div class="icon-rounded icon-rounded-sm bg-primary-light flex-shrink-0 me-2">
@@ -74,9 +77,11 @@
                   <use xlink:href="#diploma-1"> </use>
                 </svg>
               </div>
+              <a href="profile/reviews">
               <div>
                 <p class="mb-0">2877 reviews</p>
               </div>
+              </a>
             </div>
             <div class="d-flex align-items-center mb-3">
               <div class="icon-rounded icon-rounded-sm bg-primary-light flex-shrink-0 me-2">

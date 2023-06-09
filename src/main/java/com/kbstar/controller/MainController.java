@@ -50,18 +50,7 @@ public class MainController {
         return "index";
     }
 
-    @RequestMapping("/profile")
-    public String profile(Model model){
-        model.addAttribute("center","userProfile");
-        return "index";
-    }
 
-    @RequestMapping("/profile/myinfo")
-    public String myinfo(Model model){
-        model.addAttribute("center","userProfile");
-        model.addAttribute("centerUserProfile",dirProfile+"myInfo");
-        return "index";
-    }
 
     @RequestMapping("/total")
     public String total(Model model){
