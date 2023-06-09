@@ -29,6 +29,8 @@ public class ChatController {
     ChatContentsService chatContentsService;
 
     String dir = "chat/";
+    String dirProfile = "profile/";
+
 
     @RequestMapping("/chatroom")
     public String main(Model model) throws Exception {

@@ -25,7 +25,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="all,follow">
   <!-- Price Slider Stylesheets -->
-  <link rel="stylesheet" href="vendor/nouislider/nouislider.css">
+  <link rel="stylesheet" href="/vendor/nouislider/nouislider.css">
   <!-- Google fonts - Playfair Display-->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700">
   <!-- Google fonts - Poppins-->
@@ -33,13 +33,13 @@
   <!-- swiper-->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.1/css/swiper.min.css">
   <!-- Magnigic Popup-->
-  <link rel="stylesheet" href="vendor/magnific-popup/magnific-popup.css">
+  <link rel="stylesheet" href="/vendor/magnific-popup/magnific-popup.css">
   <!-- theme stylesheet-->
-  <link rel="stylesheet" href="css/style.default.css" id="theme-stylesheet">
+  <link rel="stylesheet" href="/css/style.default.css" id="theme-stylesheet">
   <!-- Custom stylesheet - for your changes-->
-  <link rel="stylesheet" href="css/custom.css">
+  <link rel="stylesheet" href="/css/custom.css">
   <!-- Favicon-->
-  <link rel="shortcut icon" href="img/favicon.png">
+  <link rel="shortcut icon" href="/img/favicon.png">
   <!-- Tweaks for older IEs--><!--[if lt IE 9]>
   <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
@@ -53,11 +53,21 @@
     <div class="row">
       <div class="col-lg-3 me-lg-auto">
         <div class="card border-0 shadow mb-6 mb-lg-0">
-          <div class="card-header bg-gray-100 py-4 border-0 text-center"><a class="d-inline-block" href="#"><img class="d-block avatar avatar-xxl p-2 mb-2" src="img/avatar/avatar-10.jpg" alt=""></a>
-            <h5>Jack London</h5>
+          <div class="card-header bg-gray-100 py-4 border-0 text-center"><a class="d-inline-block" href="#"><img class="d-block avatar avatar-xxl p-2 mb-2" src="/img/avatar/avatar-10.jpg" alt=""></a>
+            <h5>${loginHost.hostId}</h5>
             <p class="text-muted text-sm mb-0">Los Angeles, CA  </p>
           </div>
           <div class="card-body p-4">
+            <div class="d-flex align-items-center mb-3">
+              <div class="icon-rounded icon-rounded-sm bg-primary-light flex-shrink-0 me-2">
+                <svg class="svg-icon text-primary svg-icon-md">
+                  <use xlink:href="#diploma-1"> </use>
+                </svg>
+              </div>
+              <div>
+                <p class="mb-0">정보 변경</p>
+              </div>
+            </div>
             <div class="d-flex align-items-center mb-3">
               <div class="icon-rounded icon-rounded-sm bg-primary-light flex-shrink-0 me-2">
                 <svg class="svg-icon text-primary svg-icon-md">
@@ -140,21 +150,21 @@
 
 </script>
 <!-- jQuery-->
-<script src="vendor/jquery/jquery.min.js"></script>
+<script src="/vendor/jquery/jquery.min.js"></script>
 <!-- Bootstrap JS bundle - Bootstrap + PopperJS-->
-<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- Magnific Popup - Lightbox for the gallery-->
-<script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+<script src="/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
 <!-- Smooth scroll-->
-<script src="vendor/smooth-scroll/smooth-scroll.polyfills.min.js"></script>
+<script src="/vendor/smooth-scroll/smooth-scroll.polyfills.min.js"></script>
 <!-- Bootstrap Select-->
-<script src="vendor/bootstrap-select/js/bootstrap-select.min.js"></script>
+<script src="/vendor/bootstrap-select/js/bootstrap-select.min.js"></script>
 <!-- Object Fit Images - Fallback for browsers that don't support object-fit-->
-<script src="vendor/object-fit-images/ofi.min.js"></script>
+<script src="/vendor/object-fit-images/ofi.min.js"></script>
 <!-- Swiper Carousel                       -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.1/js/swiper.min.js"></script>
 <script>var basePath = ''</script>
 <!-- Main Theme JS file    -->
-<script src="js/theme.js"></script>
+<script src="/js/theme.js"></script>
 </body>
 </html>

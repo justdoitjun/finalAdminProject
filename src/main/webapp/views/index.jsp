@@ -217,7 +217,7 @@
               <li class="nav-item"><a class="nav-link" href="/register">회원가입</a></li>
             </c:when>
             <c:otherwise>
-              <li class="nav-item"><a class="nav-link" href="none">${loginHost.hostId}</a></li>
+              <li class="nav-item"><a class="nav-link" href="/profile">${loginHost.hostId}</a></li>
               <li class="nav-item"><a class="nav-link" href="/logout">로그아웃</a></li>
 
             </c:otherwise>

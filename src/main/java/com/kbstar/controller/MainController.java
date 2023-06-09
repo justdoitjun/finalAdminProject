@@ -22,6 +22,10 @@ public class MainController {
 
     Logger logger = LoggerFactory.getLogger(this.getClass().getSimpleName());
 
+    String dirProfile = "profile/";
+    String dir = "chat/";
+
+
     @RequestMapping("/")
     public String main(Model model) throws Exception {
         return "index";
@@ -48,7 +52,14 @@ public class MainController {
 
     @RequestMapping("/profile")
     public String profile(Model model){
-        model.addAttribute("center","profile");
+        model.addAttribute("center","userProfile");
+        return "index";
+    }
+
+    @RequestMapping("/profile/myinfo")
+    public String myinfo(Model model){
+        model.addAttribute("center","userProfile");
+        model.addAttribute("centerUserProfile",dirProfile+"myInfo");
         return "index";
     }
 
