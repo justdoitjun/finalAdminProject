@@ -3,6 +3,7 @@ package com.kbstar.controller;
 import com.kbstar.dto.Host;
 import com.kbstar.dto.HostRoomReserveReview;
 import com.kbstar.service.HostService;
+import com.kbstar.service.ReserveService;
 import com.kbstar.service.ReviewService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +23,8 @@ public class AjaxImplController {
     HostService hostService;
     @Autowired
     ReviewService reviewService;
+    @Autowired
+    ReserveService reserveService;
 
     @Autowired
     BCryptPasswordEncoder encoder= new BCryptPasswordEncoder();
@@ -93,6 +96,14 @@ public class AjaxImplController {
     public Object roomLoad(String hostId) throws Exception{
         List<HostRoomReserveReview> list = new ArrayList<>();
         list = (List<HostRoomReserveReview>) hostService.getMyAllRoom(hostId);
+        return list;
+    }
+
+
+    @RequestMapping("/reserveHostGuestLoad")
+    public Object reserveHostGuestLoad(String hostId, String guestId) throws Exception{
+        List<HostRoomReserveReview> list = new ArrayList<>();
+        list = reserveService.getHostGuestReserve(hostId, guestId);
         return list;
     }
 
