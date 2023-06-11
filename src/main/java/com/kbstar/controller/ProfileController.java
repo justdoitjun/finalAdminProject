@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class ProfileController {
 
     String dirProfile = "profile/";
+    String dirReservation = "reservation/";
     String dir = "chat/";
     @RequestMapping("")
     public String profile(Model model){
@@ -35,6 +36,15 @@ public class ProfileController {
         model.addAttribute("roomId", roomId);
         model.addAttribute("center","userProfile");
         model.addAttribute("centerUserProfile",dirProfile+"roomReviews");
+        return "index";
+    }
+
+    @RequestMapping("/reservation")
+    public String reservation( Model model, String hostId) throws Exception{
+        model.addAttribute("hostId", hostId);
+        model.addAttribute("center","userProfile");
+        model.addAttribute("centerUserProfile",dirReservation+"pay");
+
         return "index";
     }
 }
