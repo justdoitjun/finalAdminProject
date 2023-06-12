@@ -15,7 +15,7 @@ public class ChatRoomInsertTest {
     @Test
     void contextLoads() {
         try{
-            Chatroom chatroom= new Chatroom(0, "host1", "guest1");
+            Chatroom chatroom= new Chatroom(0, "host7", "guest1");
             service.register(chatroom);
             service.get();
         }catch(Exception e){

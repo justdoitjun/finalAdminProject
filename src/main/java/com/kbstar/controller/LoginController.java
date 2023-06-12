@@ -1,8 +1,11 @@
 package com.kbstar.controller;
 
 import com.kbstar.dto.Guest;
+import com.kbstar.dto.Host;
 import com.kbstar.service.GuestService;
+import com.kbstar.service.HostService;
 import lombok.extern.slf4j.Slf4j;
+import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -16,26 +19,34 @@ import javax.servlet.http.HttpSession;
 public class LoginController {
 
     @Autowired
-    GuestService guestService;
+    HostService hostService;
     @Autowired
     private BCryptPasswordEncoder encoder;
     @RequestMapping("/loginImpl")
-    public String loginImpl(Model model, String guestId, String guestPwd, HttpSession session) {
-        Guest guest = null;
+    public String loginImpl(Model model,
+                            String hostId, String hostPwd, HttpSession session) {
+        log.info("---------------------------------"+hostId, hostPwd);
+        Host host = null;
         try {
-            guest = guestService.get(guestId);
-            if(guest != null && encoder.matches(guestPwd,guest.getGuestPwd())){
+            host = hostService.get(hostId);
+            if(host != null && encoder.matches(hostPwd,host.getHostPwd())){
+                log.info("====");
+                log.info("login성공");
                 session.setMaxInactiveInterval(1000000);
-                session.setAttribute("loginGuest",guest);
+                session.setAttribute("loginHost",host);
+                model.addAttribute("loginHost", host);
                 model.addAttribute("center","center");
-            }if(guest == null || !encoder.matches(guestPwd,guest.getGuestPwd())){
+                return "redirect:/";
+            }if(host == null || !encoder.matches(hostPwd,host.getHostPwd()) || host.getHostId() == ""){
+                log.info("===");
+                log.info("login실패");
                 model.addAttribute("msg","아이디 혹은 비밀번호를 확인하세요.");
                 model.addAttribute("center","login");
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return "redirect:/";
+        return "index";
     }
 
 

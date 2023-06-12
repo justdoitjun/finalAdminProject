@@ -57,8 +57,7 @@
       console.log("=====번역결과=====");
       translatedResult = data.message.result.translatedText;
       console.log(data.message.result.translatedText);
-      alert(data.message.result.translatedText);
-
+      $('#chatContents').text(data.message.result.translatedText);
     }).fail(()=>{
       console.log('failed');
     })
@@ -102,26 +101,32 @@
         //console.log('====');
         //console.log(obj.chatSender);
         if(obj.chatSender == chatSender){
-          let html = '<div class="d-flex col-md-9 col-xl-7 ms-lg-auto mb-3" >'+
-                  '<div class="ms-auto">'+
-                  '<div class="bg-primary rounded p-4 mb-2">'+
-                  '<p class="text-sm mb-0 text-white">'+ obj.chatContents + '</p>' +
-                  '</div>' +
-                  '<p class="small text-muted ms-3">'+ obj.chatDate + '<button type="button" class="btn detectBtn" data-chat-contents="' + obj.chatContents + '">'+'번역'+'</button>'+'</p>' +
-                  '</div>' +
-                  '<img class="avatar avatar-border-white flex-shrink-0" src="img/avatar/avatar-10.jpg" alt="user">'+
-                  '</div>';
+          let html =
+                  `
+                  <div class="d-flex col-md-9 col-xl-7 ms-lg-auto mb-3" >
+                  <div class="ms-auto">
+                  <div class="bg-primary rounded p-4 mb-2">
+                  <p class="text-sm mb-0 text-white" id="chatContents">\${obj.chatContents}</p>
+                  </div>
+                  <p class="small text-muted ms-3">\${obj.chatDate}<button type="button" class="btn detectBtn" data-chat-contents="\${obj.chatContents}">번역</button></p>
+                  </div>
+                  <img class="avatar avatar-border-white flex-shrink-0" src="img/avatar/avatar-10.jpg" alt="user">
+                  </div>
+                  `;
           $('#chatContainer').append(html);
         }else{
-          let html = '<div class="d-flex col-md-9 col-xl-7 mb-3">' +
-                  '<img class="avatar avatar-border-white flex-shrink-0" src="img/avatar/avatar-1.jpg" alt="user">' +
-                  '<div class="ms-3">' +
-                  '<div class="bg-gray-200 rounded p-4 mb-2">' +
-                  '<p>' + obj.chatContents + '</p>' +
-                  '</div>' +
-                  '<p class="small text-muted ms-3">' + obj.chatDate + '<button type="button" class="btn detectBtn" data-chat-contents="' + obj.chatContents + '">'+'번역'+'</button>'+'</p>' +
-                  '</div>' +
-                  '</div>';
+          let html =
+                  `
+                  <div class="d-flex col-md-9 col-xl-7 mb-3">
+                  <img class="avatar avatar-border-white flex-shrink-0" src="img/avatar/avatar-1.jpg" alt="user">
+                  <div class="ms-3">
+                  <div class="bg-gray-200 rounded p-4 mb-2">
+                  <p id="chatContents">\${obj.chatContents}</p>
+                  </div>
+                  <p class="small text-muted ms-3">\${obj.chatDate}<button type="button" class="btn detectBtn" data-chat-contents="\${obj.chatContents}">번역</button></p>
+                  </div>
+                  </div>
+                  `
           $('#chatContainer').append(html);
         }
     })}).fail(()=>{

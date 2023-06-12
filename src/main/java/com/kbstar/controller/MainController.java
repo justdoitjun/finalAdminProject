@@ -22,6 +22,10 @@ public class MainController {
 
     Logger logger = LoggerFactory.getLogger(this.getClass().getSimpleName());
 
+    String dirProfile = "profile/";
+    String dir = "chat/";
+
+
     @RequestMapping("/")
     public String main(Model model) throws Exception {
         return "index";
@@ -46,11 +50,7 @@ public class MainController {
         return "index";
     }
 
-    @RequestMapping("/profile")
-    public String profile(Model model){
-        model.addAttribute("center","profile");
-        return "index";
-    }
+
 
     @RequestMapping("/total")
     public String total(Model model){
@@ -68,6 +68,12 @@ public class MainController {
     @RequestMapping("/roomcategory")
     public String roomcategory(Model model){
         model.addAttribute("center","roomcategory");
+        return "index";
+    }
+
+    @RequestMapping("/authResult")
+    public String authResult(Model model){
+        model.addAttribute("center","authResult");
         return "index";
     }
 

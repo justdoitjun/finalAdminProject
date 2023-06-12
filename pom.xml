@@ -116,6 +116,23 @@
             <artifactId>bootstrap</artifactId>
             <version>3.3.7</version>
         </dependency>
+<!-- 이메일 보내기-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-mail</artifactId>
+        </dependency>
+        <!-- 암호화 -->
+        <dependency>
+            <groupId>com.github.ulisesbocchio</groupId>
+            <artifactId>jasypt-spring-boot-starter</artifactId>
+            <version>3.0.3</version>
+        </dependency>
+        <!--firebase-->
+        <dependency>
+            <groupId>com.google.firebase</groupId>
+            <artifactId>firebase-admin</artifactId>
+            <version>8.0.0</version>
+        </dependency>
 
 
 

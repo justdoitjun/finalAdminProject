@@ -1,7 +1,14 @@
 package com.kbstar.dto;
 
+import lombok.*;
+
 import java.util.Date;
 
+@AllArgsConstructor
+@NoArgsConstructor
+@Setter
+@Getter
+@ToString
 public class Host {
     private String hostId;
     private String hostName;
@@ -17,4 +24,10 @@ public class Host {
     private Date hostRegDate;
     private Date hostDelDate;
 
+    public Host(String hostId, String hostName, String hostPwd, Date hostRegDate) {
+        this.hostId = hostId;
+        this.hostName = hostName;
+        this.hostPwd = hostPwd;
+        this.hostRegDate = hostRegDate;
+    }
 }

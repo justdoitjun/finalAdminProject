@@ -1,28 +1,22 @@
-package com.kbstar.host;
+package com.kbstar.review;
 
-import com.kbstar.dto.Chatroom;
-import com.kbstar.dto.Host;
-import com.kbstar.service.ChatRoomService;
 import com.kbstar.service.HostService;
+import com.kbstar.service.ReviewService;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import java.util.Date;
-
 @Slf4j
 @SpringBootTest
-public class HostInsertTest {
+public class ReviewSelectMyRoomReviewsTest {
     @Autowired
-    HostService service;
+    ReviewService service;
     @Test
     void contextLoads() {
         try{
             //insertTest시 hostID를 자주 바꿔줄 것. -unique 값임.
-            Host host = new Host("host7@gmail.com","hostName", "pwd01", new Date());
-            service.register(host);
-            service.get();
+           service.getMyRoomReviews(7);
         }catch(Exception e){
             log.info("Error");
             e.printStackTrace();

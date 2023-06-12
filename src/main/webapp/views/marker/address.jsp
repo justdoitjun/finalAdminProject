@@ -3,7 +3,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=4083a9e1e518bd0452f9a390ffd2eec7&libraries=services"></script>
-<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 <style>
@@ -23,6 +23,24 @@
         height: 100%;
     }
 </style>
+<script>
+    //프로세스 - 로그인을 하고 방 등록하는 과정
+    // (1) 기본 정보 입력 : 가격/방이름/주소입력하고 주소가 입력되면, 나머지 정보들(지역, 위도, 경도) 등이 고정됨.
+    // (2) 특히 주소가 입력되면 주소를 확정짓겠냐고 물어봐줘야함. 확정버튼을 누르면 나머지가 다 고정되어서 넘어감.
+    // (3) 그리고 그 다음 정보로 넘어감.
+    // (4) 부드럽게 그 다음이 넘어가도록.
+    // (5) register 버튼 클릭시 구글 auth 클릭하도록
+    $(()=>{
+        roomRegister.init();
+    });
+    let roomRegister = {
+        init : ()=>{$('#roomRegisterBtn').click(()=>{
+            console.log('clicked register button');
+
+        })}
+    }
+
+</script>
 
 
 
@@ -68,8 +86,7 @@
                 </div>
                 <form class="form-validate">
                     <div class="mb-4">
-                        <label class="form-label" for="loginUsername"> ID를 입력해주세요</label>
-                        <input class="form-control" name="loginUsername" id="loginUsername" type="email" placeholder="name@address.com" autocomplete="off" required data-msg="Please enter your email">
+                        <input class="form-control" name="loginUsername" id="loginUsername" type="hidden" placeholder="name@address.com" autocomplete="off" required data-msg="Please enter your email">
                     </div>
                     <div class="mb-4">
                         <label class="form-label" for="price"> 가격 </label>
@@ -85,14 +102,14 @@
                     <input class="form-control" type="text"  id="sample5_address" placeholder="주소">
                     <input class="form-control" type="button" onclick="sample5_execDaumPostcode()" value="주소 검색"><br>
                     </div>
-
-
-
-                    <div class="d-grid gap-2">
-                        <button class="btn btn-lg btn-primary" type="submit"> Register </button>
+                    <div>
+                        <input class="form-control" type="hidden" id="roomLoc" ><!-- 지역 -->
+                        <input class="form-control" type="hidden" id="roomLat" ><!-- 위도 -->
+                        <input class="form-control" type="hidden" id="roomLng" ><!-- 경도 -->
                     </div>
-
-
+                    <div class="d-grid gap-2">
+                        <button class="btn btn-lg btn-primary" type="button" id="roomRegisterBtn" > 등록 </button>
+                    </div>
                     <hr class="my-4">
                     <p class="text-sm text-muted">By signing up you agree to Directory's <a href="#">Terms and Conditions</a> and <a href="#">Privacy Policy</a>.</p>
                 </form><a class="close-absolute me-md-5 me-xl-6 pt-5" href="index.html">
@@ -111,6 +128,8 @@
 </div>
 
 </body>
+
+
 </html>
 
 <script>
