@@ -15,6 +15,20 @@
     //   flippedBtn();
     // }, 5000);
 
+      $(document).on('click', '.flippedBtn', function(){
+          console.log('flipped Btn clicked');
+          let flippedDivId = $(this).closest('.d-flex').attr('id');
+          let divId = flippedDivId.slice(1);
+          console.log(divId);
+          let divId2 = "#" + divId;
+          console.log(flippedDivId);
+          //let originalDivId = flippedDivId.replace("new","");
+          let originalDivId = divId2.slice(0,-3);
+          console.log(originalDivId);
+          $(originalDivId).show();
+          $(flippedDivId).hide();
+      })
+
   });
 
 
@@ -116,10 +130,9 @@
                   <div class="d-flex col-md-9 col-xl-7 mb-3" id=\${divId}new>
                   <img class="avatar avatar-border-white flex-shrink-0" src="img/avatar/avatar-1.jpg" alt="user">
                   <div class="ms-3">
-                  <div class="bg-warning bg-primary rounded p-4 mb-2">
+                  <div class="bg-200 bg-warning-light rounded p-4 mb-2">
                   <p id="chatContents">\${translatedResult}</p>
                   </div>
-                  <p class="small text-muted ms-3"><button type="button" class="btn flippedBtn">되돌리기</button></p>
                   </div>
                   </div>
               `;
@@ -130,15 +143,7 @@
   }
 
   function flippedBtn(){
-    $(document).on('click', '.flippedBtn', function(){
-      console.log('flipped Btn clicked');
-      let flippedDivId = $(this).closest('.d-flex').attr('id');
-      console.log(flippedDivId);
-      let originalDivId = flippedDivId.replace("new","");
-      console.log(originalDivId);
-      $(flippedDivId).hide();
-      $(originalDivId).show();
-    })
+
   }
 
 
