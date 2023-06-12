@@ -243,18 +243,45 @@
                 </select><a class="btn btn-outline-secondary" href="#"><i class="fa fa-download me-2"></i>Download CSV</a>
             </div>
         </div>
-        <div class="list-group shadow mb-5"><a class="list-group-item list-group-item-action p-4" href="user-booking-detail.html">
-            <div class="row">
+
+
+
+
+        <div class="list-group shadow mb-5">
+
+            <div class="list-group-item list-group-item-action p-4">
+                <div class="row">
+                    <div class="col-lg-12 mb-3">
+                        <button id="select-all-btn" checked="false" class="btn btn-primary">모두 선택</button>
+                        <button id="delete-btn" class="btn btn-primary" >삭제</button>
+                    </div>
+                </div>
+            </div>
+
+            <a class="list-group-item list-group-item-action p-4" href="user-booking-detail.html">
+
+                <div class="row">
+
                 <div class="col-lg-4 align-self-center mb-4 mb-lg-0">
                     <div class="d-flex align-items-center mb-3">
-                        <input type="checkbox" class="form-check-input me-3" id="checkbox1">
+                        <input type="checkbox"  class="form-check-input me-3" id="checkbox1">
                         <h2 class="h5 mb-0">Meredith Goodwin</h2>
                         <img class="avatar avatar-sm avatar-border-white ms-3" src="img/avatar/avatar-0.jpg" alt="Jack London">
                     </div>
                     <p class="text-sm text-muted">Double Room</p>
-                    <span class="badge badge-pill p-2 badge-secondary-light">February 16, 2019 - February 19, 2019</span>
+                    <span class="badge badge-pill p-2 badge-secondary-light">February 16, 2023 - February 19, 2023</span>
                 </div>
+
+
+
+
+
+
+
                 <div class="col-lg-8">
+
+
+
                     <div class="row">
                         <div class="col-6 col-md-4 col-lg-3 py-3 mb-3 mb-lg-0">
                             <h6 class="label-heading">Rate type</h6>
@@ -270,7 +297,7 @@
                         </div>
                         <div class="col-6 col-md-4 col-lg-3 py-3">
                             <h6 class="label-heading">Booked Date</h6>
-                            <p class="text-sm fw-bold">February 16, 2019                                        </p>
+                            <p class="text-sm fw-bold">March 16, 2023                                        </p>
                             <h6 class="label-heading">Arrival Time</h6>
                             <p class="text-sm fw-bold mb-0">Around 4 PM</p>
                         </div>
@@ -286,10 +313,13 @@
                     <img class="avatar avatar-sm avatar-border-white ms-3" src="img/avatar/avatar-1.jpg" alt="Jack London">
                 </div>
                 <p class="text-sm text-muted">Double Room</p>
-                <span class="badge badge-pill p-2 badge-secondary-light">March 14, 2019 - March 17, 2019</span>
+                <span class="badge badge-pill p-2 badge-secondary-light">March 14, 2023 - March 17, 2023</span>
             </div>
 
                 <div class="col-lg-8">
+
+
+
                     <div class="row">
                         <div class="col-6 col-md-4 col-lg-3 py-3 mb-3 mb-lg-0">
                             <h6 class="label-heading">Rate type</h6>
@@ -305,7 +335,7 @@
                         </div>
                         <div class="col-6 col-md-4 col-lg-3 py-3">
                             <h6 class="label-heading">Booked Date</h6>
-                            <p class="text-sm fw-bold">March 14, 2019                                        </p>
+                            <p class="text-sm fw-bold">March 14, 2023                                        </p>
                             <h6 class="label-heading">Arrival Time</h6>
                             <p class="text-sm fw-bold mb-0">Around 4 PM</p>
                         </div>
@@ -322,7 +352,7 @@
                         <img class="avatar avatar-sm avatar-border-white ms-3" src="img/avatar/avatar-2.jpg" alt="Jack London">
                     </div>
                     <p class="text-sm text-muted">Double Room</p>
-                    <span class="badge badge-pill p-2 badge-danger-light">March 10, 2019 - March 13, 2019</span>
+                    <span class="badge badge-pill p-2 badge-danger-light">March 10, 2023 - March 13, 2023</span>
                 </div>
 
                 <div class="col-lg-8">
@@ -341,7 +371,7 @@
                         </div>
                         <div class="col-6 col-md-4 col-lg-3 py-3">
                             <h6 class="label-heading">Booked Date</h6>
-                            <p class="text-sm fw-bold">March 10, 2019                                        </p>
+                            <p class="text-sm fw-bold">March 10, 2023                                        </p>
                             <h6 class="label-heading">Arrival Time</h6>
                             <p class="text-sm fw-bold mb-0">Around 4 PM</p>
                         </div>
@@ -359,7 +389,7 @@
                         <img class="avatar avatar-sm avatar-border-white ms-3" src="img/avatar/avatar-3.jpg" alt="Jack London">
                     </div>
                     <p class="text-sm text-muted">Double Room</p>
-                    <span class="badge badge-pill p-2 badge-success-light">April 09, 2019 - April 13, 2019</span>
+                    <span class="badge badge-pill p-2 badge-success-light">April 09, 2023 - April 13, 2023</span>
                 </div>
 
 
@@ -379,12 +409,13 @@
                         </div>
                         <div class="col-6 col-md-4 col-lg-3 py-3">
                             <h6 class="label-heading">Booked Date</h6>
-                            <p class="text-sm fw-bold">April 09, 2019                                        </p>
+                            <p class="text-sm fw-bold">April 09, 2023                                        </p>
                             <h6 class="label-heading">Arrival Time</h6>
                             <p class="text-sm fw-bold mb-0">Around 4 PM</p>
                         </div>
                         <div class="col-12 col-lg-3 align-self-center"><span class="text-primary text-sm text-uppercase me-4 me-lg-0"><i class="fa fa-check fa-fw me-2"> </i>Booking paid</span><br class="d-none d-lg-block"><span class="text-muted text-sm text-uppercase"><i class="fa fa-times fa-fw me-2"> </i>Confirmed</span>
-                        </div>
+
+                            </div>
                     </div>
                 </div>
             </div></a><a class="list-group-item list-group-item-action p-4" href="user-booking-detail.html">
@@ -396,7 +427,7 @@
                         <img class="avatar avatar-sm avatar-border-white ms-3" src="img/avatar/avatar-4.jpg" alt="Jack London">
                     </div>
                     <p class="text-sm text-muted">Double Room</p>
-                    <span class="badge badge-pill p-2 badge-secondary-light">March 24, 2019 - March 28, 2019</span>
+                    <span class="badge badge-pill p-2 badge-secondary-light">March 24, 2023 - March 28, 2023</span>
                 </div>
 
 
@@ -422,7 +453,7 @@
                         </div>
                         <div class="col-6 col-md-4 col-lg-3 py-3">
                             <h6 class="label-heading">Booked Date</h6>
-                            <p class="text-sm fw-bold">March 24, 2019                                        </p>
+                            <p class="text-sm fw-bold">March 24, 2023                                        </p>
                             <h6 class="label-heading">Arrival Time</h6>
                             <p class="text-sm fw-bold mb-0">Around 4 PM</p>
                         </div>
@@ -480,18 +511,26 @@
                 </tbody>
 
             </table>
-            <a class="btn btn-outline-secondary" href="#"><i class="fa fa-download me-2"></i>Enter</a>
+            <a class="btn btn-outline-secondary" text-align="center" href="#"><i class="fa fa-download me-2"></i>Enter</a>
         </div>
+
+
+        <div>
+            <input type="checkbox" id="showTotalTable" onchange="toggleTotalTable()">
+            <label for="showTotalTable">Show Total Table</label>
+        </div>
+        <table id="totalTable" style="display: none;">
+            <td class="text-end"></td>
+            <td class="text-center"></td>
+            <td class="text-end">$958.00</td>
+        </table>
+
 
 
         <!-- Pagination -->
         <nav aria-label="Page navigation example">
             <ul class="pagination pagination-template d-flex justify-content-center">
-                <li class="page-item"><a class="page-link" href="#"> <i class="fa fa-angle-left"></i></a></li>
-                <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item"><a class="page-link" href="#"> <i class="fa fa-angle-right"></i></a></li>
+
             </ul>
         </nav>
     </div>
@@ -565,11 +604,7 @@
 </footer>
 <!-- JavaScript files-->
 <script>
-    // ------------------------------------------------------- //
-    //   Inject SVG Sprite -
-    //   see more here
-    //   https://css-tricks.com/ajaxing-svg-sprite/
-    // ------------------------------------------------------ //
+
     function getCheckboxValue()  {
         // 선택된 목록 가져오기
         const query = 'input[name="jungsan"]:checked';
@@ -587,13 +622,50 @@
             = result;
     }
 
-    // to avoid CORS issues when viewing using file:// protocol, using the demo URL for the SVG sprite
-    // use your own URL in production, please :)
-    // https://demo.bootstrapious.com/directory/1-0/icons/orion-svg-sprite.svg
-    //- injectSvgSprite('${path}icons/orion-svg-sprite.svg');
     injectSvgSprite('https://demo.bootstrapious.com/directory/1-4/icons/orion-svg-sprite.svg');
 
 </script>
+
+<script>
+    // "모두 선택" 버튼 클릭 시 모든 체크박스 선택
+    document.getElementById("select-all-btn").addEventListener("click", function() {
+        var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        checkboxes.forEach(function(checkbox) {
+            checkbox.checked = !checkbox.checked; // 체크 상태를 반전시킴
+        });
+    });
+</script>
+
+
+<script>
+    // JavaScript
+    var deleteButtons = document.querySelectorAll(".delete-btn");
+
+    deleteButtons.forEach(function(button) {
+        button.addEventListener("click", function() {
+            var checkbox = button.previousElementSibling;
+            if (checkbox.checked) {
+                button.parentNode.remove();
+            }
+        });
+    });
+</script>
+
+
+<script>
+    function toggleTotalTable() {
+        var totalTable = document.getElementById("totalTable");
+        var showTotalTableCheckbox = document.getElementById("showTotalTable");
+
+        if (showTotalTableCheckbox.checked) {
+            totalTable.style.display = "table";
+        } else {
+            totalTable.style.display = "none";
+        }
+    }
+</script>
+
+
 
 
 <script>
@@ -635,27 +707,7 @@
 </script>
 
 
-<%--<script>--%>
-<%--    function calculateTotal() {--%>
-<%--        var checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');--%>
-<%--        var total = 0;--%>
 
-<%--        checkboxes.forEach(function (checkbox) {--%>
-<%--            var parentDiv = checkbox.closest('.list-group-item');--%>
-<%--            var chargeElement = parentDiv.querySelector('.col-6.col-md-4.col-lg-3.py-3 p.text-sm.fw-bold');--%>
-
-<%--            if (chargeElement) {--%>
-<%--                var charge = parseFloat(chargeElement.innerText.replace('$', ''));--%>
-<%--                total += charge;--%>
-<%--            }--%>
-<%--        });--%>
-
-<%--        console.log('Total: $' + total.toFixed(2)); // 콘솔에 총 합계를 표시하거나 원하는 작업 수행--%>
-
-<%--        // 여기에서 계산된 값을 사용하여 원하는 동작을 수행하거나 표시할 수 있습니다.--%>
-<%--    }--%>
-<%--</script>--%>
-<!-- jQuery-->
 <script src="vendor/jquery/jquery.min.js"></script>
 <!-- Bootstrap JS bundle - Bootstrap + PopperJS-->
 <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
