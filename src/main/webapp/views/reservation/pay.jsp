@@ -32,8 +32,13 @@
         <i class="fa fa-search"></i>
       </button>
     </div>
+  </div><!-- search 바 div 태-->
+
+
+  <div class="container p-5 my-5 border">
+    <h6>정산 받으실 총 금액은</h6>
+    <h5> 총 땡땡 건 / 땡땡 원</h5>
   </div>
-  <div class="container p-5 my-5 border"></div>
   <table class="table table-hover">
     <thead>
     <tr>
