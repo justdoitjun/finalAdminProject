@@ -32,34 +32,7 @@
     // (3) 그리고 그 다음 정보로 넘어감.
     // (4) 부드럽게 그 다음이 넘어가도록.
     // (5) register 버튼 클릭시 구글 auth 클릭하도록
-    $(()=>{
-        roomRegister.init();
-    });
-    let roomRegister = {
-        init : ()=>{$('#roomRegisterBtn').click(()=>{
-            console.log('clicked register button');
-            if($('#hostId').val().length == 0){
-                alert('You are not able to register this room');
-            }
 
-        })}
-    }
-
-    function reverseAddress(){
-        $.ajax({
-            url:'/marker/reverse',
-            data:{
-                'accessToken' : 'd5209853-dee6-41b8-9bcc-a17cc92fa2c2',
-                'x_coor' : $('#roomPosX').val(),
-                'y_coor' : $('#roomPosY').val(),
-                'addr_type' : 20
-            }
-        }).done((data)=>{
-            console.log('map coordinates founded');
-        }).fail(()=>{
-            console.log('failed');
-        })
-    }
 
 </script>
 
@@ -105,7 +78,7 @@
                     <h2>방을 등록해주세요.</h2>
                     <p class="text-muted">  간편하게. 오로지 DIGI-실에서만. </p>
                 </div>
-                <form class="form-validate">
+                <form class="form-validate" id="roomForm">
                     <div class="mb-4">
                         <input class="form-control" type="hidden" name="hostId" id="hostId" value="${loginHost.hostId}" readonly>
                     </div>
@@ -118,24 +91,24 @@
                         <input class="form-control" name="roomName" id="roomName" placeholder="방 이름을 만들어주세요"  required data-msg="Please enter your password">
                     </div>
                     <div class="mb-4">
-                        <label class="form-label" for="roomAddress"> 주소 </label>
-                    <input class="form-control" type="text"  id="roomAddress" placeholder="주소">
+                        <label class="form-label" type="text" for="roomAddress"> 주소 </label>
+                    <input class="form-control" type="text" name="roomAddress"  id="roomAddress" placeholder="주소">
                     <input class="form-control" type="button" onclick="sample5_execDaumPostcode()" value="주소 검색"><br>
                     </div>
                     <div>
-                        <input class="form-control"  id="roomLat" ><!-- 위도 -->
-                        <input class="form-control"  id="roomLng" ><!-- 경도 -->
-                        <input class="form-control"  id="roomPosY" ><!-- 새위도변형 -->
-                        <input class="form-control"  id="roomPosX" ><!-- 새경도변형 -->
-                        <input class="form-control"  id="roomLoc" ><!-- 지역 -->
-
+                        <input class="form-control"  type="hidden" id="roomLat" ><!-- 위도 -->
+                        <input class="form-control"  type="hidden"  id="roomLng" ><!-- 경도 -->
+<%--                        <input class="form-control"  type="hidden"  id="roomPosY" ><!-- 새위도변형 -->--%>
+<%--                        <input class="form-control"  type="hidden"  id="roomPosX" ><!-- 새경도변형 -->--%>
+                        <input class="form-control"  type="hidden" name="roomLoc" id="roomLoc" ><!-- 지역 -->
                     </div>
                     <div class="d-grid gap-2">
                         <button class="btn btn-lg btn-primary" type="button" id="roomRegisterBtn" > 등록 </button>
                     </div>
                     <hr class="my-4">
                     <p class="text-sm text-muted">By signing up you agree to Directory's <a href="#">Terms and Conditions</a> and <a href="#">Privacy Policy</a>.</p>
-                </form><a class="close-absolute me-md-5 me-xl-6 pt-5" href="/">
+                </form>
+                <a class="close-absolute me-md-5 me-xl-6 pt-5" href="/">
                 <svg class="svg-icon w-3rem h-3rem">
                     <use xlink:href="#close-1"> </use>
                 </svg></a>
@@ -152,6 +125,56 @@
 
 </body>
 <script>
+
+    $(()=>{
+        roomRegister.init();
+    });
+    let roomRegister = {
+        init : ()=>{$('#roomRegisterBtn').click(()=>{
+            console.log('clicked register button');
+            if($('#hostId').val().length == 0){
+                alert('로그인한 호스트만 올릴 수 있어요!');
+            } else if($('#roomPrice').val().length == 0){
+                alert('가격을 입력해주세요');
+            }else{
+                roomRegister.send();
+            }
+
+
+
+        })},
+        send:function(){
+            $('#roomForm').attr({
+                'action':'/registerAddressImpl',
+                'method':'post'
+            });
+            $('#roomForm').submit();
+        }
+    }
+
+    function reverseAddress(y, x){
+        $.ajax({
+            url:'/reverseAddress',
+            data:{
+                'x_coor' : x,
+                'y_coor' : y
+            }
+        }).done((data)=>{
+            console.log('reverseAddress founded');
+            console.log(data);
+            let parsedData = JSON.parse(data);
+            let sido_nm = parsedData.result[0].sido_nm;
+            let sgg_nm = parsedData.result[0].sgg_nm;
+            console.log(sido_nm);
+            console.log(sgg_nm);
+            $('#roomLoc').val(sido_nm);
+            //$('#roomLoc2').val(sgg_nm);
+        }).fail(()=>{
+            console.log('failed to load data');
+        })
+    }
+
+
     var mapContainer = document.getElementById('map'), // 지도를 표시할 div
         mapOption = {
             center: new daum.maps.LatLng(37.537187, 127.005476), // 지도의 중심좌표
@@ -225,6 +248,7 @@
                         let utmkXY = new sop.LatLng (result.y,result.x); //wgs84 좌표를 UTMK로 변환
                         $('#roomPosY').val(utmkXY.y);
                         $('#roomPosX').val(utmkXY.x);
+                        reverseAddress(utmkXY.y, utmkXY.x);
 
                         // var coordinatesElement = document.getElementById("coordinates");
                         // coordinatesElement.innerHTML = "위도: " + result.y + ", 경도: " + result.x;

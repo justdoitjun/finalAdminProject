@@ -2,7 +2,9 @@ package com.kbstar.controller;
 
 import com.kbstar.dto.Marker;
 import com.kbstar.dto.MarkerSearch;
+import com.kbstar.dto.Room;
 import com.kbstar.service.MarkerService;
+import com.kbstar.service.RoomService;
 import com.kbstar.util.FileUploadUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +22,8 @@ import java.util.List;
 public class MarkerController {
     @Autowired
     MarkerService markerService;
+    @Autowired
+    RoomService roomService;
     String dir = "marker/";
 
     @Value("${uploadimgdir}")
@@ -94,6 +98,8 @@ public class MarkerController {
         model.addAttribute("center",dir+"all");
         return "index";
     }
+
+
 
 
 }
