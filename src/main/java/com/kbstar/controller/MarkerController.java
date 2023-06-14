@@ -33,7 +33,7 @@ public class MarkerController {
     public String addimpl(Model model, Marker obj) throws Exception {
         MultipartFile mf = obj.getMimg();
         String imgname = mf.getOriginalFilename();
-        obj.setImg(imgname);
+        obj.setRoomimage1(imgname);
         markerService.register(obj);
         FileUploadUtil.saveFile(mf,imgdir);
         return "redirect:all";
@@ -51,13 +51,14 @@ public class MarkerController {
         if(new_imgname.equals("") || new_imgname == null){
             markerService.modify(obj);
         }else{
-            obj.setImg(new_imgname);
+            obj.setRoomimage1(new_imgname);
             markerService.modify(obj);
             FileUploadUtil.saveFile(mf,imgdir);
         }
 
-        return "redirect:detail?id="+obj.getId();
+        return "redirect:detail?id="+obj.getHostid();
     }
+
     @RequestMapping("/all")
     public String all(Model model) throws Exception {
         List<Marker> list = null;

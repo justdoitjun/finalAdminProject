@@ -106,7 +106,11 @@
 
       $('#buttonSendMessage').click(() => {
         console.log('clicked');
-        sendData();
+          if($('#chatContentsBox').val().length == 0){
+              alert('뭐라도 내용을 넣으세요');
+          }else{
+              sendData();
+          }
       });
     })
   };

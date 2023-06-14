@@ -82,7 +82,7 @@
             <div class="w-100 py-5 px-md-5 px-xxl-6 position-relative">
                 <div class="mb-4"><img class="img-fluid mb-4" src="/img/logo-square.svg" alt="..." style="max-width: 4rem;">
                     <h2>방을 등록해주세요.</h2>
-                    <p class="text-muted">His room, a proper human room although a little too small, lay peacefully between its four familiar walls. A collection of textile samples lay spread out on the table.</p>
+                    <p class="text-muted">  간편하게. 오로지 DIGI-실에서만. </p>
                 </div>
                 <form class="form-validate">
                     <div class="mb-4">

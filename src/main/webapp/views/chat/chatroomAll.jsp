@@ -239,6 +239,14 @@
                 <div class="row">
                   <div class="col-md-8 py-3">
                     <p class="text-sm mb-0">${obj.recent.recentContents}</p>
+                    <c:choose>
+                      <c:when test="${obj.recent.recentSender != hostId}">
+                        <p class="text-sm mb-0">${obj.recent.recentContents} &nbsp; &nbsp; &nbsp; &nbsp;  <i class='far fa-paper-plane' style='font-size:20px;color:deepskyblue'>Your Turn</i></p>
+                      </c:when>
+                      <c:otherwise>
+                        <p class="text-sm mb-0">${obj.recent.recentContents}</p>
+                      </c:otherwise>
+                    </c:choose>
                   </div>
                   <div class="col-md-4 text-end py-3">
                     <p class="text-sm">${obj.recent.recentDate}</p>

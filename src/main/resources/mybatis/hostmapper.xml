@@ -19,7 +19,7 @@
                E.reserveId, E.guestId, E.reserveCheckIn, E.reserveCheckOut, E.reservePrice, E.reserveConfirm, E.reserveCal, E.reserveCap, E.reserveStatus, E.reservePayRate, E.reservePayAmount, E.reservePayDate, E.reservePayType, E.reserveDiscount, E.reservePoint, E.reserveBank, E.reserveAccHolder, E.reserveAccount, E.reserverApi, E.reserveRefund
         FROM host H
                  INNER JOIN room O ON H.hostId = O.hostId
-        INNER JOIN reserve E ON O.roomId = E.roomId
+                 INNER JOIN reserve E ON O.roomId = E.roomId
         WHERE O.roomId = #{roomId}
     </select>
     <select id="selectMyAllRoom" parameterType="String" resultType="HostRoomReserveReview">

@@ -7,7 +7,7 @@
       $.ajax({
         url:'/roomLoad',
         data:{
-          'hostId':'host7'
+          'hostId': ${hostId}
         }
       }).done((data)=>{
         console.log('data success');
