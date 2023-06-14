@@ -25,6 +25,13 @@ public class ProfileController {
         return "index";
     }
 
+    @RequestMapping("/map")
+    public String map(Model model){
+        model.addAttribute("center","userProfile");
+        model.addAttribute("centerUserProfile",dirProfile+"map");
+        return "index";
+    }
+
     @RequestMapping("/reviews")
     public String reviews(Model model){
         model.addAttribute("center","userProfile");

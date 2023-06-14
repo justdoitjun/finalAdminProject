@@ -68,136 +68,58 @@
                                 <div class="col-lg-9">
                                     <div class="row p-3 pe-lg-0 ps-lg-5 pt-lg-5">
                                         <div class="col-lg-3">
-                                            <!-- Megamenu list-->
-                                            <h6 class="text-uppercase">Homepage</h6>
-                                            <ul class="megamenu-list list-unstyled">
-                                                <li class="megamenu-list-item"><a class="megamenu-list-link" href="index.html">Rooms   </a></li>
-                                                <li class="megamenu-list-item"><a class="megamenu-list-link" href="index-2.html">Restaurants   </a></li>
-                                                <li class="megamenu-list-item"><a class="megamenu-list-link" href="index-3.html">Travel   </a></li>
-                                                <li class="megamenu-list-item"><a class="megamenu-list-link" href="index-4.html">Real estate <span class="badge badge-info-light ms-1">New</span>   </a></li>
-                                            </ul>
-                                            <!-- Megamenu list-->
-                                            <h6 class="text-uppercase">Restaurants</h6>
-                                            <ul class="megamenu-list list-unstyled">
-                                                <li class="megamenu-list-item"><a class="megamenu-list-link" href="category.html">Category - Map on the top   </a></li>
-                                                <li class="megamenu-list-item"><a class="megamenu-list-link" href="category-2.html">Category - Map on the right   </a></li>
-                                                <li class="megamenu-list-item"><a class="megamenu-list-link" href="category-3.html">Category - no map   </a></li>
-                                                <li class="megamenu-list-item"><a class="megamenu-list-link" href="detail.html">Restaurant detail   </a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="col-lg-3">
-                                            <!-- Megamenu list-->
-                                            <h6 class="text-uppercase">Rooms</h6>
-                                            <ul class="megamenu-list list-unstyled">
-                                                <li class="megamenu-list-item"><a class="megamenu-list-link" href="category-rooms.html">Category - Map on the top   </a></li>
-                                                <li class="megamenu-list-item"><a class="megamenu-list-link" href="category-2-rooms.html">Category - Map on the right   </a></li>
-                                                <li class="megamenu-list-item"><a class="megamenu-list-link" href="category-3-rooms.html">Category - no map   </a></li>
-                                                <li class="megamenu-list-item"><a class="megamenu-list-link" href="detail-rooms.html">Room detail   </a></li>
-                                            </ul>
-                                            <!-- Megamenu list-->
-                                            <h6 class="text-uppercase">Blog</h6>
-                                            <ul class="megamenu-list list-unstyled">
-                                                <li class="megamenu-list-item"><a class="megamenu-list-link" href="blog.html">Blog   </a></li>
-                                                <li class="megamenu-list-item"><a class="megamenu-list-link" href="post.html">Post   </a></li>
-                                            </ul>
-                                            <!-- Megamenu list-->
-                                            <h6 class="text-uppercase">Pages</h6>
-                                            <ul class="megamenu-list list-unstyled">
-                                                <li class="megamenu-list-item"><a class="megamenu-list-link" href="compare.html">Comparison   </a></li>
-                                                <li class="megamenu-list-item"><a class="megamenu-list-link" href="team.html">Team   </a></li>
-                                                <li class="megamenu-list-item"><a class="megamenu-list-link" href="contact.html">Contact   </a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="col-lg-3">
-                                            <!-- Megamenu list-->
-                                            <h6 class="text-uppercase">Pages</h6>
-                                            <ul class="megamenu-list list-unstyled">
-                                                <li class="megamenu-list-item"><a class="megamenu-list-link" href="pricing.html">Pricing   </a></li>
-                                                <li class="megamenu-list-item"><a class="megamenu-list-link" href="text.html">Text page   </a></li>
-                                                <li class="megamenu-list-item"><a class="megamenu-list-link" href="faq.html">F.A.Q.s   </a></li>
-                                                <li class="megamenu-list-item"><a class="megamenu-list-link" href="coming-soon.html">Coming soon   </a></li>
-                                                <li class="megamenu-list-item"><a class="megamenu-list-link" href="404.html">404 page   </a></li>
-                                                <li class="megamenu-list-item"><a class="megamenu-list-link" href="knowledge-base.html">Knowledge Base  <span class="badge badge-info-light ms-1">New</span>   </a></li>
-                                                <li class="megamenu-list-item"><a class="megamenu-list-link" href="knowledge-base-topic.html">Knowledge Base  &mdash; Topic<span class="badge badge-info-light ms-1">New</span>   </a></li>
-                                                <li class="megamenu-list-item"><a class="megamenu-list-link" href="terms.html">Terms & Conditions  <span class="badge badge-info-light ms-1">New</span>   </a></li>
-                                            </ul>
-                                            <!-- Megamenu list-->
-                                            <h6 class="text-uppercase">Host</h6>
-                                            <ul class="megamenu-list list-unstyled">
-                                                <li class="megamenu-list-item"><a class="megamenu-list-link" href="user-add-0.html">Add new listing - 6 pages   </a></li>
-                                                <li class="megamenu-list-item"><a class="megamenu-list-link" href="user-list.html">Bookings &mdash; list view   </a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="col-lg-3">
-                                            <!-- Megamenu list-->
-                                            <h6 class="text-uppercase">User</h6>
-                                            <ul class="megamenu-list list-unstyled">
-                                                <li class="megamenu-list-item"><a class="megamenu-list-link" href="user-profile.html">Profile   </a></li>
-                                                <li class="megamenu-list-item"><a class="megamenu-list-link" href="user-account.html">Account   </a></li>
-                                                <li class="megamenu-list-item"><a class="megamenu-list-link" href="user-personal.html">Personal info - forms   </a></li>
-                                                <li class="megamenu-list-item"><a class="megamenu-list-link" href="user-security.html">Password & security - forms   </a></li>
-                                                <li class="megamenu-list-item"><a class="megamenu-list-link" href="login.html">Sign in   </a></li>
-                                                <li class="megamenu-list-item"><a class="megamenu-list-link" href="signup.html">Sign up   </a></li>
-                                                <li class="megamenu-list-item"><a class="megamenu-list-link" href="user-booking-1.html">Booking process - 4 pages   </a></li>
-                                                <li class="megamenu-list-item"><a class="megamenu-list-link" href="user-grid.html">Bookings &mdash; grid view   </a></li>
-                                                <li class="megamenu-list-item"><a class="megamenu-list-link" href="user-booking-detail.html">Booking detail   </a></li>
-                                                <li class="megamenu-list-item"><a class="megamenu-list-link" href="user-invoice.html">Invoice  <span class="badge badge-info-light ms-1">New</span>   </a></li>
-                                                <li class="megamenu-list-item"><a class="megamenu-list-link" href="user-messages.html">Messages <span class="badge badge-info-light ms-1">New</span>   </a></li>
-                                                <li class="megamenu-list-item"><a class="megamenu-list-link" href="user-messages-detail.html">Message Detail  <span class="badge badge-info-light ms-1">New</span>   </a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="row megamenu-services d-none d-lg-flex ps-lg-5">
-                                        <div class="col-xl-3 col-lg-6 d-flex">
-                                            <div class="megamenu-services-item">
-                                                <svg class="svg-icon megamenu-services-icon">
-                                                    <use xlink:href="#destination-map-1"> </use>
-                                                </svg>
-                                                <div>
-                                                    <h6 class="text-uppercase">Best rentals</h6>
-                                                    <p class="mb-0 text-muted text-sm">Find the perfect place</p>
+
+                                            <div class="row megamenu-services d-none d-lg-flex ps-lg-5">
+                                                <div class="col-xl-3 col-lg-6 d-flex">
+                                                    <div class="megamenu-services-item">
+                                                        <svg class="svg-icon megamenu-services-icon">
+                                                            <use xlink:href="#destination-map-1"> </use>
+                                                        </svg>
+                                                        <div>
+                                                            <h6 class="text-uppercase">Best rentals</h6>
+                                                            <p class="mb-0 text-muted text-sm">Find the perfect place</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-3 col-lg-6 d-flex">
+                                                    <div class="megamenu-services-item">
+                                                        <svg class="svg-icon megamenu-services-icon">
+                                                            <use xlink:href="#money-box-1"> </use>
+                                                        </svg>
+                                                        <div>
+                                                            <h6 class="text-uppercase">Earn points</h6>
+                                                            <p class="mb-0 text-muted text-sm">And get great rewards</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-3 col-lg-6 d-flex">
+                                                    <div class="megamenu-services-item">
+                                                        <svg class="svg-icon megamenu-services-icon">
+                                                            <use xlink:href="#customer-support-1"> </use>
+                                                        </svg>
+                                                        <div>
+                                                            <h6 class="text-uppercase">020-800-456-747</h6>
+                                                            <p class="mb-0 text-muted text-sm">24/7 Available Support</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-3 col-lg-6 d-flex">
+                                                    <div class="megamenu-services-item">
+                                                        <svg class="svg-icon megamenu-services-icon">
+                                                            <use xlink:href="#secure-payment-1"> </use>
+                                                        </svg>
+                                                        <div>
+                                                            <h6 class="text-uppercase">Secure Payment</h6>
+                                                            <p class="mb-0 text-muted text-sm">Secure Payment</p>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-xl-3 col-lg-6 d-flex">
-                                            <div class="megamenu-services-item">
-                                                <svg class="svg-icon megamenu-services-icon">
-                                                    <use xlink:href="#money-box-1"> </use>
-                                                </svg>
-                                                <div>
-                                                    <h6 class="text-uppercase">Earn points</h6>
-                                                    <p class="mb-0 text-muted text-sm">And get great rewards</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-3 col-lg-6 d-flex">
-                                            <div class="megamenu-services-item">
-                                                <svg class="svg-icon megamenu-services-icon">
-                                                    <use xlink:href="#customer-support-1"> </use>
-                                                </svg>
-                                                <div>
-                                                    <h6 class="text-uppercase">020-800-456-747</h6>
-                                                    <p class="mb-0 text-muted text-sm">24/7 Available Support</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-3 col-lg-6 d-flex">
-                                            <div class="megamenu-services-item">
-                                                <svg class="svg-icon megamenu-services-icon">
-                                                    <use xlink:href="#secure-payment-1"> </use>
-                                                </svg>
-                                                <div>
-                                                    <h6 class="text-uppercase">Secure Payment</h6>
-                                                    <p class="mb-0 text-muted text-sm">Secure Payment</p>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        <div class="col-lg-3 d-none d-lg-block position-relative"><img class="bg-image" src="img/photo/photo-1521170665346-3f21e2291d8b.jpg" alt=""></div>
                                     </div>
                                 </div>
-                                <div class="col-lg-3 d-none d-lg-block position-relative"><img class="bg-image" src="img/photo/photo-1521170665346-3f21e2291d8b.jpg" alt=""></div>
-                            </div>
-                        </div>
-                    </li>
+                            </div>  </div>  </li>
                     <!-- /Megamenu end-->
                     <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a>
                     </li>
@@ -262,15 +184,15 @@
 
                 <div class="row">
 
-                <div class="col-lg-4 align-self-center mb-4 mb-lg-0">
-                    <div class="d-flex align-items-center mb-3">
-                        <input type="checkbox"  class="form-check-input me-3" id="checkbox1">
-                        <h2 class="h5 mb-0">Meredith Goodwin</h2>
-                        <img class="avatar avatar-sm avatar-border-white ms-3" src="img/avatar/avatar-0.jpg" alt="Jack London">
+                    <div class="col-lg-4 align-self-center mb-4 mb-lg-0">
+                        <div class="d-flex align-items-center mb-3">
+                            <input type="checkbox"  class="form-check-input me-3" id="checkbox1">
+                            <h2 class="h5 mb-0">Meredith Goodwin</h2>
+                            <img class="avatar avatar-sm avatar-border-white ms-3" src="img/avatar/avatar-0.jpg" alt="Jack London">
+                        </div>
+                        <p class="text-sm text-muted">Double Room</p>
+                        <span class="badge badge-pill p-2 badge-secondary-light">February 16, 2023 - February 19, 2023</span>
                     </div>
-                    <p class="text-sm text-muted">Double Room</p>
-                    <span class="badge badge-pill p-2 badge-secondary-light">February 16, 2023 - February 19, 2023</span>
-                </div>
 
 
 
@@ -278,34 +200,34 @@
 
 
 
-                <div class="col-lg-8">
+                    <div class="col-lg-8">
 
 
 
-                    <div class="row">
-                        <div class="col-6 col-md-4 col-lg-3 py-3 mb-3 mb-lg-0">
-                            <h6 class="label-heading">Rate type</h6>
-                            <p class="text-sm fw-bold">Bed & Breakfast</p>
-                            <h6 class="label-heading">Nights </h6>
-                            <p class="text-sm fw-bold mb-0">3</p>
-                        </div>
-                        <div class="col-6 col-md-4 col-lg-3 py-3">
-                            <h6 class="label-heading">Occupancy</h6>
-                            <p class="text-sm fw-bold">1 pax</p>
-                            <h6 class="label-heading">Charge</h6>
-                            <p class="text-sm fw-bold mb-0">$244.42</p>
-                        </div>
-                        <div class="col-6 col-md-4 col-lg-3 py-3">
-                            <h6 class="label-heading">Booked Date</h6>
-                            <p class="text-sm fw-bold">March 16, 2023                                        </p>
-                            <h6 class="label-heading">Arrival Time</h6>
-                            <p class="text-sm fw-bold mb-0">Around 4 PM</p>
-                        </div>
-                        <div class="col-12 col-lg-3 align-self-center"><span class="text-primary text-sm text-uppercase me-4 me-lg-0"><i class="fa fa-check fa-fw me-2"> </i>Booking paid</span><br class="d-none d-lg-block"><span class="text-primary text-sm text-uppercase"><i class="fa fa-check fa-fw me-2"> </i>Confirmed</span>
+                        <div class="row">
+                            <div class="col-6 col-md-4 col-lg-3 py-3 mb-3 mb-lg-0">
+                                <h6 class="label-heading">Rate type</h6>
+                                <p class="text-sm fw-bold">Bed & Breakfast</p>
+                                <h6 class="label-heading">Nights </h6>
+                                <p class="text-sm fw-bold mb-0">3</p>
+                            </div>
+                            <div class="col-6 col-md-4 col-lg-3 py-3">
+                                <h6 class="label-heading">Occupancy</h6>
+                                <p class="text-sm fw-bold">1 pax</p>
+                                <h6 class="label-heading">Charge</h6>
+                                <p class="text-sm fw-bold mb-0">$244.42</p>
+                            </div>
+                            <div class="col-6 col-md-4 col-lg-3 py-3">
+                                <h6 class="label-heading">Booked Date</h6>
+                                <p class="text-sm fw-bold">March 16, 2023                                        </p>
+                                <h6 class="label-heading">Arrival Time</h6>
+                                <p class="text-sm fw-bold mb-0">Around 4 PM</p>
+                            </div>
+                            <div class="col-12 col-lg-3 align-self-center"><span class="text-primary text-sm text-uppercase me-4 me-lg-0"><i class="fa fa-check fa-fw me-2"> </i>Booking paid</span><br class="d-none d-lg-block"><span class="text-primary text-sm text-uppercase"><i class="fa fa-check fa-fw me-2"> </i>Confirmed</span>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div></a><a class="list-group-item list-group-item-action p-4" href="user-booking-detail.html">
+                </div></a><a class="list-group-item list-group-item-action p-4" href="user-booking-detail.html">
             <div class="row">    <div class="col-lg-4 align-self-center mb-4 mb-lg-0">
                 <div class="d-flex align-items-center mb-3">
                     <input type="checkbox" class="form-check-input me-3" id="checkbox2">
@@ -355,86 +277,6 @@
                     <span class="badge badge-pill p-2 badge-danger-light">March 10, 2023 - March 13, 2023</span>
                 </div>
 
-                <div class="col-lg-8">
-                    <div class="row">
-                        <div class="col-6 col-md-4 col-lg-3 py-3 mb-3 mb-lg-0">
-                            <h6 class="label-heading">Rate type</h6>
-                            <p class="text-sm fw-bold">Bed & Breakfast</p>
-                            <h6 class="label-heading">Nights </h6>
-                            <p class="text-sm fw-bold mb-0">3</p>
-                        </div>
-                        <div class="col-6 col-md-4 col-lg-3 py-3">
-                            <h6 class="label-heading">Occupancy</h6>
-                            <p class="text-sm fw-bold">2 pax</p>
-                            <h6 class="label-heading">Charge</h6>
-                            <p class="text-sm fw-bold mb-0">$938.48</p>
-                        </div>
-                        <div class="col-6 col-md-4 col-lg-3 py-3">
-                            <h6 class="label-heading">Booked Date</h6>
-                            <p class="text-sm fw-bold">March 10, 2023                                        </p>
-                            <h6 class="label-heading">Arrival Time</h6>
-                            <p class="text-sm fw-bold mb-0">Around 4 PM</p>
-                        </div>
-                        <div class="col-12 col-lg-3 align-self-center"><span class="text-primary text-sm text-uppercase me-4 me-lg-0"><i class="fa fa-check fa-fw me-2"> </i>Booking paid</span><br class="d-none d-lg-block"><span class="text-primary text-sm text-uppercase"><i class="fa fa-check fa-fw me-2"> </i>Confirmed</span>
-                        </div>
-                    </div>
-                </div>
-            </div></a><a class="list-group-item list-group-item-action p-4" href="user-booking-detail.html">
-            <div class="row">
-
-                <div class="col-lg-4 align-self-center mb-4 mb-lg-0">
-                    <div class="d-flex align-items-center mb-3">
-                        <input type="checkbox" class="form-check-input me-3" id="checkbox4">
-                        <h2 class="h5 mb-0">Aguilar Webb</h2>
-                        <img class="avatar avatar-sm avatar-border-white ms-3" src="img/avatar/avatar-3.jpg" alt="Jack London">
-                    </div>
-                    <p class="text-sm text-muted">Double Room</p>
-                    <span class="badge badge-pill p-2 badge-success-light">April 09, 2023 - April 13, 2023</span>
-                </div>
-
-
-                <div class="col-lg-8">
-                    <div class="row">
-                        <div class="col-6 col-md-4 col-lg-3 py-3 mb-3 mb-lg-0">
-                            <h6 class="label-heading">Rate type</h6>
-                            <p class="text-sm fw-bold">Bed & Breakfast</p>
-                            <h6 class="label-heading">Nights </h6>
-                            <p class="text-sm fw-bold mb-0">4</p>
-                        </div>
-                        <div class="col-6 col-md-4 col-lg-3 py-3">
-                            <h6 class="label-heading">Occupancy</h6>
-                            <p class="text-sm fw-bold">3 pax</p>
-                            <h6 class="label-heading">Charge</h6>
-                            <p class="text-sm fw-bold mb-0">$955.07</p>
-                        </div>
-                        <div class="col-6 col-md-4 col-lg-3 py-3">
-                            <h6 class="label-heading">Booked Date</h6>
-                            <p class="text-sm fw-bold">April 09, 2023                                        </p>
-                            <h6 class="label-heading">Arrival Time</h6>
-                            <p class="text-sm fw-bold mb-0">Around 4 PM</p>
-                        </div>
-                        <div class="col-12 col-lg-3 align-self-center"><span class="text-primary text-sm text-uppercase me-4 me-lg-0"><i class="fa fa-check fa-fw me-2"> </i>Booking paid</span><br class="d-none d-lg-block"><span class="text-muted text-sm text-uppercase"><i class="fa fa-times fa-fw me-2"> </i>Confirmed</span>
-
-                            </div>
-                    </div>
-                </div>
-            </div></a><a class="list-group-item list-group-item-action p-4" href="user-booking-detail.html">
-            <div class="row">
-                <div class="col-lg-4 align-self-center mb-4 mb-lg-0">
-                    <div class="d-flex align-items-center mb-3">
-                        <input type="checkbox" class="form-check-input me-3" id="checkbox6">
-                        <h2 class="h5 mb-0">Melton Simon</h2>
-                        <img class="avatar avatar-sm avatar-border-white ms-3" src="img/avatar/avatar-4.jpg" alt="Jack London">
-                    </div>
-                    <p class="text-sm text-muted">Double Room</p>
-                    <span class="badge badge-pill p-2 badge-secondary-light">March 24, 2023 - March 28, 2023</span>
-                </div>
-
-
-
-
-
-
 
 
                 <div class="col-lg-8">
@@ -466,14 +308,17 @@
         </div>
 
 
+        <div class="form-check form-switch d-inline-block">
+            <input class="form-check-input" type="checkbox" id="showTotalTableSwitch" onchange="toggleTotalTable()">
+            <label class="form-check-label" for="showTotalTableSwitch">Detail</label>
+        </div>
 
-        <p> total </p>
-        <div class="table-responsive text-sm mb-5">
-            <table class="table table-striped">
+
+        <table id="totalTable" table class="table table-striped" style="display: none;">
                 <thead class="bg-gray-200">
                 <tr class="border-0">
                     <th class="center">#</th>
-                    <th>Guest</th>
+                    <th>List</th>
                     <th>Rate Time</th>
                     <th class="text-end">Charge</th>
                     <th class="center">Nights</th>
@@ -492,7 +337,7 @@
                 <tr>
                     <td class="text-center">2</td>
                     <td class="fw-bold">Premium Listing</td>
-                    <td>London</td>
+                    <td>May</td>
                     <td class="text-end">$100.00</td>
                     <td class="text-center">1</td>
                     <td class="text-end">$100.00</td>
@@ -505,27 +350,21 @@
                     <td></td>
                     <td class="text-end"></td>
                     <td class="text-center"></td>
-                    <td class="text-end">$958.00</td>
+                    <td class="text-end">$1058.00</td>
                 </tr>
 
                 </tbody>
 
             </table>
-            <a class="btn btn-outline-secondary" text-align="center" href="#"><i class="fa fa-download me-2"></i>Enter</a>
-        </div>
 
-
-        <div>
-            <input type="checkbox" id="showTotalTable" onchange="toggleTotalTable()">
-            <label for="showTotalTable">Show Total Table</label>
-        </div>
-        <table id="totalTable" style="display: none;">
-            <td class="text-end"></td>
-            <td class="text-center"></td>
-            <td class="text-end">$958.00</td>
         </table>
 
 
+        <div class="table-responsive text-sm mb-5">
+
+            <a class="btn btn-outline-secondary" text-align="center" href="/total"><i class="fa fa-download me-2">정산확정</i></a>
+
+        </div>
 
         <!-- Pagination -->
         <nav aria-label="Page navigation example">
@@ -535,74 +374,6 @@
         </nav>
     </div>
 </section>
-<!-- Footer-->
-<footer class="position-relative z-index-10 d-print-none">
-    <!-- Main block - menus, subscribe form-->
-    <div class="py-6 bg-gray-200 text-muted">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4 mb-5 mb-lg-0">
-                    <div class="fw-bold text-uppercase text-dark mb-3">Directory</div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
-                    <ul class="list-inline">
-                        <li class="list-inline-item"><a class="text-muted text-primary-hover" href="#" target="_blank" title="twitter"><i class="fab fa-twitter"></i></a></li>
-                        <li class="list-inline-item"><a class="text-muted text-primary-hover" href="#" target="_blank" title="facebook"><i class="fab fa-facebook"></i></a></li>
-                        <li class="list-inline-item"><a class="text-muted text-primary-hover" href="#" target="_blank" title="instagram"><i class="fab fa-instagram"></i></a></li>
-                        <li class="list-inline-item"><a class="text-muted text-primary-hover" href="#" target="_blank" title="pinterest"><i class="fab fa-pinterest"></i></a></li>
-                        <li class="list-inline-item"><a class="text-muted text-primary-hover" href="#" target="_blank" title="vimeo"><i class="fab fa-vimeo"></i></a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-2 col-md-6 mb-5 mb-lg-0">
-                    <h6 class="text-uppercase text-dark mb-3">Rentals</h6>
-                    <ul class="list-unstyled">
-                        <li><a class="text-muted" href="index.html">Rooms</a></li>
-                        <li><a class="text-muted" href="category-rooms.html">Map on top</a></li>
-                        <li><a class="text-muted" href="category-2-rooms.html">Side map</a></li>
-                        <li><a class="text-muted" href="category-3-rooms.html">No map</a></li>
-                        <li><a class="text-muted" href="detail-rooms.html">Room detail</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-2 col-md-6 mb-5 mb-lg-0">
-                    <h6 class="text-uppercase text-dark mb-3">Pages</h6>
-                    <ul class="list-unstyled">
-                        <li><a class="text-muted" href="compare.html">Comparison                                   </a></li>
-                        <li><a class="text-muted" href="team.html">Team                                   </a></li>
-                        <li><a class="text-muted" href="contact.html">Contact                                   </a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-4">
-                    <h6 class="text-uppercase text-dark mb-3">Daily Offers & Discounts</h6>
-                    <p class="mb-3"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. At itaque temporibus.</p>
-                    <form action="#" id="newsletter-form">
-                        <div class="input-group mb-3">
-                            <input class="form-control bg-transparent border-dark border-end-0" type="email" placeholder="Your Email Address" aria-label="Your Email Address">
-                            <button class="btn btn-outline-dark border-start-0" type="submit"> <i class="fa fa-paper-plane text-lg"></i></button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Copyright section of the footer-->
-    <div class="py-4 fw-light bg-gray-800 text-gray-300">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-md-6 text-center text-md-start">
-                    <p class="text-sm mb-md-0">&copy; 2021, Your company.  All rights reserved.</p>
-                </div>
-                <div class="col-md-6">
-                    <ul class="list-inline mb-0 mt-2 mt-md-0 text-center text-md-end">
-                        <li class="list-inline-item"><img class="w-2rem" src="img/visa.svg" alt="..."></li>
-                        <li class="list-inline-item"><img class="w-2rem" src="img/mastercard.svg" alt="..."></li>
-                        <li class="list-inline-item"><img class="w-2rem" src="img/paypal.svg" alt="..."></li>
-                        <li class="list-inline-item"><img class="w-2rem" src="img/western-union.svg" alt="..."></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</footer>
-<!-- JavaScript files-->
 <script>
 
     function getCheckboxValue()  {
@@ -631,7 +402,7 @@
     document.getElementById("select-all-btn").addEventListener("click", function() {
         var checkboxes = document.querySelectorAll('input[type="checkbox"]');
         checkboxes.forEach(function(checkbox) {
-            checkbox.checked = !checkbox.checked; // 체크 상태를 반전시킴
+            checkbox.checked = !checkbox.checked;
         });
     });
 </script>
@@ -655,7 +426,7 @@
 <script>
     function toggleTotalTable() {
         var totalTable = document.getElementById("totalTable");
-        var showTotalTableCheckbox = document.getElementById("showTotalTable");
+        var showTotalTableCheckbox = document.getElementById("showTotalTableSwitch");
 
         if (showTotalTableCheckbox.checked) {
             totalTable.style.display = "table";
@@ -706,23 +477,6 @@
     }
 </script>
 
-
-
-<script src="vendor/jquery/jquery.min.js"></script>
-<!-- Bootstrap JS bundle - Bootstrap + PopperJS-->
-<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- Magnific Popup - Lightbox for the gallery-->
-<script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
-<!-- Smooth scroll-->
-<script src="vendor/smooth-scroll/smooth-scroll.polyfills.min.js"></script>
-<!-- Bootstrap Select-->
-<script src="vendor/bootstrap-select/js/bootstrap-select.min.js"></script>
-<!-- Object Fit Images - Fallback for browsers that don't support object-fit-->
-<script src="vendor/object-fit-images/ofi.min.js"></script>
-<!-- Swiper Carousel                       -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.1/js/swiper.min.js"></script>
-<script>var basePath = ''</script>
-<!-- Main Theme JS file    -->
-<script src="js/theme.js"></script>
 </body>
 </html>
+

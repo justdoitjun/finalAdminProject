@@ -139,6 +139,8 @@
             level: 5 // 지도의 확대 레벨
         };
 
+
+
     //지도를 미리 생성
     var map = new daum.maps.Map(mapContainer, mapOption);
     //주소-좌표 변환 객체를 생성

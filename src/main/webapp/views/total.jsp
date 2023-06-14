@@ -242,7 +242,7 @@
                         <div class="col-6 d-flex align-items-center"><img src="img/logo.svg" alt="Directory"></div>
                         <div class="col-6 text-end">
                             <h3 class="mb-0">정산표</h3>
-                            <p class="mb-0">발행일, Sep 01, 2020</p>
+                            <p class="mb-0">발행일, March 01, 2023</p>
                         </div>
                     </div>
                 </div>
