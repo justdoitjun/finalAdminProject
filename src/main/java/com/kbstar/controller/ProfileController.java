@@ -33,8 +33,9 @@ public class ProfileController {
     }
 
     @RequestMapping("/reviews")
-    public String reviews(Model model){
+    public String reviews(Model model, String hostId){
         model.addAttribute("center","userProfile");
+        model.addAttribute("hostId", hostId);
         model.addAttribute("centerUserProfile",dirProfile+"reviews");
         return "index";
     }

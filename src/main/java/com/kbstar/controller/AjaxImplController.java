@@ -3,17 +3,22 @@ package com.kbstar.controller;
 import com.kbstar.dto.Cal;
 import com.kbstar.dto.Host;
 import com.kbstar.dto.HostRoomReserveReview;
+import com.kbstar.dto.Room;
 import com.kbstar.service.HostService;
 import com.kbstar.service.ReserveService;
 import com.kbstar.service.ReviewService;
+import com.kbstar.service.RoomService;
 import com.kbstar.util.DateUtil;
+import com.kbstar.util.GeoStatsApi;
 import lombok.extern.slf4j.Slf4j;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,6 +34,8 @@ public class AjaxImplController {
     ReviewService reviewService;
     @Autowired
     ReserveService reserveService;
+    @Autowired
+    RoomService roomService;
 
     @Autowired
     BCryptPasswordEncoder encoder= new BCryptPasswordEncoder();
@@ -144,6 +151,15 @@ public class AjaxImplController {
         }
         return ja;
     }
+
+    @RequestMapping("/reverseAddress")
+    public String reverseAddress(String x_coor, String y_coor) throws Exception{
+        GeoStatsApi geoStatsApi = new GeoStatsApi();
+        String result = geoStatsApi.generateCode(x_coor, y_coor, "20");
+        return result;
+    }
+
+
 
 
 }

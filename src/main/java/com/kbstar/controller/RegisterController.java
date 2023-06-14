@@ -5,12 +5,10 @@ import ch.qos.logback.core.net.SyslogOutputStream;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.kbstar.dto.Guest;
-import com.kbstar.dto.Host;
-import com.kbstar.dto.KakaoProfile;
-import com.kbstar.dto.OAuthToken;
+import com.kbstar.dto.*;
 import com.kbstar.service.GuestService;
 import com.kbstar.service.HostService;
+import com.kbstar.service.RoomService;
 import com.kbstar.util.FileUploadUtil;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -46,6 +44,8 @@ public class RegisterController {
 
     @Autowired
     HostService hostService;
+    @Autowired
+    RoomService roomService;
 
 
     @RequestMapping("/registerImpl")
@@ -60,6 +60,19 @@ public class RegisterController {
         }
         model.addAttribute("host", host);
         model.addAttribute("center", "registerDetail");
+        return "index";
+    }
+
+
+    @RequestMapping("/registerAddressImpl")
+    public String registerImpl(Model model, Room room) throws Exception {
+        try {
+            roomService.register(room);
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new Exception("가입 오류");
+        }
+        model.addAttribute("center", "center");
         return "index";
     }
 //

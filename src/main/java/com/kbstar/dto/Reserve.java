@@ -32,8 +32,7 @@ public class Reserve {
     private String reserverApi;
     private Integer reserveRefund;
     private Integer reserveReply;
-
-
+    private Date refundDate; // 서지영
 
 
 }

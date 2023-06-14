@@ -77,7 +77,7 @@
                   <use xlink:href="#diploma-1"> </use>
                 </svg>
               </div>
-              <a href="./profile/reviews">
+              <a href="./profile/reviews?hostId=${loginHost.hostId}">
               <div>
                 <p class="mb-0">2877 reviews</p>
               </div>
@@ -89,9 +89,11 @@
                   <use xlink:href="#checkmark-1"> </use>
                 </svg>
               </div>
+              <a href="./marker/address?hostId=${loginHost.hostId}">
               <div>
-                <p class="mb-0">Verified</p>
+                <p class="mb-0">방 등록</p>
               </div>
+              </a>
             </div>
             <div class="d-flex align-items-center mb-3">
               <div class="icon-rounded icon-rounded-sm bg-primary-light flex-shrink-0 me-2">

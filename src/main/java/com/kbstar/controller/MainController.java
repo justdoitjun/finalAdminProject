@@ -77,6 +77,12 @@ public class MainController {
         return "index";
     }
 
+    @RequestMapping("/gpt")
+    public String gpt(Model model){
+        model.addAttribute("center","gpt/gpt");
+        return "index";
+    }
+
 //    @RequestMapping("/calender")
 //    public String calender(Model model){
 //        model.addAttribute("center","calender");

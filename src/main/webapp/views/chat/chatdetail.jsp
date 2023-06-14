@@ -106,7 +106,11 @@
 
       $('#buttonSendMessage').click(() => {
         console.log('clicked');
-        sendData();
+          if($('#chatContentsBox').val().length == 0){
+              alert('뭐라도 내용을 넣으세요');
+          }else{
+              sendData();
+          }
       });
     })
   };
@@ -152,7 +156,7 @@
     $.ajax({
       url: 'chat/request',
       data: {
-        'chatContents': $('#chatContents').val(),
+        'chatContents': $('#chatContentsBox').val(),
         'chatRoomId': $('#chatRoomId').val(),
         'chatSender': $('#chatSender').val()
       }
@@ -253,7 +257,7 @@
           <div class="input-group">
             <input type="hidden" id="chatRoomId" value="${chatRoomId}"/>
             <input type="hidden" id="chatSender" value="${hostId}"/>
-            <textarea class="form-control border-0 p-4 bg-light text-sm" id="chatContents" placeholder="Type a message" aria-describedby="button-sendMessage"></textarea>
+            <textarea class="form-control border-0 p-4 bg-light text-sm" id="chatContentsBox" placeholder="Type a message" aria-describedby="button-sendMessage"></textarea>
             <button class="btn btn-link" id="buttonSendMessage" type="button"><i class="fa fa-paper-plane"></i></button>
           </div>
         </form>
