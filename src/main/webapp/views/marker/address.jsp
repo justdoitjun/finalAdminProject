@@ -83,7 +83,7 @@
                         <input class="form-control" type="hidden" name="hostId" id="hostId" value="${loginHost.hostId}" readonly>
                     </div>
                     <div class="mb-4">
-                        <label class="form-label" for="roomPrice"> 가격 </label>
+                        <label class="form-label" type="number"for="roomPrice"> 가격 </label>
                         <input class="form-control" name="roomPrice" id="roomPrice" placeholder=""  required data-msg="Please enter your password">
                     </div>
                     <div class="mb-4">
@@ -96,11 +96,11 @@
                     <input class="form-control" type="button" onclick="sample5_execDaumPostcode()" value="주소 검색"><br>
                     </div>
                     <div>
-                        <input class="form-control"  type="hidden" id="roomLat" ><!-- 위도 -->
-                        <input class="form-control"  type="hidden"  id="roomLng" ><!-- 경도 -->
+                        <input class="form-control" type="number"  name="roomLat" id="roomLat" ><!-- 위도 -->
+                        <input class="form-control" type="number" name="roomLng" id="roomLng" ><!-- 경도 -->
 <%--                        <input class="form-control"  type="hidden"  id="roomPosY" ><!-- 새위도변형 -->--%>
 <%--                        <input class="form-control"  type="hidden"  id="roomPosX" ><!-- 새경도변형 -->--%>
-                        <input class="form-control"  type="hidden" name="roomLoc" id="roomLoc" ><!-- 지역 -->
+                        <input class="form-control"  name="roomLoc" id="roomLoc" ><!-- 지역 -->
                     </div>
                     <div class="d-grid gap-2">
                         <button class="btn btn-lg btn-primary" type="button" id="roomRegisterBtn" > 등록 </button>
