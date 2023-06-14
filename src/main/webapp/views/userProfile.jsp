@@ -89,7 +89,7 @@
                   <use xlink:href="#checkmark-1"> </use>
                 </svg>
               </div>
-              <a href="./marker/address">
+              <a href="./marker/address?hostId=${loginHost.hostId}">
               <div>
                 <p class="mb-0">방 등록</p>
               </div>

@@ -4,6 +4,8 @@
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=4083a9e1e518bd0452f9a390ffd2eec7&libraries=services"></script>
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script type = "text/javascript" src = "https://sgisapi.kostat.go.kr/OpenAPI3/auth/javascriptAuth?consumer_key=6db61f39b75c429b8bef" />
+
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 <style>
@@ -36,8 +38,27 @@
     let roomRegister = {
         init : ()=>{$('#roomRegisterBtn').click(()=>{
             console.log('clicked register button');
+            if($('#hostId').val().length == 0){
+                alert('You are not able to register this room');
+            }
 
         })}
+    }
+
+    function reverseAddress(){
+        $.ajax({
+            url:'/marker/reverse',
+            data:{
+                'accessToken' : 'd5209853-dee6-41b8-9bcc-a17cc92fa2c2',
+                'x_coor' : $('#roomPosX').val(),
+                'y_coor' : $('#roomPosY').val(),
+                'addr_type' : 20
+            }
+        }).done((data)=>{
+            console.log('map coordinates founded');
+        }).fail(()=>{
+            console.log('failed');
+        })
     }
 
 </script>
@@ -86,33 +107,35 @@
                 </div>
                 <form class="form-validate">
                     <div class="mb-4">
-                        <input class="form-control" name="loginUsername" id="loginUsername" type="hidden" placeholder="name@address.com" autocomplete="off" required data-msg="Please enter your email">
+                        <input class="form-control" type="hidden" name="hostId" id="hostId" value="${loginHost.hostId}" readonly>
                     </div>
                     <div class="mb-4">
-                        <label class="form-label" for="price"> 가격 </label>
-                        <input class="form-control" name="price" id="price" placeholder="Pass" type="pass" required data-msg="Please enter your password">
+                        <label class="form-label" for="roomPrice"> 가격 </label>
+                        <input class="form-control" name="roomPrice" id="roomPrice" placeholder=""  required data-msg="Please enter your password">
                     </div>
                     <div class="mb-4">
-                        <label class="form-label" for="roomname"> 방 이름 </label>
-                        <input class="form-control" name="roomname" id="roomname" placeholder="roomname" type="roomname" required data-msg="Please enter your password">
+                        <label class="form-label" for="roomName"> 방 이름 </label>
+                        <input class="form-control" name="roomName" id="roomName" placeholder="방 이름을 만들어주세요"  required data-msg="Please enter your password">
                     </div>
-
                     <div class="mb-4">
-                        <label class="form-label" for="sample5_address"> 주소 </label>
-                    <input class="form-control" type="text"  id="sample5_address" placeholder="주소">
+                        <label class="form-label" for="roomAddress"> 주소 </label>
+                    <input class="form-control" type="text"  id="roomAddress" placeholder="주소">
                     <input class="form-control" type="button" onclick="sample5_execDaumPostcode()" value="주소 검색"><br>
                     </div>
                     <div>
-                        <input class="form-control" type="hidden" id="roomLoc" ><!-- 지역 -->
-                        <input class="form-control" type="hidden" id="roomLat" ><!-- 위도 -->
-                        <input class="form-control" type="hidden" id="roomLng" ><!-- 경도 -->
+                        <input class="form-control"  id="roomLat" ><!-- 위도 -->
+                        <input class="form-control"  id="roomLng" ><!-- 경도 -->
+                        <input class="form-control"  id="roomPosY" ><!-- 새위도변형 -->
+                        <input class="form-control"  id="roomPosX" ><!-- 새경도변형 -->
+                        <input class="form-control"  id="roomLoc" ><!-- 지역 -->
+
                     </div>
                     <div class="d-grid gap-2">
                         <button class="btn btn-lg btn-primary" type="button" id="roomRegisterBtn" > 등록 </button>
                     </div>
                     <hr class="my-4">
                     <p class="text-sm text-muted">By signing up you agree to Directory's <a href="#">Terms and Conditions</a> and <a href="#">Privacy Policy</a>.</p>
-                </form><a class="close-absolute me-md-5 me-xl-6 pt-5" href="index.html">
+                </form><a class="close-absolute me-md-5 me-xl-6 pt-5" href="/">
                 <svg class="svg-icon w-3rem h-3rem">
                     <use xlink:href="#close-1"> </use>
                 </svg></a>
@@ -128,10 +151,6 @@
 </div>
 
 </body>
-
-
-</html>
-
 <script>
     var mapContainer = document.getElementById('map'), // 지도를 표시할 div
         mapOption = {
@@ -156,7 +175,7 @@
                 var addr = data.address; // 최종 주소 변수
 
                 // 주소 정보를 해당 필드에 넣는다.
-                document.getElementById("sample5_address").value = addr;
+                document.getElementById("roomAddress").value = addr;
                 // 주소로 상세 정보를 검색
                 geocoder.addressSearch(data.address, function(results, status) {
                     // 정상적으로 검색이 완료됐으면
@@ -165,16 +184,11 @@
                         var result = results[0]; //첫번째 결과의 값을 활용
 
                         // 해당 주소에 대한 좌표를 받아서
-
-
                         var coords = new daum.maps.LatLng(result.y, result.x)
 
                         // 지도를 보여준다.
                         mapContainer.style.display = "block";
                         map.relayout();
-
-
-
 
                         // 지도 중심을 변경한다.
                         map.setCenter(coords);
@@ -205,13 +219,23 @@
                             // 마커에 마우스아웃 이벤트가 발생하면 인포윈도우를 제거합니다
                             infowindow.close();
                         });
+                        $('#roomLat').val(result.y);
+                        $('#roomLng').val(result.x);
 
+                        let utmkXY = new sop.LatLng (result.y,result.x); //wgs84 좌표를 UTMK로 변환
+                        $('#roomPosY').val(utmkXY.y);
+                        $('#roomPosX').val(utmkXY.x);
 
-                        var coordinatesElement = document.getElementById("coordinates");
-                        coordinatesElement.innerHTML = "위도: " + result.y + ", 경도: " + result.x;
+                        // var coordinatesElement = document.getElementById("coordinates");
+                        // coordinatesElement.innerHTML = "위도: " + result.y + ", 경도: " + result.x;
                     }
                 });
             }
         }).open();
     }
 </script>
+
+
+</html>
+
+

@@ -80,6 +80,7 @@ public class MarkerController {
 
     @RequestMapping("/address")
     public String address(Model model) throws Exception {
+        //model.addAttribute("hostId", hostId);
         model.addAttribute("center",dir+"address");
         return "index";
     }
