@@ -16,7 +16,7 @@ import java.util.List;
 
 @Slf4j
 public class GeoStatsApi {
-    private static final String authkey = "96860e24-3f8a-4830-a389-5decaa61488a";
+    private static final String authkey = "02dfb578-7e7b-4fae-ab29-0feff489a5e5";
     private static final String BASE_URL = "https://sgisapi.kostat.go.kr/OpenAPI3/addr/rgeocode.json";
     private final HttpClient client;
 

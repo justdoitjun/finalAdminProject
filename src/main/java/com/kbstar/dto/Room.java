@@ -21,8 +21,8 @@ public class Room {
     private Integer roomWPrice;
     private Integer roomCap;
     private String roomType;
-    private long roomLat;
-    private long roomLng;
+    private double roomLat;
+    private double roomLng;
     private String roomImage1;
     private String roomImage2;
     private String roomImage3;
