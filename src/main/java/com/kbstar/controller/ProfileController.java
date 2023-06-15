@@ -64,4 +64,11 @@ public class ProfileController {
 
         return "index";
     }
+
+    @RequestMapping("/finance")
+    public String finance(Model model){
+        model.addAttribute("center","userProfile");
+        model.addAttribute("centerUserProfile",dirProfile+"finance");
+        return "index";
+    }
 }

@@ -10,5 +10,20 @@
     <insert id="insert" parameterType="Chatroom">
         INSERT INTO chatRoom VALUES (chatRoomSeq.NEXTVAL,#{hostId},#{guestId})
     </insert>
+    <select id="findChatRoomNumber" parameterType="String" resultType="Integer">
+        SELECT cR.chatRoomId as chatRoomId
+        FROM chatRoom cR
+        WHERE hostId=#{hostId} AND guestID=#{guestId}
+    </select>
+    <select id="findGuestChatRoomId" parameterType="String" resultType="chatRoom">
+        SELECT *
+        FROM chatRoom cR
+        WHERE guestID=#{guestId}
+    </select>
+    <select id="findHostChatRoomId" parameterType="String" resultType="chatRoom">
+        SELECT *
+        FROM chatRoom cR
+        WHERE hostID=#{guestId}
+    </select>
 
 </mapper>
