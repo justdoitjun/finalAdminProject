@@ -45,6 +45,7 @@
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
   <!-- Font Awesome CSS-->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 </head>
 <body style="padding-top: 72px;">
 
@@ -62,7 +63,7 @@
 
               <div class="icon-rounded icon-rounded-sm bg-primary-light flex-shrink-0 me-2">
                 <svg class="svg-icon text-primary svg-icon-md">
-                  <use xlink:href="#diploma-1"> </use>
+                  <use xlink:href="#edit-1"> </use>
                 </svg>
               </div>
               <a href="./profile/myinfo" >
@@ -74,7 +75,9 @@
             <div class="d-flex align-items-center mb-3">
               <div class="icon-rounded icon-rounded-sm bg-primary-light flex-shrink-0 me-2">
                 <svg class="svg-icon text-primary svg-icon-md">
-                  <use xlink:href="#diploma-1"> </use>
+                  <svg class="svg-icon text-primary svg-icon-md">
+                    <use xlink:href="#heart-1"> </use>
+                  </svg>
                 </svg>
               </div>
               <a href="./profile/reviews?hostId=${loginHost.hostId}">
@@ -86,7 +89,7 @@
             <div class="d-flex align-items-center mb-3">
               <div class="icon-rounded icon-rounded-sm bg-primary-light flex-shrink-0 me-2">
                 <svg class="svg-icon text-primary svg-icon-md">
-                  <use xlink:href="#checkmark-1"> </use>
+                  <use xlink:href="#house-1"> </use>
                 </svg>
               </div>
               <a href="./marker/address?hostId=${loginHost.hostId}">
@@ -98,7 +101,9 @@
             <div class="d-flex align-items-center mb-3">
               <div class="icon-rounded icon-rounded-sm bg-primary-light flex-shrink-0 me-2">
                 <svg class="svg-icon text-primary svg-icon-md">
-                  <use xlink:href="#checkmark-1"> </use>
+                  <svg class="svg-icon text-primary svg-icon-md">
+                    <use xlink:href="#diary-1"> </use>
+                  </svg>
                 </svg>
               </div>
               <a  href="./profile/reservation">
@@ -109,14 +114,29 @@
             </div>
             <div class="d-flex align-items-center mb-3">
               <div class="icon-rounded icon-rounded-sm bg-primary-light flex-shrink-0 me-2">
-                <svg class="svg-icon" viewBox="0 0 20 20">
-                  <path d="M17.388,4.751H2.613c-0.213,0-0.389,0.175-0.389,0.389v9.72c0,0.216,0.175,0.389,0.389,0.389h14.775c0.214,0,0.389-0.173,0.389-0.389v-9.72C17.776,4.926,17.602,4.751,17.388,4.751 M16.448,5.53L10,11.984L3.552,5.53H16.448zM3.002,6.081l3.921,3.925l-3.921,3.925V6.081z M3.56,14.471l3.914-3.916l2.253,2.253c0.153,0.153,0.395,0.153,0.548,0l2.253-2.253l3.913,3.916H3.56z M16.999,13.931l-3.921-3.925l3.921-3.925V13.931z"></path>
+                <svg class="svg-icon text-primary svg-icon-md">
+                  <use xlink:href="#mail-1"> </use>
                 </svg>
               </div>
               <div>
                 <p class="mb-0"><a href="/chatroomalltest">Messenger</a></p>
               </div>
             </div>
+            <div class="d-flex align-items-center mb-3">
+              <div class="icon-rounded icon-rounded-sm bg-primary-light flex-shrink-0 me-2">
+                <svg class="svg-icon text-primary svg-icon-md">
+                  <svg class="svg-icon text-primary svg-icon-md">
+                    <use xlink:href="#money-1"> </use>
+                  </svg>
+                </svg>
+              </div>
+              <a  href="./profile/finance">
+                <div>
+                  <p class="mb-0">KB와 함께하는 수익투자</p>
+                </div>
+              </a>
+            </div>
+
             <hr>
             <h6>Jack provided</h6>
             <ul class="card-text text-muted">

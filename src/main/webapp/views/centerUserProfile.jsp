@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+
 <div class="col-lg-9 ps-lg-5">
   <h1 class="hero-heading mb-0">${loginHost.hostName}님. 안녕하세요! </h1>
   <div class="text-block">
@@ -7,6 +9,8 @@
   </div>
   <div class="row">
     <h4 class="mb-5">${loginHost.hostName}의 현재까지 수익은 입니다.</h4>
+
+
     <div class="col-sm-6 col-lg-4 mb-30px hover-animate" data-marker-id="59c0c8e33b1527bfe2abaf92">
       <div class="card h-100 border-0 shadow">
         <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" src="img/photo/photo-1484154218962-a197022b5858.jpg" alt="Modern, Well-Appointed Room"/><a class="tile-link" href="detail-rooms.html"></a>
