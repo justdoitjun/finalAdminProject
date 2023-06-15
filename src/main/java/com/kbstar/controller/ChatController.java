@@ -24,7 +24,7 @@ import java.util.List;
 @Controller
 public class ChatController {
     @Autowired
-    ChatRoomService service;
+    ChatRoomService chatroomSerivce;
     @Autowired
     ChatContentsService chatContentsService;
 
@@ -33,13 +33,41 @@ public class ChatController {
 
 
     @RequestMapping("/chatroom")
-    public String main(Model model) throws Exception {
-        model.addAttribute("center", dir+"chatroomlist");
+    public String main(Model model, String hostId) throws Exception {
+        List<Chatroom> messengerListAll = chatroomSerivce.findHostChatRoom(hostId);
+        JSONArray jsonArray = new JSONArray();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
+        //(1) 전체 메신저리스트를 받는다.
+        // (2) 내가 추가적으로 필요한 (1) 최신 date와 (2) 최신 컨텐츠를 추가한
+        // 새로운 리스트를 만들어낸다.
+        // (3) 각론 - 배열을 다루기 가장 쉬운 것은 forEach 나 for문
+        // 관리 용의성을 위해서 (배열 길이 조절) for 문 선택
+        //(4) 최종으로 웹에 던지는 것은 파싱 용의성을 위해 JSON Array(object 보단 뱅려)
+        for(Chatroom e : messengerListAll) {
+            JSONObject jsonObject = new JSONObject();
+            Integer chatRoomId = e.getChatRoomId();
+
+            jsonObject.put("chatRoomInfo", e);
+            jsonObject.put("recent", chatContentsService.findRecentData(chatRoomId));
+            jsonArray.add(jsonObject);
+        }
+
+        log.info("===============");
+        log.info(jsonArray.toJSONString());
+        log.info("===============");
+
+        model.addAttribute("center", "userProfile");
+        model.addAttribute("centerUserProfile", dir+"chatroomOfHost");
+        model.addAttribute("mList", jsonArray);
         return "index";
     }
+
+
+
     @RequestMapping("/chatroomalltest")
     public String chatroomAllTest(Model model) throws Exception {
-        List<Chatroom> messengerListAll = service.get();
+        List<Chatroom> messengerListAll = chatroomSerivce.get();
         JSONArray jsonArray = new JSONArray();
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 

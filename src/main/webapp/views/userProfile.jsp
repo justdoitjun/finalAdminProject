@@ -66,7 +66,7 @@
                   <use xlink:href="#edit-1"> </use>
                 </svg>
               </div>
-              <a href="./profile/myinfo" >
+              <a href="/profile/myinfo" >
               <div>
                 <p class="mb-0">정보 변경</p>
               </div>
@@ -80,7 +80,7 @@
                   </svg>
                 </svg>
               </div>
-              <a href="./profile/reviews?hostId=${loginHost.hostId}">
+              <a href="/profile/reviews?hostId=${loginHost.hostId}">
               <div>
                 <p class="mb-0">2877 reviews</p>
               </div>
@@ -92,7 +92,7 @@
                   <use xlink:href="#house-1"> </use>
                 </svg>
               </div>
-              <a href="./marker/address?hostId=${loginHost.hostId}">
+              <a href="/marker/address?hostId=${loginHost.hostId}">
               <div>
                 <p class="mb-0">방 등록</p>
               </div>
@@ -106,7 +106,7 @@
                   </svg>
                 </svg>
               </div>
-              <a  href="./profile/reservation">
+              <a  href="/profile/reservation">
               <div>
                 <p class="mb-0">예약 및 정산관리</p>
               </div>
@@ -119,7 +119,7 @@
                 </svg>
               </div>
               <div>
-                <p class="mb-0"><a href="/chatroomalltest">Messenger</a></p>
+                <p class="mb-0"><a href="/chatroom?hostId=${loginHost.hostId}">Messenger</a></p>
               </div>
             </div>
             <div class="d-flex align-items-center mb-3">
@@ -130,7 +130,7 @@
                   </svg>
                 </svg>
               </div>
-              <a  href="./profile/finance">
+              <a  href="/profile/finance">
                 <div>
                   <p class="mb-0">KB와 함께하는 수익투자</p>
                 </div>

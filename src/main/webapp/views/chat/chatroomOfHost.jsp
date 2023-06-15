@@ -3,7 +3,9 @@
 
 <div class="col-lg-9 ps-lg-5">
   <body style="padding-top: 72px;">
-
+    <section class="py-5">
+      <h5>${loginHost.hostName}의 메세지</h5>
+    </section>
     <section class="py-5">
       <div class="list-group shadow mb-5">
         <c:forEach var="obj" items="${mList}">
