@@ -268,23 +268,25 @@
                                 <th>Room</th>
                                 <th>Description</th>
                                 <th class="text-end">Price</th>
-                                <th class="center">Day</th>
+                                <th class="center">  Day</th>
                                 <th class="text-end">Total</th>
                             </tr>
                             </thead>
                             <tbody>
                             <tr>
                                 <td class="text-center">1</td>
-                                <td class="fw-bold">Room Rental Services</td>
-                                <td>August</td>
+
+                                <td>근린시설 접근성이 좋은 집</td>
+                                <td class="fw-bold">방 대여료</td>
                                 <td class="text-end">$958.00</td>
                                 <td class="text-center">1</td>
                                 <td class="text-end">$958.00</td>
                             </tr>
                             <tr>
                                 <td class="text-center">2</td>
-                                <td class="fw-bold">Premium Listing</td>
-                                <td>London</td>
+
+                                <td>뷰가 좋고 편의시설이 많은 집</td>
+                                <td class="fw-bold">청소 및 부가세</td>
                                 <td class="text-end">$100.00</td>
                                 <td class="text-center">1</td>
                                 <td class="text-end">$100.00</td>
@@ -314,7 +316,7 @@
                     </div>
                 </div>
                 <div class="card-footer bg-gray-100 p-5 px-print-0 border-0 text-end text-sm">
-                    <p class="mb-0">Thank you for you business. Directory, Inc.</p>
+                    <p class="mb-0">정산이 완료되었습니다. 등록된 계좌로 입금예정입니다.</p>
                 </div>
             </div>
         </div>
