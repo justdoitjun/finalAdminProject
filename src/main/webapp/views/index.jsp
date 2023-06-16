@@ -34,16 +34,77 @@
   <!-- Calendar -->
   <link href='https://cdn.jsdelivr.net/npm/fullcalendar@5.8.0/main.min.css' rel='stylesheet' />
   <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.8.0/main.min.js'></script>
+  <script src="/webjars/sockjs-client/sockjs.min.js"></script>
+  <script src="/webjars/stomp-websocket/stomp.min.js"></script>
 
   <!-- Font Awesome CSS-->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 </head>
+<script>
+  let socket;
+  //connect부분은 쓰레기 코드인데 어떻게 객체화해야할지 모르겠어서 대충하겠다...너무 지친다...
+  function connect() {
+    var url = "wss"; // WebSocket 엔드포인트 URL
+
+    // WebSocket 생성
+    socket = new WebSocket(url);
+
+
+    // WebSocket 이벤트 핸들러 정의
+    socket.onopen = function(event) {
+      console.log("WebSocket opened");
+      // 서버로 메시지 전송 예시
+      socket.send();
+    };
+
+
+    //소켓 메세지
+    socket.onmessage = function(event) {
+      let reader = new FileReader();
+      reader.onload = function() {
+        let notificationRecieved =
+                `
+          <div class="spinner-grow text-danger spinner-grow-sm"></div>
+                `;
+        $('#notificationBell').append(notificationRecieved);
+      };
+      reader.readAsText(event.data);
+    };
+
+
+
+    socket.onclose = function(event) {
+      console.log("WebSocket closed");
+    };
+
+
+    socket.onerror = function(error) {
+      console.error("WebSocket error:", error);
+    };
+
+
+
+  }
+
+
+  function disconnect() {
+    if (socket) {
+      socket.close();
+      console.log("WebSocket disconnected");
+    }
+  }
+
+  $(()=>{
+    connect();
+  })
+
+</script>
 <body style="padding-top: 72px;">
 <header class="header">
   <!-- Navbar-->
   <nav class="navbar navbar-expand-lg fixed-top shadow navbar-light bg-white">
 
-    <div class="container-fluid">
+    <div class="container-fluid ">
       <%--            요기 이미지가 diretory 로고임--%>
       <div class="d-flex align-items-center"><a class="navbar-brand py-1" href="/"><img src="/img/logo.svg" alt="Directory logo"></a>
         <form class="form-inline d-none d-sm-flex" action="#" id="search">
@@ -53,16 +114,22 @@
           </div>
         </form>
       </div>
-      <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
+        <div class="d-flex align-items-center justify-content-end" id="notificationBell">
+          <svg class="svg-icon text-primary svg-icon-sd"><use xlink:href="#customer-suppot-1"> </use></svg>
+          <i class='fas fa-bell' style='font-size:24px'></i>
+          <div class="spinner-grow text-danger spinner-grow-sm"></div>
+        </div>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
       <!-- Navbar Collapse -->
-      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <div class="collapse navbar-collapse" id="navbarCollapse">
         <form class="form-inline mt-4 mb-2 d-sm-none" action="#" id="searchcollapsed">
           <div class="input-label-absolute input-label-absolute-left w-100">
             <label class="label-absolute" for="searchcollapsed_search"><i class="fa fa-search"></i><span class="sr-only">What are you looking for?</span></label>
             <input class="form-control form-control-sm border-0 shadow-0 bg-gray-200" id="searchcollapsed_search" placeholder="Search" aria-label="Search" type="search">
           </div>
         </form>
-        <ul class="navbar-nav ms-auto">
+
+          <ul class="navbar-nav ms-auto">
 
           <c:choose>
             <c:when test="${loginHost == null}">
@@ -70,15 +137,17 @@
               <li class="nav-item"><a class="nav-link" href="/register">회원가입</a></li>
             </c:when>
             <c:otherwise>
-              <li class="nav-item"><a class="nav-link" href="/gpt"> <span class="spinner-grow spinner-grow-sm"></span>Chat GPT</a></li>
 
-              <img class="d-block avatar avatar-xxs p-2 mb-2" src="/img/avatar/avatar-10.jpg">
-              <li class="nav-item"><a class="nav-link" href="/profile"> ${loginHost.hostName}</a></li>
+              <li class="nav-item"><a class="nav-link" href="/gpt"> <span class="spinner-grow spinner-grow-sm"></span>Chat GPT</a></li>&nbsp; &nbsp;
+              <li class="nav-item"><a class="nav-link" href="/chatroom?hostId=${loginHost.hostId}"> <svg class="svg-icon text-primary svg-icon-sd"><use xlink:href="#mail-1"> </use></svg></a></li>&nbsp; &nbsp;
+              <img class="d-block avatar avatar-xxs p-2 mb-2" src="/img/avatar/avatar-10.jpg">&nbsp; &nbsp;
+              <li class="nav-item"><a class="nav-link" href="/profile"> ${loginHost.hostName}</a></li>&nbsp; &nbsp;
               <li class="nav-item"><a class="nav-link" href="/logout">로그아웃</a></li>
             </c:otherwise>
           </c:choose>
         </ul>
       </div>
+
     </div>
   </nav>
   <!-- /Navbar -->

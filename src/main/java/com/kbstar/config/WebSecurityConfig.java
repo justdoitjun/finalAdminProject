@@ -1,4 +1,4 @@
-package com.kbstar;
+package com.kbstar.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -33,4 +33,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and().cors().configurationSource(source)
                 .and().csrf().disable();
     }
+
+
 }

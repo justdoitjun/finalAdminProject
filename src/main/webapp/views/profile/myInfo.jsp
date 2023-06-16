@@ -7,7 +7,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-9 offset-md-2">
-                <h2 class="mb-4">Update Personal Information</h2>
+                <h2> <svg class="svg-icon text-primary svg-icon-md"><use xlink:href="#edit-1"> </use></svg> Update your profile </h2>
                 <form>
                     <div class="form-group">
                         <label for="hostImage">프로필 사진</label>
@@ -30,12 +30,12 @@
                         <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm your password">
                     </div>
                     <hr>
-                    <div class="form-group">
-                        <label for="confirmPassword">구사언어</label>
+                    <div class="mb-4">
+                        <label class="form-label" for="hostLang">구사언어</label>
                         <table >
-                            <tr >
+                            <tr>
                                 <td valgn="top">
-                                    <select name="items" class="form-control">
+                                    <select name="hostLang" id="hostLang" class="form-control">
                                         <option value=""> ===선택안함===</option>
                                         <option value="ko">한국어</option>
                                         <option value="en">영어(English)</option>
@@ -58,10 +58,32 @@
                             </tr>
                         </table>
                     </div>
+                    <div class="mb-4">
+                        <label class="form-label" for="hostJob">직업</label>
+                        <table>
+                            <tr>
+                                <td valign="top">
+                                    <select name="hostJob" id="hostJob" class="form-control">
+                                        <option value="비공개">===비공개===</option>
+                                        <option value="학생">학생</option>
+                                        <option value="금융권 종사자">금융권</option>
+                                        <option value="회사원">회사원</option>
+                                        <option value="변호사">변호사</option>
+                                        <option value="회계사">회계사</option>
+                                        <option value="의료계 종사자">의료계</option>
+                                        <option value="교육계 종사자">교육계</option>
+                                        <option value="사업가">사업가</option>
+                                        <option value="프리랜서">프리랜서</option>
+                                    </select>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
                     <div class="form-group">
                         <label for="hostIntro">자기소개</label>
                         <textarea class="form-control" id="hostIntro"> </textarea>
                     </div>
+
                     <br>
                     <button type="submit" class="btn btn-primary">Update</button>
                 </form>
