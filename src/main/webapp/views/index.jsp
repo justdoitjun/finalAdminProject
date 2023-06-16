@@ -41,64 +41,105 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 </head>
 <script>
-  let socket;
-  //connect부분은 쓰레기 코드인데 어떻게 객체화해야할지 모르겠어서 대충하겠다...너무 지친다...
-  function connect() {
-    var url = "wss"; // WebSocket 엔드포인트 URL
+  let websocket = {
+    id:null,
+    stompClient:null,
+    init:function(){
+      this.id = 'host1@host.com';
+      websocket.connect();
+      $("#disconnect").click(function() {
+        websocket.disconnect();
+      });
+      $("#sendall").click(function() {
+        websocket.sendAll();
+      });
+      $("#sendme").click(function() {
+        websocket.sendMe();
+      });
+      $("#sendto").click(function() {
+        websocket.sendTo();
+      });
+    },
+    connect:function(){
+      var sid = 'host1@host.com';
+      var socket = new SockJS('http://127.0.0.1:8088/ws');
+      socket.withCredentials = false;
+      this.stompClient = Stomp.over(socket);
 
-    // WebSocket 생성
-    socket = new WebSocket(url);
+      this.stompClient.connect({}, function(frame) {
+        websocket.setConnected(true);
+        console.log('연결: ' + frame);
+        this.subscribe('/send', function(msg) {
 
-
-    // WebSocket 이벤트 핸들러 정의
-    socket.onopen = function(event) {
-      console.log("WebSocket opened");
-      // 서버로 메시지 전송 예시
-      socket.send();
-    };
-
-
-    //소켓 메세지
-    socket.onmessage = function(event) {
-      let reader = new FileReader();
-      reader.onload = function() {
-        let notificationRecieved =
-                `
-          <div class="spinner-grow text-danger spinner-grow-sm"></div>
-                `;
-        $('#notificationBell').append(notificationRecieved);
-      };
-      reader.readAsText(event.data);
-    };
-
-
-
-    socket.onclose = function(event) {
-      console.log("WebSocket closed");
-    };
+        });
+        this.subscribe('/send/'+sid, function(msg) {
 
 
-    socket.onerror = function(error) {
-      console.error("WebSocket error:", error);
-    };
+        });
+        this.subscribe('/send/to/'+sid, function(msg) {
+          let redSpot =
+                  `
+                    <div class="spinner-grow text-danger spinner-grow-sm"></div>
+                    `;
+          $('#notificationBell').append(redSpot);
+          if(msg.content1=='message'){
+            $('#messageBell').append(redSpot);
+          }
+          console.log('받은 것'+msg);
+          //send라고 하고 상대방 타인 포트ㄹ 지정해주면, 메세지를 일단 받고
+          // 이 메세지에 아래처럼 덧붙여서 보낼게.
+          // $("#to").prepend(
+          //         "<h4>" + JSON.parse(msg.body).sendid +":"+
+          //         JSON.parse(msg.body).content1
+          //         + "</h4>");
 
-
-
-  }
-
-
-  function disconnect() {
-    if (socket) {
-      socket.close();
-      console.log("WebSocket disconnected");
+        });
+      });
+    },
+    disconnect:function(){
+      if (this.stompClient !== null) {
+        this.stompClient.disconnect();
+      }
+      websocket.setConnected(false);
+      console.log("Disconnected");
+    },
+    setConnected:function(connected){
+      if (connected) {
+        console.log('connected');
+        $("#status").text("Connected");
+      } else {
+        $("#status").text("Disconnected");
+      }
+    },
+    sendAll:function(){
+      var msg = JSON.stringify({
+        'sendid' : this.id,
+        'content1' : $("#alltext").val()
+      });
+      this.stompClient.send("/receiveall", {}, msg);
+    },
+    sendTo:function(){
+      var msg = JSON.stringify({
+        'sendid' : this.id,
+        'receiveid' : 'host1',
+        'content1' : '등록되었습니다'
+      });
+      this.stompClient.send('/receiveto', {}, msg);
+    },
+    sendMe:function(){
+      var msg = JSON.stringify({
+        'sendid' : this.id,
+        'content1' : $('#metext').val()
+      });
+      this.stompClient.send("/receiveme", {}, msg);
     }
-  }
+  };
+  $(function(){
 
-  $(()=>{
-    connect();
+    websocket.init();
   })
-
 </script>
+
 <body style="padding-top: 72px;">
 <header class="header">
   <!-- Navbar-->
@@ -117,7 +158,7 @@
         <div class="d-flex align-items-center justify-content-end" id="notificationBell">
           <svg class="svg-icon text-primary svg-icon-sd"><use xlink:href="#customer-suppot-1"> </use></svg>
           <i class='fas fa-bell' style='font-size:24px'></i>
-          <div class="spinner-grow text-danger spinner-grow-sm"></div>
+<%--          <div class="spinner-grow text-danger spinner-grow-sm"></div>--%>
         </div>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
       <!-- Navbar Collapse -->
@@ -139,7 +180,9 @@
             <c:otherwise>
 
               <li class="nav-item"><a class="nav-link" href="/gpt"> <span class="spinner-grow spinner-grow-sm"></span>Chat GPT</a></li>&nbsp; &nbsp;
+              <div id="messageBell">
               <li class="nav-item"><a class="nav-link" href="/chatroom?hostId=${loginHost.hostId}"> <svg class="svg-icon text-primary svg-icon-sd"><use xlink:href="#mail-1"> </use></svg></a></li>&nbsp; &nbsp;
+              </div>
               <img class="d-block avatar avatar-xxs p-2 mb-2" src="/img/avatar/avatar-10.jpg">&nbsp; &nbsp;
               <li class="nav-item"><a class="nav-link" href="/profile"> ${loginHost.hostName}</a></li>&nbsp; &nbsp;
               <li class="nav-item"><a class="nav-link" href="/logout">로그아웃</a></li>

@@ -88,4 +88,9 @@ public class MainController {
 //        model.addAttribute("center","calender");
 //        return "index";
 //    }
+@RequestMapping("/websocket")
+public String websocket(Model model){
+    model.addAttribute("center", "test/webSocketTest");
+    return "index";
+}
 }
