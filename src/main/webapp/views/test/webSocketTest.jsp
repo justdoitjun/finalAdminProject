@@ -63,7 +63,7 @@
                 });
                 this.subscribe('/send/to/'+sid, function(msg) {
                     let redSpot =
-                    `
+                        `
                     <div class="spinner-grow text-danger spinner-grow-sm"></div>
                     `;
                     $('#notificationBell').append(redSpot);

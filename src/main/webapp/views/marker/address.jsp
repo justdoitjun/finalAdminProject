@@ -121,7 +121,7 @@
                         <input class="form-control" type="hidden" name="roomLng" id="roomLng" ><!-- 경도 -->
 <%--                        <input class="form-control"  type="hidden"  id="roomPosY" ><!-- 새위도변형 -->--%>
 <%--                        <input class="form-control"  type="hidden"  id="roomPosX" ><!-- 새경도변형 -->--%>
-                        <input class="form-control" type="hidden"  name="roomLoc" id="roomLoc" ><!-- 지역 -->
+                        <input class="form-control" name="roomLoc" id="roomLoc" ><!-- 지역 -->
                     </div>
                     <div class="d-grid gap-2">
                         <button class="btn btn-lg btn-primary" type="button" id="roomRegisterBtn" > 등록 </button>

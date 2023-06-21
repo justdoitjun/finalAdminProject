@@ -290,7 +290,31 @@
         <div class="list-group shadow mb-5">
             <div class="list-group-item list-group-item-action p-4">
               <div class="row">
+                <div class="col-2 col-lg-1 align-self-lg-center py-3 d-flex align-items-lg-center z-index-10">
+                  <div class="form-check">
+                    <input class="form-check-input" id="select_message_0" type="checkbox">
+                    <label class="form-check-label" for="select_message_0"> </label>
+                  </div>
+                  <div class="form-star d-none d-sm-inline-block mt-n1">
+                    <input id="star_message_0" type="checkbox" name="star" checked>
+                    <label class="star-label" for="star_message_0"><span class="sr-only">Important Message</span></label>
+                  </div>
+                </div>
+                <div class="col-9 col-lg-4 align-self-center mb-3 mb-lg-0">
+                  <div class="d-flex align-items-center mb-1 mb-lg-3">
+                    <h2 class="h5 mb-0"></h2><img class="avatar avatar-sm avatar-border-white ms-3" src="img/avatar/avatar-0.jpg" alt="Jack London">
+                  </div>
+                  <p class="text-sm text-muted">Double Room</p><a class="stretched-link" href="user-messages-detail.html"></a>
+                </div>
+                <div class="col-10 ms-auto col-lg-7">
+                  <div class="row">
+                    <div class="col-md-8 py-3">
 
+                    </div>
+                    <div class="col-md-4 text-end py-3">
+                    </div>chatRoomId}&hostId=${obj.chatRoomInfo.hostId}&guestId=${obj.chatRoomInfo.guestId}"></a>
+                  </div>
+                </div>
               </div>
             </div>
         </div><!-- obj Div 태그 -->
