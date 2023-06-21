@@ -10,10 +10,9 @@
           <h2>프로필 완성하기</h2>
         </div>
         <form class="form-validate">
-          <div class="mb-4">
-            <label class="form-label" for="loginUsername">내 사진 올리기</label>
-            <input class="form-control" name="loginUsername" id="loginUsername" type="email" placeholder="나의 사진을 올려주세요" autocomplete="off" required data-msg="Please enter your email">
-          </div>
+
+
+
           <div class="mb-4">
             <div class="row">
               <div class="col">
@@ -46,11 +45,15 @@
     </div>
     <div class="col-md-4 col-lg-6 col-xl-7 d-none d-md-block">
       <!-- Image-->
-      <div class="bg-cover h-100 me-n3" style="background-image: url(img/photo/photo-1497436072909-60f360e1d4b1.jpg);"></div>
+<%--      <div class="bg-cover h-100 me-n3" style="background-image: url(img/photo/photo-1497436072909-60f360e1d4b1.jpg);"></div>--%>
     </div>
   </div>
 </div>
 <!-- JavaScript files-->
+
+
+
+
 <script>
   // ------------------------------------------------------- //
   //   Inject SVG Sprite -

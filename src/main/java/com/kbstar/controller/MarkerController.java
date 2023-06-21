@@ -26,6 +26,9 @@ public class MarkerController {
     RoomService roomService;
     String dir = "marker/";
 
+
+
+
     @Value("${uploadimgdir}")
     String imgdir;
     @RequestMapping("/add")
@@ -89,6 +92,14 @@ public class MarkerController {
         return "index";
     }
 
+    @RequestMapping("/addressimpl")
+    public String addressimpl(Model model) throws Exception {
+        //model.addAttribute("hostId", hostId);
+        model.addAttribute("center",dir+"address");
+        return "index";
+    }
+
+
 
     @RequestMapping("/search")
     public String search(Model model, MarkerSearch ms) throws Exception {
@@ -98,6 +109,8 @@ public class MarkerController {
         model.addAttribute("center",dir+"all");
         return "index";
     }
+
+
 
 
 

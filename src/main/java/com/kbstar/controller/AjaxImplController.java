@@ -9,14 +9,17 @@ import com.kbstar.service.ReserveService;
 import com.kbstar.service.ReviewService;
 import com.kbstar.service.RoomService;
 import com.kbstar.util.DateUtil;
+import com.kbstar.util.FileUploadUtil;
 import com.kbstar.util.GeoStatsApi;
 import lombok.extern.slf4j.Slf4j;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
@@ -47,6 +50,19 @@ public class AjaxImplController {
 //
 //        return reserved;
 //    }
+
+
+    @Value("${uploadimgdir}")
+    String imgdir;
+
+    @RequestMapping("/saveimg")
+    public String saveimg(MultipartFile file){
+        String filename = file.getOriginalFilename();
+        FileUploadUtil.saveFile(file, imgdir);
+        return filename;
+    }
+
+
 
     @RequestMapping("/checkId")
     public Object checkid(String hostId) throws Exception {

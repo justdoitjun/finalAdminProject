@@ -20,7 +20,7 @@ public class HostInsertTest {
     void contextLoads() {
         try{
             //insertTest시 hostID를 자주 바꿔줄 것. -unique 값임.
-            Host host = new Host("host7@gmail.com","hostName", "pwd01", new Date());
+            Host host = new Host("host17@gmail.com","hostName", "pwd01", new Date());
             service.register(host);
             service.get();
         }catch(Exception e){

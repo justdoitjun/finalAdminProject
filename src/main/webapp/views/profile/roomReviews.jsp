@@ -53,6 +53,7 @@
           <div class="py-9">
             <div class="collapse mt-4" id="leaveReview">
               <h5 class="mb-4">Leave a reply</h5>
+
               <form class="form" id="contact-form" method="get" action="#">
                 <div class="row">
                   <div class="col-sm-6">

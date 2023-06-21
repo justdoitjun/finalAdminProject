@@ -57,7 +57,11 @@ public class MainController {
         model.addAttribute("center","total");
         return "index";
     }
-
+    @RequestMapping("/pic")
+    public String pic(Model model){
+        model.addAttribute("center","pic");
+        return "index";
+    }
 
     @RequestMapping("/roomlist")
     public String roomlist(Model model){

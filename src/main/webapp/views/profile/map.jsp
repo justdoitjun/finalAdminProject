@@ -27,7 +27,7 @@
 </head>
 <body>
 <div class="col-lg-9 ps-lg-5">
-<div id="map" style="width:100%;height:550px;"></div>
+    <div id="map" style="width:100%;height:550px;"></div>
 </div>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=4083a9e1e518bd0452f9a390ffd2eec7"></script>
 <script>
@@ -54,7 +54,7 @@
             latlng: new kakao.maps.LatLng(37.384977093851, 127.080180906475),
             imgSrc: '이미지 주소2',
             address:  '모던하고 감각적인 인테리어로 깨끗함과 편안함을 ' +
-                       '  추구하는 조용하고 프라이빗한 숙소입니다',
+                '  추구하는 조용하고 프라이빗한 숙소입니다',
             jibunAddress: '지번 주소2',
             homepage:''
         },
@@ -96,15 +96,8 @@
             '    </div>' +
             '</div>';
 
-        var overlay = new kakao.maps.CustomOverlay({
-            content: content,
-            map: map,
-            position: marker.getPosition()
-        });
 
-        kakao.maps.event.addListener(marker, 'click', function () {
-            overlay.setMap(map);
-        });
+
 
     });
 

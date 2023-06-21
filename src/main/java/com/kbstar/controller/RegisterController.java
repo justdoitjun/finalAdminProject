@@ -77,11 +77,11 @@ public class RegisterController {
     }
 //
 //    @RequestMapping("/registerDetailImpl")
-//    public String registerDetailImpl(@RequestParam("file") MultipartFile file, Model model, Guest guest) throws Exception {
+//    public String registerDetailImpl(@RequestParam("file") MultipartFile file, Model model, Host host) throws Exception {
 //        String guestImage = file.getOriginalFilename(); //파일명을 얻어낼 수 있는 메서드!
-//        log.info("------------------------------------------------------------------" + guestImage);
-//        guest.setGuestImage(guestImage);
-//        guestService.modify(guest);
+//        log.info("------------------------------------------------------------------" + hostImage);
+//        host.setHostImage(hostImage);
+//        host.modify(guest);
 //        FileUploadUtil.saveFile(file,imgdir);
 //        return "redirect:/login";
 //    }

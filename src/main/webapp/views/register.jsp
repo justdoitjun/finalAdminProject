@@ -46,6 +46,7 @@
         //     return;
         // }
       });
+
       $('#registerHostBtn').click(async function(){
         await $('#registerBackGroundImage').fadeOut(); //fadeOut이 완료되어야 뒤가 실행됨.
         await $('#registerHostBtn').fadeOut();
@@ -146,9 +147,13 @@
         </form>
       </div>
     </div>
+
+
+
+
     <div class="col-md-4 col-lg-6 col-xl-7 d-none d-md-block" >
       <!-- Image-->
-      <div  id="registerBackGroundImage"class="bg-cover h-100 me-n3" style="background-image: url(img/photo/photo-1497436072909-60f360e1d4b1.jpg);"></div>
+<%--      <div  id="registerBackGroundImage"class="bg-cover h-100 me-n3" style="background-image: url(img/photo/photo-1497436072909-60f360e1d4b1.jpg);"></div>--%>
 
       <div id="registerHostMainAfterButtonClicked" class="d-flex align-items-center">
         <div class="w-100 py-5 px-md-5 px-xxl-6 position-relative">
@@ -160,8 +165,8 @@
 
             <div class="mb-4">
               <button id="kbAuthBtn" type="button" class="btn">
-              <img class="img-fluid" src="/img/photo/kbAuthLogo.jpg" style="width:70px; height:70px">
-              KB 국민인증서
+                <img class="img-fluid" src="/img/photo/kbAuthLogo.jpg" style="width:70px; height:70px">
+                KB 국민인증서
               </button>
             </div>
             <div class="d-grid gap-2">

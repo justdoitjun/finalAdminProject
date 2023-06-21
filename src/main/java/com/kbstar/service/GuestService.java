@@ -27,6 +27,8 @@ public class GuestService implements KBService<String, Guest> {
         mapper.delete(s);
     }
 
+
+
     @Override
     public void modify(Guest guest) throws Exception {
         mapper.update(guest);

@@ -2,6 +2,100 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 
+<script>
+    let pic = {
+        myVideoStream:null,
+        init:function(){
+            this.myVideoStream = document.querySelector('#myVideo');
+            $('#cfr_btn').click(function(){
+                $('#cfr_form').attr({
+                    'method':'post',
+                    'action':'/mycfr'
+                });
+                $('#cfr_form').submit();
+            });
+        },
+        getVideo:function(){
+            navigator.getMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
+            navigator.getMedia(
+                {video: true, audio: false},
+                function(stream) {
+                    pic.myVideoStream.srcObject = stream
+                    pic.myVideoStream.play();
+                },
+                function(error) {
+                    alert('webcam not working');
+                });
+        },
+        takeSnapshot:function(){
+            var myCanvasElement = document.querySelector('#myCanvas');
+            var myCTX = myCanvasElement.getContext('2d');
+            myCTX.drawImage(this.myVideoStream, 0, 0, myCanvasElement.width, myCanvasElement.height);
+        },
+        send:function(){
+            const canvas = document.querySelector('#myCanvas');
+            const imgBase64 = canvas.toDataURL('image/jpeg', 'image/octet-stream');
+            const decodImg = atob(imgBase64.split(',')[1]);
+            let array = [];
+            for (let i = 0; i < decodImg .length; i++) {
+                array.push(decodImg .charCodeAt(i));
+            }
+            const file = new Blob([new Uint8Array(array)], {type: 'image/jpeg'});
+            const fileName = 'snapshot_' + new Date().getMilliseconds() + '.jpg';
+            let formData = new FormData();
+            formData.append('file', file, fileName);
+            $.ajax({
+                type: 'post',
+                url: '/saveimg/',
+                enctype: 'multipart/form-data',
+                cache: false,
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function (data) {
+                    $('#imgname').val(data);
+                }
+            });
+        },
+        takeAuto:function(interval){
+            this.getVideo();
+            myStoredInterval = setInterval(function(){
+                pic.takeSnapshot();
+                pic.send();
+            }, interval);
+        }
+    };
+    </script>
+
+<script>
+    function toggleCamera() {
+        var camera = document.getElementById("camera");
+        var button = document.getElementById("toggleButton");
+
+        if (camera.style.display === "none") {
+            // Load the camera functionality
+            camera.innerHTML = `
+            <video id="myVideo" width="400" height="300" style="border: 1px solid #ddd;"></video>
+            <canvas id="myCanvas" width="160" height="140" style="border: 1px solid #ddd;"></canvas><br>
+            <input type="button" value="카메라 켜기" onclick="pic.getVideo();">
+            <input type="button" value="사진 찍기" onclick="pic.takeSnapshot();">
+            <input type="button" value="사진 보내기" onclick="pic.send();"><br>
+            <input type=button value="Auto Pic" onclick="pic.takeAuto(5000);">
+            Image Name:<input type="text" name="imgname" id="imgname"><br>
+        `;
+            camera.style.display = "block";
+            button.innerText = "Close camera";
+
+            // Initialize the 'pic' object for camera functionality
+            pic.init();
+        } else {
+            // Remove the camera functionality
+            camera.innerHTML = "";
+            camera.style.display = "none";
+            button.innerText = "Take a photo";
+        }
+    }
+</script>
 
 <div class="col-lg-9 ps-lg-5">
     <div class="container">
@@ -11,7 +105,13 @@
                 <form>
                     <div class="form-group">
                         <label for="hostImage">프로필 사진</label>
-                        <input type="file" class="form-control" id="hostImage" placeholder="사진 넣는 걸로 바꿔야함">
+                        <div class="d-flex align-items-center">
+                            <input type="file" class="form-control" id="hostImage" style="margin-right: 10px;">
+                            <button type="button" class="btn-primary" id="toggleButton" onclick="toggleCamera()">Take a photo</button>
+                        </div>
+
+                        <div id="camera" style="display: none;"></div>
+
                     </div>
                     <div class="form-group">
                         <label for="hostId">아이디(이메일)</label>
@@ -25,10 +125,13 @@
                         <label for="hostPwd">Password</label>
                         <input type="password" class="form-control" id="hostPwd" placeholder="Enter your password">
                     </div>
+
                     <div class="form-group">
                         <label for="confirmPassword">Confirm Password</label>
                         <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm your password">
                     </div>
+
+
                     <hr>
                     <div class="form-group">
                         <label for="confirmPassword">구사언어</label>
@@ -64,6 +167,7 @@
                     </div>
                     <br>
                     <button type="submit" class="btn btn-primary">Update</button>
+
                 </form>
             </div>
         </div>
