@@ -239,7 +239,7 @@
         <!-- Breadcrumbs -->
         <div class="d-flex flex-column flex-md-row justify-content-md-between align-items-md-center mb-4">
           <h1 class="mb-3 mb-md-0 hero-heading mb-0">Your messages with Anna</h1>
-          <div><a class="btn btn-link ps-0" href="user-messages.html"><i class="fa fa-arrow-left me-2"></i> Back to all messages</a></div>
+          <div><a class="btn btn-link ps-0" href="/chatroom?hostId=${loginHost.hostId}"><i class="fa fa-arrow-left me-2"></i> Back to all messages</a></div>
         </div>
           <div id="reserveCardBody">
 

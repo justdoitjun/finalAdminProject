@@ -34,16 +34,118 @@
   <!-- Calendar -->
   <link href='https://cdn.jsdelivr.net/npm/fullcalendar@5.8.0/main.min.css' rel='stylesheet' />
   <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.8.0/main.min.js'></script>
+  <script src="/webjars/sockjs-client/sockjs.min.js"></script>
+  <script src="/webjars/stomp-websocket/stomp.min.js"></script>
 
   <!-- Font Awesome CSS-->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 </head>
+<script>
+  let websocket = {
+    id:null,
+    stompClient:null,
+    init:function(){
+      this.id = '${loginHost.hostId}';
+      websocket.connect();
+      $("#disconnect").click(function() {
+        websocket.disconnect();
+      });
+      $("#sendall").click(function() {
+        websocket.sendAll();
+      });
+      $("#sendme").click(function() {
+        websocket.sendMe();
+      });
+      $("#sendto").click(function() {
+        websocket.sendTo(sid);
+      });
+    },
+    connect:function(){
+      var sid = '${loginHost.hostId}';
+      var socket = new SockJS('http://127.0.0.1:8088/ws');
+      socket.withCredentials = false;
+      this.stompClient = Stomp.over(socket);
+
+      this.stompClient.connect({}, function(frame) {
+        websocket.setConnected(true);
+        console.log('연결: ' + frame);
+        this.subscribe('/send', function(msg) {
+
+        });
+        this.subscribe('/send/'+sid, function(msg) {
+
+
+        });
+        this.subscribe('/send/to/'+sid, function(msg) {
+          let redSpot =
+                  `
+                    <div class="spinner-grow text-danger spinner-grow-sm"></div>
+                    `;
+          $('#notificationBell').append(redSpot);
+          // if(msg.content1=='message'){
+          //   $('#messageBell').append(redSpot);
+          // }
+          console.log('받은 것'+msg);
+          //send라고 하고 상대방 타인 포트ㄹ 지정해주면, 메세지를 일단 받고
+          // 이 메세지에 아래처럼 덧붙여서 보낼게.
+          // $("#to").prepend(
+          //         "<h4>" + JSON.parse(msg.body).sendid +":"+
+          //         JSON.parse(msg.body).content1
+          //         + "</h4>");
+
+        });
+      });
+    },
+    disconnect:function(){
+      if (this.stompClient !== null) {
+        this.stompClient.disconnect();
+      }
+      websocket.setConnected(false);
+      console.log("Disconnected");
+    },
+    setConnected:function(connected){
+      if (connected) {
+        console.log('connected');
+        $("#status").text("Connected");
+      } else {
+        $("#status").text("Disconnected");
+      }
+    },
+    sendAll:function(){
+      var msg = JSON.stringify({
+        'sendid' : this.id,
+        'content1' : $("#alltext").val()
+      });
+      this.stompClient.send("/receiveall", {}, msg);
+    },
+    sendTo:function(sid){
+      var msg = JSON.stringify({
+        'sendid' : sid,
+        'receiveid' : 'host1',
+        'content1' : '등록되었습니다'
+      });
+      this.stompClient.send('/receiveto', {}, msg);
+    },
+    sendMe:function(){
+      var msg = JSON.stringify({
+        'sendid' : this.id,
+        'content1' : $('#metext').val()
+      });
+      this.stompClient.send("/receiveme", {}, msg);
+    }
+  };
+  $(function(){
+
+    websocket.init();
+  })
+</script>
+
 <body style="padding-top: 72px;">
 <header class="header">
   <!-- Navbar-->
   <nav class="navbar navbar-expand-lg fixed-top shadow navbar-light bg-white">
 
-    <div class="container-fluid">
+    <div class="container-fluid ">
       <%--            요기 이미지가 diretory 로고임--%>
       <div class="d-flex align-items-center"><a class="navbar-brand py-1" href="/"><img src="/img/logo.svg" alt="Directory logo"></a>
         <form class="form-inline d-none d-sm-flex" action="#" id="search">
@@ -53,16 +155,24 @@
           </div>
         </form>
       </div>
-      <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
+        <div class="d-flex align-items-center justify-content-end" id="notificationBell">
+          <svg class="svg-icon text-primary svg-icon-sd"><use xlink:href="#customer-suppot-1"> </use></svg>
+          <button type="button" class="btn btn" data-bs-toggle="modal" data-bs-target="#myModal">
+            <i class='fas fa-bell' style='font-size:24px'></i>
+          </button>
+<%--          <div class="spinner-grow text-danger spinner-grow-sm"></div>--%>
+        </div>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
       <!-- Navbar Collapse -->
-      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <div class="collapse navbar-collapse" id="navbarCollapse">
         <form class="form-inline mt-4 mb-2 d-sm-none" action="#" id="searchcollapsed">
           <div class="input-label-absolute input-label-absolute-left w-100">
             <label class="label-absolute" for="searchcollapsed_search"><i class="fa fa-search"></i><span class="sr-only">What are you looking for?</span></label>
             <input class="form-control form-control-sm border-0 shadow-0 bg-gray-200" id="searchcollapsed_search" placeholder="Search" aria-label="Search" type="search">
           </div>
         </form>
-        <ul class="navbar-nav ms-auto">
+
+          <ul class="navbar-nav ms-auto">
 
           <c:choose>
             <c:when test="${loginHost == null}">
@@ -70,15 +180,19 @@
               <li class="nav-item"><a class="nav-link" href="/register">회원가입</a></li>
             </c:when>
             <c:otherwise>
-              <li class="nav-item"><a class="nav-link" href="/gpt"> <span class="spinner-grow spinner-grow-sm"></span>Chat GPT</a></li>
 
-              <img class="d-block avatar avatar-xxs p-2 mb-2" src="/img/avatar/avatar-10.jpg">
-              <li class="nav-item"><a class="nav-link" href="/profile"> ${loginHost.hostName}</a></li>
+              <li class="nav-item"><a class="nav-link" href="/gpt"> <span class="spinner-grow spinner-grow-sm"></span>Chat GPT</a></li>&nbsp; &nbsp;
+              <div id="messageBell">
+              <li class="nav-item"><a class="nav-link" href="/chatroom?hostId=${loginHost.hostId}"> <svg class="svg-icon text-primary svg-icon-sd"><use xlink:href="#mail-1"> </use></svg></a></li>&nbsp; &nbsp;
+              </div>
+              <img class="d-block avatar avatar-xxs p-2 mb-2" src="/img/avatar/avatar-10.jpg">&nbsp; &nbsp;
+              <li class="nav-item"><a class="nav-link" href="/profile"> ${loginHost.hostName}</a></li>&nbsp; &nbsp;
               <li class="nav-item"><a class="nav-link" href="/logout">로그아웃</a></li>
             </c:otherwise>
           </c:choose>
         </ul>
       </div>
+
     </div>
   </nav>
   <!-- /Navbar -->
@@ -160,5 +274,60 @@
 <script>var basePath = ''</script>
 <!-- Main Theme JS file    -->
 <script src="/js/theme.js"></script>
+<!-- The Modal -->
+<div class="modal" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">알림센터(Notification center)</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <div class="list-group shadow mb-5">
+            <div class="list-group-item list-group-item-action p-4">
+              <div class="row">
+                <div class="col-2 col-lg-1 align-self-lg-center py-3 d-flex align-items-lg-center z-index-10">
+                  <div class="form-check">
+                    <input class="form-check-input" id="select_message_0" type="checkbox">
+                    <label class="form-check-label" for="select_message_0"> </label>
+                  </div>
+                  <div class="form-star d-none d-sm-inline-block mt-n1">
+                    <input id="star_message_0" type="checkbox" name="star" checked>
+                    <label class="star-label" for="star_message_0"><span class="sr-only">Important Message</span></label>
+                  </div>
+                </div>
+                <div class="col-9 col-lg-4 align-self-center mb-3 mb-lg-0">
+                  <div class="d-flex align-items-center mb-1 mb-lg-3">
+                    <h2 class="h5 mb-0"></h2><img class="avatar avatar-sm avatar-border-white ms-3" src="img/avatar/avatar-0.jpg" alt="Jack London">
+                  </div>
+                  <p class="text-sm text-muted">Double Room</p><a class="stretched-link" href="user-messages-detail.html"></a>
+                </div>
+                <div class="col-10 ms-auto col-lg-7">
+                  <div class="row">
+                    <div class="col-md-8 py-3">
+
+                    </div>
+                    <div class="col-md-4 text-end py-3">
+                    </div>chatRoomId}&hostId=${obj.chatRoomInfo.hostId}&guestId=${obj.chatRoomInfo.guestId}"></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div><!-- obj Div 태그 -->
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
 </body>
+
 </html>
