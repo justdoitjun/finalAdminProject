@@ -135,7 +135,7 @@
     }
   };
   $(function(){
-
+    console.log(`로그인호스트로그${loginHost}찍어보면 `);
     websocket.init();
   })
 </script>
@@ -180,11 +180,11 @@
               <li class="nav-item"><a class="nav-link" href="/register">회원가입</a></li>
             </c:when>
             <c:otherwise>
-
+              <li class="nav-item"><a class="nav-link" href="http://localhost:3000"> <span class="spinner-grow spinner-grow-sm"></span>리액트 포인트게임</a></li>&nbsp; &nbsp;
               <li class="nav-item"><a class="nav-link" href="/gpt"> <span class="spinner-grow spinner-grow-sm"></span>Chat GPT</a></li>&nbsp; &nbsp;
               <div id="messageBell">
               <li class="nav-item"><a class="nav-link" href="/chatroom?hostId=${loginHost.hostId}"> <svg class="svg-icon text-primary svg-icon-sd"><use xlink:href="#mail-1"> </use></svg></a></li>&nbsp; &nbsp;
-              </div>
+              </div>&nbsp;&nbsp;
               <img class="d-block avatar avatar-xxs p-2 mb-2" src="/img/avatar/avatar-10.jpg">&nbsp; &nbsp;
               <li class="nav-item"><a class="nav-link" href="/profile"> ${loginHost.hostName}</a></li>&nbsp; &nbsp;
               <li class="nav-item"><a class="nav-link" href="/logout">로그아웃</a></li>
@@ -199,7 +199,7 @@
 </header>
 
 <c:choose>
-  <c:when test="${center == null}">
+  <c:when test="${center==null && loginHost == null }">
     <jsp:include page="center.jsp"/>
   </c:when>
   <c:otherwise>
