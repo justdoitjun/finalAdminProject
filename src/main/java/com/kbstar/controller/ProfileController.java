@@ -59,6 +59,7 @@ public class ProfileController {
         model.addAttribute("centerUserProfile",dirProfile+"reviews");
         return "index";
     }
+
     @RequestMapping("/reviews/detail")
     public String roomReviews( Model model, Integer roomId) throws Exception{
         model.addAttribute("roomId", roomId);
@@ -72,7 +73,6 @@ public class ProfileController {
         model.addAttribute("hostId", hostId);
         model.addAttribute("center","userProfile");
         model.addAttribute("centerUserProfile",dirReservation+"pay");
-
         return "index";
     }
 
