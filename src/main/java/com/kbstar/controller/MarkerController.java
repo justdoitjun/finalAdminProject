@@ -99,6 +99,11 @@ public class MarkerController {
         return "index";
     }
 
+    @RequestMapping("/map03")
+    public String map03(Model model){
+        model.addAttribute("center",dir+"map03");
+        return "index";
+    }
 
 
     @RequestMapping("/search")

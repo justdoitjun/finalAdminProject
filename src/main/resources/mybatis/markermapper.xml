@@ -24,13 +24,22 @@
     <select id="selectall" resultType="marker">
         SELECT * FROM marker
     </select>
+<!--    <insert id="insert" parameterType="marker">-->
+<!--        INSERT INTO marker VALUES (marker_seq.NEXTVAL, #{title},#{target}, #{lat}, #{lng}, #{img}, UPPER(#{loc}))-->
+<!--    </insert>-->
+
+
     <insert id="insert" parameterType="marker">
-        INSERT INTO marker VALUES (marker_seq.NEXTVAL, #{title},#{target}, #{lat}, #{lng}, #{img}, UPPER(#{loc}))
+        INSERT INTO marker VALUES (roomSeq.NEXTVAL,#{hostId},#{roomPrice},#{roomName}, #{roomAddress}, #{roomLoc}, #{roomLat}, #{roomLng}, #{roomCap})
     </insert>
+
 
     <update id="update" parameterType="marker">
         UPDATE marker SET title=#{title},target=#{target},lat=#{lat},lng=#{lng},img=#{img},loc=#{loc} WHERE id=#{id}
     </update>
+
+
+
     <delete id="delete" parameterType="Integer">
         DELETE FROM marker WHERE id=#{id}
     </delete>

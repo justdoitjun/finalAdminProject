@@ -117,8 +117,8 @@
                         </table>
                     </div>
                     <div>
-                        <input class="form-control" type="hidden"  name="roomLat" id="roomLat" ><!-- 위도 -->
-                        <input class="form-control" type="hidden" name="roomLng" id="roomLng" ><!-- 경도 -->
+                        <input class="form-control"   name="roomLat" id="roomLat" ><!-- 위도 -->
+                        <input class="form-control" name="roomLng" id="roomLng" ><!-- 경도 -->
 <%--                        <input class="form-control"  type="hidden"  id="roomPosY" ><!-- 새위도변형 -->--%>
 <%--                        <input class="form-control"  type="hidden"  id="roomPosX" ><!-- 새경도변형 -->--%>
                         <input class="form-control" name="roomLoc" id="roomLoc" ><!-- 지역 -->

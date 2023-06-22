@@ -1,13 +1,7 @@
 package com.kbstar.controller;
 
-import com.kbstar.dto.Cal;
-import com.kbstar.dto.Host;
-import com.kbstar.dto.HostRoomReserveReview;
-import com.kbstar.dto.Room;
-import com.kbstar.service.HostService;
-import com.kbstar.service.ReserveService;
-import com.kbstar.service.ReviewService;
-import com.kbstar.service.RoomService;
+import com.kbstar.dto.*;
+import com.kbstar.service.*;
 import com.kbstar.util.DateUtil;
 import com.kbstar.util.FileUploadUtil;
 import com.kbstar.util.GeoStatsApi;
@@ -20,7 +14,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-
+import com.kbstar.dto.Room;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
@@ -30,6 +24,8 @@ import java.util.List;
 @RestController
 public class AjaxImplController {
 
+    @Autowired
+    MarkerService markerService;
 
     @Autowired
     HostService hostService;
@@ -75,7 +71,32 @@ public class AjaxImplController {
         return result;
     }
 
+    @RequestMapping("/markers")
+    public Object markers(String loc) throws Exception {
+        List<Marker> list = null;
+        try {
+            list = markerService.getLoc(loc);
+        } catch (Exception e) {
+            throw new Exception("시스템 장애");
+        }
 
+        JSONArray ja = new JSONArray();
+        for(Marker obj:list){
+            JSONObject jo = new JSONObject();
+            jo.put("id",obj.getRoomid());
+            jo.put("host",obj.getHostid());
+            jo.put("price",obj.getRoomprice());
+            jo.put("name",obj.getRoomname());
+            jo.put("address",obj.getRoomaddress());
+            jo.put("loc",obj.getRoomloc());
+            jo.put("lat",obj.getRoomlat());
+            jo.put("lng",obj.getRoomlng());
+            jo.put("cap",obj.getRoomcap());
+
+            ja.add(jo);
+        }
+        return ja;
+    }
 
     // 참고 url - https://velog.io/@duawldms/spring-email-%EC%9E%84%EC%8B%9C%EB%B9%84%EB%B0%80%EB%B2%88%ED%98%B8-%EB%B0%9C%EA%B8%89
 //    @GetMapping(value = "/findPwd",produces = {MediaType.APPLICATION_JSON_VALUE})
