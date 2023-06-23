@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
+
 <style>
   .svg-icon {
     width: 1em;
@@ -68,7 +70,7 @@
               </div>
               <a href="/profile/myinfo" >
               <div>
-                <p class="mb-0">정보 변경</p>
+                <p class="mb-0"><spring:message code="user.infoEdit"/></p>
               </div>
               </a>
             </div>
@@ -94,7 +96,7 @@
               </div>
               <a href="/marker/address?hostId=${loginHost.hostId}">
               <div>
-                <p class="mb-0">방 등록</p>
+                <p class="mb-0"><spring:message code="user.infoRoom"/></p>
               </div>
               </a>
             </div>
@@ -108,7 +110,7 @@
               </div>
               <a  href="/bookinglist">
               <div>
-                <p class="mb-0">예약 및 정산관리</p>
+                <p class="mb-0"><spring:message code="user.infoReservation"/></p>
               </div>
               </a>
             </div>
@@ -119,7 +121,7 @@
                 </svg>
               </div>
               <div>
-                <p class="mb-0"><a href="/chatroom?hostId=${loginHost.hostId}">Messenger</a></p>
+                <p class="mb-0"><a href="/chatroom?hostId=${loginHost.hostId}"><spring:message code="user.infoMessenger"/></a></p>
               </div>
             </div>
             <div class="d-flex align-items-center mb-3">
@@ -132,7 +134,7 @@
               </div>
               <a  href="/profile/finance">
                 <div>
-                  <p class="mb-0">KB와 함께하는 수익투자</p>
+                  <p class="mb-0"><spring:message code="user.infoInvestment"/></p>
                 </div>
               </a>
             </div>

@@ -29,7 +29,7 @@ public class Reserve {
     private long reservePoint;
     private String reserveBank;
     private long reserveAccHolder;
-    private String reserverApi;
+    private String reserveApi;
     private Integer reserveRefund;
     private Integer reserveReply;
     private Date refundDate; // 서지영

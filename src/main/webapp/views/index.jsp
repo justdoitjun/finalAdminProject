@@ -44,9 +44,9 @@
   let websocket = {
     id:null,
     stompClient:null,
-    init:function(){
+    init:async function(){
       this.id = '${loginHost.hostId}';
-      websocket.connect();
+      await websocket.connect();
       $("#disconnect").click(function() {
         websocket.disconnect();
       });
@@ -62,6 +62,9 @@
     },
     connect:function(){
       var sid = '${loginHost.hostId}';
+      console.log("===========connect 성공===========");
+      console.log(sid);
+      console.log("===========connect===========");
       var socket = new SockJS('http://127.0.0.1:8088/ws');
       socket.withCredentials = false;
       this.stompClient = Stomp.over(socket);
@@ -77,6 +80,9 @@
 
         });
         this.subscribe('/send/to/'+sid, function(msg) {
+
+          console.log('/send/to 탬플릿 활성화');
+
           let redSpot =
                   `
                     <div class="spinner-grow text-danger spinner-grow-sm"></div>
@@ -135,7 +141,6 @@
     }
   };
   $(function(){
-    console.log(`로그인호스트로그${loginHost}찍어보면 `);
     websocket.init();
   })
 </script>
