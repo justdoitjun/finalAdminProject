@@ -59,6 +59,24 @@
       $("#sendto").click(function() {
         websocket.sendTo(sid);
       });
+      <%--$('#buttonSendMessage').click(function() {--%>
+      <%--  console.log('sendTo clicked');--%>
+      <%--  let fromId = `${loginGuest.guestId}`;--%>
+      <%--  let toId =`${hostInfo.hostId}`;//메신저 chatDetail.jsp에 있는 hostInfo--%>
+      <%--  let contents = $('#chatContentsBox').val();--%>
+      <%--  let chatRoomId = $('#chatRoomId').val();--%>
+      <%--  websocket.sendTo(fromId, toId, contents, chatRoomId);--%>
+      <%--});--%>
+    },
+    sendTo:function(fromId, toId, contents, chatRoomId){
+      var msg = JSON.stringify({
+        'sendid' :  fromId,//보내는 사람
+        'receiveid' : toId, //받는 사람
+        'content1' : contents,
+        'chatroomid' : chatRoomId
+      });
+      console.log(msg);
+      this.stompClient.send('/receiveto', {}, msg);
     },
     connect:function(){
       var sid = '${loginHost.hostId}';
@@ -208,14 +226,6 @@
         'content1' : $("#alltext").val()
       });
       this.stompClient.send("/receiveall", {}, msg);
-    },
-    sendTo:function(sid){
-      var msg = JSON.stringify({
-        'sendid' : sid,
-        'receiveid' : 'host1',
-        'content1' : '등록되었습니다'
-      });
-      this.stompClient.send('/receiveto', {}, msg);
     },
     sendMe:function(){
       var msg = JSON.stringify({

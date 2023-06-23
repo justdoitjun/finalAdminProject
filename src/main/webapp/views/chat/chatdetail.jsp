@@ -104,12 +104,22 @@
         });
       })
 
-      $('#buttonSendMessage').click(() => {
-        console.log('clicked');
+      $('#buttonSendMessage').click( async () => {
+        console.log('전송버튼 clicked');
           if($('#chatContentsBox').val().length == 0){
               alert('뭐라도 내용을 넣으세요');
           }else{
-              sendData();
+              await sendData();
+              let fromId = `${loginHost.hostId}`;
+            let toId =`${guestId}`;//메신저 chatDetail.jsp에 있는 hostInfo
+            let contents = $('#chatContentsBox').val();
+            let chatRoomId = $('#chatRoomId').val();
+            console.log("=buttonSend message================22");
+            console.log(fromId);
+            console.log(toId);
+            console.log(contents);
+            console.log(chatRoomId);
+            websocket.sendTo(fromId, toId, contents, chatRoomId);
           }
       });
     })
