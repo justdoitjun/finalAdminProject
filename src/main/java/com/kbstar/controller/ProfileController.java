@@ -22,7 +22,7 @@ public class ProfileController {
     String dir = "chat/";
     @RequestMapping("")
     public String profile(Model model){
-        model.addAttribute("center","userProfile");
+        model.addAttribute("center",dirProfile+"current");
         return "index";
     }
 

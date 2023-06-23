@@ -5,7 +5,7 @@
 <mapper namespace="com.kbstar.mapper.RoomMapper">
 
     <select id="selectall" resultType="Room">
-        SELECT room.roomId, room.hostId, room.roomPrice, room.roomname, room.roomaddress, room.roomloc, room.roominfo,
+        SELECT room.roomId, room.hostId, room.roomPrice, room.roomname, room.roomaddress, room.roomloc, room.roomLoc2,room.roominfo,
                room.roomintro, room.roomclean, room.roompet, room.roomwprice, room.roomcap, room.roomtype, room.roomlat,
                room.roomlng, room.roomimage1, room.roomimage2, room.roomimage3, room.roomimage4, room.roomimage5,
                room.roomimage6, room.roomlikes, host.hostImage, host.hostName
@@ -13,7 +13,7 @@
                  JOIN host ON room.hostId = host.hostId
     </select>
     <select id="getpage" resultType="Room">
-        SELECT room.roomId, room.hostId, room.roomPrice, room.roomname, room.roomaddress, room.roomloc, room.roominfo,
+        SELECT room.roomId, room.hostId, room.roomPrice, room.roomname, room.roomaddress, room.roomloc, room.roomLoc2,room.roominfo,
                room.roomintro, room.roomclean, room.roompet, room.roomwprice, room.roomcap, room.roomtype, room.roomlat,
                room.roomlng, room.roomimage1, room.roomimage2, room.roomimage3, room.roomimage4, room.roomimage5,
                room.roomimage6, room.roomlikes, host.hostImage, host.hostName
@@ -21,7 +21,7 @@
                  JOIN host ON room.hostId = host.hostId
     </select>
     <select id="select" parameterType="Integer" resultType="Room">
-        SELECT room.roomId, room.hostId, room.roomPrice, room.roomname, room.roomaddress, room.roomloc, room.roominfo,
+        SELECT room.roomId, room.hostId, room.roomPrice, room.roomname, room.roomaddress, room.roomloc, room.roomLoc2, room.roominfo,
                room.roomintro, room.roomclean, room.roompet, room.roomwprice, room.roomcap, room.roomtype, room.roomlat,
                room.roomlng, room.roomimage1, room.roomimage2, room.roomimage3, room.roomimage4, room.roomimage5,
                room.roomimage6, room.roomlikes, host.hostImage, host.hostName, host.hostIntro
@@ -32,7 +32,7 @@
 
 
     <insert id="insert" parameterType="room">
-        INSERT INTO room(roomId, hostId, roomPrice, roomName, roomAddress, roomLoc, roomLat, roomLng, roomCap) VALUES (roomSeq.NEXTVAL,#{hostId},#{roomPrice},#{roomName}, #{roomAddress}, #{roomLoc}, #{roomLat}, #{roomLng}, #{roomCap})
+        INSERT INTO room(roomId, hostId, roomPrice, roomName, roomAddress, roomLoc, roomLoc2,  roomLat, roomLng, roomCap) VALUES (roomSeq.NEXTVAL,#{hostId},#{roomPrice},#{roomName}, #{roomAddress}, #{roomLoc},#{roomLoc2}, #{roomLat}, #{roomLng}, #{roomCap})
     </insert>
 
 </mapper>

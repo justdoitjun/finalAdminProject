@@ -13,7 +13,9 @@ public class Room {
     private Integer roomPrice;
     private String roomName;
     private String roomAddress;
+    private String roomAddress2;
     private String roomLoc;
+    private String roomLoc2;
     private String roomInfo;
     private String roomIntro;
     private Integer roomClean;
@@ -32,12 +34,13 @@ public class Room {
     private Integer roomLikes;
 
 
-    public Room(Integer roomId, String hostId, Integer roomPrice, String roomName, String roomAddress, String roomLoc) {
+    public Room(Integer roomId, String hostId, Integer roomPrice, String roomName, String roomAddress, String roomLoc, String roomLoc2) {
         this.roomId = roomId;
         this.hostId = hostId;
         this.roomPrice = roomPrice;
         this.roomName = roomName;
         this.roomAddress = roomAddress;
         this.roomLoc = roomLoc;
+        this.roomLoc2 = roomLoc2;
     }
 }
