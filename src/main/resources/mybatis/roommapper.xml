@@ -31,7 +31,7 @@
     </select>
 
 
-    <insert id="insert" parameterType="room">
+    <insert id="insert" parameterType="Room">
         INSERT INTO room(roomId, hostId, roomPrice, roomName, roomAddress, roomLoc, roomLat, roomLng, roomCap) VALUES (roomSeq.NEXTVAL,#{hostId},#{roomPrice},#{roomName}, #{roomAddress}, #{roomLoc}, #{roomLat}, #{roomLng}, #{roomCap})
     </insert>
 
