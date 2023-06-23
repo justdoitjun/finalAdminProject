@@ -30,7 +30,7 @@
 
 
     <insert id="insert" parameterType="marker">
-        INSERT INTO marker VALUES (roomSeq.NEXTVAL,#{hostId},#{roomPrice},#{roomName}, #{roomAddress}, #{roomLoc}, #{roomLat}, #{roomLng}, #{roomCap})
+        INSERT INTO marker VALUES (roomSeq.NEXTVAL,#{hostId},#{roomPrice},#{roomName}, #{roomAddress}, #{roomLoc},#{roomLoc2}, #{roomLat}, #{roomLng}, #{roomCap})
     </insert>
 
 

@@ -18,7 +18,7 @@ import java.util.List;
 public class GeoStatsApi {
 
     //https://sgis.kostat.go.kr/developer/html/newOpenApi/api/develop/dvp.html?type1=07&type2=03&seq=1
-    private static final String authkey = "f8242c3a-5130-41c0-be2e-061f8abe834e";
+    private static final String authkey = "638987ae-95ce-4624-9a17-91dce6726a34";
     private static final String BASE_URL = "https://sgisapi.kostat.go.kr/OpenAPI3/addr/rgeocode.json";
     private final HttpClient client;
 

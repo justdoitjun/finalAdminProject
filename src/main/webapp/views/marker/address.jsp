@@ -79,52 +79,55 @@
                     <p class="text-muted">  간편하게. 오로지 DIGI-실에서만. </p>
                 </div>
                 <form class="form-validate" id="roomForm">
-                    <div class="mb-4">
-                        <input class="form-control" type="hidden"  name="hostId" id="hostId" value="${loginHost.hostId}" readonly>
-                    </div>
-                    <div class="mb-4">
-                        <label class="form-label" type="number"for="roomPrice"> 가격 </label>
-                        <input class="form-control" name="roomPrice" id="roomPrice" placeholder=""  required data-msg="Please enter your password">
-                    </div>
-                    <div class="mb-4">
-                        <label class="form-label" for="roomName"> 방 이름 </label>
-                        <input class="form-control" name="roomName" id="roomName" placeholder="방 이름을 만들어주세요"  required data-msg="Please enter your password">
-                    </div>
-                    <div class="mb-4">
-                        <label class="form-label" type="text" for="roomAddress"> 주소 </label>
-                    <input class="form-control" type="text" name="roomAddress"  id="roomAddress" placeholder="주소">
-                    <input class="form-control" type="button" onclick="sample5_execDaumPostcode()" value="주소 검색"><br>
-                    </div>
-                    <div class="mb-4">
-                        <label class="form-label" for="roomCap">최대 수용인원</label>
-                        <table>
-                            <tr>
-                                <td valign="top">
-                                    <select name="roomCap" id="roomCap" class="form-control">
-                                        <option value="1">1인</option>
-                                        <option value="2">2인</option>
-                                        <option value="3">3인</option>
-                                        <option value="4">4인</option>
-                                        <option value="5">5인</option>
-                                        <option value="6">6인</option>
-                                        <option value="7">7인</option>
-                                        <option value="8">8인</option>
-                                        <option value="9">9인</option>
-                                        <option value="10">10인 +</option>
-                                    </select>
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-                    <div>
-                        <input class="form-control"   name="roomLat" id="roomLat" ><!-- 위도 -->
-                        <input class="form-control" name="roomLng" id="roomLng" ><!-- 경도 -->
-<%--                        <input class="form-control"  type="hidden"  id="roomPosY" ><!-- 새위도변형 -->--%>
-<%--                        <input class="form-control"  type="hidden"  id="roomPosX" ><!-- 새경도변형 -->--%>
-                        <input class="form-control" name="roomLoc" id="roomLoc" ><!-- 지역 -->
-                    </div>
-                    <div class="d-grid gap-2">
-                        <button class="btn btn-lg btn-primary" type="button" id="roomRegisterBtn" > 등록 </button>
+                    <div id="roomFormTable1">
+                        <div class="mb-4">
+                            <input class="form-control" type="hidden"  name="hostId" id="hostId" value="${loginHost.hostId}" readonly>
+                        </div>
+                        <div class="mb-4">
+                            <label class="form-label" type="number"for="roomPrice"> 가격 </label>
+                            <input class="form-control" name="roomPrice" id="roomPrice" placeholder=""  required data-msg="Please enter your password">
+                        </div>
+                        <div class="mb-4">
+                            <label class="form-label" for="roomName"> 방 이름 </label>
+                            <input class="form-control" name="roomName" id="roomName" placeholder="방 이름을 만들어주세요"  required data-msg="Please enter your password">
+                        </div>
+                        <div class="mb-4">
+                            <label class="form-label" type="text" for="roomAddress"> 주소 </label>
+                        <input class="form-control" type="text" name="roomAddress"  id="roomAddress" placeholder="주소">
+                        <input class="form-control" type="button" onclick="sample5_execDaumPostcode()" value="주소 검색"><br>
+                        </div>
+                        <div class="mb-4">
+                            <label class="form-label" for="roomCap">최대 수용인원</label>
+                            <table>
+                                <tr>
+                                    <td valign="top">
+                                        <select name="roomCap" id="roomCap" class="form-control">
+                                            <option value="1">1인</option>
+                                            <option value="2">2인</option>
+                                            <option value="3">3인</option>
+                                            <option value="4">4인</option>
+                                            <option value="5">5인</option>
+                                            <option value="6">6인</option>
+                                            <option value="7">7인</option>
+                                            <option value="8">8인</option>
+                                            <option value="9">9인</option>
+                                            <option value="10">10인 +</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div>
+                            <input class="form-control"   name="roomLat" id="roomLat" ><!-- 위도 -->
+                            <input class="form-control" name="roomLng" id="roomLng" ><!-- 경도 -->
+    <%--                        <input class="form-control"  type="hidden"  id="roomPosY" ><!-- 새위도변형 -->--%>
+    <%--                        <input class="form-control"  type="hidden"  id="roomPosX" ><!-- 새경도변형 -->--%>
+                            <input class="form-control" name="roomLoc" id="roomLoc" ><!-- 지역 -->
+                            <input class="form-control" name="roomLoc2" id="roomLoc2" ><!-- 지역 -->
+                        </div>
+                        <div class="d-grid gap-2">
+                            <button class="btn btn-lg btn-primary" type="button" id="roomRegisterBtn" > 등록 </button>
+                        </div>
                     </div>
                     <hr class="my-4">
                     <p class="text-sm text-muted">By signing up you agree to Directory's <a href="#">Terms and Conditions</a> and <a href="#">Privacy Policy</a>.</p>
@@ -187,7 +190,7 @@
             console.log(sido_nm);
             console.log(sgg_nm);
             $('#roomLoc').val(sido_nm);
-            //$('#roomLoc2').val(sgg_nm);
+            $('#roomLoc2').val(sgg_nm);
         }).fail(()=>{
             console.log('failed to load data');
         })
