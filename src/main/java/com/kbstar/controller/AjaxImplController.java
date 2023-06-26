@@ -5,6 +5,7 @@ import com.kbstar.service.*;
 import com.kbstar.util.DateUtil;
 import com.kbstar.util.FileUploadUtil;
 import com.kbstar.util.GeoStatsApi;
+import com.kbstar.util.WebCrawler;
 import lombok.extern.slf4j.Slf4j;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -193,6 +194,13 @@ public class AjaxImplController {
     public String reverseAddress(String x_coor, String y_coor) throws Exception{
         GeoStatsApi geoStatsApi = new GeoStatsApi();
         String result = geoStatsApi.generateCode(x_coor, y_coor, "20");
+        return result;
+    }
+
+    @RequestMapping("/weather")
+    public Object Weather(String loc) throws Exception{
+        WebCrawler webCrawler = new WebCrawler(loc);
+        Object result = webCrawler.crawlWeather();
         return result;
     }
 
