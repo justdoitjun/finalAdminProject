@@ -110,7 +110,7 @@
             <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                    <h6 class="m-0 font-weight-bold text-primary">Revenue Sources</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">호실별 리뷰</h6>
                 </div>
                 <!-- Card Body -->
                 <div class="card-body">
@@ -119,14 +119,12 @@
                     </figure>
                 </div>
             </div>
-        </div>
-        <!-- Content Column -->
-        <div class="col-lg-6 mb-4">
 
-            <!-- Project Card Example -->
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Projects                    <button id="hideWeather" class="btn btn-primary" type="button">숨김</button>
+                    <h6 class="m-0 font-weight-bold text-primary">날씨 검색
+                        <button id="hideWeather" class="btn btn-primary" type="button">숨김</button>
+                        <button id="hideWeather2" class="btn btn-primary" type="button">숨김버튼을 숨김</button>
                     </h6>
 
                 </div>
@@ -155,6 +153,12 @@
 
 
                 </div>
+        </div>
+        <!-- Content Column -->
+        <div class="col-lg-6 mb-4">
+
+            <!-- Project Card Example -->
+
             </div>
 
         </div>
