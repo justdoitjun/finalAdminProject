@@ -28,8 +28,10 @@
 <script>
     let weather = {
         init : ()=>{
-            $('#weatherSearch').click(()=>{
+            $('#weatherSearch').click(async ()=>{
                 let weatherLoc = $('#weatherLoc').val();
+                $('#weatherTbody').empty();
+                await $('#weatherTable').show();
                 console.log('입력한 loc'+ weatherLoc);
                 $.ajax({
                     url : '/weather',
@@ -54,7 +56,6 @@
                         let high = e.substring(e.length-3,e.length);
                         let low = e.substring(e.length-10,e.length-7);
                         let desc = e.substring(3,e.length-11);
-
                         let html =
                             `
                             <tr>
@@ -73,12 +74,18 @@
                     console.log('weather failed');
                 })
             })
+
+            $('#hideWeather').click(()=>{
+                $('#weatherTable').hide();
+            })
         }
     }
 
 
     $(()=>{
         weather.init();
+        $('#weatherTable').hide();
+
     })
 </script>
 
@@ -95,28 +102,58 @@
                     class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
         </div>
 
-        <!-- Content Row -->
-
-        <!-- Content Row -->
 
         <div class="row">
 
-            <!-- Area Chart -->
-
-
             <!-- Pie Chart -->
-            <div class="col-xl-4">
-                <div class="card shadow mb-4">
-                    <!-- Card Header - Dropdown -->
-                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                        <h6 class="m-0 font-weight-bold text-primary">Revenue Sources</h6>
+        <div class="col-lg-6">
+            <div class="card shadow mb-4">
+                <!-- Card Header - Dropdown -->
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <h6 class="m-0 font-weight-bold text-primary">Revenue Sources</h6>
+                </div>
+                <!-- Card Body -->
+                <div class="card-body">
+                    <figure class="highcharts-figure">
+                        <div id="container7"></div>
+                    </figure>
+                </div>
+            </div>
+        </div>
+        <!-- Content Column -->
+        <div class="col-lg-6 mb-4">
+
+            <!-- Project Card Example -->
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Projects                    <button id="hideWeather" class="btn btn-primary" type="button">숨김</button>
+                    </h6>
+
+                </div>
+
+                <div class="card-body">
+                    <!-- 검색바 -->
+                    <div class="input-group mb-3">
+                        <input type="text" id="weatherLoc" class="form-control" placeholder="궁금한 지역의 날씨를 검색하세요">
+                        <div class="input-group-append">
+                            <button id="weatherSearch" class="btn btn-primary" type="button">날씨검색</button>
+                        </div>
                     </div>
-                    <!-- Card Body -->
-                    <div class="card-body">
-                        <figure class="highcharts-figure">
-                            <div id="container7"></div>
-                        </figure>
-                    </div>
+                    <table class="table" id="weatherTable">
+                        <thead>
+                        <tr>
+                            <th>날짜</th>
+                            <th></th>
+                            <th>최고기온</th>
+                            <th>최저기온</th>
+                        </tr>
+                        </thead>
+                        <tbody id="weatherTbody">
+
+                        </tbody>
+                    </table>
+
+
                 </div>
             </div>
 
@@ -125,108 +162,11 @@
         <!-- Content Row -->
         <div class="row">
 
-            <!-- Content Column -->
-            <div class="col-lg-6 mb-4">
 
-                <!-- Project Card Example -->
-                <div class="card shadow mb-4">
-                    <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">Projects</h6>
-                    </div>
-
-                    <div class="card-body">
-                        <!-- 검색바 -->
-                        <div class="input-group mb-3">
-                            <input type="text" id="weatherLoc" class="form-control" placeholder="Search...">
-                            <div class="input-group-append">
-                                <button id="weatherSearch" class="btn btn-primary" type="button">날씨검색</button>
-                            </div>
-                        </div>
-                        <table class="table">
-                            <thead>
-                            <tr>
-                                <th>날짜</th>
-                                <th></th>
-                                <th>최고기온</th>
-                                <th>최저기온</th>
-                            </tr>
-                            </thead>
-                            <tbody id="weatherTbody">
-
-                            </tbody>
-                        </table>
-
-
-                </div>
 
 
                 <!-- Color System -->
-                <div class="row">
-                    <div class="col-lg-6 mb-4">
-                        <div class="card bg-primary text-white shadow">
-                            <div class="card-body">
-                                Primary
-                                <div class="text-white-50 small">#4e73df</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 mb-4">
-                        <div class="card bg-success text-white shadow">
-                            <div class="card-body">
-                                Success
-                                <div class="text-white-50 small">#1cc88a</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 mb-4">
-                        <div class="card bg-info text-white shadow">
-                            <div class="card-body">
-                                Info
-                                <div class="text-white-50 small">#36b9cc</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 mb-4">
-                        <div class="card bg-warning text-white shadow">
-                            <div class="card-body">
-                                Warning
-                                <div class="text-white-50 small">#f6c23e</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 mb-4">
-                        <div class="card bg-danger text-white shadow">
-                            <div class="card-body">
-                                Danger
-                                <div class="text-white-50 small">#e74a3b</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 mb-4">
-                        <div class="card bg-secondary text-white shadow">
-                            <div class="card-body">
-                                Secondary
-                                <div class="text-white-50 small">#858796</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 mb-4">
-                        <div class="card bg-light text-black shadow">
-                            <div class="card-body">
-                                Light
-                                <div class="text-black-50 small">#f8f9fc</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 mb-4">
-                        <div class="card bg-dark text-white shadow">
-                            <div class="card-body">
-                                Dark
-                                <div class="text-white-50 small">#5a5c69</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
 
             </div>
 
