@@ -53,9 +53,10 @@
   })
 </script>
 
-<div class="col-lg-9 ps-lg-5" id="profileReviewContainer">
-    <c:choose>
 
-    </c:choose>
+
+<div class="col-lg-9 ps-lg-5" id="profileReviewContainer">
+    <h1>${loginHost.hostName}의 리뷰현황.</h1>
+
 </div>
 

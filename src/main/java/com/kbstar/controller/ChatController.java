@@ -100,6 +100,7 @@ public class ChatController {
     @RequestMapping("/chatdetail")
     public String chatDetailHost(@RequestParam("chatRoomId")Integer chatRoomId,
                                  @RequestParam("hostId")String hostId,
+                                       @RequestParam("guestId") String guestId,
                                        Model model) throws Exception{
         //인덱스 -
         model.addAttribute("center", "userProfile");
@@ -107,6 +108,7 @@ public class ChatController {
         //DB 정보
         model.addAttribute("chatRoomId", chatRoomId);
         model.addAttribute("hostId", hostId);
+        model.addAttribute("guestId", guestId);
         List<ChatDetails> chatDetailsList = chatContentsService.findChatDetailsHost(chatRoomId, hostId);
         model.addAttribute("chatDetailsList", chatDetailsList);
         return "index";
