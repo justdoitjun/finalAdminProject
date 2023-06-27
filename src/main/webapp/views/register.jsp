@@ -197,8 +197,13 @@
       <!-- Modal body -->
       <div class="modal-body">
         <div class="list-group shadow mb-5" id="modalMessage2">
+          <form class="form-validate">
+            <input class="form-control" name="hostPwd1" id="phoneAuth" placeholder="핸드폰번호를 입력해주세요!" type="number" required data-msg="핸드폰번호를 입력해 주세요!">
+            <button id="phoneAuthBtn" type="button" class="btn btn-lg btn-primary"> 인증번호 전송 </button>
+            <input class="form-control" name="hostPwd1" id="phoneAuth2" placeholder="핸드폰번호를 입력해주세요!" type="number" required data-msg="핸드폰번호를 입력해 주세요!">
+            <button id="phoneAuthBtn2" type="button" class="btn btn-lg btn-primary"> 인증 </button>
 
-
+          </form>
 
         </div><!-- obj Div 태그 -->
       </div>
