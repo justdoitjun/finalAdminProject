@@ -94,6 +94,9 @@
     $('#registerHostMainAfterButtonClicked').hide();
     registerForm.init();
     idCheck.init();
+    $('#openModalBtn').click(function() {
+      $('#smsAuthModal').modal('show');
+    });
   });
 </script>
 <body>
@@ -164,21 +167,51 @@
             </div>
 
             <div class="mb-4">
-              <button id="kbAuthBtn" type="button" class="btn">
+              <button id="kbAuthBtn" type="button" class="btn" data-bs-toggle="modal" data-bs-target="#smsAuthModal">
                 <img class="img-fluid" src="/img/photo/kbAuthLogo.jpg" style="width:70px; height:70px">
-                KB 국민인증서
+                휴대폰 인증
               </button>
             </div>
             <div class="d-grid gap-2">
               <button style="height: 61.28px;" class="btn btn-lg btn-primary" id="registerHostBtn2" type="button">회원 가입 하기</button>
             </div>
           </form>
+
         </div>
 
       </div>
     </div>
   </div>
 </div>
+
+<div class="modal" id="smsAuthModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">휴대폰 인증</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <div class="list-group shadow mb-5" id="modalMessage2">
+
+
+
+        </div><!-- obj Div 태그 -->
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
 <!-- JavaScript files-->
 <script>
   // ------------------------------------------------------- //

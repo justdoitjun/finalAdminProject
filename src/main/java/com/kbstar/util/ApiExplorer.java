@@ -40,7 +40,7 @@ public class ApiExplorer {
         obj = null;
         try {
             HttpRequest request = HttpRequest.newBuilder()
-                    .uri(URI.create(BASE_URL + "?ServiceKey=" + authkey + "&type=xml" + "&pageNo=1"+"&numOfRows=3"+"&flag=Y" + "&locatadd_nm="+loc))
+                    .uri(URI.create(BASE_URL + "?ServiceKey=" + authkey + "&type=xml" + "&pageNo=1"+"&numOfRows=10"+"&flag=Y" + "&locatadd_nm="+loc))
                     .GET()
                     .build();
 
