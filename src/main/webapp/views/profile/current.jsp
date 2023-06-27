@@ -24,8 +24,16 @@
 <script src="https://cdn.jsdelivr.net/sockjs/1/sockjs.min.js"></script>
 <script src="/vendor/jquery/jquery.min.js"></script>
 <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+
 
 <script>
+
+    //   https://www.data.go.kr/data/15077871/openapi.do
+    //   (1) 코드 조회 서비스
+    //   (2) 다음 카카오지도 연동
+    //   (3) 실거래가 api 작동
+    //   (4) 다음 카카오지도 뿌리기
     let weather = {
         init : ()=>{
             $('#weatherSearch').click(async ()=>{
@@ -106,79 +114,65 @@
         <div class="row">
 
             <!-- Pie Chart -->
-        <div class="col-lg-6">
-            <div class="card shadow mb-4">
-                <!-- Card Header - Dropdown -->
-                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                    <h6 class="m-0 font-weight-bold text-primary">호실별 리뷰</h6>
-                </div>
-                <!-- Card Body -->
-                <div class="card-body">
-                    <figure class="highcharts-figure">
-                        <div id="container7"></div>
-                    </figure>
-                </div>
-            </div>
-
-            <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">날씨 검색
-                        <button id="hideWeather" class="btn btn-primary" type="button">숨김</button>
-                        <button id="hideWeather2" class="btn btn-primary" type="button">숨김버튼을 숨김</button>
-                    </h6>
-
-                </div>
-
-                <div class="card-body">
-                    <!-- 검색바 -->
-                    <div class="input-group mb-3">
-                        <input type="text" id="weatherLoc" class="form-control" placeholder="궁금한 지역의 날씨를 검색하세요">
-                        <div class="input-group-append">
-                            <button id="weatherSearch" class="btn btn-primary" type="button">날씨검색</button>
-                        </div>
+            <div class="col-lg-6">
+                <div class="card shadow mb-4">
+                    <!-- Card Header - Dropdown -->
+                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                        <h6 class="m-0 font-weight-bold text-primary">호실별 리뷰</h6>
                     </div>
-                    <table class="table" id="weatherTable">
-                        <thead>
-                        <tr>
-                            <th>날짜</th>
-                            <th></th>
-                            <th>최고기온</th>
-                            <th>최저기온</th>
-                        </tr>
-                        </thead>
-                        <tbody id="weatherTbody">
-
-                        </tbody>
-                    </table>
-
-
+                    <!-- Card Body -->
+                    <div class="card-body">
+                        <figure class="highcharts-figure">
+                            <div id="container7"></div>
+                        </figure>
+                    </div>
                 </div>
-        </div>
-        <!-- Content Column -->
+            </div>
 
-
-        </div>
-
-        <!-- Content Row -->
-        <div class="col-lg-6">
-
-            <div class="card shadow mb-4">
-                <!-- Card Header - Dropdown -->
-                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                    <h6 class="m-0 font-weight-bold text-primary">호실별 리뷰</h6>
-                </div>
-                <!-- Card Body -->
-                <div class="card-body">
-                    <figure class="highcharts-figure">
-                        <div id="container8"></div>
-                    </figure>
+            <!-- Content Row -->
+            <div class="col-lg-6">
+                <div class="card shadow mb-4">
+                    <!-- Card Header - Dropdown -->
+                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                        <h6 class="m-0 font-weight-bold text-primary">호실별 리뷰</h6>
+                    </div>
+                    <!-- Card Body -->
+                    <div class="card-body">
+                        <figure class="highcharts-figure">
+                            <div id="container8"></div>
+                        </figure>
+                    </div>
                 </div>
             </div>
         </div>
 
 
-        </div>
 
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card shadow mb-4">
+                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                        <h6 class="m-0 font-weight-bold text-primary">시세 조회</h6>
+                    </div>
+                   <div class="row">
+                       <div class="col-lg-6">
+                           <div class="mb-4">
+                               <label class="form-label" type="text" for="roomAddress"> 주소 </label>
+                               <input class="form-control" type="text" name="roomAddress"  id="roomAddress" placeholder="주소">
+                               <input class="form-control" type="button" onclick="sample5_execDaumPostcode()" value="주소 검색"><br>
+                           </div>
+                       </div>
+                       <div class="col-lg-6">
+                           <div class="map-container">
+                               <div id="map"></div>
+                           </div>
+                           <div id="coordinates"></div>
+                       </div>
+                   </div>
+
+                </div>
+            </div>
+        </div>
 
 
     </div>
@@ -490,84 +484,94 @@
 
 
 
-    var mapContainer = document.getElementById('map');
-    var mapOption = {
-        center: new kakao.maps.LatLng(37.389777093851, 127.097880906475),
-        level: 5
-    };
-
-    var map = new kakao.maps.Map(mapContainer, mapOption);
-
-    var positions = [
-        {
-            title: '따뜻한 창가가 있는 방',
-            latlng: new kakao.maps.LatLng(37.380777093851, 127.097180906475),
-            imgSrc: 'https://cfile181.uf.daum.net/image/250649365602043421936D',
-            address: ' 첨단로 242',
-            jibunAddress: '(우) 63309 (지번) 영평동 2181',
-            homepage: '산 중턱에 위치한 탁 트인 시티뷰가 멋진 2층 형 독채 숙소입니다'
-        },
-        // 추가 좌표 1
-        {
-            title: '분위기가 좋아 재방문율이 높은 방',
-            latlng: new kakao.maps.LatLng(37.384977093851, 127.080180906475),
-            imgSrc: '이미지 주소2',
-            address:  '모던하고 감각적인 인테리어로 깨끗함과 편안함을 ' +
-                '  추구하는 조용하고 프라이빗한 숙소입니다',
-            jibunAddress: '지번 주소2',
-            homepage:''
-        },
-        // 추가 좌표 2
-
-        // 추가 좌표 3
-        {
-            title: '주변이 조용하고 편의시설이 많은 방',
-            latlng: new kakao.maps.LatLng(37.387977093851, 127.094180906475),
-            imgSrc: '이미지 주소3',
-            address: '편안하고 쾌적한 감성숙소에서 아무런 방해없이 온전한 쉼과 행복한 여행을 계획해 보세요',
-            jibunAddress: '지번 주소3',
-            homepage: ''
-        }
-    ];
-
-    positions.forEach(function (pos) {
-        var marker = new kakao.maps.Marker({
-            map: map,
-            position: pos.latlng
-        });
-
-        var content = '<div class="wrap">' +
-            '    <div class="info">' +
-            '        <div class="title">' +
-            '            ' + pos.title +
-            '            <div class="close" onclick="closeOverlay()" title="닫기"></div>' +
-            '        </div>' +
-            '        <div class="body">' +
-            '            <div class="img">' +
-            '                <img src="' + pos.imgSrc + '" width="73" height="70">' +
-            '           </div>' +
-            '            <div class="desc">' +
-            '                <div class="ellipsis">' + pos.address + '</div>' +
-            '                <div class="jibun ellipsis">(우) ' + pos.jibunAddress + '</div>' +
-            '                <div><a href="' + pos.homepage + '" target="_blank" class="link">홈페이지</a></div>' +
-            '            </div>' +
-            '        </div>' +
-            '    </div>' +
-            '</div>';
+    var mapContainer = document.getElementById('map'), // 지도를 표시할 div
+        mapOption = {
+            center: new daum.maps.LatLng(37.537187, 127.005476), // 지도의 중심좌표
+            level: 5 // 지도의 확대 레벨
+        };
 
 
 
-        var overlay = new kakao.maps.CustomOverlay({
-            content: content,
-            map: map,
-            position: marker.getPosition()
-        });
-
-        kakao.maps.event.addListener(marker, 'click', function () {
-            overlay.setMap(map);
-        });
-
+    //지도를 미리 생성
+    var map = new daum.maps.Map(mapContainer, mapOption);
+    //주소-좌표 변환 객체를 생성
+    var geocoder = new daum.maps.services.Geocoder();
+    //마커를 미리 생성
+    var marker = new daum.maps.Marker({
+        position: new daum.maps.LatLng(37.537187, 127.005476),
+        map: map
     });
+
+
+    function sample5_execDaumPostcode() {
+        new daum.Postcode({
+            oncomplete: function(data) {
+                var addr = data.address; // 최종 주소 변수
+
+                // 주소 정보를 해당 필드에 넣는다.
+                document.getElementById("roomAddress").value = addr;
+                // 주소로 상세 정보를 검색
+                geocoder.addressSearch(data.address, function(results, status) {
+                    // 정상적으로 검색이 완료됐으면
+                    if (status === daum.maps.services.Status.OK) {
+
+                        var result = results[0]; //첫번째 결과의 값을 활용
+
+                        // 해당 주소에 대한 좌표를 받아서
+                        var coords = new daum.maps.LatLng(result.y, result.x)
+
+                        // 지도를 보여준다.
+                        mapContainer.style.display = "block";
+                        map.relayout();
+
+                        // 지도 중심을 변경한다.
+                        map.setCenter(coords);
+                        // 마커를 결과값으로 받은 위치로 옮긴다.
+                        marker.setPosition(coords)
+
+                        var iwContent = '<div style="padding:5px;"> 11만원 <br><a href="https://map.daum.com/link/map/Hello World!,33.450701,126.570667" style="color:blue" target="_blank">자세히보기</a> <a href="https://map.kakao.com/link/to/Hello World!,33.450701,126.570667" style="color:blue" target="_blank">길찾기</a></div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+                            iwPosition = new daum.maps.LatLng(result.y, result.x);
+
+
+                        var infowindow = new daum.maps.InfoWindow({
+                            position : iwPosition,
+                            content : iwContent
+                        });
+
+
+
+
+                        infowindow.open(map, marker);
+
+
+                        daum.maps.event.addListener(marker, 'mouseover', function() {
+                            // 마커에 마우스오버 이벤트가 발생하면 인포윈도우를 마커위에 표시합니다
+                            infowindow.open(map, marker);
+                        });
+
+                        daum.maps.event.addListener(marker, 'mouseout', function() {
+                            // 마커에 마우스아웃 이벤트가 발생하면 인포윈도우를 제거합니다
+                            infowindow.close();
+                        });
+
+                        $('#roomLat').val(result.y);
+                        $('#roomLng').val(result.x);
+
+                        let utmkXY = new sop.LatLng (result.y,result.x); //wgs84 좌표를 UTMK로 변환
+                        $('#roomPosY').val(utmkXY.y);
+                        $('#roomPosX').val(utmkXY.x);
+                        reverseAddress(utmkXY.y, utmkXY.x);
+
+                        //var coordinatesElement = document.getElementById("coordinates");
+                        // coordinatesElement.innerHtml = "위도: " + result.y + ", 경도:" + result.x;
+
+                        // var coordinatesElement = document.getElementById("coordinates");
+                        // coordinatesElement.innerHTML = "위도: " + result.y + ", 경도: " + result.x;
+                    }
+                });
+            }
+        }).open();
+    }
 
     // Data retrieved from https://www.vikjavev.no/ver/snjomengd
 
