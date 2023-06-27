@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <script>
     let pic = {
@@ -32,6 +33,7 @@
             var myCTX = myCanvasElement.getContext('2d');
             myCTX.drawImage(this.myVideoStream, 0, 0, myCanvasElement.width, myCanvasElement.height);
         },
+
         send:function(){
             const canvas = document.querySelector('#myCanvas');
             const imgBase64 = canvas.toDataURL('image/jpeg', 'image/octet-stream');
@@ -40,6 +42,7 @@
             for (let i = 0; i < decodImg .length; i++) {
                 array.push(decodImg .charCodeAt(i));
             }
+
             const file = new Blob([new Uint8Array(array)], {type: 'image/jpeg'});
             const fileName = 'snapshot_' + new Date().getMilliseconds() + '.jpg';
             let formData = new FormData();
@@ -65,7 +68,15 @@
             }, interval);
         }
     };
+    $(function(){
+        pic.init();
+    });
     </script>
+
+
+
+
+
 
 <script>
     function toggleCamera() {
@@ -81,7 +92,10 @@
             <input type="button" value="사진 찍기" onclick="pic.takeSnapshot();">
             <input type="button" value="사진 보내기" onclick="pic.send();"><br>
             <input type=button value="Auto Pic" onclick="pic.takeAuto(5000);">
-            Image Name:<input type="text" name="imgname" id="imgname"><br>
+<!-- <form id="cfr_form" action="/mycfr" method="/get">-->
+<!--            Image Name:<input type="text" name="imgname" id="imgname"><br-->
+<!--&gt;-->
+<!--      <button type="submit" id="cfr_btn">CFR</button>-->
         `;
             camera.style.display = "block";
             button.innerText = "Close camera";
@@ -93,8 +107,7 @@
             camera.innerHTML = "";
             camera.style.display = "none";
             button.innerText = "Take a photo";
-        }
-    }
+        }}
 </script>
 
 <div class="col-lg-9 ps-lg-5">

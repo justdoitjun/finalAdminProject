@@ -9,6 +9,55 @@
         height: 800px;
         border: 2px solid red;
     }
+
+    .wrap {
+        position: absolute;
+        left: 0;
+        bottom: 40px;
+        width: 288px;
+        height: 132px;
+        margin-left: -144px;
+        text-align: left;
+        overflow: hidden;
+        font-size: 12px;
+        font-family: 'Malgun Gothic', dotum, '돋움', sans-serif;
+        line-height: 1.5;
+    }
+
+    .wrap * {
+        padding: 0;
+        margin: 0;
+    }
+
+    .wrap .info:nth-child(1) {
+        border: 0;
+        box-shadow: 0px 1px 2px #888;
+    }
+
+    .info .title {
+        padding: 5px 0 0 10px;
+        height: 30px;
+        background: #eee;
+        border-bottom: 1px solid #ddd;
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+
+    .wrap {position: absolute;left: 0;bottom: 40px;width: 288px;height: 132px;margin-left: -144px;text-align: left;overflow: hidden;font-size: 12px;font-family: 'Malgun Gothic', dotum, '돋움', sans-serif;line-height: 1.5;}
+    .wrap * {padding: 0;margin: 0;}
+    .wrap .info {width: 286px;height: 120px;border-radius: 5px;border-bottom: 2px solid #ccc;border-right: 1px solid #ccc;overflow: hidden;background: #fff;}
+    .wrap .info:nth-child(1) {border: 0;box-shadow: 0px 1px 2px #888;}
+    .info .title {padding: 5px 0 0 10px;height: 30px;background: #eee;border-bottom: 1px solid #ddd;font-size: 18px;font-weight: bold;}
+    .info .close {position: absolute;top: 10px;right: 10px;color: #888;width: 17px;height: 17px;background: url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/overlay_close.png');}
+    .info .close:hover {cursor: pointer;}
+    .info .body {position: relative;overflow: hidden;}
+    .info .desc {position: relative;margin: 13px 0 0 90px;height: 75px;}
+    .desc .ellipsis {overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+    .desc .jibun {font-size: 11px;color: #888;margin-top: -2px;}
+    .info .img {position: absolute;top: 6px;left: 5px;width: 73px;height: 71px;border: 1px solid #ddd;color: #888;overflow: hidden;}
+    .info:after {content: '';position: absolute;margin-left: -12px;left: 50%;bottom: 0;width: 22px;height: 12px;background: url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png')}
+    .info .link {color: #5085BB;}
 </style>
 <script>
     let map03 = {
@@ -19,12 +68,14 @@
                 map03.go(37.5722099 ,126.9768146,'서울특별시');
             });
             $('#b_btn').click(function(){
-                map03.go(35.1938469 ,129.1536102,'b');
+                map03.go(35.1938469 ,129.1536102,'부산광역시');
             });
             $('#j_btn').click(function(){
-                map03.go(33.2471736 ,126.5521947,'j');
+                map03.go(33.2471736 ,126.5521947,'제주도');
             });
         },
+
+
         display:function(){
             var mapContainer = document.querySelector('#map03 > #map');
             var mapOption =  {
@@ -71,57 +122,101 @@
             $.ajax({
                 url:'/markers',
                 data:{'loc':loc},
-                success:function(data){
-                    alert(data);
-                    map03.displaymarkers(data);
-                }
+                // success:function(data){
+                //     alert(data);
+                //     map03.displaymarkers(data);
+                // }
+            }).done((data)=>{
+                map03.displaymarkers(data);
+                console.log(data);
+            }).fail(()=>{
+                console.log('실패했습니다.');
             });
         },
-        displaymarkers:function(positions){
+
+
+        displaymarkers: function(positions) {
             var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png";
-            for (var i = 0; i < positions.length; i ++) {
+            for (var i = 0; i < positions.length; i++) {
                 var imageSize = new kakao.maps.Size(20, 30);
                 var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize);
-                var markerPosition  = new kakao.maps.LatLng(positions[i].lat,positions[i].lng);
+                var markerPosition = new kakao.maps.LatLng(positions[i].lat, positions[i].lng);
 
                 var marker = new kakao.maps.Marker({
                     map: map,
                     position: markerPosition,
-                    title : positions[i].title,
-                    image : markerImage
-                });
-                // infoWindow
-                var iwContent = '<h2>'+positions[i].title+'</h2>';
-                iwContent += '<img src="/uimg/'+positions[i].img+'" style="width:50px">';
-
-                var infowindow = new kakao.maps.InfoWindow({
-                    position : markerPosition,
-                    content : iwContent
+                    roomName: positions[i].roomName,
+                    image: markerImage
                 });
 
-                kakao.maps.event.addListener(marker, 'mouseover', mouseoverListener(marker, infowindow));
-                kakao.maps.event.addListener(marker, 'mouseout', mouseoutListener(marker, infowindow));
-                kakao.maps.event.addListener(marker, 'click', mouseclickListener(positions[i].id));
+
+                // 오버레이 생성
+                var overlay = createOverlay(positions[i]);
+
+                // 마우스 이벤트 리스너 등록
+                kakao.maps.event.addListener(marker, 'mouseover', makeMouseoverListener(overlay));
+                kakao.maps.event.addListener(marker, 'mouseout', makeMouseoutListener(overlay));
+                kakao.maps.event.addListener(marker, 'click', makeClickListener(overlay));
+            }
 
 
-                function mouseoverListener(marker, infowindow) {
-                    return function(){
-                        infowindow.open(map, marker);
-                    };
-                }
-                function mouseoutListener(marker, infowindow) {
-                    return function(){
-                        infowindow.close();
-                    };
-                }
-                function mouseclickListener(target) {
-                    return function(){
-                        location.href = '/map/detail?id='+target;
-                    };
-                }
+            function createOverlay(position) {
+                var content =
+                    '<div class="wrap">' +
+                    '    <div class="info">' +
+                    '        <div class="title">' +
+                    '            ' + position.name +
+                    '            <div class="close" onclick="closeOverlay()" title="닫기"></div>' +
 
-            } // end for
+                    '        </div>' +
+                    '        <div class="body">' +
+                    '            <div class="img">' +
+                    '                <img src="/uimg/' + position.img + '" style="width:73px; height:70px">' +
+                    '            </div>' +
+                    '            <div class="desc">' +
+                    '                <div class="ellipsis">' + position.address + '</div>' +
+                    '                <div class="jibun ellipsis">' + position.jibun + '</div>' +
+                    '                <div><a href="' + position.website + '" target="_blank" class="link">홈페이지</a></div>' +
+                    '            </div>' +
+                    '        </div>' +
+                    '    </div>' +
+                    '</div>';
+
+
+
+
+
+                var overlay = new kakao.maps.CustomOverlay({
+                    content: content,
+                    position: markerPosition,
+                    yAnchor: 1
+                });
+
+                return overlay;
+            }
+
+            function makeMouseoverListener(overlay) {
+                return function() {
+                    overlay.setMap(map);
+                };
+            }
+
+
+            function makeMouseoutListener(overlay) {
+                return function() {
+                    overlay.setMap(null);
+                };
+            }
+
+            function makeClickListener(overlay) {
+                return function() {
+                    overlay.setMap(map);
+                };
+            }
         }
+
+
+
     };
     $(function(){
         map03.init();
@@ -130,10 +225,13 @@
 <div class="col-sm-8 text-left">
     <div class="container" id="map03">
 
+   <div>
         <button id="s_btn" type="button" class="btn btn-primary">Seoul</button>
         <button id="b_btn" type="button" class="btn btn-primary">Busan</button>
         <button id="j_btn" type="button" class="btn btn-primary">Jeju</button>
+
+   </div>
         <h1>지도를 뿌려줘 제발!</h1>
         <div id="map"></div>
-    </div>
+</div>
 </div>

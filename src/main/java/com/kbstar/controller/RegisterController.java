@@ -72,9 +72,29 @@ public class RegisterController {
             e.printStackTrace();
             throw new Exception("가입 오류");
         }
+        model.addAttribute("room", room);
         model.addAttribute("center", "center");
         return "index";
     }
+
+
+
+//    @RequestMapping("/addimpl")
+//    public String addimpl(Model model, Marker obj) throws Exception {
+//        MultipartFile mf = obj.getMImg();
+//        String imgname = mf.getOriginalFilename();
+//        obj.setRoomImage1(imgname);
+//        markerService.register(obj);
+//        FileUploadUtil.saveFile(mf,imgdir);
+//        return "redirect:all";
+//    }
+
+
+
+
+
+
+
 //
 //    @RequestMapping("/registerDetailImpl")
 //    public String registerDetailImpl(@RequestParam("file") MultipartFile file, Model model, Host host) throws Exception {

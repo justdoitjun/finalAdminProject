@@ -126,9 +126,55 @@
                             <input class="form-control" name="roomLoc2" id="roomLoc2" ><!-- 지역 -->
                         </div>
                         <div class="d-grid gap-2">
+                            <button class="btn btn-lg btn-primary" type="button" id="roomRegisterNextBtn" > 다음 </button>
+                        </div>
+
+                    </div>
+
+
+                    <div id="roomFormTable2">
+
+                    <div class="mb-4">
+                        <label class="form-label" for="roomInfo"> 간단한 방 소개</label>
+                        <input class="form-control" name="roomInfo" id="roomInfo" placeholder="간단한 방 소개"  required data-msg="Please enter your password">
+                    </div>
+                        <div class="mb-4">
+                            <label class="form-label" for="roomIntro"> 상세 설명 </label>
+                            <input class="form-control" name="roomIntro" id="roomIntro" placeholder="상세 설명"  required data-msg="Please enter your password">
+                        </div>
+
+
+                        <div class="mb-4">
+                            <label class="form-label" for="roomCap">집 형태</label>
+                            <table>
+                                <tr>
+                                    <td valign="top">
+                                        <select name="roomType" id="roomType" class="form-control">
+                                            <option value="1">아파트</option>
+                                            <option value="2">오피스텔</option>
+                                            <option value="3">독채</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+
+                        <div class="mb-4">
+                            <label class="form-label" for="roomImage1"> 이미지 첨부 </label>
+                            <input type="file" class="form-control" name="roomImage1" style="margin-right: 10px;" id="roomImage1" placeholder="이미지 첨부"  required data-msg="Please enter your password">
+                        </div>
+
+
+
+                        <div class="d-grid gap-2">
                             <button class="btn btn-lg btn-primary" type="button" id="roomRegisterBtn" > 등록 </button>
                         </div>
+
                     </div>
+
+
+
+
                     <hr class="my-4">
                     <p class="text-sm text-muted">By signing up you agree to Directory's <a href="#">Terms and Conditions</a> and <a href="#">Privacy Policy</a>.</p>
                 </form>
@@ -150,18 +196,29 @@
 </body>
 <script>
 
+
+
+
     $(()=>{
         roomRegister.init();
     });
     let roomRegister = {
-        init : ()=>{$('#roomRegisterBtn').click(()=>{
+        init : ()=>{      $('#roomFormTable2').hide();
+            $('#roomRegisterNextBtn').click(()=>{
             console.log('clicked register button');
             if($('#hostId').val().length == 0){
                 alert('로그인한 호스트만 올릴 수 있어요!');
             } else if($('#roomPrice').val().length == 0){
                 alert('가격을 입력해주세요');
             }else{
-                roomRegister.send();
+
+
+                $('#roomFormTable1').hide();
+                $('#roomFormTable2').show();
+
+                $('#roomRegisterBtn').click(()=> {
+                    roomRegister.send();
+                })
             }
 
         })},
@@ -173,6 +230,9 @@
             $('#roomForm').submit();
         }
     }
+
+
+
 
     function reverseAddress(y, x){
         $.ajax({
@@ -242,7 +302,7 @@
                         // 마커를 결과값으로 받은 위치로 옮긴다.
                         marker.setPosition(coords)
 
-                        var iwContent = '<div style="padding:5px;"> 11만원 <br><a href="https://map.daum.com/link/map/Hello World!,33.450701,126.570667" style="color:blue" target="_blank">자세히보기</a> <a href="https://map.kakao.com/link/to/Hello World!,33.450701,126.570667" style="color:blue" target="_blank">길찾기</a></div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+                        var iwContent = '<div style="padding:5px;"> 등록하신 곳이 여기가 맞나요? <br><a href="https://map.daum.com/link/map/Hello World!,33.450701,126.570667" style="color:blue" target="_blank"></a> <a href="https://map.kakao.com/link/to/Hello World!,33.450701,126.570667" style="color:blue" target="_blank"></a></div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
                             iwPosition = new daum.maps.LatLng(result.y, result.x);
 
 

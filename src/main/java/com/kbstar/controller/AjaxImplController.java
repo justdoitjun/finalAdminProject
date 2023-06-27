@@ -51,6 +51,8 @@ public class AjaxImplController {
     @Value("${uploadimgdir}")
     String imgdir;
 
+
+
     @RequestMapping("/saveimg")
     public String saveimg(MultipartFile file){
         String filename = file.getOriginalFilename();
@@ -72,26 +74,29 @@ public class AjaxImplController {
     }
 
     @RequestMapping("/markers")
-    public Object markers(String loc) throws Exception {
-        List<Marker> list = null;
+    public Object markers(String loc)  {
+        List<Room> list = null;
         try {
             list = markerService.getLoc(loc);
         } catch (Exception e) {
-            throw new Exception("시스템 장애");
+
+            e.printStackTrace();
         }
 
         JSONArray ja = new JSONArray();
-        for(Marker obj:list){
+        for(Room obj:list){
             JSONObject jo = new JSONObject();
-            jo.put("id",obj.getRoomid());
-            jo.put("host",obj.getHostid());
-            jo.put("price",obj.getRoomprice());
-            jo.put("name",obj.getRoomname());
-            jo.put("address",obj.getRoomaddress());
-            jo.put("loc",obj.getRoomloc());
-            jo.put("lat",obj.getRoomlat());
-            jo.put("lng",obj.getRoomlng());
-            jo.put("cap",obj.getRoomcap());
+            jo.put("id",obj.getRoomId());
+            jo.put("host",obj.getHostId());
+            jo.put("price",obj.getRoomPrice());
+            jo.put("name",obj.getRoomName());
+            jo.put("address",obj.getRoomAddress());
+            jo.put("loc",obj.getRoomLoc());
+            jo.put("loc2",obj.getRoomLoc2());
+            jo.put("lat",obj.getRoomLat());
+            jo.put("lng",obj.getRoomLng());
+            jo.put("img",obj.getRoomImage1());
+            jo.put("cap",obj.getRoomCap());
 
             ja.add(jo);
         }
