@@ -1,6 +1,5 @@
 package com.kbstar.smsAuth;
 
-import com.kbstar.controller.SMSAuthController;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -9,7 +8,6 @@ class SMSAuthTests {
 
     @Test
     void contextLoads() {
-
         SMSAuthController smsAuth = new SMSAuthController();
         smsAuth.sendOne("01093158478");
     }

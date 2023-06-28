@@ -13,7 +13,7 @@
         SELECT * FROM Host WHERE hostId=#{hostId}
     </select>
     <insert id="insert" parameterType="Host">
-        INSERT INTO host(hostId,hostName,hostPwd,hostRegDate) VALUES (#{hostId},#{hostName},#{hostPwd}, SYSDATE)
+        INSERT INTO host(hostId,hostName,hostPwd,hostVerified, hostJob, hostLang, hostRegDate) VALUES (#{hostId},#{hostName},#{hostPwd}, #{hostVerified}, #{hostJob}, #{hostLang}, SYSDATE)
     </insert>
 
 

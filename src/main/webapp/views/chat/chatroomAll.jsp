@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <div class="col-lg-9 ps-lg-5">
-  <body style="padding-top: 72px;">
+
 
     <section class="py-5">
       <div class="list-group shadow mb-5">
@@ -48,6 +48,7 @@
         </c:forEach>
       </div><!-- obj Div 태그 -->
     </section>
+</div>
 
     <!-- JavaScript files-->
     <script>
@@ -92,5 +93,4 @@
     <script>var basePath = ''</script>
     <!-- Main Theme JS file    -->
     <script src="js/theme.js"></script>
-  </body>
-</div>
+

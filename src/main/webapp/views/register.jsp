@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 
@@ -48,6 +50,7 @@
       });
 
       $('#registerHostBtn').click(async function(){
+
         await $('#registerBackGroundImage').fadeOut(); //fadeOut이 완료되어야 뒤가 실행됨.
         await $('#registerHostBtn').fadeOut();
         $('#registerHostMainAfterButtonClicked').fadeIn();
@@ -55,14 +58,26 @@
       });
 
       $('#registerHostBtn2').click(()=>{
-        registerForm.send();
+        if($('#hostVerified').val()==1){
+          registerForm.send();
+        }else{
+          Swal.fire({
+            icon: 'error',
+            title: '인증실패',
+            text: '호스트는 인증이 필수입니다!'
+          })
+        }
+
       })
     },
     send:function(){
-      var hostId = $('#hostId').val();
-      var hostPwd = $('#hostPwd').val();
-      var hostPwd1 = $('#hostPwd1').val();
-      var hostName = $('#hostName').val();
+      let hostId = $('#hostId').val();
+      let hostName = $('#hostName').val();
+      let hostPwd = $('#hostPwd').val();
+      let hostPwd1 = $('#hostPwd1').val();
+      let hostVerified = $('#hostAuth').val();
+      let hostJob = $('#hostJob').val();
+      let hostLang = $('#hostLang').val();
       if(hostName == ''){
         $('#Name').focus();
         return;
@@ -85,7 +100,41 @@
   let auth = {
     kbAuth : ()=>{
       $('#phoneAuthBtn').click(()=>{
-        $('#phoneAuth').val()
+
+
+        if($('#phoneAuth').val()!= null || $('#phoneAuth').val()!= ""){
+          $.ajax({
+            type: "GET",
+            url: "/check/sendSMS",
+            data: {
+              "phoneNumber" : $('#phoneAuth').val()
+            },
+            success: function(res) {
+              $('#checkBtn').click(function () {
+                if ($.trim(res) == $('#phoneAuth2').val()) {
+                  Swal.fire(
+                          '인증성공!',
+                          '휴대폰 인증이 정상적으로 완료되었습니다.',
+                          'success'
+                  )
+
+                  $('#hostVerified').val(1); //인증여부에 1로 체크
+
+                } else {
+                  Swal.fire({
+                    icon: 'error',
+                    title: '인증오류',
+                    text: '인증번호가 올바르지 않습니다!'
+                  })
+                }
+              })
+            }
+          })
+
+        }
+
+
+
       })
     }
   }
@@ -139,6 +188,59 @@
             <label class="form-label" for="hostPwd1">비밀번호확인</label>
             <input class="form-control" name="hostPwd1" id="hostPwd1" placeholder="비밀번호를 똑같이 한번 더 입력해 주세요" type="password" required data-msg="비밀번호를 입력해 주세요!">
           </div>
+          <div class="mb-4">
+            <label class="form-label" for="hostJob">직업</label>
+            <table>
+              <tr>
+                <td valign="top">
+                  <select name="hostJob" id="hostJob" class="form-control">
+                    <option value="비공개">===비공개===</option>
+                    <option value="학생">학생</option>
+                    <option value="금융권 종사자">금융권</option>
+                    <option value="회사원">회사원</option>
+                    <option value="변호사">변호사</option>
+                    <option value="회계사">회계사</option>
+                    <option value="의료계 종사자">의료계</option>
+                    <option value="교육계 종사자">교육계</option>
+                    <option value="사업가">사업가</option>
+                    <option value="프리랜서">프리랜서</option>
+                  </select>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div class="mb-4">
+            <label class="form-label" for="hostLang">구사언어</label>
+            <table >
+              <tr>
+                <td valgn="top">
+                  <select name="hostLang" id="hostLang" class="form-control">
+                    <option value=""> ===선택안함===</option>
+                    <option value="ko">한국어</option>
+                    <option value="en">영어(English)</option>
+                    <option value="ja">일본어(日本語)</option>
+                    <option value="hi">힌디어(हिंदी)</option>
+                    <option value="zh-CN">중국어 간체(简体中文)</option>
+                    <option value="zh-TW">중국어 번체(簡體中文)</option>
+                    <option value="es">스페인어(Español)</option>
+                    <option value="fr">프랑스어(Français)</option>
+                    <option value="de">독일어(Deutsch)</option>
+                    <option value="pt">포르투갈어(Português)</option>
+                    <option value="vi">베트남어(Tiếng Việt)</option>
+                    <option value="id">인도네시아어(bahasa Indonesia)</option>
+                    <option value="ar">아랍어(عربي)</option>
+                    <option value="th">태국어(แบบไทย)</option>
+                    <option value="it">이탈리아어(Italiano)</option>
+                    <option value="ru">러시아어(Русский)</option>
+                  </select>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div class="mb-4">
+            <label class="form-label" for="hostVerified">인증여부(히든 타입으로 바꿀 예정 - register 버튼 눌러도 1 아니면 안되고 readOnly로 묶음)</label>
+            <input class="form-control" name="hostVerified" id="hostVerified">
+          </div>
           <div class="d-grid gap-2">
             <button style="height: 61.28px;" class="btn btn-lg btn-primary" id="registerHostBtn" type="button">회원 가입 하기</button>
           </div>
@@ -157,11 +259,10 @@
 
     <div class="col-md-4 col-lg-6 col-xl-7 d-none d-md-block" >
       <!-- Image-->
-<%--      <div  id="registerBackGroundImage"class="bg-cover h-100 me-n3" style="background-image: url(img/photo/photo-1497436072909-60f360e1d4b1.jpg);"></div>--%>
+      <div  id="registerBackGroundImage"class="bg-cover h-100 me-n3" style="background-image: url(img/photo/photo-1497436072909-60f360e1d4b1.jpg);"></div>
 
       <div id="registerHostMainAfterButtonClicked" class="d-flex align-items-center">
         <div class="w-100 py-5 px-md-5 px-xxl-6 position-relative">
-          <form class="form-validate">
             <div class="mb-4">
               <h2>본인 인증 </h2>
               <p class="text-muted">Host는 간단한 본인인증이 필요해요</p>
@@ -176,7 +277,7 @@
             <div class="d-grid gap-2">
               <button style="height: 61.28px;" class="btn btn-lg btn-primary" id="registerHostBtn2" type="button">회원 가입 하기</button>
             </div>
-          </form>
+
 
         </div>
 
@@ -198,14 +299,13 @@
       <!-- Modal body -->
       <div class="modal-body">
         <div class="list-group shadow mb-5" id="modalMessage2">
-          <form class="form-validate">
-            <input class="form-control" name="hostPwd1" id="phoneAuth" placeholder="핸드폰번호를 입력해주세요!" required data-msg="핸드폰번호를 입력해 주세요!">
-            <button id="phoneAuthBtn" type="button" class="btn btn-lg btn-primary"> 인증번호 전송 </button>
-            <input class="form-control" name="hostPwd1" id="phoneAuth2" placeholder="핸드폰번호를 입력해주세요!"  required data-msg="핸드폰번호를 입력해 주세요!">
-            <button id="phoneAuthBtn2" type="button" class="btn btn-lg btn-primary"> 인증 </button>
+          <input class="form-control" name="hostPwd1" id="phoneAuth" placeholder="핸드폰번호를 입력해주세요!" required data-msg="핸드폰번호를 입력해 주세요!">
+          <button id="phoneAuthBtn" type="button" class="btn btn-lg btn-primary"> 인증번호 전송 </button>
 
+          <form class="form-validate" >
+            <input class="form-control" name="hostPwd1" id="phoneAuth2" placeholder="인증번호를 입력해주세요!" required data-msg="인증번호를 입력해 주세요!">
+            <button id="checkBtn" type="button" class="btn btn-lg btn-primary"> 인증번호 전송 </button>
           </form>
-
         </div><!-- obj Div 태그 -->
       </div>
 
