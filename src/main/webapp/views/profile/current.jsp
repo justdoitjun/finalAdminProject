@@ -14,12 +14,19 @@
     .info:after {content: '';position: absolute;margin-left: -12px;left: 50%;bottom: 0;width: 22px;height: 12px;background: url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png')}
     .info .link {color: #5085BB;}
 
+    .custom-iframe {
+        width: 100%; /* 부모 요소에 대해 100% 너비로 설정 */
+        height: 700px; /* 부모 요소에 대해 100% 높이로 설정 */
+    }
+
+     /*.custom-iframe {*/
+     /*    width : 60vw;*/
+     /*    height : 60vw;*/
 
 
-     .custom-iframe {
-         width: 915px;
-         height: 800px;
-     }
+     /*    !*width: 915px;*!*/
+     /*    !*height: 800px;*!*/
+     /*}*/
 </style>
 
 
@@ -159,9 +166,9 @@
                         </li>
                         </ul>
                     </div>
-                    <div class="col-md-9"> <!-- 대신 col-md-9를 사용 -->
+         <!-- 대신 col-md-9를 사용 -->
                         <iframe src="https://kbland.kr/map?xy=37.5500457,126.978463,16" class="custom-iframe"></iframe>
-                    </div>
+
                 </div>
             </div>
         </div>
