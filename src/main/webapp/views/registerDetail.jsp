@@ -19,7 +19,7 @@
                 <label class="form-label" for="loginPassword">구사언어</label>
               </div>
             </div>
-            <input class="form-control" name="loginPassword" id="loginPassword" placeholder="구사언어를 적어주세요" type="password" required data-msg="Please enter your password">
+            <input class="form-control" name="loginPassword" id="loginPassword" placeholder="구사언어를 적어주세요" type="text" required data-msg="Please enter your password">
           </div>
 
           <div class="mb-4">
