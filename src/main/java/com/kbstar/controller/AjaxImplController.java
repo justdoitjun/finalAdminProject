@@ -211,6 +211,18 @@ public class AjaxImplController {
         return result;
     }
 
+    @RequestMapping("/hostRoom")
+    public Object hostRoom(String hostId) throws Exception{
+        List<Room> roomList = roomService.getHostRoom(hostId);
+        JSONArray jsonArray = new JSONArray();
+        for(Room obj:roomList){
+            JSONObject jsonObject = new JSONObject();
+            jsonObject.put("body", obj);
+            jsonArray.add(jsonObject);
+        }
+        return roomList;
+    }
+
 
 
 

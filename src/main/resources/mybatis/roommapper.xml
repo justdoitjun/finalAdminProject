@@ -35,4 +35,14 @@
         INSERT INTO room(roomId, hostId, roomPrice, roomName, roomAddress, roomLoc, roomLoc2,  roomLat, roomLng, roomCap) VALUES (roomSeq.NEXTVAL,#{hostId},#{roomPrice},#{roomName}, #{roomAddress}, #{roomLoc},#{roomLoc2}, #{roomLat}, #{roomLng}, #{roomCap})
     </insert>
 
+
+    <select id="getHostRoom" parameterType="String" resultType="Room">
+        SELECT room.roomId, room.hostId, room.roomPrice, room.roomname, room.roomaddress, room.roomloc, room.roomLoc2,room.roominfo,
+               room.roomintro, room.roomclean, room.roompet, room.roomwprice, room.roomcap, room.roomtype, room.roomlat,
+               room.roomlng, room.roomimage1, room.roomimage2, room.roomimage3, room.roomimage4, room.roomimage5,
+               room.roomimage6, room.roomlikes
+        FROM room
+        WHERE hostId = #{hostId}
+    </select>
+
 </mapper>

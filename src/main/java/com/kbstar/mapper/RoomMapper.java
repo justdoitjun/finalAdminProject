@@ -16,4 +16,5 @@ public interface RoomMapper extends KBMapper<Integer, Room> {
     Page<Room> getpage() throws Exception;
 
     public List<Room> getloc(String loc);
+    public List<Room> getHostRoom(String hostId);
 }
