@@ -50,7 +50,6 @@
       });
 
       $('#registerHostBtn').click(async function(){
-
         await $('#registerBackGroundImage').fadeOut(); //fadeOut이 완료되어야 뒤가 실행됨.
         await $('#registerHostBtn').fadeOut();
         $('#registerHostMainAfterButtonClicked').fadeIn();
@@ -139,7 +138,7 @@
     }
   }
 
-  $(function(){
+  $(()=>{
     auth.kbAuth();
     $('#registerHostMainAfterButtonClicked').hide();
     registerForm.init();
@@ -149,7 +148,6 @@
     });
   });
 </script>
-<body>
 <div class="container-fluid px-3">
   <div class="row min-vh-100">
     <div id="registerHostMain"class="col-md-8 col-lg-6 col-xl-5 d-flex align-items-center">
@@ -242,7 +240,7 @@
             <input class="form-control" name="hostVerified" id="hostVerified">
           </div>
           <div class="d-grid gap-2">
-            <button style="height: 61.28px;" class="btn btn-lg btn-primary" id="registerHostBtn" type="button">회원 가입 하기</button>
+            <button style="height: 61.28px;" class="btn btn-lg btn-primary" id="registerHostBtn" type="button">다음 단계로 넘어가기</button>
           </div>
           <hr class="my-3 hr-text letter-spacing-2" data-content="OR">
 
@@ -257,29 +255,27 @@
 
 
 
-    <div class="col-md-4 col-lg-6 col-xl-7 d-none d-md-block" >
+       <div class="col-md-4 col-lg-6 col-xl-7 d-none d-md-block" >
       <!-- Image-->
-      <div  id="registerBackGroundImage"class="bg-cover h-100 me-n3" style="background-image: url(img/photo/photo-1497436072909-60f360e1d4b1.jpg);"></div>
+          <div  id="registerBackGroundImage"class="bg-cover h-100 me-n3" style="background-image: url(/img/photo/photo-1497436072909-60f360e1d4b1.jpg);"></div>
 
-      <div id="registerHostMainAfterButtonClicked" class="d-flex align-items-center">
-        <div class="w-100 py-5 px-md-5 px-xxl-6 position-relative">
-            <div class="mb-4">
-              <h2>본인 인증 </h2>
-              <p class="text-muted">Host는 간단한 본인인증이 필요해요</p>
+          <div id="registerHostMainAfterButtonClicked" class="d-flex align-items-center">
+            <div class="w-100 py-5 px-md-5 px-xxl-6 position-relative">
+                <div class="mb-4">
+                  <h2>본인 인증 </h2>
+                  <p class="text-muted">Host는 간단한 본인인증이 필요해요</p>
+                </div>
+                <div class="mb-4">
+                  <button id="kbAuthBtn" type="button" class="btn" data-bs-toggle="modal" data-bs-target="#smsAuthModal">
+                    <img class="img-fluid" src="/img/photo/kbAuthLogo.jpg" style="width:70px; height:70px">
+                    휴대폰 인증
+                  </button>
+                </div>
+                <div class="d-grid gap-2">
+                  <button style="height: 61.28px;" class="btn btn-lg btn-primary" id="registerHostBtn2" type="button">회원 가입 하기</button>
+                </div>
             </div>
-
-            <div class="mb-4">
-              <button id="kbAuthBtn" type="button" class="btn" data-bs-toggle="modal" data-bs-target="#smsAuthModal">
-                <img class="img-fluid" src="/img/photo/kbAuthLogo.jpg" style="width:70px; height:70px">
-                휴대폰 인증
-              </button>
-            </div>
-            <div class="d-grid gap-2">
-              <button style="height: 61.28px;" class="btn btn-lg btn-primary" id="registerHostBtn2" type="button">회원 가입 하기</button>
-            </div>
-
-
-        </div>
+          </div>
 
       </div>
     </div>
