@@ -21,52 +21,7 @@
 
     <!-- Vendor CSS Files -->
 
-    <style>
-        body {
-            background-color: #000;
-            color: #fff;
-            margin: 100px;
-        }
-        .titleBlock {
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
-        }
 
-        .titleBlock img {
-            margin-right: 20px;
-        }
-
-        .titleBlock q {
-            font-size: 18px;
-            font-style: italic;
-        }
-        .input-group .form-control {
-            color: #fff;
-            background-color: #333;
-            border: 1px solid #555;
-            border-radius: 4px;
-            padding: 6px 12px;
-            box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
-            transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
-        }
-
-
-        .progress-bar {
-            background-color: green;
-        }
-        #response {
-            color: #fff;
-            background-color: #333;
-            border: 1px solid #555;
-            border-radius: 4px;
-            padding: 6px 12px;
-            box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
-            transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
-            width: 100%;
-            resize: vertical;
-        }
-    </style>
 
 
 </head>
@@ -84,20 +39,20 @@
                 // Hide progress bar initially
                 $('.progress').show();
                 $.ajax({
-                    url:'/sales/gpt/generate',
+                    url:'/chat/gpt/generate',
                     type: 'GET',
                     data: {
                         message: message
                     }
                 }).done(
                     (data)=>{
-                        console.log("success");
+                        console.log("success - Server");
                         chatGPT.display(data);
                     }
                 )
                     .fail(
                         ()=>{
-                            console.log("failure");
+                            console.log("failured to contact ChatGPT server");
                         }
                     );
                 // Start progress bar animation
@@ -106,7 +61,8 @@
         },//chatGPT- init
         display : (data)=>{
             console.log(data);
-            $('#response').val(data);
+            //$('#response').val(data); // textArea
+            $('#response').text(data);
         },
         hideProgressBar: () => {
             if (chatGPT.progressBar) {
@@ -135,31 +91,65 @@
 
 
 
-<div class="titleBlock">
-    <div>
-        <img src="/img/openai.jpeg">
+<section class="hero py-6 py-lg-7 text-white dark-overlay"><img class="bg-image" src="img/photo/photo-1522143049013-2519756a52d4.jpg" alt="How can we help you today?">
+    <div class="container overlay-content">
+        <!-- Breadcrumbs -->
+        <ol class="breadcrumb text-white justify-content-center no-border mb-0">
+            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+            <li class="breadcrumb-item active">Chat GPT                         </li>
+        </ol>
+        <h1 class="hero-heading">Chat GPT에게 물어보세요!</h1>
     </div>
-    <div>
-        <q> 정보의 세계가 당신의 손안에 있고,즉각적인 통신이 가능한 네트워크가 전세계를 가로지르고 있습니다.<br>
-            하지만, 아직도 우리의 미래에 대한 통합된 비전이 형성되지 않았습니다.<br>
-            담대하게 이끌어 지속성 있는 발전을 이룩해주십시오.</q>
-    </div>
-</div>
+</section>
+<section class="py-6 bg-gray-100">
+    <div class="container">
+        <div class="row">
+<%--            <div class="input-group">--%>
+<%--                <input type="search" id="request" class="form-control rounded" placeholder="어떤 조언이 필요하신가요?" aria-label="Search" aria-describedby="search-addon" />--%>
+<%--                <button type="button" id="chatGPT_btn" class="btn btn-outline-success">search</button>--%>
+<%--            </div>--%>
+<%--            <div class="progress">--%>
+<%--                <div class="progress-bar progress-bar-success" role="progressbar"--%>
+<%--                     aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:0%">--%>
+<%--                </div>--%>
+<%--            </div>--%>
+<%--            <div>--%>
+<%--                <h4>Advice</h4>--%>
 
-<div class="input-group">
-    <input type="search" id="request" class="form-control rounded" placeholder="${loginhost.hostName}님. 어떤 조언이 필요하신가요?" aria-label="Search" aria-describedby="search-addon" />
-    <button type="button" id="chatGPT_btn" class="btn btn-outline-success">search</button>
-</div>
-<div class="progress">
-    <div class="progress-bar progress-bar-success" role="progressbar"
-         aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:0%">
-    </div>
-</div>
-<div>
-    <h4>Advice</h4>
+<%--                <textarea name="response" class="form-control" id="response" rows="15" readonly></textarea>--%>
+<%--            </div>--%>
 
-    <textarea name="response" class="form-control" id="response" rows="15" readonly></textarea>
-</div>
+
+
+            <div class="col-md-4 mb-5 mb-md-0">
+                    <div class="controls">
+
+                        <div class="mb-4">
+                            <div class="input-group">
+                                <input type="search" id="request" class="form-control rounded" placeholder=" 어떤 조언이 필요하신가요?" aria-label="Search" aria-describedby="search-addon" />
+                                <button type="button" id="chatGPT_btn" class="btn btn-outline-success">search</button>
+                            </div>
+<%--                            <input type="search" id="request" class="form-control rounded" placeholder="${loginhost.hostName}님. 어떤 조언이 필요하신가요?" aria-label="Search" aria-describedby="search-addon" />--%>
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-success" role="progressbar"
+                                     aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:0%">
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+            </div>
+            <div class="col-md-8">
+                <div class="ps-lg-4 text-sm">
+                    <p name="response"  id="response" rows="15"</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
 
 </body>
 </html>

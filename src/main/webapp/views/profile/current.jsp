@@ -14,12 +14,19 @@
     .info:after {content: '';position: absolute;margin-left: -12px;left: 50%;bottom: 0;width: 22px;height: 12px;background: url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png')}
     .info .link {color: #5085BB;}
 
+    .custom-iframe {
+        width: 100%; /* 부모 요소에 대해 100% 너비로 설정 */
+        height: 700px; /* 부모 요소에 대해 100% 높이로 설정 */
+    }
+
+     /*.custom-iframe {*/
+     /*    width : 60vw;*/
+     /*    height : 60vw;*/
 
 
-     .custom-iframe {
-         width: 915px;
-         height: 800px;
-     }
+     /*    !*width: 915px;*!*/
+     /*    !*height: 800px;*!*/
+     /*}*/
 </style>
 
 
@@ -37,72 +44,59 @@
 
 <script>
 
-    //   https://www.data.go.kr/data/15077871/openapi.do
-    //   (1) 코드 조회 서비스
-    //   (2) 다음 카카오지도 연동
-    //   (3) 실거래가 api 작동
-    //   (4) 다음 카카오지도 뿌리기
-    let weather = {
+    let price = {
         init : ()=>{
-            $('#weatherSearch').click(async ()=>{
-                let weatherLoc = $('#weatherLoc').val();
-                $('#weatherTbody').empty();
-                await $('#weatherTable').show();
-                console.log('입력한 loc'+ weatherLoc);
-                $.ajax({
-                    url : '/weather',
-                    data : {
-                        'loc' : weatherLoc
-                    }
-                }).done((data)=>{
-                    let newData = JSON.parse(data);
-                    let map = new Map();
-                    console.log('weather succeed');
-                    console.log(newData);
-                    newData.forEach((e)=>{
-                        e.substring(0,3);
-                        console.log(e.substring(e.length-3,e.length));
-                        console.log(e.substring(e.length-10,e.length-7));
-                        console.log(e.substring(0,3));
-                        console.log(e.substring(3,e.length-11));
-                        map.set(e.substring(0,3)+"최저",e.substring(e.length-3,e.length));
-                        map.set( e.substring(0,3)+"최고", e.substring(e.length-10,e.length-7));
-                        map.set(e.substring(0,3)+"설명",e.substring(3,e.length-11));
-                        let date = e.substring(0,3);
-                        let high = e.substring(e.length-3,e.length);
-                        let low = e.substring(e.length-10,e.length-7);
-                        let desc = e.substring(3,e.length-11);
-                        let html =
-                            `
-                            <tr>
-                                <td>\${date}</td>
-                                <td>\${desc}</td>
-                                <td>\${high}</td>
-                                <td>\${low}</td>
-                            </tr>
-                        `;
-                        $('#weatherTbody').append(html);
-                    })
-                    console.log(map);
-
-
-                }).fail(()=>{
-                    console.log('weather failed');
-                })
+            $.ajax({
+                url:'/hostRoom',
+                data:{
+                    'hostId': `${loginHost.hostId}`
+                }
+            }).done((data)=>{
+                console.log('================hostRoom load success================');
+                console.log('hostRoom load success');
+                console.log(data);
+                price.display(data);
+            }).fail(()=>{
+                console.log('===============hostRoom load failed=================');
+                console.log('hostRoom load failed');
             })
-
-            $('#hideWeather').click(()=>{
-                $('#weatherTable').hide();
+        },
+        display : (data)=>{
+            data.forEach((obj)=>{
+                let array = {'roomLat': obj.roomLat, 'roomLng': obj.roomLng};
+                let roomLat = array.roomLat;
+                let roomLng = array.roomLng;
+                console.log("=========array====");
+                console.log(array);
+                console.log(array.roomLat);
+                let html =
+                    `
+                         <button class="dropdown-item" data-room-lat="\${roomLat}" data-room-lng="\${roomLng}" onclick="updateIframe(this)"> \${obj.roomName}</button>
+                  `;
+                $('#roomList').append(html)
             })
         }
     }
 
-
+    function updateIframe(button) {
+        let roomLat = button.getAttribute('data-room-lat');
+        let roomLng = button.getAttribute('data-room-lng');
+        let iframeSrc =
+            `
+            https://kbland.kr/map?xy=\${roomLat},\${roomLng},16
+            `;
+        $('.custom-iframe').attr('src', iframeSrc);
+    }
     $(()=>{
-        weather.init();
-        $('#weatherTable').hide();
-
+        price.init();
     })
+
+
+
+
+
+
+
 </script>
 
 
@@ -161,10 +155,20 @@
                 <div class="card shadow mb-4">
                     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                         <h6 class="m-0 font-weight-bold text-primary">시세 조회</h6>
+                        <ul class="navbar-nav ms-auto">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle active" id="langPack" href="index.html" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <svg class="svg-icon text-primary svg-icon-sd"><use xlink:href="#earth-globe-1"> </use></svg>
+                            </a>
+                            <div class="dropdown-menu" id="roomList" aria-labelledby="homeDropdownMenuLink">
+
+                            </div>
+                        </li>
+                        </ul>
                     </div>
-                    <div class="col-md-9"> <!-- 대신 col-md-9를 사용 -->
+         <!-- 대신 col-md-9를 사용 -->
                         <iframe src="https://kbland.kr/map?xy=37.5500457,126.978463,16" class="custom-iframe"></iframe>
-                    </div>
+
                 </div>
             </div>
         </div>
@@ -182,15 +186,15 @@
 <script>
 
 
-    var xhr = new XMLHttpRequest();
-    xhr.open('GET', 'https://www.example.com', true);
-    xhr.onreadystatechange = function() {
-        if (xhr.readyState === 4 && xhr.status === 200) {
-            var responseText = xhr.responseText;
-            // responseText를 DOM에 추가하거나 원하는 방식으로 처리합니다.
-        }
-    };
-    xhr.send();
+    // var xhr = new XMLHttpRequest();
+    // xhr.open('GET', 'https://www.example.com', true);
+    // xhr.onreadystatechange = function() {
+    //     if (xhr.readyState === 4 && xhr.status === 200) {
+    //         var responseText = xhr.responseText;
+    //         // responseText를 DOM에 추가하거나 원하는 방식으로 처리합니다.
+    //     }
+    // };
+    // xhr.send();
 
     // Initialize the chart with initial data
     let chart7 = Highcharts.chart('container7', {

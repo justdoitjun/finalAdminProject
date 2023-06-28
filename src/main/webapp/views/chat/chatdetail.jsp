@@ -200,6 +200,12 @@
         //console.log('====');
         //console.log(obj.chatSender);
         if(obj.chatSender == chatSender){
+            let chatDate = new Date(obj.chatDate);
+            let formattedDate = chatDate.getFullYear() + '-' +
+                ('0' + (chatDate.getMonth() + 1)).slice(-2) + '-' +
+                ('0' + chatDate.getDate()).slice(-2) + ' ' +
+                ('0' + chatDate.getHours()).slice(-2) + '시' +
+                ('0' + chatDate.getMinutes()).slice(-2) + '분';
           let html =
                   `
                   <div class="d-flex col-md-9 col-xl-7 ms-lg-auto mb-3" id=\${obj.chatContentsId}>
@@ -207,13 +213,19 @@
                   <div class="bg-primary rounded p-4 mb-2">
                   <p class="text-sm mb-0 text-white" id="chatContents">\${obj.chatContents}</p>
                   </div>
-                  <p class="small text-muted ms-3">\${obj.chatDate}</p>
+                  <p class="small text-muted ms-3">\${formattedDate}</p>
                   </div>
                   <img class="avatar avatar-border-white flex-shrink-0" src="img/avatar/avatar-10.jpg" alt="user">
                   </div>
                   `;
           $('#chatContainer').append(html);
         }else{
+            let chatDate = new Date(obj.chatDate);
+            let formattedDate = chatDate.getFullYear() + '-' +
+                ('0' + (chatDate.getMonth() + 1)).slice(-2) + '-' +
+                ('0' + chatDate.getDate()).slice(-2) + ' ' +
+                ('0' + chatDate.getHours()).slice(-2) + '시' +
+                ('0' + chatDate.getMinutes()).slice(-2) + '분';
           let html =
                   `
                   <div class="d-flex col-md-9 col-xl-7 mb-3" id=\${obj.chatContentsId}>
@@ -222,7 +234,7 @@
                   <div class="bg-gray-200 rounded p-4 mb-2">
                   <p id="chatContents">\${obj.chatContents}</p>
                   </div>
-                  <p class="small text-muted ms-3">\${obj.chatDate}<button type="button" class="btn detectBtn" data-chat-contents="\${obj.chatContents}">번역</button></p>
+                  <p class="small text-muted ms-3">\${formattedDate}<button type="button" class="btn detectBtn" data-chat-contents="\${obj.chatContents}">번역</button></p>
                   </div>
                   </div>
                   `
@@ -248,8 +260,8 @@
       <div class="container">
         <!-- Breadcrumbs -->
         <div class="d-flex flex-column flex-md-row justify-content-md-between align-items-md-center mb-4">
-          <h1 class="mb-3 mb-md-0 hero-heading mb-0">Your messages with Anna</h1>
-          <div><a class="btn btn-link ps-0" href="/chatroom?hostId=${loginHost.hostId}"><i class="fa fa-arrow-left me-2"></i> Back to all messages</a></div>
+          <h1 class="mb-3 mb-md-0 hero-heading mb-0">${guestInfo.guestName}님과의 대화 </h1>
+          <div><a class="btn btn-link ps-0" href="/chatroom?hostId=${loginHost.hostId}"><i class="fa fa-arrow-left me-2"></i> 채팅방으로 돌아가기</a></div>
         </div>
           <div id="reserveCardBody">
 

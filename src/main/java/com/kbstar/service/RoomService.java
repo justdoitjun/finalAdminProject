@@ -47,4 +47,8 @@ public class RoomService implements KBService<Integer, Room> {
         PageHelper.startPage(pageNo, 6); // 3: 한화면에 출력되는 개수
         return mapper.getpage();
     }
+    public List<Room> getHostRoom(String hostId) throws Exception{
+        return mapper.getHostRoom(hostId);
+    }
+
 }

@@ -4,6 +4,7 @@ package com.kbstar.controller;
 import com.kbstar.dto.ChatDetails;
 import com.kbstar.dto.Chatcontents;
 import com.kbstar.dto.Chatroom;
+import com.kbstar.gpt.OpenAIClient2;
 import com.kbstar.mapper.ChatContentsMapper;
 import com.kbstar.service.ChatContentsService;
 import com.kbstar.util.PapagoDetectLangs;
@@ -13,9 +14,7 @@ import org.json.simple.JSONArray;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 import java.util.List;
@@ -59,6 +58,19 @@ public class ChatAjaxController {
         PapagoTranslation translationRequest = new PapagoTranslation();
         String responseBody = translationRequest.post(targetLanguage, text);
         return responseBody;
+    }
+
+    @GetMapping("/gpt/generate")
+    @ResponseBody
+    public String generateCode(@RequestParam("message") String message) {
+        try {
+            OpenAIClient2 openAIClient2 = new OpenAIClient2();
+            String code = openAIClient2.generateCode(message);
+            return code;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "Error occurred";
+        }
     }
 
 }
