@@ -98,6 +98,9 @@ public class AjaxImplController {
             jo.put("lng",obj.getRoomLng());
             jo.put("img",obj.getRoomImage1());
             jo.put("cap",obj.getRoomCap());
+            jo.put("info",obj.getRoomInfo());
+            jo.put("intro",obj.getRoomIntro());
+
 
             ja.add(jo);
         }

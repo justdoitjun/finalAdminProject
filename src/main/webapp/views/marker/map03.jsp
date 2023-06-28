@@ -53,6 +53,7 @@
     .info .close:hover {cursor: pointer;}
     .info .body {position: relative;overflow: hidden;}
     .info .desc {position: relative;margin: 13px 0 0 90px;height: 75px;}
+    .desc .ellipsis {overflow: hidden;text-overflow: ellipsis;white-space: nowrap; font-size:15px; }
     .desc .ellipsis {overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
     .desc .jibun {font-size: 11px;color: #888;margin-top: -2px;}
     .info .img {position: absolute;top: 6px;left: 5px;width: 73px;height: 71px;border: 1px solid #ddd;color: #888;overflow: hidden;}
@@ -91,11 +92,14 @@
 
             var markerPosition  = new kakao.maps.LatLng(37.5399212 ,127.057933);
             var marker = new kakao.maps.Marker({
+
                 position: markerPosition
             });
             marker.setMap(map);
         },
         go:function(lat,lng,loc){
+
+
 
             var mapContainer = document.querySelector('#map03 > #map');
             var mapOption =  {
@@ -162,25 +166,34 @@
 
             function createOverlay(position) {
                 var content =
-                    '<div class="wrap">' +
+                    '<div class="wrap"  >'   +
+
                     '    <div class="info">' +
+
+
                     '        <div class="title">' +
                     '            ' + position.name +
                     '            <div class="close" onclick="closeOverlay()" title="닫기"></div>' +
 
                     '        </div>' +
+
+
                     '        <div class="body">' +
-                    '            <div class="img">' +
+                    '          ' +
+                    '  <div class="img">' +
                     '                <img src="/uimg/' + position.img + '" style="width:73px; height:70px">' +
                     '            </div>' +
+
+
                     '            <div class="desc">' +
-                    '                <div class="ellipsis">' + position.address + '</div>' +
-                    '                <div class="jibun ellipsis">' + position.jibun + '</div>' +
-                    '                <div><a href="' + position.website + '" target="_blank" class="link">홈페이지</a></div>' +
+                    '                <div class="ellipsis">' + position.info + '</div>' +
+                    '                <div class="jibun ellipsis">' + position.intro + '</div>' +
+                    '                <div><a href="' + position.website + '" target="_blank" class="link">' + ' ￦ '+ position.price  + '원/1박당' + '</a></div>' +
                     '            </div>' +
                     '        </div>' +
                     '    </div>' +
                     '</div>';
+
 
 
 
@@ -208,9 +221,13 @@
                 };
             }
 
+
+
             function makeClickListener(overlay) {
                 return function() {
                     overlay.setMap(map);
+                    // 마커를 클릭했을 때 새로운 페이지로 이동하는 코드
+                    window.location.href = "/marker/detail?id=" + position.id;
                 };
             }
         }
