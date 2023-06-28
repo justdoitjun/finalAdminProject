@@ -11,7 +11,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 class PropertyPriceTest {
 
-    PropertyPriceApi propertyPriceApi;
+    PropertㅁyPriceApi propertyPriceApi;
     @Test
     void contextLoads() throws Exception{
 

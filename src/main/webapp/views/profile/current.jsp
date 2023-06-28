@@ -148,31 +148,19 @@
 
 
 
-        <div class="row">
-            <div class="col-lg-12">
+
+            <div class="col-md-12"> <!-- 대신 col-md-12를 사용 -->
                 <div class="card shadow mb-4">
                     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                         <h6 class="m-0 font-weight-bold text-primary">시세 조회</h6>
                     </div>
-                   <div class="row">
-                       <div class="col-lg-6">
-                           <div class="mb-4">
-                               <label class="form-label" type="text" for="roomAddress"> 주소 </label>
-                               <input class="form-control" type="text" name="roomAddress"  id="roomAddress" placeholder="주소">
-                               <input class="form-control" type="button" onclick="sample5_execDaumPostcode()" value="주소 검색"><br>
-                           </div>
-                       </div>
-                       <div class="col-lg-6">
-                           <div class="map-container">
-                               <div id="map"></div>
-                           </div>
-                           <div id="coordinates"></div>
-                       </div>
-                   </div>
-
+                    <div class="col-md-9"> <!-- 대신 col-md-9를 사용 -->
+                        <iframe src="https://kbland.kr/map?xy=37.5500457,126.978463,16"></iframe>
+                    </div>
                 </div>
             </div>
-        </div>
+
+
 
 
     </div>
@@ -185,6 +173,16 @@
 <!-- /.container-fluid -->
 <script>
 
+
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', 'https://www.example.com', true);
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            var responseText = xhr.responseText;
+            // responseText를 DOM에 추가하거나 원하는 방식으로 처리합니다.
+        }
+    };
+    xhr.send();
 
     // Initialize the chart with initial data
     let chart7 = Highcharts.chart('container7', {
