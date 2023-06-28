@@ -31,8 +31,6 @@
       });
     }
   };
-
-
   let registerForm = {
     init:function(){
       $('#hostPwd').keyup(function(){
@@ -58,7 +56,6 @@
 
       $('#registerHostBtn2').click(()=>{
         registerForm.send();
-
       })
     },
     send:function(){
@@ -87,19 +84,20 @@
   }
   let auth = {
     kbAuth : ()=>{
-      $('kbAuthBtn').click(()=>{
-
+      $('#phoneAuthBtn').click(()=>{
+        $('#phoneAuth').val()
       })
     }
   }
 
   $(function(){
-    $('#registerHostMainAfterButtonClicked').hide(
-
-
-    );
+    auth.kbAuth();
+    $('#registerHostMainAfterButtonClicked').hide();
     registerForm.init();
     idCheck.init();
+    $('#openModalBtn').click(function() {
+      $('#smsAuthModal').modal('show');
+    });
   });
 </script>
 <body>
@@ -112,8 +110,6 @@
           <p class="text-muted">1단계 - 기본 정보 입력.</p>
         </div>
         <br>
-
-
         <form id="registerForm" class="form-validate">
           <div class="mb-4">
             <div class="row">
@@ -132,22 +128,17 @@
             <label class="form-label" for="hostName">이름</label>
             <input class="form-control" name="hostName" id="hostName" type="text" placeholder="홍길동" autocomplete="off" required data-msg="이름을 입력해 주세요!">
           </div>
-
           <div class="mb-4">
             <label class="form-label" for="hostPwd">비밀번호</label>
             <input class="form-control" name="hostPwd" id="hostPwd" placeholder="비밀번호를 입력 해 주세요" type="password" required data-msg="비밀번호를 입력해 주세요!">
           </div>
-
-
           <div class="mb-4">
             <span id="checkPwd" style="color:rgb(77,102,247)"></span>
           </div>
-
           <div class="mb-4">
             <label class="form-label" for="hostPwd1">비밀번호확인</label>
             <input class="form-control" name="hostPwd1" id="hostPwd1" placeholder="비밀번호를 똑같이 한번 더 입력해 주세요" type="password" required data-msg="비밀번호를 입력해 주세요!">
           </div>
-
           <div class="d-grid gap-2">
             <button style="height: 61.28px;" class="btn btn-lg btn-primary" id="registerHostBtn" type="button">회원 가입 하기</button>
           </div>
@@ -157,7 +148,6 @@
             <a href="https://kauth.kakao.com/oauth/authorize?client_id=9b7c02c3cdf81109f8023cd5a12156ee&redirect_uri=http://127.0.0.1/auth/kakao/callback&response_type=code">
               <img class="img-fluid" style="height:40px" src="/img/photo/kakaoLogin.jpg"></a>
           </div>
-
         </form>
       </div>
     </div>
@@ -178,21 +168,56 @@
             </div>
 
             <div class="mb-4">
-              <button id="kbAuthBtn" type="button" class="btn">
+              <button id="kbAuthBtn" type="button" class="btn" data-bs-toggle="modal" data-bs-target="#smsAuthModal">
                 <img class="img-fluid" src="/img/photo/kbAuthLogo.jpg" style="width:70px; height:70px">
-                KB 국민인증서
+                휴대폰 인증
               </button>
             </div>
             <div class="d-grid gap-2">
               <button style="height: 61.28px;" class="btn btn-lg btn-primary" id="registerHostBtn2" type="button">회원 가입 하기</button>
             </div>
           </form>
+
         </div>
 
       </div>
     </div>
   </div>
 </div>
+
+<div class="modal" id="smsAuthModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">휴대폰 인증</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <div class="list-group shadow mb-5" id="modalMessage2">
+          <form class="form-validate">
+            <input class="form-control" name="hostPwd1" id="phoneAuth" placeholder="핸드폰번호를 입력해주세요!" required data-msg="핸드폰번호를 입력해 주세요!">
+            <button id="phoneAuthBtn" type="button" class="btn btn-lg btn-primary"> 인증번호 전송 </button>
+            <input class="form-control" name="hostPwd1" id="phoneAuth2" placeholder="핸드폰번호를 입력해주세요!"  required data-msg="핸드폰번호를 입력해 주세요!">
+            <button id="phoneAuthBtn2" type="button" class="btn btn-lg btn-primary"> 인증 </button>
+
+          </form>
+
+        </div><!-- obj Div 태그 -->
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
 <!-- JavaScript files-->
 <script>
   // ------------------------------------------------------- //
