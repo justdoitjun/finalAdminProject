@@ -140,7 +140,7 @@
             </div>
 
             <hr>
-            <h6>Jack provided</h6>
+            <h6>${loginHost.hostName} provided</h6>
             <ul class="card-text text-muted">
               <li>Government ID</li>
               <li>Email address</li>

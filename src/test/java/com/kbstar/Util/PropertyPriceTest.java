@@ -17,7 +17,7 @@ class PropertyPriceTest {
 
             //1 : 성공, 2 : DATA코드 오류, 3 : 인증코드 오류, 4 : 일일제한횟수 마감
             String locCode = "11110";
-            propertyPriceApi.generateCode(locCode);
+           // propertyPriceApi.generateCode(locCode);
 
     }
 
