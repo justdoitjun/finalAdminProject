@@ -13,7 +13,15 @@
     .info .img {position: absolute;top: 6px;left: 5px;width: 73px;height: 71px;border: 1px solid #ddd;color: #888;overflow: hidden;}
     .info:after {content: '';position: absolute;margin-left: -12px;left: 50%;bottom: 0;width: 22px;height: 12px;background: url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png')}
     .info .link {color: #5085BB;}
+
+
+
+     .custom-iframe {
+         width: 915px;
+         height: 800px;
+     }
 </style>
+
 
 
 
@@ -148,18 +156,18 @@
 
 
 
-
+        <div class="row">
             <div class="col-md-12"> <!-- 대신 col-md-12를 사용 -->
                 <div class="card shadow mb-4">
                     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                         <h6 class="m-0 font-weight-bold text-primary">시세 조회</h6>
                     </div>
                     <div class="col-md-9"> <!-- 대신 col-md-9를 사용 -->
-                        <iframe src="https://kbland.kr/map?xy=37.5500457,126.978463,16"></iframe>
+                        <iframe src="https://kbland.kr/map?xy=37.5500457,126.978463,16" class="custom-iframe"></iframe>
                     </div>
                 </div>
             </div>
-
+        </div>
 
 
 
