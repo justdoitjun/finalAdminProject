@@ -203,7 +203,7 @@
 
         <div class="form-check form-switch d-inline-block">
             <input class="form-check-input" type="checkbox" id="showTotalTableSwitch" onchange="toggleTotalTable()">
-            <label class="form-check-label" for="showTotalTableSwitch">Detail</label>
+            <label class="form-check-label" for="showTotalTableSwitch">세부 내역</label>
         </div>
 
 
