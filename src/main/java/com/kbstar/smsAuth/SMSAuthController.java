@@ -1,4 +1,4 @@
-package com.kbstar.controller;
+package com.kbstar.smsAuth;
 
 import lombok.extern.slf4j.Slf4j;
 import net.nurigo.sdk.NurigoApp;
@@ -13,9 +13,7 @@ import net.nurigo.sdk.message.response.MultipleDetailMessageSentResponse;
 import net.nurigo.sdk.message.response.SingleMessageSentResponse;
 import net.nurigo.sdk.message.service.DefaultMessageService;
 import org.springframework.core.io.ClassPathResource;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.io.File;
 import java.io.IOException;
@@ -93,7 +91,7 @@ public class SMSAuthController {
     /**
      * 단일 메시지 발송 예제
      */
-    @PostMapping("/send-one")
+    @RequestMapping("/send-one")
     public SingleMessageSentResponse sendOne(String toPhone) {
         Message message = new Message();
         // 발신번호 및 수신번호는 반드시 01012345678 형태로 입력되어야 합니다.
@@ -109,9 +107,29 @@ public class SMSAuthController {
         message.setText("인증번호를 3분 안에 입력하세요."+randomNumber);
 
         SingleMessageSentResponse response = this.messageService.sendOne(new SingleMessageSendingRequest(message));
+        log.info("=============response========");
         log.info(response.toString());
 
         return response;
+    }
+
+
+    @GetMapping("/check/sendSMS")
+    public @ResponseBody
+    String sendSMS(String phoneNumber) {
+
+        Random rand  = new Random();
+        String numStr = "";
+        for(int i=0; i<4; i++) {
+            String ran = Integer.toString(rand.nextInt(10));
+            numStr+=ran;
+        }
+
+        log.info("수신자 번호 : " + phoneNumber);
+        log.info("인증번호 : " + numStr);
+        SMSAuthService  smsAuthService= new SMSAuthService();
+        smsAuthService.certifiedPhoneNumber(phoneNumber,numStr);
+        return numStr;
     }
 
     /**

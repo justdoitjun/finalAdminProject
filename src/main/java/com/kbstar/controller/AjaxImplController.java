@@ -12,11 +12,10 @@ import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import com.kbstar.dto.Room;
-import javax.servlet.http.HttpSession;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -110,8 +109,8 @@ public class AjaxImplController {
 
     @RequestMapping("/smsAuth")
     public void smsAuth( String phoneNumber) throws Exception {
-        SMSAuthController smsAuth = new SMSAuthController();
-        smsAuth.sendOne("01093158478");
+//        SMSAuthController2 smsAuth = new SMSAuthController2();
+//        smsAuth.sendOne("01093158478");
     }
 
     // 참고 url - https://velog.io/@duawldms/spring-email-%EC%9E%84%EC%8B%9C%EB%B9%84%EB%B0%80%EB%B2%88%ED%98%B8-%EB%B0%9C%EA%B8%89

@@ -31,8 +31,8 @@ public class MainController {
 
     @RequestMapping("/")
     public String main(Model model) throws Exception {
-        model.addAttribute("center","userProfile");
-        model.addAttribute("centerUserProfile",dirProfile+"current");
+//        model.addAttribute("center","userProfile");
+//        model.addAttribute("centerUserProfile",dirProfile+"current");
         return "index";
     }
 

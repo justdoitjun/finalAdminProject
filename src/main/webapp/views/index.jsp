@@ -307,7 +307,10 @@
 </header>
 
 <c:choose>
-  <c:when test="${center==null && loginHost == null }">
+<%--  <c:when test="${center==null && loginHost == null }">--%>
+<%--    <jsp:include page="center.jsp"/>--%>
+<%--  </c:when>--%>
+  <c:when test="${center==null }">
     <jsp:include page="center.jsp"/>
   </c:when>
   <c:otherwise>
