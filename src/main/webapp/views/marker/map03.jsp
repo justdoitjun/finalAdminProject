@@ -188,8 +188,7 @@
                     '            <div class="desc">' +
                     '                <div class="ellipsis">' + position.info + '</div>' +
                     '                <div class="jibun ellipsis">' + position.intro + '</div>' +
-                    '                <div><a href="' + position.website + '" target="_blank" class="link">' + ' ￦ '+ position.price  + '원/1박당' + '</a></div>' +
-                    '            </div>' +
+                    '                <div><a href= "/room/detail?id='     +  position.id + '    " target="_blank" class="link">' + ' ￦ '+ position.price  + '원/1박당' + '</a></div>' +                    '            </div>' +
                     '        </div>' +
                     '    </div>' +
                     '</div>';
@@ -242,13 +241,13 @@
 <div class="col-sm-8 text-left">
     <div class="container" id="map03">
 
-   <div>
-        <button id="s_btn" type="button" class="btn btn-primary">Seoul</button>
-        <button id="b_btn" type="button" class="btn btn-primary">Busan</button>
-        <button id="j_btn" type="button" class="btn btn-primary">Jeju</button>
+        <div >
+            <button id="s_btn" type="button" class="btn btn-default" >Seoul</button>
+            <button id="b_btn" type="button" class="btn btn-default">Busan</button>
+            <button id="j_btn" type="button" class="btn btn-default">Jeju</button>
+        </div>
 
-   </div>
-        <h1>지도를 뿌려줘 제발!</h1>
+
         <div id="map"></div>
-</div>
+    </div>
 </div>
