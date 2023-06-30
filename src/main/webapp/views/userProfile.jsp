@@ -86,7 +86,7 @@
               </div>
               <a href="/profile/reviews?hostId=${loginHost.hostId}">
               <div>
-                <p class="mb-0">2877 reviews</p>
+                <p class="mb-0"><spring:message code="user.infoReview"/></p>
               </div>
               </a>
             </div>
