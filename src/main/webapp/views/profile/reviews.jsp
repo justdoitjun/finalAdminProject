@@ -18,7 +18,7 @@
               `
       <div class="col-sm-6 col-lg-4 mb-30px hover-animate" data-marker-id="59c0c8e33b1527bfe2abaf92">
         <div class="card h-100 border-0 shadow">
-          <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" src="/img/photo/photo-1484154218962-a197022b5858.jpg" alt="Modern, Well-Appointed Room"/><a class="tile-link" href="reviews/detail?roomId=\${obj.roomId}"></a>
+          <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" src="/img/photo/\${obj.roomImage1}" alt="Modern, Well-Appointed Room"/><a class="tile-link" href="reviews/detail?roomId=\${obj.roomId}"></a>
             <div class="card-img-overlay-bottom z-index-20">
             </div>
             <div class="card-img-overlay-top text-end"><a class="card-fav-icon position-relative z-index-40" href="javascript: void();">
@@ -55,8 +55,8 @@
 
 
 
-<div class="col-lg-9 ps-lg-5" id="profileReviewContainer">
-    <h1>${loginHost.hostName}의 리뷰현황.</h1>
-
+<div class="col-lg-9 ps-lg-5" >
+    <div class="row" id="profileReviewContainer">
+    </div>
 </div>
 
