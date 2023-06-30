@@ -12,4 +12,8 @@ public class Chatroom {
     Integer chatRoomId;
     String hostId;
     String guestId;
+    String guestImage;
+    String guestName;
+    String hostImage;
+    String hostName;
 }
