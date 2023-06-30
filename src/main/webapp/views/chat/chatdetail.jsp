@@ -217,7 +217,7 @@
                   </div>
                   <p class="small text-muted ms-3">\${formattedDate}</p>
                   </div>
-                  <img class="avatar avatar-border-white flex-shrink-0" src="img/avatar/avatar-10.jpg" alt="user">
+                  <img class="avatar avatar-border-white flex-shrink-0" src="img/avatar/${hostInfo.hostImage}" alt="user">
                   </div>
                   `;
           $('#chatContainer').append(html);
@@ -231,7 +231,7 @@
           let html =
                   `
                   <div class="d-flex col-md-9 col-xl-7 mb-3" id=\${obj.chatContentsId}>
-                  <img class="avatar avatar-border-white flex-shrink-0" src="img/avatar/avatar-1.jpg" alt="user">
+                  <img class="avatar avatar-border-white flex-shrink-0" src="img/avatar/${guestInfo.guestImage}" alt="user">
                   <div class="ms-3">
                   <div class="bg-gray-200 rounded p-4 mb-2">
                   <p id="chatContents">\${obj.chatContents}</p>
