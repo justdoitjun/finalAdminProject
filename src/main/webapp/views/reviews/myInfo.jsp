@@ -23,7 +23,7 @@
                     </div>
                     <div class="form-group">
                         <label for="hostPwd">Password</label>
-                        <input type="password" class="form-control" id="hostPwd" placeholder="Enter your password">
+                          <input type="password" class="form-control" id="hostPwd" placeholder="Enter your password">
                     </div>
                     <div class="form-group">
                         <label for="confirmPassword">Confirm Password</label>

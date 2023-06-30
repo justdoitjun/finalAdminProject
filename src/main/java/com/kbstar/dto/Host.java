@@ -32,3 +32,4 @@ public class Host implements Serializable {
         this.hostRegDate = hostRegDate;
     }
 }
+
