@@ -7,10 +7,10 @@
       $.ajax({
         url:'/roomLoad',
         data:{
-          'hostId': ${hostId}
+          'hostId': `${hostId}`
         }
       }).done((data)=>{
-        console.log('data success');
+        console.log('예약 정보 불러오기 success');
         // console.log(data);
         data.forEach(obj=>{
           console.log(obj);
@@ -40,11 +40,11 @@
         </div>
       </div>
               `;
-          $('#profileReviewContainer').html(html);
+          $('#profileReviewContainer').append(html);
 
         })
       }).fail(()=>{
-        console.log('data failed');
+        console.log('예약정보 불러오기 failed');
       })
     }
   }

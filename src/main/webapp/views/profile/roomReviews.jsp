@@ -10,14 +10,14 @@
       $.ajax({
          url:'/reviewLoad',
         data:{
-           "roomId" : ${roomId}
+           "roomId" : `${roomId}`
         }
       }).done((data)=>{
-        console.log('data load success');
+        console.log('리뷰 정보 불러오기 success');
         console.log(data);
         profileReview.display(data);
       }).fail(()=>{
-        console.log('data load failed');
+        console.log('리뷰 정보 불러오기 failed');
       })
     },
     display:(data)=>{
