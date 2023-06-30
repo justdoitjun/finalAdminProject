@@ -21,6 +21,6 @@ public class ReviewSelectMyRoomReviewsTest {
             log.info("Error");
             e.printStackTrace();
         }
-
+정
     }
 }

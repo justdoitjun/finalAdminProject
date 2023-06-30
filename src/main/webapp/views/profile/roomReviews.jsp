@@ -10,14 +10,14 @@
       $.ajax({
          url:'/reviewLoad',
         data:{
-           "roomId" : ${roomId}
+           "roomId" : `${roomId}`
         }
       }).done((data)=>{
-        console.log('data load success');
+        console.log('리뷰 정보 불러오기 success');
         console.log(data);
         profileReview.display(data);
       }).fail(()=>{
-        console.log('data load failed');
+        console.log('리뷰 정보 불러오기 failed');
       })
     },
     display:(data)=>{
@@ -99,21 +99,12 @@
               <div class="col-6 col-md-4 col-lg-3 py-3 mb-3 mb-lg-0">
                 <h6 class="label-heading">평점</h6>
                 <p class="text-sm fw-bold">\${obj.reviewRate}</p>
-                <h6 class="label-heading">가격</h6>
+              </div>
+              <div class="col-6 col-md-6 col-lg-6 py-3">
+                <h6 class="label-heading">리뷰 내용</h6>
                 <p class="text-sm fw-bold mb-0">\${obj.reviewContents1}</p>
               </div>
-              <div class="col-6 col-md-4 col-lg-3 py-3">
-                <h6 class="label-heading">청결도</h6>
-                <p class="text-sm fw-bold">\${obj.reviewContents2}</p>
-                <h6 class="label-heading">편의시설</h6>
-                <p class="text-sm fw-bold mb-0">\${obj.reviewContents3}</p>
-              </div>
-              <div class="col-6 col-md-4 col-lg-3 py-3">
-                <h6 class="label-heading">위치</h6>
-                <p class="text-sm fw-bold">\${obj.reviewContents4}</p>
-                <h6 class="label-heading">코멘트</h6>
-                <p class="text-sm fw-bold mb-0">아주 좋았어요</p>
-              </div>
+
               <div class="col-12 col-lg-3 align-self-center">\${reserveCal}
                 \${reserveReply}
                 `;
