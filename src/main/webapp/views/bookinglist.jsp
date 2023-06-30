@@ -127,7 +127,7 @@
                     <img class="avatar avatar-sm avatar-border-white ms-3" src="img/avatar/avatar-1.jpg" alt="Jack London">
                 </div>
                 <p class="text-sm text-muted">Double Room</p>
-                <span class="badge badge-pill p-2 badge-secondary-light">March 14, 2023 - March 17, 2023</span>
+                <span class="badge badge-pill p-2 badge-secondary-light">23년 7월 07일 - 23년 7월 11일</span>
             </div>
 
                 <div class="col-lg-8">
