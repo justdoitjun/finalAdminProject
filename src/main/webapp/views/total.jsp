@@ -77,7 +77,7 @@
                         </div>
                         <div class="col-sm-6 ps-lg-4">
                             <h2 class="h6 text-uppercase mb-4">호스트</h2>
-                            <h4 class="mb-1"> 수정해야함</h4>
+                            <h4 class="mb-1"> 문대호</h4>
                             <p class="text-muted"><br><br><br><br><strong></strong></p>
                         </div>
                     </div>

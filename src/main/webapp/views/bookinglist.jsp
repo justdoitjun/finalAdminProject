@@ -123,7 +123,7 @@
             <div class="row">    <div class="col-lg-4 align-self-center mb-4 mb-lg-0">
                 <div class="d-flex align-items-center mb-3">
                     <input type="checkbox" class="form-check-input me-3" id="checkbox2">
-                    <h2 class="h5 mb-0"> 수정 해야함 </h2>
+                    <h2 class="h5 mb-0"> 최준혁 </h2>
                     <img class="avatar avatar-sm avatar-border-white ms-3" src="img/avatar/avatar-1.jpg" alt="Jack London">
                 </div>
                 <p class="text-sm text-muted">Double Room</p>
