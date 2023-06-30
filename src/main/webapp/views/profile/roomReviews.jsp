@@ -46,7 +46,7 @@
           reserveReply =
                   `
            <br class="d-none d-lg-block"><span class="text-muted text-sm text-uppercase"><i class="fa fa-times fa-fw me-2"> </i>응답 미완료</span>
-                <button class="btn btn-outline-primary" type="button" data-bs-toggle="collapse" data-bs-target="#leaveReview" aria-expanded="false" aria-controls="leaveReview">Leave a review</button>
+                <button class="btn btn-outline-primary" type="button" data-bs-toggle="collapse" data-bs-target="#leaveReview" aria-expanded="false" aria-controls="leaveReview">답변을 해주세요</button>
               </div>
             </div>
           </div>
@@ -58,8 +58,8 @@
                 <div class="row">
                   <div class="col-sm-6">
                     <div class="mb-4">
-                      <label class="form-label" for="name">Your name *</label>
-                      <input class="form-control" type="text" name="name" id="name" placeholder="Enter your name" required="required">
+                      <label class="form-label" for="name">이름 *</label>
+                      <input class="form-control" type="text" name="name" id="name" placeholder="이름을 남겨주세요" required="required">
                     </div>
                   </div>
                   <div class="col-sm-6">
@@ -76,10 +76,10 @@
                   </div>
                 </div>
                 <div class="mb-4">
-                  <label class="form-label" for="review">Review text *</label>
-                  <textarea class="form-control" rows="4" name="review" id="review" placeholder="Enter your review" required="required"></textarea>
+                  <label class="form-label" for="review">답글 남겨주세요 *</label>
+                  <textarea class="form-control" rows="4" name="review" id="review" placeholder="내용을 남겨주세요" required="required"></textarea>
                 </div>
-                <button class="btn btn-primary" type="button">Post review</button>
+                <button class="btn btn-primary" type="button">답글 등록</button>
               </form>
             </div>
           </div><!-- py-9 -->
@@ -105,8 +105,10 @@
                 <p class="text-sm fw-bold mb-0">\${obj.reviewContents1}</p>
               </div>
 
-              <div class="col-12 col-lg-3 align-self-center">\${reserveCal}
+              <div class="col-12 col-lg-3 align-self-center">
+                \${reserveCal}
                 \${reserveReply}
+               </div>
                 `;
                 $('#roomReviews').append(html);
       })
