@@ -242,7 +242,7 @@
                         <div class="col-6 d-flex align-items-center"><img src="img/logo.svg" alt="Directory"></div>
                         <div class="col-6 text-end">
                             <h3 class="mb-0">정산표</h3>
-                            <p class="mb-0">발행일, March 01, 2023</p>
+                            <p class="mb-0">발행일, 7월 7일, 2023</p>
                         </div>
                     </div>
                 </div>
@@ -250,13 +250,15 @@
                     <div class="row mb-4">
                         <div class="col-sm-6 pe-lg-3">
                             <h2 class="h6 text-uppercase mb-4">투숙객</h2>
-                            <h6 class="mb-1">Directory, Inc.</h6>
-                            <p class="text-muted">13/25 New Avenue<br>New Heaven<br>45Y 73J<br>England<br><strong>Great Britain</strong></p>
+                            <h4 class="mb-1">이기현 </h4>
+                            <br>
+                            <h4 class="mb-1">유현손 </h4>
+                            <p class="text-muted"><br><br><br><br><strong></strong></p>
                         </div>
                         <div class="col-sm-6 ps-lg-4">
                             <h2 class="h6 text-uppercase mb-4">호스트</h2>
-                            <h6 class="mb-1">James Brown</h6>
-                            <p class="text-muted">13/25 New Avenue<br>New Heaven<br>45Y 73J<br>England<br><strong>Great Britain</strong></p>
+                            <h4 class="mb-1"> 수정해야함</h4>
+                            <p class="text-muted"><br><br><br><br><strong></strong></p>
                         </div>
                     </div>
 
@@ -265,31 +267,31 @@
                             <thead class="bg-gray-200">
                             <tr class="border-0">
                                 <th class="center">#</th>
-                                <th>Room</th>
-                                <th>Description</th>
-                                <th class="text-end">Price</th>
-                                <th class="center">  Day</th>
-                                <th class="text-end">Total</th>
+                                <th>방</th>
+                                <th>투숙객 수</th>
+                                <th class="text-end">박당 가격</th>
+                                <th class="center"> 숙박일 </th>
+                                <th class="text-end">총액</th>
                             </tr>
                             </thead>
                             <tbody>
                             <tr>
                                 <td class="text-center">1</td>
 
-                                <td>근린시설 접근성이 좋은 집</td>
-                                <td class="fw-bold">방 대여료</td>
-                                <td class="text-end">$958.00</td>
-                                <td class="text-center">1</td>
-                                <td class="text-end">$958.00</td>
+                                <td>한강 뷰가 너무나도 예쁜 오피스텔</td>
+                                <td class="fw-bold">1명</td>
+                                <td class="text-end">10만원</td>
+                                <td class="text-center">3</td>
+                                <td class="text-end">30만원</td>
                             </tr>
                             <tr>
                                 <td class="text-center">2</td>
 
-                                <td>뷰가 좋고 편의시설이 많은 집</td>
-                                <td class="fw-bold">청소 및 부가세</td>
-                                <td class="text-end">$100.00</td>
-                                <td class="text-center">1</td>
-                                <td class="text-end">$100.00</td>
+                                <td>깔끔하고 시설이 구비된 아파트</td>
+                                <td class="fw-bold">2명</td>
+                                <td class="text-end">15만원</td>
+                                <td class="text-center">2</td>
+                                <td class="text-end">30만원</td>
                             </tr>
                             </tbody>
                         </table>
@@ -299,16 +301,16 @@
                             <table class="table">
                                 <tbody>
                                 <tr class="text-sm">
-                                    <td class="fw-bold">Subtotal</td>
-                                    <td class="text-end">$1,058</td>
+                                    <td class="fw-bold">총 액</td>
+                                    <td class="text-end">60만원</td>
                                 </tr>
                                 <tr class="text-sm">
-                                    <td class="fw-bold">VAT (21%)</td>
-                                    <td class="text-end">$222.18</td>
+                                    <td class="fw-bold">VAT(10%)</td>
+                                    <td class="text-end"> - 6만원</td>
                                 </tr>
                                 <tr>
-                                    <td class="text-uppercase fw-bold">Total</td>
-                                    <td class="text-end fw-bold">$1,280.18</td>
+                                    <td class="text-uppercase fw-bold">정산 금액</td>
+                                    <td class="text-end fw-bold">54만원</td>
                                 </tr>
                                 </tbody>
                             </table>

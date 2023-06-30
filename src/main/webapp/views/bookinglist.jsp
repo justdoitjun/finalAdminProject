@@ -43,19 +43,19 @@
             <li class="breadcrumb-item active">Host view   </li>
         </ol>
         <div class="d-flex justify-content-between align-items-end mb-5">
-            <h1 class="hero-heading mb-0">정산하기</h1><a class="btn btn-link text-muted" href="#">Past bookings</a>
+            <h1 class="hero-heading mb-0">정산하기</h1><a class="btn btn-link text-muted" href="#">과거 내역</a>
         </div>
         <div class="d-flex justify-content-between align-items-center flex-column flex-lg-row mb-5">
             <div class="me-3">
-                <p class="mb-3 mb-lg-0">You have <strong>12 bookings</strong> in your property</p>
+                <p class="mb-3 mb-lg-0">당신이 정산할 <strong>3 건의 예약이 </strong> 리스트에 있습니다.</p>
             </div>
             <div class="text-center">
-                <label class="form-label me-2" for="form_sort">Sort by</label>
+                <label class="form-label me-2" for="form_sort">정렬 순</label>
                 <select class="selectpicker me-3 mb-3 mb-lg-0" name="sort" id="form_sort" data-style="btn-selectpicker" title="">
-                    <option value="sortBy_0">Newest   </option>
+                    <option value="sortBy_0">최신순   </option>
                     <option value="sortBy_1">Oldest   </option>
                     <option value="sortBy_2">Paid   </option>
-                </select><a class="btn btn-outline-secondary" href="#"><i class="fa fa-download me-2"></i>Download CSV</a>
+                </select><a class="btn btn-outline-secondary" href="#"><i class="fa fa-download me-2"></i>저장하기</a>
             </div>
         </div>
 
@@ -80,11 +80,10 @@
                     <div class="col-lg-4 align-self-center mb-4 mb-lg-0">
                         <div class="d-flex align-items-center mb-3">
                             <input type="checkbox"  class="form-check-input me-3" id="checkbox1">
-                            <h2 class="h5 mb-0">Meredith Goodwin</h2>
+                            <h2 class="h5 mb-0">이기현</h2>
                             <img class="avatar avatar-sm avatar-border-white ms-3" src="img/avatar/avatar-0.jpg" alt="Jack London">
                         </div>
-                        <p class="text-sm text-muted">Double Room</p>
-                        <span class="badge badge-pill p-2 badge-secondary-light">February 16, 2023 - February 19, 2023</span>
+                        <span class="badge badge-pill p-2 badge-secondary-light">23년 6월 16일 - 23년 6월 19일</span>
                     </div>
 
 
@@ -99,24 +98,24 @@
 
                         <div class="row">
                             <div class="col-6 col-md-4 col-lg-3 py-3 mb-3 mb-lg-0">
-                                <h6 class="label-heading">Rate type</h6>
-                                <p class="text-sm fw-bold">Bed & Breakfast</p>
-                                <h6 class="label-heading">Nights </h6>
-                                <p class="text-sm fw-bold mb-0">3</p>
+                                <h6 class="label-heading">방 타입</h6>
+                                <p class="text-sm fw-bold">오피스텔</p>
+                                <h6 class="label-heading">숙박일 </h6>
+                                <p class="text-sm fw-bold mb-0">3박</p>
                             </div>
                             <div class="col-6 col-md-4 col-lg-3 py-3">
-                                <h6 class="label-heading">Occupancy</h6>
-                                <p class="text-sm fw-bold">1 pax</p>
-                                <h6 class="label-heading">Charge</h6>
-                                <p class="text-sm fw-bold mb-0">$244.42</p>
+                                <h6 class="label-heading">투숙 인원</h6>
+                                <p class="text-sm fw-bold">1명</p>
+                                <h6 class="label-heading">금액</h6>
+                                <p class="text-sm fw-bold mb-0">9 만원/1 박</p>
                             </div>
                             <div class="col-6 col-md-4 col-lg-3 py-3">
-                                <h6 class="label-heading">Booked Date</h6>
-                                <p class="text-sm fw-bold">March 16, 2023                                        </p>
-                                <h6 class="label-heading">Arrival Time</h6>
-                                <p class="text-sm fw-bold mb-0">Around 4 PM</p>
+                                <h6 class="label-heading">예약 날짜</h6>
+                                <p class="text-sm fw-bold">6월 16일, 2023                                        </p>
+                                <h6 class="label-heading">도착 시간</h6>
+                                <p class="text-sm fw-bold mb-0">4시 경</p>
                             </div>
-                            <div class="col-12 col-lg-3 align-self-center"><span class="text-primary text-sm text-uppercase me-4 me-lg-0"><i class="fa fa-check fa-fw me-2"> </i>Booking paid</span><br class="d-none d-lg-block"><span class="text-primary text-sm text-uppercase"><i class="fa fa-check fa-fw me-2"> </i>Confirmed</span>
+                            <div class="col-12 col-lg-3 align-self-center"><span class="text-primary text-sm text-uppercase me-4 me-lg-0"><i class="fa fa-check fa-fw me-2"> </i>결제 완료</span><br class="d-none d-lg-block"><span class="text-primary text-sm text-uppercase"><i class="fa fa-check fa-fw me-2"> </i>최종 확정</span>
                             </div>
                         </div>
                     </div>
@@ -124,7 +123,7 @@
             <div class="row">    <div class="col-lg-4 align-self-center mb-4 mb-lg-0">
                 <div class="d-flex align-items-center mb-3">
                     <input type="checkbox" class="form-check-input me-3" id="checkbox2">
-                    <h2 class="h5 mb-0">Weeks Garrett</h2>
+                    <h2 class="h5 mb-0"> 수정 해야함 </h2>
                     <img class="avatar avatar-sm avatar-border-white ms-3" src="img/avatar/avatar-1.jpg" alt="Jack London">
                 </div>
                 <p class="text-sm text-muted">Double Room</p>
@@ -137,24 +136,24 @@
 
                     <div class="row">
                         <div class="col-6 col-md-4 col-lg-3 py-3 mb-3 mb-lg-0">
-                            <h6 class="label-heading">Rate type</h6>
-                            <p class="text-sm fw-bold">Bed & Breakfast</p>
-                            <h6 class="label-heading">Nights </h6>
-                            <p class="text-sm fw-bold mb-0">3</p>
+                            <h6 class="label-heading">방 타입</h6>
+                            <p class="text-sm fw-bold">독채</p>
+                            <h6 class="label-heading">숙박일 </h6>
+                            <p class="text-sm fw-bold mb-0">3박</p>
                         </div>
                         <div class="col-6 col-md-4 col-lg-3 py-3">
-                            <h6 class="label-heading">Occupancy</h6>
-                            <p class="text-sm fw-bold">3 pax</p>
-                            <h6 class="label-heading">Charge</h6>
-                            <p class="text-sm fw-bold mb-0">$495.73</p>
+                            <h6 class="label-heading">투숙 인원</h6>
+                            <p class="text-sm fw-bold">3명</p>
+                            <h6 class="label-heading">금액</h6>
+                            <p class="text-sm fw-bold mb-0">16 만원/1 박</p>
                         </div>
                         <div class="col-6 col-md-4 col-lg-3 py-3">
-                            <h6 class="label-heading">Booked Date</h6>
-                            <p class="text-sm fw-bold">March 14, 2023                                        </p>
-                            <h6 class="label-heading">Arrival Time</h6>
-                            <p class="text-sm fw-bold mb-0">Around 4 PM</p>
+                            <h6 class="label-heading">예약 날짜</h6>
+                            <p class="text-sm fw-bold">6월 10일, 2023                                        </p>
+                            <h6 class="label-heading">도착 시간</h6>
+                            <p class="text-sm fw-bold mb-0">1시 경</p>
                         </div>
-                        <div class="col-12 col-lg-3 align-self-center"><span class="text-primary text-sm text-uppercase me-4 me-lg-0"><i class="fa fa-check fa-fw me-2"> </i>Booking paid</span><br class="d-none d-lg-block"><span class="text-muted text-sm text-uppercase"><i class="fa fa-times fa-fw me-2"> </i>Confirmed</span>
+                        <div class="col-12 col-lg-3 align-self-center"><span class="text-primary text-sm text-uppercase me-4 me-lg-0"><i class="fa fa-check fa-fw me-2"> </i>결제 완료</span><br class="d-none d-lg-block"><span class="text-muted text-sm text-uppercase"><i class="fa fa-times fa-fw me-2"> </i>확정 대기</span>
                         </div>
                     </div>
                 </div>
@@ -163,11 +162,11 @@
                 <div class="col-lg-4 align-self-center mb-4 mb-lg-0">
                     <div class="d-flex align-items-center mb-3">
                         <input type="checkbox" class="form-check-input me-3" id="checkbox3">
-                        <h2 class="h5 mb-0">Fisher Bauer</h2>
+                        <h2 class="h5 mb-0">유현손</h2>
                         <img class="avatar avatar-sm avatar-border-white ms-3" src="img/avatar/avatar-2.jpg" alt="Jack London">
                     </div>
-                    <p class="text-sm text-muted">Double Room</p>
-                    <span class="badge badge-pill p-2 badge-danger-light">March 10, 2023 - March 13, 2023</span>
+
+                    <span class="badge badge-pill p-2 badge-danger-light">23년 6월 21일 - 23년 6월 23일</span>
                 </div>
 
 
@@ -175,24 +174,24 @@
                 <div class="col-lg-8">
                     <div class="row">
                         <div class="col-6 col-md-4 col-lg-3 py-3 mb-3 mb-lg-0">
-                            <h6 class="label-heading">Rate type</h6>
-                            <p class="text-sm fw-bold">Bed & Breakfast</p>
-                            <h6 class="label-heading">Nights </h6>
-                            <p class="text-sm fw-bold mb-0">4</p>
+                            <h6 class="label-heading">방 타입</h6>
+                            <p class="text-sm fw-bold">아파트</p>
+                            <h6 class="label-heading">숙박일 </h6>
+                            <p class="text-sm fw-bold mb-0">2박</p>
                         </div>
                         <div class="col-6 col-md-4 col-lg-3 py-3">
-                            <h6 class="label-heading">Occupancy</h6>
-                            <p class="text-sm fw-bold">3 pax</p>
-                            <h6 class="label-heading">Charge</h6>
-                            <p class="text-sm fw-bold mb-0">$882.25</p>
+                            <h6 class="label-heading">투숙 인원</h6>
+                            <p class="text-sm fw-bold">2명</p>
+                            <h6 class="label-heading">금액</h6>
+                            <p class="text-sm fw-bold mb-0">13 만원/1 박</p>
                         </div>
                         <div class="col-6 col-md-4 col-lg-3 py-3">
-                            <h6 class="label-heading">Booked Date</h6>
-                            <p class="text-sm fw-bold">March 24, 2023                                        </p>
-                            <h6 class="label-heading">Arrival Time</h6>
-                            <p class="text-sm fw-bold mb-0">Around 4 PM</p>
+                            <h6 class="label-heading">예약 날짜</h6>
+                            <p class="text-sm fw-bold">6월 21일, 2023                                        </p>
+                            <h6 class="label-heading">도착 시간</h6>
+                            <p class="text-sm fw-bold mb-0">2시 경</p>
                         </div>
-                        <div class="col-12 col-lg-3 align-self-center"><span class="text-primary text-sm text-uppercase me-4 me-lg-0"><i class="fa fa-check fa-fw me-2"> </i>Booking paid</span><br class="d-none d-lg-block"><span class="text-primary text-sm text-uppercase"><i class="fa fa-check fa-fw me-2"> </i>Confirmed</span>
+                        <div class="col-12 col-lg-3 align-self-center"><span class="text-primary text-sm text-uppercase me-4 me-lg-0"><i class="fa fa-check fa-fw me-2"> </i>결제 완료</span><br class="d-none d-lg-block"><span class="text-primary text-sm text-uppercase"><i class="fa fa-check fa-fw me-2"> </i>최종 확정</span>
 
                         </div>
                     </div>
@@ -203,7 +202,7 @@
 
         <div class="form-check form-switch d-inline-block">
             <input class="form-check-input" type="checkbox" id="showTotalTableSwitch" onchange="toggleTotalTable()">
-            <label class="form-check-label" for="showTotalTableSwitch">Detail</label>
+            <label class="form-check-label" for="showTotalTableSwitch">상세 조회</label>
         </div>
 
 
@@ -211,29 +210,29 @@
                 <thead class="bg-gray-200">
                 <tr class="border-0">
                     <th class="center">#</th>
-                    <th>List</th>
-                    <th>Rate Time</th>
-                    <th class="text-end">Charge</th>
-                    <th class="center">Nights</th>
-                    <th class="text-end">Total</th>
+                    <th>목록</th>
+                    <th>숙박기간</th>
+                    <th class="text-end">금액/1박</th>
+                    <th class="center">숙박일</th>
+                    <th class="text-end">총액</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr>
                     <td class="text-center">1</td>
-                    <td class="fw-bold">Room Rental Services</td>
-                    <td>August</td>
-                    <td class="text-end">$958.00</td>
-                    <td class="text-center">1</td>
-                    <td class="text-end">$958.00</td>
+                    <td class="fw-bold">이기현님 / 한강 뷰가 너무나도 예쁜 오피스텔 </td>
+                    <td>23년 6월 16일 - 23년 6월 19일</td>
+                    <td class="text-end">10만원</td>
+                    <td class="text-center">3박</td>
+                    <td class="text-end">30만원</td>
                 </tr>
                 <tr>
                     <td class="text-center">2</td>
-                    <td class="fw-bold">Premium Listing</td>
-                    <td>May</td>
-                    <td class="text-end">$100.00</td>
-                    <td class="text-center">1</td>
-                    <td class="text-end">$100.00</td>
+                    <td class="fw-bold">유현손님 / 깔끔하고 시설이 구비된 아파트</td>
+                    <td>23년 6월 21일 - 23년 6월 23일</td>
+                    <td class="text-end">15만원</td>
+                    <td class="text-center">2박</td>
+                    <td class="text-end">30만원</td>
                 </tr>
 
 
@@ -243,7 +242,7 @@
                     <td></td>
                     <td class="text-end"></td>
                     <td class="text-center"></td>
-                    <td class="text-end">$1058.00</td>
+                    <td class="text-end">60 만원</td>
                 </tr>
 
                 </tbody>

@@ -104,13 +104,7 @@
                                         <option value="1">1인</option>
                                         <option value="2">2인</option>
                                         <option value="3">3인</option>
-                                        <option value="4">4인</option>
-                                        <option value="5">5인</option>
-                                        <option value="6">6인</option>
-                                        <option value="7">7인</option>
-                                        <option value="8">8인</option>
-                                        <option value="9">9인</option>
-                                        <option value="10">10인 +</option>
+
                                     </select>
                                 </td>
                             </tr>

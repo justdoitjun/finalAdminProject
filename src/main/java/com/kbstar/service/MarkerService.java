@@ -1,6 +1,7 @@
 package com.kbstar.service;
 
 import com.kbstar.dto.Marker;
+import com.kbstar.dto.Room;
 import com.kbstar.dto.MarkerSearch;
 import com.kbstar.frame.KBService;
 import com.kbstar.mapper.MarkerMapper;
@@ -47,7 +48,7 @@ public class MarkerService implements KBService<Integer, Marker> {
         return mapper.selectall();
     }
 
-    public List<Marker> getLoc(String loc) throws Exception{
+    public List<Room> getLoc(String loc) throws Exception{
         return mapper.getloc(loc);
     }
     public List<Marker> search(MarkerSearch ms) throws Exception{

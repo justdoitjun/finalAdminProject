@@ -293,7 +293,7 @@
               <div id="messageBell">
               <li class="nav-item"><a class="nav-link" href="/chatroom?hostId=${loginHost.hostId}"> <svg class="svg-icon text-primary svg-icon-sd"><use xlink:href="#mail-1"> </use></svg></a></li>&nbsp; &nbsp;
               </div>&nbsp;&nbsp;
-              <img class="d-block avatar avatar-xxs p-2 mb-2" src="/img/avatar/avatar-10.jpg">&nbsp; &nbsp;
+              <img class="d-block avatar avatar-xxs p-2 mb-2" src="/img/avatar/${loginHost.hostImage}">&nbsp; &nbsp;
               <li class="nav-item"><a class="nav-link" href="/profile"> ${loginHost.hostName}</a></li>&nbsp; &nbsp;
               <li class="nav-item"><a class="nav-link" href="/logout">로그아웃</a></li>
             </c:otherwise>

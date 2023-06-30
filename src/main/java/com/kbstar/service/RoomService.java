@@ -17,7 +17,6 @@ public class RoomService implements KBService<Integer, Room> {
 
 
 
-
     @Autowired
     RoomMapper mapper;
     @Override

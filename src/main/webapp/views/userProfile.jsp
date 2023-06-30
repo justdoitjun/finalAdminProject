@@ -56,7 +56,7 @@
     <div class="row">
       <div class="col-lg-3 me-lg-auto">
         <div class="card border-0 shadow mb-6 mb-lg-0">
-          <div class="card-header bg-gray-100 py-4 border-0 text-center"><a class="d-inline-block" href="profile/current"><img class="d-block avatar avatar-xxl p-2 mb-2" src="/img/avatar/avatar-10.jpg" alt=""></a>
+          <div class="card-header bg-gray-100 py-4 border-0 text-center"><a class="d-inline-block" href="profile/current"><img class="d-block avatar avatar-xxl p-2 mb-2" src="/img/avatar/${loginHost.hostImage}" alt=""></a>
             <h5>${loginHost.hostName}</h5>
             <p class="text-muted text-sm mb-0">Los Angeles, CA  </p>
           </div>
