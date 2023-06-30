@@ -14,7 +14,10 @@
         // console.log(data);
         data.forEach(obj=>{
           console.log(obj);
-          let html =
+            const currency = 'KRW';
+            const formattedAmount = obj.roomPrice.toLocaleString('en-US', { style: 'currency', currency: currency });
+
+            let html =
               `
       <div class="col-sm-6 col-lg-4 mb-30px hover-animate" data-marker-id="59c0c8e33b1527bfe2abaf92">
         <div class="card h-100 border-0 shadow">
@@ -34,7 +37,7 @@
                 <p class="flex-shrink-1 mb-0 card-stars text-xs text-end"><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i>
                 </p>
               </div>
-              <p class="card-text text-muted"><span class="h4 text-primary">\${obj.roomPrice}</span> per night</p>
+              <p class="card-text text-muted"><span class="h4 text-primary">\${formattedAmount}</span> per night</p>
             </div>
           </div>
         </div>
@@ -57,6 +60,7 @@
 
 <div class="col-lg-9 ps-lg-5" >
     <div class="row" id="profileReviewContainer">
+
     </div>
 </div>
 
