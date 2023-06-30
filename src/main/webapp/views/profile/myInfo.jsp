@@ -3,6 +3,7 @@
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
+
 <script>
     let pic = {
         myVideoStream:null,

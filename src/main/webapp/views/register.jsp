@@ -120,6 +120,7 @@
                   $('#hostVerified').val(1); //인증여부에 1로 체크
 
                 } else {
+
                   Swal.fire({
                     icon: 'error',
                     title: '인증오류',
@@ -147,6 +148,7 @@
       $('#smsAuthModal').modal('show');
     });
   });
+
 </script>
 <div class="container-fluid px-3">
   <div class="row min-vh-100">
@@ -263,6 +265,7 @@
             <div class="w-100 py-5 px-md-5 px-xxl-6 position-relative">
                 <div class="mb-4">
                   <h2>본인 인증 </h2>
+
                   <p class="text-muted">Host는 간단한 본인인증이 필요해요</p>
                 </div>
                 <div class="mb-4">
