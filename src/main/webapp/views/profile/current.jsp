@@ -57,6 +57,7 @@
                 console.log(data);
                 price.display(data);
             }).fail(()=>{
+
                 console.log('===============hostRoom load failed=================');
                 console.log('hostRoom load failed');
             })
@@ -73,6 +74,7 @@
                     `
                          <button class="dropdown-item" data-room-lat="\${roomLat}" data-room-lng="\${roomLng}" onclick="updateIframe(this)"> \${obj.roomName}</button>
                   `;
+
                 $('#roomList').append(html)
             })
         }

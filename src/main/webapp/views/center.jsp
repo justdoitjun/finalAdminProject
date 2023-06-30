@@ -7,9 +7,10 @@
 <section class="py-7 position-relative dark-overlay"><img class="bg-image" src="img/photo/photo-1497436072909-60f360e1d4b1.jpg" alt="">
     <div class="container">
         <div class="overlay-content text-white py-lg-5">
-            <h3 class="display-3 fw-bold text-serif text-shadow mb-5">Ready for your next holidays?</h3><a class="btn btn-light" href="/login">Get started</a>
+            <h3 class="display-3 fw-bold text-shadow mb-5">당신의 휴일을 즐길 준비가 됬나요?</h3><a class="btn btn-light" href="/login"> 떠나보기 </a>
         </div>
     </div>
+
 </section>
 
 

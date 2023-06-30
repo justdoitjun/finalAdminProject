@@ -47,7 +47,7 @@
         </div>
         <div class="d-flex justify-content-between align-items-center flex-column flex-lg-row mb-5">
             <div class="me-3">
-                <p class="mb-3 mb-lg-0">당신이 정산할 <strong>3 건의 예약이 </strong> 리스트에 있습니다.</p>
+                <p class="mb-3 mb-lg-0">당신이 정산가능한 <strong>3 건의 예약이 </strong> 리스트에 있습니다.</p>
             </div>
             <div class="text-center">
                 <label class="form-label me-2" for="form_sort">정렬 순</label>
