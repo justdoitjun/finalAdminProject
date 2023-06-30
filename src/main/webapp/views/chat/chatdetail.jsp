@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <script>
   $(document).ready( async () => {
     await display();
@@ -215,7 +217,7 @@
                   </div>
                   <p class="small text-muted ms-3">\${formattedDate}</p>
                   </div>
-                  <img class="avatar avatar-border-white flex-shrink-0" src="img/avatar/avatar-10.jpg" alt="user">
+                  <img class="avatar avatar-border-white flex-shrink-0" src="img/avatar/${hostInfo.hostImage}" alt="user">
                   </div>
                   `;
           $('#chatContainer').append(html);
@@ -229,7 +231,7 @@
           let html =
                   `
                   <div class="d-flex col-md-9 col-xl-7 mb-3" id=\${obj.chatContentsId}>
-                  <img class="avatar avatar-border-white flex-shrink-0" src="img/avatar/avatar-1.jpg" alt="user">
+                  <img class="avatar avatar-border-white flex-shrink-0" src="img/avatar/${guestInfo.guestImage}" alt="user">
                   <div class="ms-3">
                   <div class="bg-gray-200 rounded p-4 mb-2">
                   <p id="chatContents">\${obj.chatContents}</p>
@@ -263,9 +265,36 @@
           <h1 class="mb-3 mb-md-0 hero-heading mb-0">${guestInfo.guestName}님과의 대화 </h1>
           <div><a class="btn btn-link ps-0" href="/chatroom?hostId=${loginHost.hostId}"><i class="fa fa-arrow-left me-2"></i> 채팅방으로 돌아가기</a></div>
         </div>
-          <div id="reserveCardBody">
+              <c:choose>
+                  <c:when test="${reserveInfo[0] != null}">
+                      <div id="reserveCardBody">
+                      <div class="card border-0 shadow mb-4">
+                          <div class="card-body p-4">
+                              <div class="text-block pb-3">
+                                  <div class="d-flex align-items-center justify-content-between">
+                                      <div>
+                                          <h6> <a class="text-reset" href="detail-rooms.html">${reserveInfo[0].roomName}</a></h6>
+                                          <p class="text-muted text-sm mb-0">${reserveInfo[0].roomAddress}</p>
+                                          <div class="mt-n1"><i class="fa fa-xs fa-star text-primary"></i><i class="fa fa-xs fa-star text-primary"></i><i class="fa fa-xs fa-star text-primary"></i><i class="fa fa-xs fa-star text-primary"></i><i class="fa fa-xs fa-star text-gray-200"></i>
+                                          </div>
+                                      </div><a href="detail-rooms.html"><img class="ms-3 rounded flex-shrink-0" src="${reserveInfo[0].roomImage1}" alt="" width="100"></a>
+                                  </div>
+                              </div>
+                              <div class="text-block pt-3 pb-0">
+                                  <ul class="list-unstyled text-sm mb-0">
+                                      <li class="mb-3"><i class="fas fa-users fa-fw text-muted me-2"></i>${reserveInfo[0].reserveCap} 명</li>
+                                      <li class="mb-0"><i class="far fa-calendar fa-fw text-muted me-2"></i><fmt:formatDate  value="${reserveInfo[0].reserveCheckIn}" pattern="yyyy-MM-dd" /> <i class="fas fa-arrow-right fa-fw text-muted mx-3"></i><fmt:formatDate  value="${reserveInfo[0].reserveCheckOut}" pattern="yyyy-MM-dd" /></li>
+                                  </ul>
+                              </div>
+                          </div>
+                      </div>
+                    </div>
+                  </c:when>
+                  <c:otherwise>
 
-          </div>
+                  </c:otherwise>
+              </c:choose>
+
         <!-- (1) JSP로 뿌리는 방식 -->
 
         <!-- (2) script로 뿌리는 방식 -->

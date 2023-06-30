@@ -2,9 +2,7 @@ package com.kbstar.controller;
 
 
 import com.kbstar.dto.*;
-import com.kbstar.service.ChatContentsService;
-import com.kbstar.service.ChatRoomService;
-import com.kbstar.service.GuestService;
+import com.kbstar.service.*;
 import lombok.extern.slf4j.Slf4j;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -28,6 +26,10 @@ public class ChatController {
     ChatContentsService chatContentsService;
     @Autowired
     GuestService guestService;
+    @Autowired
+    ReserveService reserveService;
+    @Autowired
+    HostService hostService;
 
     String dir = "chat/";
     String dirProfile = "profile/";
@@ -106,14 +108,20 @@ public class ChatController {
 
         Guest guestInfo = new Guest();
         guestInfo = guestService.get(guestId);
+        Host hostInfo = new Host();
+        hostInfo = hostService.get(hostId);
+        List<HostRoomReserveReview> reserveInfo = new ArrayList<>();
+        reserveInfo = reserveService.getHostGuestReserve(hostId, guestId);
         //인덱스 -
         model.addAttribute("center", "userProfile");
         model.addAttribute("centerUserProfile", dir+"chatdetail");
         //DB 정보
+        model.addAttribute("reserveInfo", reserveInfo);
         model.addAttribute("chatRoomId", chatRoomId);
         model.addAttribute("hostId", hostId);
         model.addAttribute("guestId", guestId);
         model.addAttribute("guestInfo", guestInfo);
+        model.addAttribute("hostInfo", hostInfo);
         List<ChatDetails> chatDetailsList = chatContentsService.findChatDetailsHost(chatRoomId, hostId);
         model.addAttribute("chatDetailsList", chatDetailsList);
         return "index";
