@@ -21,9 +21,11 @@
         WHERE guestID=#{guestId}
     </select>
     <select id="findHostChatRoomId" parameterType="String" resultType="chatRoom">
-        SELECT *
-        FROM chatRoom cR
-        WHERE hostID=#{guestId}
+        SELECT c.*, h.hostName, h.hostImage, g.guestName, g.guestImage
+        FROM chatRoom c
+        JOIN host h ON c.hostId = h.hostId
+        JOIN guest g ON c.guestId = g.guestId
+        WHERE c.hostId = #{hostId}
     </select>
 
 </mapper>
