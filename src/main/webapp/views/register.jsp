@@ -296,11 +296,12 @@
       <div class="modal-body">
         <div class="list-group shadow mb-5" id="modalMessage2">
           <input class="form-control" name="hostPwd1" id="phoneAuth" placeholder="핸드폰번호를 입력해주세요!" required data-msg="핸드폰번호를 입력해 주세요!">
+         <br>
           <button id="phoneAuthBtn" type="button" class="btn btn-lg btn-primary"> 인증번호 전송 </button>
-
           <form class="form-validate" >
             <input class="form-control" name="hostPwd1" id="phoneAuth2" placeholder="인증번호를 입력해주세요!" required data-msg="인증번호를 입력해 주세요!">
-            <button id="checkBtn" type="button" class="btn btn-lg btn-primary"> 인증번호 전송 </button>
+            <br>
+            <button id="checkBtn" type="button" class="btn btn-lg btn-primary"> 인증번호 확인 </button>
           </form>
         </div><!-- obj Div 태그 -->
       </div>
