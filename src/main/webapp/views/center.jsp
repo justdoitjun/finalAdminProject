@@ -44,7 +44,6 @@
                     <p class="text-muted">예약이 끝나서 정산이 완료되면 빠르게 대금이 입금됩니다.</p>
                 </div>
             </div>
-
             <div class="col-lg-4 mb-3 mb-lg-0 text-center">
                 <div class="px-0 px-lg-3">
                     <div class="icon-rounded bg-primary-light mb-3">
