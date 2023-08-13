@@ -30,7 +30,7 @@
                   <div class="col-md-8 py-3">
                     <c:choose>
                       <c:when test="${obj.recent.recentSender != hostId}">
-                        <p class="text-sm mb-0">${obj.recent.recentContents} &nbsp; &nbsp; &nbsp; &nbsp;  <svg class="svg-icon text-primary svg-icon-sd"><use xlink:href="#read-email-1"> </use></svg></p>
+                        <p class="text-sm mb-0">${obj.recent.recentContents} &nbsp;  <svg class="svg-icon text-primary svg-icon-sd"><use xlink:href="#read-email-1"> </use></svg></p>
                       </c:when>
                       <c:otherwise>
                         <p class="text-sm mb-0">${obj.recent.recentContents}<svg class="svg-icon text-primary svg-icon-sd"><use xlink:href="#paper-plane-1"> </use></svg></p>

@@ -17,7 +17,7 @@ import java.util.List;
 @Component
 public class ReviewService implements KBService<Integer, Review> {
 
-    @Autowired
+    @Autowired(required = false)
     ReviewMapper mapper;
 
     @Override

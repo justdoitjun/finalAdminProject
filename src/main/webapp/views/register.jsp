@@ -82,7 +82,11 @@
         return;
       }
       if(hostPwd != hostPwd1){
-        alert("동일한 비밀번호를 입력해 주세요");
+        Swal.fire({
+          icon: 'error',
+          title: '입력오류',
+          text: '동일한 비밀번호를 입력해 주세요'
+        })
         return;
       }
       $('#registerForm').attr({
@@ -238,8 +242,8 @@
             </table>
           </div>
           <div class="mb-4">
-            <label class="form-label" for="hostVerified">인증여부(히든 타입으로 바꿀 예정 - register 버튼 눌러도 1 아니면 안되고 readOnly로 묶음)</label>
-            <input class="form-control" name="hostVerified" id="hostVerified">
+<%--           <label type="hidden" class="form-label" for="hostVerified">인증여부(히든 타입으로 바꿀 예정 - register 버튼 눌러도 1 아니면 안되고 readOnly로 묶음)</label>--%>
+            <input type="hidden" class="form-control" name="hostVerified" id="hostVerified">
           </div>
           <div class="d-grid gap-2">
             <button style="height: 61.28px;" class="btn btn-lg btn-primary" id="registerHostBtn" type="button">다음 단계로 넘어가기</button>

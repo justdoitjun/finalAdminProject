@@ -38,6 +38,7 @@
 
   <script src="/webjars/sockjs-client/sockjs.min.js"></script>
   <script src="/webjars/stomp-websocket/stomp.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
 
 
@@ -268,6 +269,8 @@
           <svg class="svg-icon text-primary svg-icon-sd"><use xlink:href="#customer-suppot-1"> </use></svg>
           <button type="button" class="btn btn" data-bs-toggle="modal" data-bs-target="#myModal">
             <i class='fas fa-bell' style='font-size:24px'></i>
+<%--              <div class="spinner-grow text-danger spinner-grow-sm"></div>--%>
+
           </button>
 <%--          <div class="spinner-grow text-danger spinner-grow-sm"></div>--%>
         </div>
@@ -401,6 +404,40 @@
       <div class="modal-body">
         <div class="list-group shadow mb-5" id="modalMessage">
 
+
+
+          <div class="list-group-item list-group-item-action p-4">
+            <div class="row">
+<%--              <div class="col-2 col-lg-1 align-self-lg-center py-3 d-flex align-items-lg-center z-index-10">--%>
+<%--                <div class="form-check">--%>
+<%--                  <input class="form-check-input" id="select_message_0" type="checkbox">--%>
+<%--                  <label class="form-check-label" for="select_message_0"> </label>--%>
+<%--                </div>--%>
+<%--                <div class="form-star d-none d-sm-inline-block mt-n1">--%>
+<%--                  <input id="star_message_0" type="checkbox" name="star" checked>--%>
+<%--                  <label class="star-label" for="star_message_0"><span class="sr-only">Important Message</span></label>--%>
+<%--                </div>--%>
+<%--              </div>--%>
+              <div class="col-9 col-lg-4 align-self-center mb-3 mb-lg-0">
+                <div class="d-flex align-items-center mb-1 mb-lg-3">
+                  <h2 class="h5 mb-0"></h2><img class="avatar avatar-sm avatar-border-white ms-3" src="/img/avatar/페페.jpg" alt="Jack London"> 홍길동
+<%--                  <p class="text-sm text-muted">      홍길동</p><a class="stretched-link" href="user-messages-detail.html">--%>
+
+                </a>
+                </div>
+              </div>
+              <div class="col-10 ms-auto col-lg-7">
+                <div class="row">
+                  <div class="col-md-8 py-3">
+                    안녕하세요! 질문이 있습니다.
+                  </div>
+                  <div class="col-md-4 text-end py-3">
+                    <span class="badge badge-pill p-2 badge-secondary-light"></span>
+                  </div><a class="stretched-link" href="/chatdetail?chatRoomId=106&hostId=id90@gmail.com&guestId=id01@naver.com"></a>
+                </div>
+              </div>
+            </div>
+          </div>
 
 
         </div><!-- obj Div 태그 -->

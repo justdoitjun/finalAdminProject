@@ -47,7 +47,7 @@
         </div>
         <div class="d-flex justify-content-between align-items-center flex-column flex-lg-row mb-5">
             <div class="me-3">
-                <p class="mb-3 mb-lg-0">당신이 정산가능한 <strong>3 건의 예약이 </strong> 리스트에 있습니다.</p>
+                <p class="mb-3 mb-lg-0">당신이 정산할 <strong>3 건의 예약이 </strong> 리스트에 있습니다.</p>
             </div>
             <div class="text-center">
                 <label class="form-label me-2" for="form_sort">정렬 순</label>
@@ -123,11 +123,11 @@
             <div class="row">    <div class="col-lg-4 align-self-center mb-4 mb-lg-0">
                 <div class="d-flex align-items-center mb-3">
                     <input type="checkbox" class="form-check-input me-3" id="checkbox2">
-                    <h2 class="h5 mb-0"> 최준혁 </h2>
+                    <h2 class="h5 mb-0"> 홍길동 </h2>
                     <img class="avatar avatar-sm avatar-border-white ms-3" src="img/avatar/avatar-1.jpg" alt="Jack London">
                 </div>
-                <p class="text-sm text-muted">Double Room</p>
-                <span class="badge badge-pill p-2 badge-secondary-light">23년 7월 07일 - 23년 7월 11일</span>
+<%--                <p class="text-sm text-muted">Double Room</p>--%>
+                <span class="badge badge-pill p-2 badge-secondary-light">March 14, 2023 - March 17, 2023</span>
             </div>
 
                 <div class="col-lg-8">

@@ -2,7 +2,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.0/js/bootstrap.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
 <script>
   let loginForm = {
@@ -16,7 +15,6 @@
         'action':'/loginImpl',
         'method':'post'
       });
-
       $("#loginForm").submit();
     }
   };
@@ -37,25 +35,15 @@
         data:{"guestId":guestId},
         success:function(data){
           if(data==true){
+
             Swal.fire({
               icon: 'error',
-              title: '임시 비밀번호 발급',
-              text: '임시 비밀번호가 발급되었습니다. 메일함을 확인해주세요.!'
+              title: '입력 오류',
+              text: '임시 비밀번호가 발급되었습니다.메일함을 확인해 주세요'
             })
-
-
-
-
             console.log(data);
           }else{
-            Swal.fire({
-              icon: 'error',
-              title: '부정확한 아이디  ',
-              text: '아이디를 정확하게 입력해주세요.!'
-            })
-
-
-
+            alert("아이디를 정확하게 입력해 주세요");
             console.log(data);
           }
         }

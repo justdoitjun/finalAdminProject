@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <script>
   $(document).ready( async () => {
     await display();
@@ -109,7 +109,13 @@
       $('#buttonSendMessage').click( async () => {
         console.log('전송버튼 clicked');
           if($('#chatContentsBox').val().length == 0){
-              alert('뭐라도 내용을 넣으세요');
+
+              Swal.fire({
+                  icon: 'error',
+                  title: '입력 오류',
+                  text: '빈 메세지는 보낼 수 없어요.'
+              })
+
           }else{
               await sendData();
               let fromId = `${loginHost.hostId}`;
@@ -144,7 +150,7 @@
       let newHtml =
               `
                   <div class="d-flex col-md-9 col-xl-7 mb-3" id=\${divId}new>
-                  <img class="avatar avatar-border-white flex-shrink-0" src="img/avatar/avatar-1.jpg" alt="user">
+                  <img class="avatar avatar-border-white flex-shrink-0" src="/img/avatar/111.jpg" alt="user">
                   <div class="ms-3">
                   <div class="bg-200 bg-warning-light rounded p-4 mb-2">
                   <p id="chatContents">\${translatedResult}</p>

@@ -17,7 +17,7 @@ import java.util.List;
 @Slf4j
 public class StockExchange {
     private static final String function = "TIME_SERIES_DAILY_ADJUSTED";
-    private static final String authkey = "L646A87J103HCPR7";
+    private static final String authkey = "HRN71O2D3Q9FUGPT";
     private static final String BASE_URL = "https://www.alphavantage.co/query";
     private final HttpClient client;
 

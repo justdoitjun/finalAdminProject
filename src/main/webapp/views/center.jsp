@@ -7,7 +7,7 @@
 <section class="py-7 position-relative dark-overlay"><img class="bg-image" src="img/photo/photo-1497436072909-60f360e1d4b1.jpg" alt="">
     <div class="container">
         <div class="overlay-content text-white py-lg-5">
-            <h3 class="display-3 fw-bold text-shadow mb-5">당신의 휴일을 즐길 준비가 됬나요?</h3><a class="btn btn-light" href="/login"> 떠나보기 </a>
+            <h3 class="display-3 fw-bold text-shadow mb-5">당신의 휴일을 즐길 준비가 됐나요?</h3><a class="btn btn-light" href="/login"> 떠나보기 </a>
         </div>
     </div>
 
@@ -44,6 +44,7 @@
                     <p class="text-muted">예약이 끝나서 정산이 완료되면 빠르게 대금이 입금됩니다.</p>
                 </div>
             </div>
+
             <div class="col-lg-4 mb-3 mb-lg-0 text-center">
                 <div class="px-0 px-lg-3">
                     <div class="icon-rounded bg-primary-light mb-3">

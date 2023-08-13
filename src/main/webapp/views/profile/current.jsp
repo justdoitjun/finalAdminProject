@@ -168,9 +168,7 @@
                         </li>
                         </ul>
                     </div>
-         <!-- 대신 col-md-9를 사용 -->
-                        <iframe src="https://kbland.kr/map?xy=37.5500457,126.978463,16" class="custom-iframe"></iframe>
-
+                       <iframe src="https://kbland.kr/map?xy=37.5500457,126.978463,16" class="custom-iframe"></iframe>
                 </div>
             </div>
         </div>

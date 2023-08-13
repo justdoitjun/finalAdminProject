@@ -60,6 +60,7 @@ public class ChatController {
         log.info(jsonArray.toJSONString());
         log.info("===============");
 
+        model.addAttribute("hostId", hostId);
         model.addAttribute("center", "userProfile");
         model.addAttribute("centerUserProfile", dir+"chatroomOfHost");
         model.addAttribute("mList", jsonArray);

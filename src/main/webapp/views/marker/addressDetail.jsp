@@ -148,9 +148,17 @@
         init : ()=>{$('#roomRegisterBtn').click(()=>{
             console.log('clicked register button');
             if($('#hostId').val().length == 0){
-                alert('로그인한 호스트만 올릴 수 있어요!');
+                Swal.fire({
+                    icon: 'error',
+                    title: '인증실패',
+                    text: '로그인한 호스트만 올릴 수 있어요!'
+                })
             } else if($('#roomPrice').val().length == 0){
-                alert('가격을 입력해주세요');
+                Swal.fire({
+                    icon: 'error',
+                    title: '입력 오류',
+                    text: '가격을 입력해주세요'
+                })
             }else{
                 roomRegister.send();
             }

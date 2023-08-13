@@ -4,11 +4,7 @@ import lombok.*;
 
 import java.util.Date;
 
-@AllArgsConstructor
-@NoArgsConstructor
-@Setter
-@Getter
-@ToString
+@Data
 public class Board {
     private long boardId;
     private String guestId;
