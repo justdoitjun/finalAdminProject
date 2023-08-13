@@ -25,6 +25,8 @@ public class SMSAuthService {
         params.put("text", "3분 안에 입력하세요 : 인증번호는" + "["+cerNum+"]" + "입니다.");
         params.put("app_version", "test app 1.2"); // application name and version
 
+
+
         try {
             JSONObject obj = (JSONObject) coolsms.send(params);
             log.info(obj.toString());
