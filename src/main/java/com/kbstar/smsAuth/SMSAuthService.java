@@ -27,11 +27,11 @@ public class SMSAuthService {
 
         try {
             JSONObject obj = (JSONObject) coolsms.send(params);
-            log.info(obj.toString())
+            log.info(obj.toString());
             //System.out.println(obj.toString());
         } catch (CoolsmsException e) {
             log.debug(e.getMessage());
-            log.debug(e.getCode());
+            log.debug(String.valueOf(e.getCode()));
             //System.out.println(e.getMessage());
             //System.out.println(e.getCode());
         }
