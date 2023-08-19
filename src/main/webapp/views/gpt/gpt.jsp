@@ -21,9 +21,6 @@
 
     <!-- Vendor CSS Files -->
 
-
-
-
 </head>
 <script>
 
